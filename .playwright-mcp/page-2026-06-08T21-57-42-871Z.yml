@@ -1,0 +1,21 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e4]:
+      - link "BolãoCopa" [ref=e5] [cursor=pointer]:
+        - /url: /
+      - generic [ref=e6]:
+        - link "Dashboard" [ref=e7] [cursor=pointer]:
+          - /url: /dashboard/
+        - link "Meus Bolões" [ref=e8] [cursor=pointer]:
+          - /url: /pools/
+        - button "Sair" [ref=e10] [cursor=pointer]
+  - main [ref=e11]:
+    - generic [ref=e12]:
+      - generic [ref=e13]:
+        - heading "Meus Bolões" [level=1] [ref=e14]
+        - link "Criar Bolão" [ref=e15] [cursor=pointer]:
+          - /url: /pools/create/
+      - link "Bolão da Copa 2026 Criado por qa_test@example.com" [ref=e17] [cursor=pointer]:
+        - /url: /pools/1/
+        - heading "Bolão da Copa 2026" [level=2] [ref=e18]
+        - paragraph [ref=e19]: Criado por qa_test@example.com

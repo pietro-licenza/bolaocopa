@@ -15,6 +15,7 @@
                 <div class='flex items-center space-x-4'>
                     {% if user.is_authenticated %}
                         <a href='{% url "dashboard" %}' class='text-gray-300 hover:text-emerald-400 transition-colors duration-200'>Dashboard</a>
+                        <a href='{% url "pool_list" %}' class='text-gray-300 hover:text-emerald-400 transition-colors duration-200'>Meus Bolões</a>
                         <form method='post' action='{% url "logout" %}' class='inline'>
                             {% csrf_token %}
                             <button type='submit' class='text-gray-300 hover:text-emerald-400 transition-colors duration-200'>Sair</button>

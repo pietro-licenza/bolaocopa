@@ -37,15 +37,15 @@
 
 ### Epico 2: Gestao de boloes
 
-**US-2.1: Criar bolao**
+**US-2.1: Criar bolao** ✓
 - **Como** usuario logado, **quero** criar um bolao, **para** convidar amigos para competir.
 - **Criterios de aceite:**
-  - [ ] Formulario com nome e descricao do bolao
-  - [ ] Nome do bolao eh obrigatorio e limitado a 100 caracteres
-  - [ ] Descricao eh opcional e limitada a 500 caracteres
-  - [ ] Apos criado, o sistema gera um link/token unico de convite
-  - [ ] O criador do bolao se torna automaticamente membro
-  - [ ] Redirecionar para pagina de detalhes do bolao apos criacao
+  - [X] Formulario com nome e descricao do bolao
+  - [X] Nome do bolao eh obrigatorio e limitado a 100 caracteres
+  - [X] Descricao eh opcional e limitada a 500 caracteres
+  - [X] Apos criado, o sistema gera um link/token unico de convite
+  - [X] O criador do bolao se torna automaticamente membro
+  - [X] Redirecionar para pagina de detalhes do bolao apos criacao
 
 **US-2.2: Entrar em bolao via link de convite**
 - **Como** usuario logado, **quero** acessar um link de convite, **para** entrar em um bolao existente.
