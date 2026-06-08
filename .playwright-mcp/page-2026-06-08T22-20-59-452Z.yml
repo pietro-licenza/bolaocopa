@@ -1,0 +1,34 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e4]:
+      - link "BolãoCopa" [ref=e5] [cursor=pointer]:
+        - /url: /
+      - generic [ref=e6]:
+        - link "Dashboard" [ref=e7] [cursor=pointer]:
+          - /url: /dashboard/
+        - link "Meus Bolões" [ref=e8] [cursor=pointer]:
+          - /url: /pools/
+        - button "Sair" [ref=e10] [cursor=pointer]
+  - main [ref=e11]:
+    - generic [ref=e12]:
+      - generic [ref=e13]:
+        - heading "BolãoCopa" [level=1] [ref=e14]
+        - paragraph [ref=e15]: Crie bolões, faça palpites e compita com seus amigos!
+        - generic [ref=e16]:
+          - link "Cadastrar" [ref=e17] [cursor=pointer]:
+            - /url: /register/
+          - link "Entrar" [ref=e18] [cursor=pointer]:
+            - /url: /login/
+      - generic [ref=e19]:
+        - generic [ref=e20]:
+          - generic [ref=e21]: ⚽
+          - heading "Palpites em Tempo Real" [level=3] [ref=e22]
+          - paragraph [ref=e23]: Faça palpites nos jogos e acompanhe os resultados ao vivo.
+        - generic [ref=e24]:
+          - generic [ref=e25]: 🏆
+          - heading "Rankings Dinâmicos" [level=3] [ref=e26]
+          - paragraph [ref=e27]: Veja quem é o melhor palpiteiro do seu bolão.
+        - generic [ref=e28]:
+          - generic [ref=e29]: 👥
+          - heading "Bolões Privados" [level=3] [ref=e30]
+          - paragraph [ref=e31]: Crie bolões exclusivos e convide seus amigos.

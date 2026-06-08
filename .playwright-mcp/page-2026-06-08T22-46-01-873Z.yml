@@ -1,0 +1,33 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e4]:
+      - link "BolãoCopa" [ref=e5] [cursor=pointer]:
+        - /url: /
+      - generic [ref=e6]:
+        - link "Dashboard" [ref=e7] [cursor=pointer]:
+          - /url: /dashboard/
+        - link "Meus Bolões" [ref=e8] [cursor=pointer]:
+          - /url: /pools/
+        - button "Sair" [ref=e10] [cursor=pointer]
+  - main [ref=e11]:
+    - generic [ref=e12]:
+      - generic [ref=e13]:
+        - heading "Bolão dos Amigos" [level=1] [ref=e14]
+        - paragraph [ref=e15]: Meu bolão de teste para US-2.2
+        - generic [ref=e17]:
+          - generic [ref=e18]:
+            - paragraph [ref=e19]: Criado por
+            - paragraph [ref=e20]: criador1@example.com
+          - generic [ref=e21]:
+            - paragraph [ref=e22]: Link de convite
+            - paragraph [ref=e23]: 127.0.0.1:8000/pools/join/c4ac04c4-b18b-4b2f-ab9f-b3a11837c708/
+        - generic [ref=e24]:
+          - heading "Membros (2)" [level=2] [ref=e25]
+          - list [ref=e26]:
+            - listitem [ref=e27]:
+              - generic [ref=e28]: criador1@example.com
+              - generic [ref=e29]: Criador
+            - listitem [ref=e30]:
+              - generic [ref=e31]: convidado1@example.com
+      - link "← Voltar para Meus Bolões" [ref=e33] [cursor=pointer]:
+        - /url: /pools/

@@ -11,6 +11,8 @@ from django.contrib.auth.views import (
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, TemplateView
 
+from pools.models import Pool, PoolMember
+
 from .forms import (
     CustomAuthenticationForm,
     CustomPasswordResetForm,
@@ -65,6 +67,25 @@ class CustomPasswordResetCompleteView(PasswordResetCompleteView):
 
 class DashboardView(LoginRequiredMixin, TemplateView):
     template_name = 'pages/dashboard.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user_pools = Pool.objects.filter(members__user=self.request.user)
+        pools_with_position = []
+        for pool in user_pools:
+            member_count = PoolMember.objects.filter(pool=pool).count()
+            user_member = PoolMember.objects.get(pool=pool, user=self.request.user)
+            position = PoolMember.objects.filter(
+                pool=pool,
+                joined_at__lt=user_member.joined_at,
+            ).count() + 1
+            pools_with_position.append({
+                'pool': pool,
+                'member_count': member_count,
+                'position': position,
+            })
+        context['user_pools'] = pools_with_position
+        return context
 
 
 class LandingView(TemplateView):

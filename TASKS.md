@@ -56,12 +56,12 @@
   - [X] Se o link for invalido, exibir mensagem de erro
   - [X] Apos entrar, redirecionar para a pagina do bolao
 
-**US-2.3: Listar boloes que participo**
+**US-2.3: Listar boloes que participo** ✓
 - **Como** usuario logado, **quero** ver os boloes que participo, **para** navegar entre eles.
 - **Criterios de aceite:**
-  - [ ] Exibir lista de boloes no dashboard
-  - [ ] Cada card mostra nome, qtd de membros e posicao do usuario no ranking
-  - [ ] Clicar no bolao redireciona para pagina de detalhes
+  - [X] Exibir lista de boloes no dashboard
+  - [X] Cada card mostra nome, qtd de membros e posicao do usuario no ranking
+  - [X] Clicar no bolao redireciona para pagina de detalhes
 
 **US-2.4: Ver membros do bolao**
 - **Como** membro de um bolao, **quero** ver os membros, **para** saber quem esta participando.
