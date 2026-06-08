@@ -3,11 +3,11 @@
 **US-1.1: Cadastro de usuario**
 - **Como** visitante, **quero** me cadastrar com email e senha, **para** poder criar e participar de boloes.
 - **Criterios de aceite:**
-  - [ ] Formulario com campos: email, nome, sobrenome, senha, confirmacao de senha
-  - [ ] Email deve ser unico no sistema
-  - [ ] Senha deve ter no minimo 8 caracteres
-  - [ ] Exibir mensagens de erro em portugues para campos invalidos
-  - [ ] Apos cadastro, usuario e autenticado e redirecionado ao dashboard
+  - [X] Formulario com campos: email, nome, sobrenome, senha, confirmacao de senha
+  - [X] Email deve ser unico no sistema
+  - [X] Senha deve ter no minimo 8 caracteres
+  - [X] Exibir mensagens de erro em portugues para campos invalidos
+  - [X] Apos cadastro, usuario e autenticado e redirecionado ao dashboard
 
 **US-1.2: Login de usuario**
 - **Como** usuario cadastrado, **quero** fazer login com email e senha, **para** acessar o sistema.
@@ -22,6 +22,18 @@
 - **Criterios de aceite:**
   - [ ] Botao de logout na navbar
   - [ ] Redirecionar para landing page apos logout
+
+**US-1.VAL: Validacao do Sprint 1 — Autenticacao e onboarding**
+- **Como** agente de QA, **quero** validar todo o trabalho do Sprint 1, **para** garantir que as funcionalidades de autenticacao estao corretas e sem bugs.
+- **Criterios de aceite:**
+  - [ ] Tirar prints das telas de cadastro, login e logout
+  - [ ] Validar criacao de usuario com email unico e senhas iguais
+  - [ ] Validar mensagens de erro em pt-BR para campos invalidos
+  - [ ] Validar redirecionamentos: cadastro -> dashboard, login -> dashboard, logout -> landing
+  - [ ] Validar que login so aceita email (nao username)
+  - [ ] Validar link "Esqueceu a senha?" presente na pagina de login
+  - [ ] Validar botao de logout na navbar
+  - [ ] Corrigir bugs encontrados
 
 ### Epico 2: Gestao de boloes
 
@@ -57,6 +69,18 @@
   - [ ] Exibir lista de membros com nome e pontuacao
   - [ ] Ordenar por pontuacao (ranking)
 
+**US-2.VAL: Validacao do Sprint 2 — Gestao de boloes**
+- **Como** agente de QA, **quero** validar todo o trabalho do Sprint 2, **para** garantir que as funcionalidades de boloes estao corretas e sem bugs.
+- **Criterios de aceite:**
+  - [ ] Tirar prints das telas de criacao de bolao, entrada via convite, lista de boloes e membros
+  - [ ] Validar criacao de bolao: nome obrigatorio, limite de caracteres, geracao de link de convite
+  - [ ] Validar entrada via link de convite: exibicao de informacoes, participacao e redirecionamento
+  - [ ] Validar que criador do bolao se torna automaticamente membro
+  - [ ] Validar lista de boloes no dashboard: nome, qtd membros, posicao no ranking
+  - [ ] Validar decisao visual: membro ja existe redireciona, link invalido mostra erro
+  - [ ] Validar lista de membros ordenada por pontuacao
+  - [ ] Corrigir bugs encontrados
+
 ### Epico 3: Palpites
 
 **US-3.1: Registrar palpite**
@@ -84,6 +108,18 @@
   - [ ] Exibir jogos, placares palpitados e pontos ganhos (se jogo finalizado)
   - [ ] Mostrar status: editavel, bloqueado (jogo em andamento), finalizado
 
+**US-3.VAL: Validacao do Sprint 3 — Palpites**
+- **Como** agente de QA, **quero** validar todo o trabalho do Sprint 3, **para** garantir que as funcionalidades de palpites estao corretas e sem bugs.
+- **Criterios de aceite:**
+  - [ ] Tirar prints das telas de registro, edicao e lista de palpites
+  - [ ] Validar registro de palpite: formulario com placar casa/visitante, salvamento e mensagem de sucesso
+  - [ ] Validar REGRA DE BLOQUEIO: palpite bloqueado apos horario de inicio do jogo (match_datetime)
+  - [ ] Validar edicao de palpite: permite editar apenas se jogo nao comecou
+  - [ ] Validar que um usuario so pode ter um palpite por jogo por bolao
+  - [ ] Validar lista de palpites: placares, pontos e status corretos
+  - [ ] Validar mensagem "Palpite indisponivel - jogo ja comecou" quando aplicavel
+  - [ ] Corrigir bugs encontrados
+
 ### Epico 4: Jogos e resultados
 
 **US-4.1: Listar jogos disponiveis**
@@ -102,6 +138,17 @@
   - [ ] Alterar status do jogo para "finalizado"
   - [ ] Ao salvar resultado, disparar signal para calculo de pontos
 
+**US-4.VAL: Validacao do Sprint 4 — Jogos e resultados**
+- **Como** agente de QA, **quero** validar todo o trabalho do Sprint 4, **para** garantir que as funcionalidades de jogos e resultados estao corretas e sem bugs.
+- **Criterios de aceite:**
+  - [ ] Tirar prints da lista de jogos e do Django Admin
+  - [ ] Validar lista de jogos: ordenacao por data/hora, exibicao de selecoes, estadio e status
+  - [ ] Validar que jogos ja palpitados pelo usuario estao marcados
+  - [ ] Validar acesso restrito ao Django Admin para registro de resultado
+  - [ ] Validar que ao registrar resultado e alterar status para "finalizado", o signal de calculo de pontos eh disparado
+  - [ ] Validar que o status do jogo muda corretamente: agendado, em andamento, finalizado
+  - [ ] Corrigir bugs encontrados
+
 ### Epico 5: Rankings
 
 **US-5.1: Ver ranking do bolao**
@@ -119,3 +166,15 @@
   - [ ] Erro total: 0 pontos
   - [ ] Calculo disparado via Django signal ao salvar resultado real do jogo
   - [ ] Atualizar ranking do bolao apos calculo
+
+**US-5.VAL: Validacao do Sprint 5 — Rankings**
+- **Como** agente de QA, **quero** validar todo o trabalho do Sprint 5, **para** garantir que as funcionalidades de rankings estao corretas e sem bugs.
+- **Criterios de aceite:**
+  - [ ] Tirar prints da tabela de ranking e do comportamento atualizado
+  - [ ] Validar tabela de ranking: posicao, nome e pontuacao total, ordenacao decrescente
+  - [ ] Validar destaque da posicao do usuario logado no ranking
+  - [ ] Validar calculo de pontos: 3 para acerto exato, 1 para vencedor/empate, 0 para erro
+  - [ ] Validar que o Django signal dispara corretamente ao salvar resultado real
+  - [ ] Validar atualizacao automatica do ranking apos calculo de pontos
+  - [ ] Validar persistencia: ranking persiste corretamente apos multiplos resultados
+  - [ ] Corrigir bugs encontrados
