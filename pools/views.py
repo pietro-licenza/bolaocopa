@@ -1,4 +1,7 @@
+from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http import Http404
+from django.shortcuts import redirect
 from django.urls import reverse
 from django.views.generic import CreateView, DetailView, ListView
 
@@ -32,7 +35,49 @@ class PoolDetailView(LoginRequiredMixin, DetailView):
             pool=self.object,
             user=self.request.user,
         ).exists()
+        context['member_count'] = self.object.members.count()
         return context
+
+
+class PoolJoinView(LoginRequiredMixin, DetailView):
+    model = Pool
+    template_name = 'pools/pool_join.html'
+    context_object_name = 'pool'
+    slug_field = 'invite_token'
+    slug_url_kwarg = 'token'
+
+    def get_object(self, queryset=None):
+        try:
+            return super().get_object(queryset)
+        except (Pool.DoesNotExist, Http404):
+            return None
+
+    def get(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        if self.object is None:
+            messages.error(request, 'Link de convite inválido ou expirado.')
+            return redirect(reverse('pool_list'))
+        return super().get(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['is_member'] = PoolMember.objects.filter(
+            pool=self.object,
+            user=self.request.user,
+        ).exists()
+        context['member_count'] = self.object.members.count()
+        return context
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        if self.object is None:
+            messages.error(request, 'Link de convite inválido ou expirado.')
+            return redirect(reverse('pool_list'))
+        if PoolMember.objects.filter(pool=self.object, user=request.user).exists():
+            return redirect(reverse('pool_detail', kwargs={'pk': self.object.pk}))
+        PoolMember.objects.create(pool=self.object, user=request.user)
+        messages.success(request, 'Você entrou no bolão com sucesso!')
+        return redirect(reverse('pool_detail', kwargs={'pk': self.object.pk}))
 
 
 class PoolListView(LoginRequiredMixin, ListView):

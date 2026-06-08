@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}Entrar no Bolão — BolãoCopa{% endblock %}
+
+{% block content %}
+<div class='max-w-4xl mx-auto'>
+    <div class='bg-gray-900 border border-gray-700 rounded-xl p-8'>
+        <h1 class='text-3xl md:text-4xl font-bold text-white mb-4'>{{ pool.name }}</h1>
+
+        {% if pool.description %}
+            <p class='text-gray-400 text-lg mb-6'>{{ pool.description }}</p>
+        {% endif %}
+
+        <div class='border-t border-gray-700 pt-6 mt-6'>
+            <div class='flex items-center justify-between'>
+                <div>
+                    <p class='text-sm font-medium text-gray-400'>Criado por</p>
+                    <p class='text-white'>{{ pool.created_by.email }}</p>
+                </div>
+                <div>
+                    <p class='text-sm font-medium text-gray-400'>Membros</p>
+                    <p class='text-white'>{{ member_count }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class='border-t border-gray-700 pt-6 mt-6'>
+            {% if is_member %}
+                <div class='bg-emerald-600/20 border border-emerald-500 text-emerald-400 px-4 py-3 rounded-lg'>
+                    Você já é membro deste bolão.
+                </div>
+                <div class='mt-4'>
+                    <a href='{% url "pool_detail" pk=pool.pk %}' class='bg-emerald-600 hover:bg-emerald-500 text-white font-semibold rounded-lg px-6 py-3 transition-colors duration-200 inline-block'>
+                        Ir para o Bolão
+                    </a>
+                </div>
+            {% else %}
+                <form method='post'>
+                    {% csrf_token %}
+                    <p class='text-gray-400 mb-4'>Deseja participar deste bolão?</p>
+                    <button type='submit' class='bg-emerald-600 hover:bg-emerald-500 text-white font-semibold rounded-lg px-6 py-3 transition-colors duration-200'>
+                        Participar deste Bolão
+                    </button>
+                </form>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class='mt-4'>
+        <a href='{% url "pool_list" %}' class='text-emerald-400 hover:text-emerald-300 transition-colors duration-200'>
+            &larr; Voltar para Meus Bolões
+        </a>
+    </div>
+</div>
+{% endblock %}

@@ -47,14 +47,14 @@
   - [X] O criador do bolao se torna automaticamente membro
   - [X] Redirecionar para pagina de detalhes do bolao apos criacao
 
-**US-2.2: Entrar em bolao via link de convite**
+**US-2.2: Entrar em bolao via link de convite** ✓
 - **Como** usuario logado, **quero** acessar um link de convite, **para** entrar em um bolao existente.
 - **Criterios de aceite:**
-  - [ ] Ao acessar o link, exibir informacoes do bolao (nome, descricao, criador, qtd membros)
-  - [ ] Botao "Participar deste bolao"
-  - [ ] Se ja for membro, redirecionar para a pagina do bolao
-  - [ ] Se o link for invalido, exibir mensagem de erro
-  - [ ] Apos entrar, redirecionar para a pagina do bolao
+  - [X] Ao acessar o link, exibir informacoes do bolao (nome, descricao, criador, qtd membros)
+  - [X] Botao "Participar deste bolao"
+  - [X] Se ja for membro, redirecionar para a pagina do bolao
+  - [X] Se o link for invalido, exibir mensagem de erro
+  - [X] Apos entrar, redirecionar para a pagina do bolao
 
 **US-2.3: Listar boloes que participo**
 - **Como** usuario logado, **quero** ver os boloes que participo, **para** navegar entre eles.

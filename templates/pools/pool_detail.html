@@ -19,13 +19,13 @@
                 </div>
                 <div>
                     <p class='text-sm font-medium text-gray-400'>Link de convite</p>
-                    <p class='text-emerald-400 text-sm break-all'>{{ request.get_host }}{% url 'pool_detail' pk=pool.pk %}?token={{ pool.invite_token }}</p>
+                    <p class='text-emerald-400 text-sm break-all'>{{ request.get_host }}{% url 'pool_join' token=pool.invite_token %}</p>
                 </div>
             </div>
         </div>
 
         <div class='border-t border-gray-700 pt-6 mt-6'>
-            <h2 class='text-xl font-semibold text-white mb-4'>Membros</h2>
+            <h2 class='text-xl font-semibold text-white mb-4'>Membros ({{ member_count }})</h2>
             {% if pool.members.all %}
                 <ul class='space-y-2'>
                     {% for member in pool.members.all %}

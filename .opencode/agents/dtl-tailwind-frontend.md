@@ -1,7 +1,8 @@
 ---
 description: Especialista em frontend DTL + TailwindCSS para o BolaoCopa. Cria templates com design system dark theme, paleta emerald/gray, pt-BR, aspas simples em HTML. Consulta Context7 para TailwindCSS e DTL antes de escrever templates nao-triviais.
 mode: subagent
-model: opencode-go/glm-5.1
+#model: opencode-go/glm-5.1
+model: minimax/minimax-m3
 color: '#8B5CF6'
 permission:
   edit: allow
