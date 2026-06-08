@@ -17,23 +17,23 @@
   - [X] Redirecionar para dashboard apos login bem-sucedido
   - [X] Opcao "Esqueceu a senha?" na pagina de login
 
-**US-1.3: Logout**
+**US-1.3: Logout** ✓
 - **Como** usuario logado, **quero** fazer logout, **para** sair do sistema com seguranca.
 - **Criterios de aceite:**
-  - [ ] Botao de logout na navbar
-  - [ ] Redirecionar para landing page apos logout
+  - [X] Botao de logout na navbar
+  - [X] Redirecionar para landing page apos logout
 
-**US-1.VAL: Validacao do Sprint 1 — Autenticacao e onboarding**
+**US-1.VAL: Validacao do Sprint 1 — Autenticacao e onboarding** ✓
 - **Como** agente de QA, **quero** validar todo o trabalho do Sprint 1, **para** garantir que as funcionalidades de autenticacao estao corretas e sem bugs.
 - **Criterios de aceite:**
-  - [ ] Tirar prints das telas de cadastro, login e logout
-  - [ ] Validar criacao de usuario com email unico e senhas iguais
-  - [ ] Validar mensagens de erro em pt-BR para campos invalidos
-  - [ ] Validar redirecionamentos: cadastro -> dashboard, login -> dashboard, logout -> landing
-  - [ ] Validar que login so aceita email (nao username)
-  - [ ] Validar link "Esqueceu a senha?" presente na pagina de login
-  - [ ] Validar botao de logout na navbar
-  - [ ] Corrigir bugs encontrados
+  - [X] Tirar prints das telas de cadastro, login e logout
+  - [X] Validar criacao de usuario com email unico e senhas iguais
+  - [X] Validar mensagens de erro em pt-BR para campos invalidos
+  - [X] Validar redirecionamentos: cadastro -> dashboard, login -> dashboard, logout -> landing
+  - [X] Validar que login so aceita email (nao username)
+  - [X] Validar link "Esqueceu a senha?" presente na pagina de login
+  - [X] Validar botao de logout na navbar
+  - [X] Corrigir bugs encontrados
 
 ### Epico 2: Gestao de boloes
 

@@ -1,0 +1,42 @@
+- generic [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e4]:
+      - link "BolãoCopa" [ref=e5] [cursor=pointer]:
+        - /url: /
+      - generic [ref=e6]:
+        - link "Entrar" [ref=e7] [cursor=pointer]:
+          - /url: /login/
+        - link "Cadastrar" [ref=e8] [cursor=pointer]:
+          - /url: /register/
+  - main [ref=e9]:
+    - generic [ref=e12]:
+      - heading "Criar Conta" [level=1] [ref=e13]
+      - generic [ref=e14]:
+        - generic [ref=e15]:
+          - generic [ref=e16]: Email
+          - textbox "Email" [active] [ref=e17]:
+            - /placeholder: seu@email.com
+          - paragraph [ref=e18]: Este campo é obrigatório.
+        - generic [ref=e19]:
+          - generic [ref=e20]: Nome
+          - textbox "Nome" [ref=e21]:
+            - /placeholder: Seu nome
+        - generic [ref=e22]:
+          - generic [ref=e23]: Sobrenome
+          - textbox "Sobrenome" [ref=e24]:
+            - /placeholder: Seu sobrenome
+        - generic [ref=e25]:
+          - generic [ref=e26]: Senha
+          - textbox "Senha" [ref=e27]:
+            - /placeholder: Mínimo 8 caracteres
+          - paragraph [ref=e28]: Este campo é obrigatório.
+        - generic [ref=e29]:
+          - generic [ref=e30]: Confirme a senha
+          - textbox "Confirme a senha" [ref=e31]:
+            - /placeholder: Repita a senha
+          - paragraph [ref=e32]: Este campo é obrigatório.
+        - button "Cadastrar" [ref=e33] [cursor=pointer]
+      - paragraph [ref=e34]:
+        - text: Já tem uma conta?
+        - link "Entrar" [ref=e35] [cursor=pointer]:
+          - /url: /login/

@@ -1,0 +1,33 @@
+- generic [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e4]:
+      - link "BolãoCopa" [ref=e5] [cursor=pointer]:
+        - /url: /
+      - generic [ref=e6]:
+        - link "Entrar" [ref=e7] [cursor=pointer]:
+          - /url: /login/
+        - link "Cadastrar" [ref=e8] [cursor=pointer]:
+          - /url: /register/
+  - main [ref=e9]:
+    - generic [ref=e12]:
+      - heading "Entrar" [level=1] [ref=e13]
+      - paragraph [ref=e15]: Email ou senha incorretos.
+      - generic [ref=e16]:
+        - generic [ref=e17]:
+          - generic [ref=e18]: Email
+          - textbox "Email" [active] [ref=e19]:
+            - /placeholder: seu@email.com
+            - text: wrong@example.com
+        - generic [ref=e20]:
+          - generic [ref=e21]: Senha
+          - textbox "Senha" [ref=e22]:
+            - /placeholder: Sua senha
+        - button "Entrar" [ref=e23] [cursor=pointer]
+      - generic [ref=e24]:
+        - paragraph [ref=e25]:
+          - text: Não tem uma conta?
+          - link "Cadastre-se" [ref=e26] [cursor=pointer]:
+            - /url: /register/
+        - paragraph [ref=e27]:
+          - link "Esqueceu a senha?" [ref=e28] [cursor=pointer]:
+            - /url: /password-reset/

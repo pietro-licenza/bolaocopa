@@ -1,0 +1,33 @@
+- generic [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e4]:
+      - link "BolãoCopa" [ref=e5] [cursor=pointer]:
+        - /url: /
+      - generic [ref=e6]:
+        - link "Entrar" [ref=e7] [cursor=pointer]:
+          - /url: /login/
+        - link "Cadastrar" [ref=e8] [cursor=pointer]:
+          - /url: /register/
+  - main [ref=e9]:
+    - generic [ref=e12]:
+      - heading "Entrar" [level=1] [ref=e13]
+      - generic [ref=e14]:
+        - generic [ref=e15]:
+          - generic [ref=e16]: Email
+          - textbox "Email" [active] [ref=e17]:
+            - /placeholder: seu@email.com
+            - text: qa_test@example.com
+        - generic [ref=e18]:
+          - generic [ref=e19]: Senha
+          - textbox "Senha" [ref=e20]:
+            - /placeholder: Sua senha
+            - text: Testpass123
+        - button "Entrar" [ref=e21] [cursor=pointer]
+      - generic [ref=e22]:
+        - paragraph [ref=e23]:
+          - text: Não tem uma conta?
+          - link "Cadastre-se" [ref=e24] [cursor=pointer]:
+            - /url: /register/
+        - paragraph [ref=e25]:
+          - link "Esqueceu a senha?" [ref=e26] [cursor=pointer]:
+            - /url: /password-reset/

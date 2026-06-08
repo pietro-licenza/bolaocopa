@@ -10,7 +10,6 @@ class CustomUserCreationForm(UserCreationForm):
         model = CustomUser
         fields = ('email', 'first_name', 'last_name')
 
-    # Mapping of English validator messages to Portuguese equivalents
     _VALIDATOR_MESSAGES = {
         'The password is too similar to the': 'A senha é muito similar a',
         'This password is too short.': 'A senha deve ter pelo menos 8 caracteres.',
@@ -20,6 +19,9 @@ class CustomUserCreationForm(UserCreationForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+
+        self.fields['first_name'].required = True
+        self.fields['last_name'].required = True
 
         css_class = (
             'w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 '
