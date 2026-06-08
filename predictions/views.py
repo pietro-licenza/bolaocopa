@@ -157,3 +157,65 @@ class PredictionUpdateView(LoginRequiredMixin, UpdateView):
 
     def get_success_url(self):
         return reverse('pool_matches', kwargs={'pool_id': self.pool.pk})
+
+
+class MyPredictionsListView(LoginRequiredMixin, ListView):
+    template_name = 'predictions/my_predictions.html'
+    context_object_name = 'prediction_items'
+
+    def get_queryset(self):
+        self.pool = get_object_or_404(Pool, pk=self.kwargs['pool_id'])
+        return Prediction.objects.filter(
+            user=self.request.user,
+            pool=self.pool,
+        ).select_related(
+            'match__home_team',
+            'match__away_team',
+            'match__stadium',
+            'match__round',
+        ).order_by('match__match_datetime')
+
+    def dispatch(self, request, *args, **kwargs):
+        self.pool = get_object_or_404(Pool, pk=self.kwargs['pool_id'])
+        if not PoolMember.objects.filter(
+            pool=self.pool,
+            user=request.user,
+        ).exists():
+            messages.error(request, 'Você precisa ser membro deste bolão para acessar.')
+            return redirect(reverse('pool_detail', kwargs={'pk': self.pool.pk}))
+        return super().dispatch(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['pool'] = self.pool
+        now = timezone.now()
+        items = []
+        total_points = 0
+        for prediction in context['prediction_items']:
+            match = prediction.match
+            if match.status == 'finalizado':
+                status_label = 'finalizado'
+            elif match.match_datetime <= now:
+                status_label = 'bloqueado'
+            else:
+                status_label = 'editavel'
+            total_points += prediction.points or 0
+            items.append({
+                'prediction': prediction,
+                'match': match,
+                'home_team': match.home_team,
+                'away_team': match.away_team,
+                'match_datetime': match.match_datetime,
+                'stadium': match.stadium,
+                'round': match.round,
+                'predicted_home_score': prediction.home_score,
+                'predicted_away_score': prediction.away_score,
+                'points_earned': prediction.points or 0,
+                'status_label': status_label,
+            })
+        context['prediction_items'] = items
+        context['totals'] = {
+            'total_predictions': len(items),
+            'total_points': total_points,
+        }
+        return context

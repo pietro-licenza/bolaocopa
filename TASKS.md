@@ -101,12 +101,12 @@
   - [X] Exibir botao de editar apenas se o jogo ainda nao comecou
   - [X] Apos editar, exibir mensagem de sucesso
 
-**US-3.3: Ver palpites realizados**
+**US-3.3: Ver palpites realizados** ✓
 - **Como** usuario logado, **quero** ver meus palpites, **para** acompanhar o que ja registrei.
 - **Criterios de aceite:**
-  - [ ] Listar palpites do usuario no bolao
-  - [ ] Exibir jogos, placares palpitados e pontos ganhos (se jogo finalizado)
-  - [ ] Mostrar status: editavel, bloqueado (jogo em andamento), finalizado
+  - [X] Listar palpites do usuario no bolao
+  - [X] Exibir jogos, placares palpitados e pontos ganhos (se jogo finalizado)
+  - [X] Mostrar status: editavel, bloqueado (jogo em andamento), finalizado
 
 **US-3.VAL: Validacao do Sprint 3 — Palpites**
 - **Como** agente de QA, **quero** validar todo o trabalho do Sprint 3, **para** garantir que as funcionalidades de palpites estao corretas e sem bugs.

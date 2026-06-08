@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block title %}Meus Palpites — {{ pool.name }} — BolãoCopa{% endblock %}
+
+{% block content %}
+<div class='max-w-5xl mx-auto'>
+    <div class='flex items-center justify-between mb-8'>
+        <div>
+            <h1 class='text-3xl md:text-4xl font-bold text-white'>Meus Palpites</h1>
+            <p class='text-gray-400 mt-2'>{{ pool.name }}</p>
+        </div>
+        <a href='{% url "pool_detail" pk=pool.pk %}' class='text-emerald-400 hover:text-emerald-300 transition-colors duration-200'>
+            &larr; Voltar para o Bolão
+        </a>
+    </div>
+
+    <div class='bg-gray-900 border border-gray-700 rounded-xl p-6 mb-8'>
+        <div class='grid grid-cols-1 md:grid-cols-2 gap-6'>
+            <div class='flex flex-col items-center md:items-start'>
+                <span class='text-sm font-medium text-gray-400'>Total de Palpites</span>
+                <span class='text-3xl md:text-4xl font-bold text-white mt-1'>{{ totals.total_predictions }}</span>
+            </div>
+            <div class='flex flex-col items-center md:items-start'>
+                <span class='text-sm font-medium text-gray-400'>Pontuação Total</span>
+                <span class='text-3xl md:text-4xl font-bold text-emerald-400 mt-1'>{{ totals.total_points }} pts</span>
+            </div>
+        </div>
+    </div>
+
+    {% if prediction_items %}
+        <div class='space-y-4'>
+            {% for item in prediction_items %}
+                <div class='bg-gray-900 border border-gray-700 rounded-xl p-6 hover:border-emerald-500/50 transition-colors duration-200'>
+                    <div class='flex items-center justify-between mb-4'>
+                        <div class='flex items-center gap-2 text-sm'>
+                            <span class='text-xs font-semibold uppercase tracking-wider text-gray-500'>{{ item.round.name }}</span>
+                            <span class='text-gray-600'>·</span>
+                            <span class='text-gray-400'>{{ item.stadium }}</span>
+                        </div>
+                        {% if item.status_label == 'editavel' %}
+                            <span class='text-xs font-semibold uppercase tracking-wider px-2 py-1 rounded-full bg-emerald-600/20 text-emerald-400'>Editável</span>
+                        {% elif item.status_label == 'bloqueado' %}
+                            <span class='text-xs font-semibold uppercase tracking-wider px-2 py-1 rounded-full bg-red-600/20 text-red-400'>Bloqueado</span>
+                        {% else %}
+                            <span class='text-xs font-semibold uppercase tracking-wider px-2 py-1 rounded-full bg-amber-600/20 text-amber-400'>Finalizado</span>
+                        {% endif %}
+                    </div>
+
+                    <div class='flex items-center justify-between gap-4'>
+                        <div class='flex flex-col items-center gap-2 flex-1'>
+                            <span class='text-3xl'>{{ item.home_team.flag_emoji }}</span>
+                            <span class='text-white font-semibold'>{{ item.home_team.name }}</span>
+                        </div>
+                        <div class='flex flex-col items-center gap-1'>
+                            <span class='text-gray-500 text-xs uppercase tracking-wider'>vs</span>
+                            <span class='text-white text-sm'>{{ item.match_datetime|date:"d/m/Y H:i" }}</span>
+                        </div>
+                        <div class='flex flex-col items-center gap-2 flex-1'>
+                            <span class='text-3xl'>{{ item.away_team.flag_emoji }}</span>
+                            <span class='text-white font-semibold'>{{ item.away_team.name }}</span>
+                        </div>
+                    </div>
+
+                    <div class='mt-6 pt-4 border-t border-gray-700 flex items-center justify-between'>
+                        <span class='text-emerald-400 font-semibold'>Seu palpite: {{ item.predicted_home_score }} x {{ item.predicted_away_score }}</span>
+                        <div class='flex items-center gap-3'>
+                            {% if item.status_label == 'finalizado' %}
+                                <span class='text-emerald-400 font-bold'>{{ item.points_earned }} pts</span>
+                            {% endif %}
+                            {% if item.status_label == 'editavel' %}
+                                <a href='{% url "prediction_update" pool_id=pool.pk match_id=item.match.pk %}' class='border border-gray-600 hover:border-emerald-500 text-gray-300 hover:text-emerald-400 font-semibold rounded-lg px-4 py-2 transition-colors duration-200'>
+                                    Editar
+                                </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class='bg-gray-900 border border-gray-700 rounded-xl p-8 text-center'>
+            <p class='text-gray-400 text-lg'>Você ainda não fez nenhum palpite neste bolão.</p>
+            <a href='{% url "pool_matches" pool_id=pool.pk %}' class='inline-flex items-center justify-center mt-6 px-6 py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold rounded-lg transition-colors duration-200'>
+                Ver jogos disponíveis
+            </a>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
