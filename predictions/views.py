@@ -18,11 +18,9 @@ class PoolMatchListView(LoginRequiredMixin, ListView):
 
     def get_queryset(self):
         self.pool = get_object_or_404(Pool, pk=self.kwargs['pool_id'])
-        return Match.objects.filter(
-            match_datetime__gte=timezone.now() - timezone.timedelta(hours=4),
-        ).select_related('home_team', 'away_team', 'stadium', 'round').order_by(
-            'match_datetime',
-        )
+        return Match.objects.select_related(
+            'home_team', 'away_team', 'stadium', 'round',
+        ).order_by('match_datetime')
 
     def dispatch(self, request, *args, **kwargs):
         self.pool = get_object_or_404(Pool, pk=self.kwargs['pool_id'])
@@ -81,6 +79,7 @@ class PredictionCreateView(LoginRequiredMixin, CreateView):
             match=self.match,
             pool=self.pool,
         ).exists():
+            messages.info(request, 'Você já palpitou neste jogo. Edite seu palpite se necessário.')
             return redirect(reverse(
                 'pool_matches',
                 kwargs={'pool_id': self.pool.pk},
@@ -117,8 +116,6 @@ class PredictionUpdateView(LoginRequiredMixin, UpdateView):
     context_object_name = 'prediction'
 
     def get_object(self, queryset=None):
-        self.pool = get_object_or_404(Pool, pk=self.kwargs['pool_id'])
-        self.match = get_object_or_404(Match, pk=self.kwargs['match_id'])
         return get_object_or_404(
             Prediction,
             user=self.request.user,
@@ -127,9 +124,8 @@ class PredictionUpdateView(LoginRequiredMixin, UpdateView):
         )
 
     def dispatch(self, request, *args, **kwargs):
-        self.object = self.get_object()
-        self.match = self.object.match
-        self.pool = self.object.pool
+        self.pool = get_object_or_404(Pool, pk=kwargs['pool_id'])
+        self.match = get_object_or_404(Match, pk=kwargs['match_id'])
         if self.match.match_datetime <= timezone.now():
             messages.error(request, 'Palpite indisponível - jogo já começou.')
             return redirect(reverse(

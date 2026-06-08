@@ -1,0 +1,78 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e4]:
+      - link "BolãoCopa" [ref=e5] [cursor=pointer]:
+        - /url: /
+      - generic [ref=e6]:
+        - link "Dashboard" [ref=e7] [cursor=pointer]:
+          - /url: /dashboard/
+        - link "Meus Bolões" [ref=e8] [cursor=pointer]:
+          - /url: /pools/
+        - button "Sair" [ref=e10] [cursor=pointer]
+  - generic [ref=e12]: Palpite registrado com sucesso!
+  - main [ref=e13]:
+    - generic [ref=e14]:
+      - generic [ref=e15]:
+        - generic [ref=e16]:
+          - heading "Bolão da Copa 2026" [level=1] [ref=e17]
+          - paragraph [ref=e18]: Jogos disponíveis para palpite
+        - link "← Voltar para o Bolão" [ref=e19] [cursor=pointer]:
+          - /url: /pools/4/
+      - generic [ref=e20]:
+        - generic [ref=e21]:
+          - generic [ref=e22]:
+            - generic [ref=e23]:
+              - generic [ref=e24]: Grupo A - Rodada 1
+              - generic [ref=e25]: ·
+              - generic [ref=e26]: Maracanã (Rio de Janeiro)
+            - generic [ref=e27]: Bloqueado
+          - generic [ref=e28]:
+            - generic [ref=e29]:
+              - generic [ref=e30]: FR
+              - generic [ref=e31]: França
+            - generic [ref=e32]:
+              - generic [ref=e33]: vs
+              - generic [ref=e34]: 08/06/2026 19:35
+            - generic [ref=e35]:
+              - generic [ref=e36]: DE
+              - generic [ref=e37]: Alemanha
+          - generic [ref=e39]: Palpite indisponível - jogo já começou
+        - generic [ref=e40]:
+          - generic [ref=e41]:
+            - generic [ref=e42]:
+              - generic [ref=e43]: Grupo A - Rodada 1
+              - generic [ref=e44]: ·
+              - generic [ref=e45]: Maracanã (Rio de Janeiro)
+            - generic [ref=e46]: Bloqueado
+          - generic [ref=e47]:
+            - generic [ref=e48]:
+              - generic [ref=e49]: BR
+              - generic [ref=e50]: Brasil
+            - generic [ref=e51]:
+              - generic [ref=e52]: vs
+              - generic [ref=e53]: 08/06/2026 20:05
+            - generic [ref=e54]:
+              - generic [ref=e55]: FR
+              - generic [ref=e56]: França
+          - generic [ref=e58]: Palpite indisponível - jogo já começou
+        - generic [ref=e59]:
+          - generic [ref=e60]:
+            - generic [ref=e61]:
+              - generic [ref=e62]: Grupo A - Rodada 1
+              - generic [ref=e63]: ·
+              - generic [ref=e64]: Maracanã (Rio de Janeiro)
+            - generic [ref=e65]: Agendado
+          - generic [ref=e66]:
+            - generic [ref=e67]:
+              - generic [ref=e68]: BR
+              - generic [ref=e69]: Brasil
+            - generic [ref=e70]:
+              - generic [ref=e71]: vs
+              - generic [ref=e72]: 10/06/2026 20:35
+            - generic [ref=e73]:
+              - generic [ref=e74]: AR
+              - generic [ref=e75]: Argentina
+          - generic [ref=e76]:
+            - generic [ref=e77]: "Seu palpite: 2 x 1"
+            - link "Editar" [ref=e78] [cursor=pointer]:
+              - /url: /pools/4/matches/5/edit/

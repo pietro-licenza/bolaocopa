@@ -108,17 +108,17 @@
   - [X] Exibir jogos, placares palpitados e pontos ganhos (se jogo finalizado)
   - [X] Mostrar status: editavel, bloqueado (jogo em andamento), finalizado
 
-**US-3.VAL: Validacao do Sprint 3 — Palpites**
+**US-3.VAL: Validacao do Sprint 3 — Palpites** ✓
 - **Como** agente de QA, **quero** validar todo o trabalho do Sprint 3, **para** garantir que as funcionalidades de palpites estao corretas e sem bugs.
 - **Criterios de aceite:**
-  - [ ] Tirar prints das telas de registro, edicao e lista de palpites
-  - [ ] Validar registro de palpite: formulario com placar casa/visitante, salvamento e mensagem de sucesso
-  - [ ] Validar REGRA DE BLOQUEIO: palpite bloqueado apos horario de inicio do jogo (match_datetime)
-  - [ ] Validar edicao de palpite: permite editar apenas se jogo nao comecou
-  - [ ] Validar que um usuario so pode ter um palpite por jogo por bolao
-  - [ ] Validar lista de palpites: placares, pontos e status corretos
-  - [ ] Validar mensagem "Palpite indisponivel - jogo ja comecou" quando aplicavel
-  - [ ] Corrigir bugs encontrados
+  - [X] Tirar prints das telas de registro, edicao e lista de palpites
+  - [X] Validar registro de palpite: formulario com placar casa/visitante, salvamento e mensagem de sucesso
+  - [X] Validar REGRA DE BLOQUEIO: palpite bloqueado apos horario de inicio do jogo (match_datetime)
+  - [X] Validar edicao de palpite: permite editar apenas se jogo nao comecou
+  - [X] Validar que um usuario so pode ter um palpite por jogo por bolao
+  - [X] Validar lista de palpites: placares, pontos e status corretos
+  - [X] Validar mensagem "Palpite indisponivel - jogo ja comecou" quando aplicavel
+  - [X] Corrigir bugs encontrados
 
 ### Epico 4: Jogos e resultados
 

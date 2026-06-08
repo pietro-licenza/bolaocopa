@@ -1,0 +1,37 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e4]:
+      - link "BolãoCopa" [ref=e5] [cursor=pointer]:
+        - /url: /
+      - generic [ref=e6]:
+        - link "Dashboard" [ref=e7] [cursor=pointer]:
+          - /url: /dashboard/
+        - link "Meus Bolões" [ref=e8] [cursor=pointer]:
+          - /url: /pools/
+        - button "Sair" [ref=e10] [cursor=pointer]
+  - main [ref=e11]:
+    - generic [ref=e13]:
+      - heading "Editar palpite" [level=1] [ref=e14]
+      - paragraph [ref=e15]: Bolão da Copa 2026
+      - generic [ref=e16]:
+        - generic [ref=e17]:
+          - generic [ref=e18]:
+            - generic [ref=e19]: BR
+            - generic [ref=e20]: Brasil
+          - generic [ref=e21]: vs
+          - generic [ref=e22]:
+            - generic [ref=e23]: Argentina
+            - generic [ref=e24]: AR
+        - paragraph [ref=e25]: 10/06/2026 20:35 · Maracanã (Rio de Janeiro)
+      - generic [ref=e26]:
+        - generic [ref=e27]:
+          - generic [ref=e28]:
+            - generic [ref=e29]: Brasil (casa)
+            - spinbutton [ref=e30]: "2"
+          - generic [ref=e31]:
+            - generic [ref=e32]: Argentina (visitante)
+            - spinbutton [ref=e33]: "1"
+        - generic [ref=e34]:
+          - button "Atualizar Palpite" [ref=e35] [cursor=pointer]
+          - link "Cancelar" [ref=e36] [cursor=pointer]:
+            - /url: /pools/4/matches/

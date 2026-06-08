@@ -1,0 +1,85 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - heading "Page not found (404)" [level=1] [ref=e3]
+    - generic [ref=e4]: No Prediction matches the given query.
+    - table [ref=e5]:
+      - rowgroup [ref=e6]:
+        - 'row "Request Method: GET" [ref=e7]':
+          - rowheader "Request Method:" [ref=e8]
+          - cell "GET" [ref=e9]
+        - 'row "Request URL: http://127.0.0.1:8000/pools/4/matches/6/edit/" [ref=e10]':
+          - rowheader "Request URL:" [ref=e11]
+          - cell "http://127.0.0.1:8000/pools/4/matches/6/edit/" [ref=e12]
+        - 'row "Raised by: predictions.views.PredictionUpdateView" [ref=e13]':
+          - rowheader "Raised by:" [ref=e14]
+          - cell "predictions.views.PredictionUpdateView" [ref=e15]
+  - main [ref=e16]:
+    - paragraph [ref=e17]:
+      - text: Using the URLconf defined in
+      - code [ref=e18]: core.urls
+      - text: ", Django tried these URL patterns, in this order:"
+    - list [ref=e19]:
+      - listitem [ref=e20]:
+        - code [ref=e21]: admin/
+      - listitem [ref=e22]:
+        - code
+        - code [ref=e23]: "[name='home']"
+      - listitem [ref=e24]:
+        - code
+        - code [ref=e25]: register/ [name='register']
+      - listitem [ref=e26]:
+        - code
+        - code [ref=e27]: login/ [name='login']
+      - listitem [ref=e28]:
+        - code
+        - code [ref=e29]: logout/ [name='logout']
+      - listitem [ref=e30]:
+        - code
+        - code [ref=e31]: dashboard/ [name='dashboard']
+      - listitem [ref=e32]:
+        - code
+        - code [ref=e33]: password-reset/ [name='password_reset']
+      - listitem [ref=e34]:
+        - code
+        - code [ref=e35]: password-reset/done/ [name='password_reset_done']
+      - listitem [ref=e36]:
+        - code
+        - code [ref=e37]: password-reset/confirm/<uidb64>/<token>/ [name='password_reset_confirm']
+      - listitem [ref=e38]:
+        - code
+        - code [ref=e39]: password-reset/complete/ [name='password_reset_complete']
+      - listitem [ref=e40]:
+        - code
+        - code [ref=e41]: pools/ [name='pool_list']
+      - listitem [ref=e42]:
+        - code
+        - code [ref=e43]: pools/create/ [name='pool_create']
+      - listitem [ref=e44]:
+        - code
+        - code [ref=e45]: pools/join/<uuid:token>/ [name='pool_join']
+      - listitem [ref=e46]:
+        - code
+        - code [ref=e47]: pools/<int:pk>/ [name='pool_detail']
+      - listitem [ref=e48]:
+        - code
+        - code [ref=e49]: pools/<int:pool_id>/matches/ [name='pool_matches']
+      - listitem [ref=e50]:
+        - code
+        - code [ref=e51]: pools/<int:pool_id>/predictions/ [name='my_predictions']
+      - listitem [ref=e52]:
+        - code
+        - code [ref=e53]: pools/<int:pool_id>/matches/<int:match_id>/predict/ [name='prediction_create']
+      - listitem [ref=e54]:
+        - code
+        - code [ref=e55]: pools/<int:pool_id>/matches/<int:match_id>/edit/ [name='prediction_update']
+    - paragraph [ref=e56]:
+      - text: The current path,
+      - code [ref=e57]: pools/4/matches/6/edit/
+      - text: ", matched the last one."
+  - contentinfo [ref=e58]:
+    - paragraph [ref=e59]:
+      - text: You’re seeing this error because you have
+      - code [ref=e60]: DEBUG = True
+      - text: in your Django settings file. Change that to
+      - code [ref=e61]: "False"
+      - text: ", and Django will display a standard 404 page."
