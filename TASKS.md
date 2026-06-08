@@ -63,11 +63,11 @@
   - [X] Cada card mostra nome, qtd de membros e posicao do usuario no ranking
   - [X] Clicar no bolao redireciona para pagina de detalhes
 
-**US-2.4: Ver membros do bolao**
+**US-2.4: Ver membros do bolao** ✓
 - **Como** membro de um bolao, **quero** ver os membros, **para** saber quem esta participando.
 - **Criterios de aceite:**
-  - [ ] Exibir lista de membros com nome e pontuacao
-  - [ ] Ordenar por pontuacao (ranking)
+  - [X] Exibir lista de membros com nome e pontuacao
+  - [X] Ordenar por pontuacao (ranking)
 
 **US-2.VAL: Validacao do Sprint 2 — Gestao de boloes**
 - **Como** agente de QA, **quero** validar todo o trabalho do Sprint 2, **para** garantir que as funcionalidades de boloes estao corretas e sem bugs.
