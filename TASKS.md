@@ -83,15 +83,15 @@
 
 ### Epico 3: Palpites
 
-**US-3.1: Registrar palpite**
+**US-3.1: Registrar palpite** ✓
 - **Como** usuario logado, membro de um bolao, **quero** registrar meu palpite para um jogo, **para** competir no ranking.
 - **Criterios de aceite:**
-  - [ ] Exibir lista de jogos disponiveis para palpite
-  - [ ] Formulario com placar do time da casa e placar do time visitante
-  - [ ] **REGRA DE BLOQUEIO: palpite so pode ser registrado se o horario atual eh anterior ao horario de inicio do jogo (match_datetime)**
-  - [ ] Se o jogo ja comecou, exibir mensagem "Palpite indisponivel - jogo ja comecou" e bloquear o formulario
-  - [ ] Salvar palpite e exibir mensagem de sucesso
-  - [ ] Um usuario so pode ter um palpite por jogo por bolao
+  - [X] Exibir lista de jogos disponiveis para palpite
+  - [X] Formulario com placar do time da casa e placar do time visitante
+  - [X] **REGRA DE BLOQUEIO: palpite so pode ser registrado se o horario atual eh anterior ao horario de inicio do jogo (match_datetime)**
+  - [X] Se o jogo ja comecou, exibir mensagem "Palpite indisponivel - jogo ja comecou" e bloquear o formulario
+  - [X] Salvar palpite e exibir mensagem de sucesso
+  - [X] Um usuario so pode ter um palpite por jogo por bolao
 
 **US-3.2: Editar palpite**
 - **Como** usuario logado, **quero** editar meu palpite, **para** corrigir antes do jogo comecar.

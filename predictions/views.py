@@ -1,0 +1,110 @@
+from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import get_object_or_404, redirect
+from django.urls import reverse
+from django.utils import timezone
+from django.views.generic import CreateView, ListView
+
+from matches.models import Match
+from pools.models import Pool, PoolMember
+
+from .forms import PredictionForm
+from .models import Prediction
+
+
+class PoolMatchListView(LoginRequiredMixin, ListView):
+    template_name = 'predictions/pool_matches.html'
+    context_object_name = 'matches'
+
+    def get_queryset(self):
+        self.pool = get_object_or_404(Pool, pk=self.kwargs['pool_id'])
+        return Match.objects.filter(
+            match_datetime__gte=timezone.now() - timezone.timedelta(hours=4),
+        ).select_related('home_team', 'away_team', 'stadium', 'round').order_by(
+            'match_datetime',
+        )
+
+    def dispatch(self, request, *args, **kwargs):
+        self.pool = get_object_or_404(Pool, pk=self.kwargs['pool_id'])
+        if not PoolMember.objects.filter(
+            pool=self.pool,
+            user=request.user,
+        ).exists():
+            messages.error(request, 'Você precisa ser membro deste bolão para acessar.')
+            return redirect(reverse('pool_detail', kwargs={'pk': self.pool.pk}))
+        return super().dispatch(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['pool'] = self.pool
+        now = timezone.now()
+        user_predictions = {
+            p.match_id: p for p in Prediction.objects.filter(
+                user=self.request.user,
+                pool=self.pool,
+            )
+        }
+        match_items = []
+        for match in context['matches']:
+            is_locked = match.match_datetime <= now
+            match_items.append({
+                'match': match,
+                'is_locked': is_locked,
+                'user_prediction': user_predictions.get(match.pk),
+            })
+        context['match_items'] = match_items
+        return context
+
+
+class PredictionCreateView(LoginRequiredMixin, CreateView):
+    model = Prediction
+    form_class = PredictionForm
+    template_name = 'predictions/prediction_form.html'
+
+    def dispatch(self, request, *args, **kwargs):
+        self.pool = get_object_or_404(Pool, pk=kwargs['pool_id'])
+        self.match = get_object_or_404(Match, pk=kwargs['match_id'])
+        if not PoolMember.objects.filter(
+            pool=self.pool,
+            user=request.user,
+        ).exists():
+            messages.error(request, 'Você precisa ser membro deste bolão.')
+            return redirect(reverse('pool_detail', kwargs={'pk': self.pool.pk}))
+        if self.match.match_datetime <= timezone.now():
+            messages.error(request, 'Palpite indisponível - jogo já começou.')
+            return redirect(reverse(
+                'pool_matches',
+                kwargs={'pool_id': self.pool.pk},
+            ))
+        if Prediction.objects.filter(
+            user=request.user,
+            match=self.match,
+            pool=self.pool,
+        ).exists():
+            return redirect(reverse(
+                'pool_matches',
+                kwargs={'pool_id': self.pool.pk},
+            ))
+        return super().dispatch(request, *args, **kwargs)
+
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs['match'] = self.match
+        return kwargs
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['pool'] = self.pool
+        context['match'] = self.match
+        context['is_locked'] = False
+        return context
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        form.instance.match = self.match
+        form.instance.pool = self.pool
+        messages.success(self.request, 'Palpite registrado com sucesso!')
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse('pool_matches', kwargs={'pool_id': self.pool.pk})

@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block title %}Palpitar — {{ match.home_team }} x {{ match.away_team }}{% endblock %}
+
+{% block content %}
+<div class='max-w-3xl mx-auto'>
+    <div class='bg-gray-900 border border-gray-700 rounded-xl p-8'>
+        <h1 class='text-2xl md:text-3xl font-bold text-white mb-2'>Registrar palpite</h1>
+        <p class='text-gray-400 mb-6'>{{ pool.name }}</p>
+
+        <div class='bg-gray-800 border border-gray-700 rounded-lg p-4 mb-6'>
+            <div class='flex items-center justify-between mb-2'>
+                <div class='flex items-center gap-2'>
+                    <span class='text-2xl'>{{ match.home_team.flag_emoji }}</span>
+                    <span class='text-white font-semibold'>{{ match.home_team.name }}</span>
+                </div>
+                <span class='text-gray-500 text-sm'>vs</span>
+                <div class='flex items-center gap-2'>
+                    <span class='text-white font-semibold'>{{ match.away_team.name }}</span>
+                    <span class='text-2xl'>{{ match.away_team.flag_emoji }}</span>
+                </div>
+            </div>
+            <p class='text-gray-400 text-sm text-center'>{{ match.match_datetime|date:"d/m/Y H:i" }} · {{ match.stadium }}</p>
+        </div>
+
+        {% if is_locked %}
+            <div class='bg-red-600/20 border border-red-500 text-red-400 px-4 py-3 rounded-lg mb-6'>
+                Palpite indisponível - jogo já começou.
+            </div>
+        {% endif %}
+
+        <form method='post'>
+            {% csrf_token %}
+            <div class='grid grid-cols-2 gap-4 mb-6'>
+                <div>
+                    <label class='block text-sm font-medium text-gray-400 mb-1'>{{ match.home_team.name }} (casa)</label>
+                    {{ form.home_score }}
+                    {% if form.home_score.errors %}
+                        <p class='text-red-400 text-sm mt-1'>{{ form.home_score.errors.0 }}</p>
+                    {% endif %}
+                </div>
+                <div>
+                    <label class='block text-sm font-medium text-gray-400 mb-1'>{{ match.away_team.name }} (visitante)</label>
+                    {{ form.away_score }}
+                    {% if form.away_score.errors %}
+                        <p class='text-red-400 text-sm mt-1'>{{ form.away_score.errors.0 }}</p>
+                    {% endif %}
+                </div>
+            </div>
+            {% if form.non_field_errors %}
+                <div class='bg-red-600/20 border border-red-500 text-red-400 px-4 py-3 rounded-lg mb-4'>
+                    {{ form.non_field_errors.0 }}
+                </div>
+            {% endif %}
+            <div class='flex gap-3'>
+                <button type='submit' {% if is_locked %}disabled{% endif %} class='bg-emerald-600 hover:bg-emerald-500 text-white font-semibold rounded-lg px-6 py-3 transition-colors duration-200 disabled:bg-gray-700 disabled:text-gray-500 disabled:cursor-not-allowed'>
+                    Salvar Palpite
+                </button>
+                <a href='{% url "pool_matches" pool_id=pool.pk %}' class='border border-gray-600 hover:border-emerald-500 text-gray-300 font-semibold rounded-lg px-6 py-3 transition-colors duration-200 inline-block'>
+                    Cancelar
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
