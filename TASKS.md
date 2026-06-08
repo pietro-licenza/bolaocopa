@@ -69,17 +69,17 @@
   - [X] Exibir lista de membros com nome e pontuacao
   - [X] Ordenar por pontuacao (ranking)
 
-**US-2.VAL: Validacao do Sprint 2 — Gestao de boloes**
+**US-2.VAL: Validacao do Sprint 2 — Gestao de boloes** ✓
 - **Como** agente de QA, **quero** validar todo o trabalho do Sprint 2, **para** garantir que as funcionalidades de boloes estao corretas e sem bugs.
 - **Criterios de aceite:**
-  - [ ] Tirar prints das telas de criacao de bolao, entrada via convite, lista de boloes e membros
-  - [ ] Validar criacao de bolao: nome obrigatorio, limite de caracteres, geracao de link de convite
-  - [ ] Validar entrada via link de convite: exibicao de informacoes, participacao e redirecionamento
-  - [ ] Validar que criador do bolao se torna automaticamente membro
-  - [ ] Validar lista de boloes no dashboard: nome, qtd membros, posicao no ranking
-  - [ ] Validar decisao visual: membro ja existe redireciona, link invalido mostra erro
-  - [ ] Validar lista de membros ordenada por pontuacao
-  - [ ] Corrigir bugs encontrados
+  - [X] Tirar prints das telas de criacao de bolao, entrada via convite, lista de boloes e membros
+  - [X] Validar criacao de bolao: nome obrigatorio, limite de caracteres, geracao de link de convite
+  - [X] Validar entrada via link de convite: exibicao de informacoes, participacao e redirecionamento
+  - [X] Validar que criador do bolao se torna automaticamente membro
+  - [X] Validar lista de boloes no dashboard: nome, qtd membros, posicao no ranking
+  - [X] Validar decisao visual: membro ja existe redireciona, link invalido mostra erro
+  - [X] Validar lista de membros ordenada por pontuacao
+  - [X] Corrigir bugs encontrados
 
 ### Epico 3: Palpites
 
