@@ -3,7 +3,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse
 from django.utils import timezone
-from django.views.generic import CreateView, ListView
+from django.views.generic import CreateView, ListView, UpdateView
 
 from matches.models import Match
 from pools.models import Pool, PoolMember
@@ -104,6 +104,55 @@ class PredictionCreateView(LoginRequiredMixin, CreateView):
         form.instance.match = self.match
         form.instance.pool = self.pool
         messages.success(self.request, 'Palpite registrado com sucesso!')
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse('pool_matches', kwargs={'pool_id': self.pool.pk})
+
+
+class PredictionUpdateView(LoginRequiredMixin, UpdateView):
+    model = Prediction
+    form_class = PredictionForm
+    template_name = 'predictions/prediction_form.html'
+    context_object_name = 'prediction'
+
+    def get_object(self, queryset=None):
+        self.pool = get_object_or_404(Pool, pk=self.kwargs['pool_id'])
+        self.match = get_object_or_404(Match, pk=self.kwargs['match_id'])
+        return get_object_or_404(
+            Prediction,
+            user=self.request.user,
+            match=self.match,
+            pool=self.pool,
+        )
+
+    def dispatch(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        self.match = self.object.match
+        self.pool = self.object.pool
+        if self.match.match_datetime <= timezone.now():
+            messages.error(request, 'Palpite indisponível - jogo já começou.')
+            return redirect(reverse(
+                'pool_matches',
+                kwargs={'pool_id': self.pool.pk},
+            ))
+        return super().dispatch(request, *args, **kwargs)
+
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs['match'] = self.match
+        return kwargs
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['pool'] = self.pool
+        context['match'] = self.match
+        context['is_locked'] = False
+        context['is_editing'] = True
+        return context
+
+    def form_valid(self, form):
+        messages.success(self.request, 'Palpite atualizado com sucesso!')
         return super().form_valid(form)
 
     def get_success_url(self):

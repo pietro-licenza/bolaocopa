@@ -58,6 +58,10 @@
                             <a href='{% url "prediction_create" pool_id=pool.pk match_id=item.match.pk %}' class='bg-emerald-600 hover:bg-emerald-500 text-white font-semibold rounded-lg px-4 py-2 transition-colors duration-200'>
                                 Palpitar
                             </a>
+                        {% elif not item.is_locked and item.user_prediction %}
+                            <a href='{% url "prediction_update" pool_id=pool.pk match_id=item.match.pk %}' class='border border-gray-600 hover:border-emerald-500 text-gray-300 hover:text-emerald-400 font-semibold rounded-lg px-4 py-2 transition-colors duration-200'>
+                                Editar
+                            </a>
                         {% endif %}
                     </div>
                 </div>

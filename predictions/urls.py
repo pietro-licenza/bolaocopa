@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import PoolMatchListView, PredictionCreateView
+from .views import PoolMatchListView, PredictionCreateView, PredictionUpdateView
 
 urlpatterns = [
     path(
@@ -12,5 +12,10 @@ urlpatterns = [
         'pools/<int:pool_id>/matches/<int:match_id>/predict/',
         PredictionCreateView.as_view(),
         name='prediction_create',
+    ),
+    path(
+        'pools/<int:pool_id>/matches/<int:match_id>/edit/',
+        PredictionUpdateView.as_view(),
+        name='prediction_update',
     ),
 ]

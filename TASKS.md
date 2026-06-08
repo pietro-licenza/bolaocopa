@@ -93,13 +93,13 @@
   - [X] Salvar palpite e exibir mensagem de sucesso
   - [X] Um usuario so pode ter um palpite por jogo por bolao
 
-**US-3.2: Editar palpite**
+**US-3.2: Editar palpite** ✓
 - **Como** usuario logado, **quero** editar meu palpite, **para** corrigir antes do jogo comecar.
 - **Criterios de aceite:**
-  - [ ] Permitir edicao somente se o jogo ainda nao comecou
-  - [ ] **REGRA DE BLOQUEIO: apos o horario de inicio do jogo (match_datetime), o palpite nao pode mais ser editado**
-  - [ ] Exibir botao de editar apenas se o jogo ainda nao comecou
-  - [ ] Apos editar, exibir mensagem de sucesso
+  - [X] Permitir edicao somente se o jogo ainda nao comecou
+  - [X] **REGRA DE BLOQUEIO: apos o horario de inicio do jogo (match_datetime), o palpite nao pode mais ser editado**
+  - [X] Exibir botao de editar apenas se o jogo ainda nao comecou
+  - [X] Apos editar, exibir mensagem de sucesso
 
 **US-3.3: Ver palpites realizados**
 - **Como** usuario logado, **quero** ver meus palpites, **para** acompanhar o que ja registrei.
