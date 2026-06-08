@@ -12,10 +12,10 @@
 **US-1.2: Login de usuario**
 - **Como** usuario cadastrado, **quero** fazer login com email e senha, **para** acessar o sistema.
 - **Criterios de aceite:**
-  - [ ] Login exclusivamente via email (nao username)
-  - [ ] Exibir mensagem de erro para credenciais invalidas
-  - [ ] Redirecionar para dashboard apos login bem-sucedido
-  - [ ] Opcao "Esqueceu a senha?" na pagina de login
+  - [X] Login exclusivamente via email (nao username)
+  - [X] Exibir mensagem de erro para credenciais invalidas
+  - [X] Redirecionar para dashboard apos login bem-sucedido
+  - [X] Opcao "Esqueceu a senha?" na pagina de login
 
 **US-1.3: Logout**
 - **Como** usuario logado, **quero** fazer logout, **para** sair do sistema com seguranca.

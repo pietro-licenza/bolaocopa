@@ -1,4 +1,4 @@
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm, PasswordResetForm, SetPasswordForm, UserCreationForm
 from django.contrib.auth.password_validation import validate_password
 from django.core.exceptions import ValidationError
 
@@ -110,6 +110,11 @@ class CustomUserCreationForm(UserCreationForm):
 
 
 class CustomAuthenticationForm(AuthenticationForm):
+    error_messages = {
+        'invalid_login': 'Email ou senha incorretos.',
+        'inactive': 'Esta conta está desativada.',
+    }
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
@@ -120,13 +125,68 @@ class CustomAuthenticationForm(AuthenticationForm):
             'transition-colors duration-200'
         )
 
+        self.fields['username'].label = 'Email'
         self.fields['username'].widget.attrs.update({
             'class': css_class,
             'placeholder': 'seu@email.com',
             'autocomplete': 'email',
+            'type': 'email',
         })
+        self.fields['username'].error_messages = {
+            'required': 'Este campo é obrigatório.',
+        }
         self.fields['password'].widget.attrs.update({
             'class': css_class,
             'placeholder': 'Sua senha',
             'autocomplete': 'current-password',
         })
+        self.fields['password'].error_messages = {
+            'required': 'Este campo é obrigatório.',
+        }
+
+
+class CustomPasswordResetForm(PasswordResetForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        css_class = (
+            'w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 '
+            'text-white placeholder-gray-500 focus:border-emerald-500 '
+            'focus:ring-1 focus:ring-emerald-500 focus:outline-none '
+            'transition-colors duration-200'
+        )
+
+        self.fields['email'].widget.attrs.update({
+            'class': css_class,
+            'placeholder': 'seu@email.com',
+            'autocomplete': 'email',
+        })
+        self.fields['email'].label = 'Email'
+        self.fields['email'].error_messages = {
+            'required': 'Este campo é obrigatório.',
+        }
+
+
+class CustomSetPasswordForm(SetPasswordForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        css_class = (
+            'w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 '
+            'text-white placeholder-gray-500 focus:border-emerald-500 '
+            'focus:ring-1 focus:ring-emerald-500 focus:outline-none '
+            'transition-colors duration-200'
+        )
+
+        self.fields['new_password1'].widget.attrs.update({
+            'class': css_class,
+            'placeholder': 'Mínimo 8 caracteres',
+            'autocomplete': 'new-password',
+        })
+        self.fields['new_password1'].label = 'Nova senha'
+        self.fields['new_password2'].widget.attrs.update({
+            'class': css_class,
+            'placeholder': 'Repita a nova senha',
+            'autocomplete': 'new-password',
+        })
+        self.fields['new_password2'].label = 'Confirmar nova senha'
