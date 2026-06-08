@@ -122,13 +122,13 @@
 
 ### Epico 4: Jogos e resultados
 
-**US-4.1: Listar jogos disponiveis**
+**US-4.1: Listar jogos disponiveis** ✓
 - **Como** usuario logado, **quero** ver os proximos jogos, **para** poder palpitar.
 - **Criterios de aceite:**
-  - [ ] Exibir jogos ordenados por data/hora
-  - [ ] Mostrar selecoes, data/hora e estadio
-  - [ ] Indicar status: agendado, em andamento, finalizado
-  - [ ] Marcar jogos que o usuario ja palpitou
+  - [X] Exibir jogos ordenados por data/hora
+  - [X] Mostrar selecoes, data/hora e estadio
+  - [X] Indicar status: agendado, em andamento, finalizado
+  - [X] Marcar jogos que o usuario ja palpitou
 
 **US-4.2: Registrar resultado real (admin)**
 - **Como** administrador, **quero** registrar o resultado real de um jogo, **para** calcular as pontuacoes.
