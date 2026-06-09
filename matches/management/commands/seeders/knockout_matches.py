@@ -6,7 +6,7 @@ para o mata-mata os 2 primeiros de cada grupo + os 8 melhores terceiros
 (32 times no total), em chave de eliminacao simples ate a final.
 
 Total de jogos do mata-mata: 32
-- 32-avos de Final (Round of 32): 16 jogos
+- 16-avos de Final (Round of 32): 16 jogos
 - Oitavas de Final (Round of 16): 8 jogos
 - Quartas de Final (Quarterfinals): 4 jogos
 - Semifinais (Semifinals): 2 jogos
@@ -17,12 +17,12 @@ Total: 16 + 8 + 4 + 2 + 1 + 1 = 32 jogos.
 Fontes consultadas (via webfetch):
 - Tabela oficial do mata-mata: https://en.wikipedia.org/wiki/2026_FIFA_World_Cup_knockout_stage
   (revisao de junho de 2026). Inclui datas, horarios locais, estdios e
-  combinacoes de cruzamentos para os 32-avos.
+  combinacoes de cruzamentos para os 16-avos.
 - Calendario oficial FIFA: https://digitalhub.fifa.com/m/1be9ce37eb98fcc5/
   original/FWC26-Match-Schedule_English.pdf (PDF publicado em 4/fev/2024).
 - Regulamento oficial: https://digitalhub.fifa.com/m/636f5c9c6f29771f/
   original/FWC2026_regulations_EN.pdf (PDF, maio/2025), Anexo C com as
-  495 combinacoes possiveis de terceiros classificados para os 32-avos.
+  495 combinacoes possiveis de terceiros classificados para os 16-avos.
 
 Limitacao importante: as selecoes que disputam o mata-mata so sao
 conhecidas apos o termino da fase de grupos (que ocorre em 27/jun/2026).
@@ -68,57 +68,57 @@ from matches.models import Match, Round, Stadium
 # conferida no artigo "2026 FIFA World Cup knockout stage" da Wikipedia en
 # (revisao de junho de 2026). Match numbers 73-104 conforme numeracao FIFA.
 WORLD_CUP_2026_KNOCKOUT_MATCHES = [
-    # ===== 32-avos de Final (16 jogos, 28/jun a 03/jul) =====
+    # ===== 16-avos de Final (16 jogos, 28/jun a 03/jul) =====
     # Match 73: 2A vs 2B | 28/jun 12:00 local (UTC-7) = 19:00 UTC
-    (73, '32-avos de Final', 'SoFi Stadium',
+    (73, '16-avos de Final', 'SoFi Stadium',
      datetime.datetime(2026, 6, 28, 19, 0, tzinfo=datetime.timezone.utc)),
     # Match 74: 1E vs 3 ABCDF | 29/jun 16:30 local (UTC-4) = 20:30 UTC
-    (74, '32-avos de Final', 'Gillette Stadium',
+    (74, '16-avos de Final', 'Gillette Stadium',
      datetime.datetime(2026, 6, 29, 20, 30, tzinfo=datetime.timezone.utc)),
     # Match 75: 1F vs 2C | 29/jun 19:00 local (UTC-6) = 30/jun 01:00 UTC
-    (75, '32-avos de Final', 'Estadio BBVA',
+    (75, '16-avos de Final', 'Estadio BBVA',
      datetime.datetime(2026, 6, 30, 1, 0, tzinfo=datetime.timezone.utc)),
     # Match 76: 1C vs 2F | 29/jun 12:00 local (UTC-5) = 17:00 UTC
-    (76, '32-avos de Final', 'NRG Stadium',
+    (76, '16-avos de Final', 'NRG Stadium',
      datetime.datetime(2026, 6, 29, 17, 0, tzinfo=datetime.timezone.utc)),
     # Match 77: 1I vs 3 CDFGH | 30/jun 17:00 local (UTC-4) = 21:00 UTC
-    (77, '32-avos de Final', 'MetLife Stadium',
+    (77, '16-avos de Final', 'MetLife Stadium',
      datetime.datetime(2026, 6, 30, 21, 0, tzinfo=datetime.timezone.utc)),
     # Match 78: 2E vs 2I | 30/jun 12:00 local (UTC-5) = 17:00 UTC
-    (78, '32-avos de Final', 'AT&T Stadium',
+    (78, '16-avos de Final', 'AT&T Stadium',
      datetime.datetime(2026, 6, 30, 17, 0, tzinfo=datetime.timezone.utc)),
     # Match 79: 1A vs 3 CEFHI | 30/jun 19:00 local (UTC-6) = 01/jul 01:00 UTC
-    (79, '32-avos de Final', 'Estadio Azteca',
+    (79, '16-avos de Final', 'Estadio Azteca',
      datetime.datetime(2026, 7, 1, 1, 0, tzinfo=datetime.timezone.utc)),
     # Match 80: 1L vs 3 EHIJK | 01/jul 12:00 local (UTC-4) = 16:00 UTC
-    (80, '32-avos de Final', 'Mercedes-Benz Stadium',
+    (80, '16-avos de Final', 'Mercedes-Benz Stadium',
      datetime.datetime(2026, 7, 1, 16, 0, tzinfo=datetime.timezone.utc)),
     # Match 81: 1D vs 3 BEFIJ | 01/jul 17:00 local (UTC-7) = 02/jul 00:00 UTC
-    (81, '32-avos de Final', "Levi's Stadium",
+    (81, '16-avos de Final', "Levi's Stadium",
      datetime.datetime(2026, 7, 2, 0, 0, tzinfo=datetime.timezone.utc)),
     # Match 82: 1G vs 3 AEHIJ | 01/jul 13:00 local (UTC-7) = 20:00 UTC
-    (82, '32-avos de Final', 'Lumen Field',
+    (82, '16-avos de Final', 'Lumen Field',
      datetime.datetime(2026, 7, 1, 20, 0, tzinfo=datetime.timezone.utc)),
     # Match 83: 2K vs 2L | 02/jul 19:00 local (UTC-4) = 23:00 UTC
-    (83, '32-avos de Final', 'BMO Field',
+    (83, '16-avos de Final', 'BMO Field',
      datetime.datetime(2026, 7, 2, 23, 0, tzinfo=datetime.timezone.utc)),
     # Match 84: 1H vs 2J | 02/jul 12:00 local (UTC-7) = 19:00 UTC
-    (84, '32-avos de Final', 'SoFi Stadium',
+    (84, '16-avos de Final', 'SoFi Stadium',
      datetime.datetime(2026, 7, 2, 19, 0, tzinfo=datetime.timezone.utc)),
     # Match 85: 1B vs 3 EFG IJ | 02/jul 20:00 local (UTC-7) = 03/jul 03:00 UTC
-    (85, '32-avos de Final', 'BC Place',
+    (85, '16-avos de Final', 'BC Place',
      datetime.datetime(2026, 7, 3, 3, 0, tzinfo=datetime.timezone.utc)),
     # Match 86: 1J vs 2H | 03/jul 18:00 local (UTC-4) = 22:00 UTC
-    (86, '32-avos de Final', 'Hard Rock Stadium',
+    (86, '16-avos de Final', 'Hard Rock Stadium',
      datetime.datetime(2026, 7, 3, 22, 0, tzinfo=datetime.timezone.utc)),
     # Match 87: 1K vs 3 DEIJL | 03/jul 20:30 local (UTC-5) = 04/jul 01:30 UTC
     # Observacao: 03/jul 20:30 local em Kansas City (UTC-5) = 04/jul 01:30 UTC.
     # Esse jogo cai tecnicamente em 04/jul, mas a FIFA classifica como
     # "3 July 2026" no calendario oficial. Mantemos o horario UTC correto.
-    (87, '32-avos de Final', 'Arrowhead Stadium',
+    (87, '16-avos de Final', 'Arrowhead Stadium',
      datetime.datetime(2026, 7, 4, 1, 30, tzinfo=datetime.timezone.utc)),
     # Match 88: 2D vs 2G | 03/jul 13:00 local (UTC-5) = 18:00 UTC
-    (88, '32-avos de Final', 'AT&T Stadium',
+    (88, '16-avos de Final', 'AT&T Stadium',
      datetime.datetime(2026, 7, 3, 18, 0, tzinfo=datetime.timezone.utc)),
     # ===== Oitavas de Final (8 jogos, 04-07/jul) =====
     # Match 89: V73 vs V77 | 04/jul 17:00 local (UTC-4) = 21:00 UTC

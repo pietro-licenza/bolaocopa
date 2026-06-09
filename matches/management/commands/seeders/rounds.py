@@ -7,12 +7,18 @@ disputado em 6 fases ate a final em 19 de julho de 2026.
 
 Calendario oficial:
 - Fase de Grupos: 11 a 27 de junho de 2026
-- 32-avos de Final: 28 de junho a 3 de julho de 2026
+- 16-avos de Final: 28 de junho a 3 de julho de 2026
 - Oitavas de Final: 4 a 7 de julho de 2026
 - Quartas de Final: 9 a 11 de julho de 2026
 - Semifinais: 14 e 15 de julho de 2026
 - Disputa de 3o lugar: 18 de julho de 2026
 - Final: 19 de julho de 2026 (MetLife Stadium, East Rutherford)
+
+Observacao: o codigo ``phase`` (choices do model) continua sendo
+``trinta_dois_avos`` por estabilidade retroativa -- apenas o rotulo
+visivel ("16-avos de Final") foi atualizado para refletir a nomenclatura
+oficial da FIFA. A data migration ``0008_round_rename_32avos_to_16avos``
+sincroniza o ``name`` dos registros existentes.
 
 Cada entrada contem:
 - name: nome oficial em portugues.
@@ -37,7 +43,7 @@ WORLD_CUP_2026_ROUNDS = [
         datetime.date(2026, 6, 27),
     ),
     (
-        '32-avos de Final',
+        '16-avos de Final',
         2,
         'trinta_dois_avos',
         datetime.date(2026, 6, 28),

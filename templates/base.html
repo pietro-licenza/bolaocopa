@@ -15,7 +15,19 @@
                 <div class='flex items-center space-x-4'>
                     {% if user.is_authenticated %}
                         <a href='{% url "dashboard" %}' class='text-gray-300 hover:text-emerald-400 transition-colors duration-200'>Dashboard</a>
-                        <a href='{% url "match_home" %}' class='text-gray-300 hover:text-emerald-400 transition-colors duration-200'>Jogos</a>
+                        <div class='relative group'>
+                            <a href='{% url "match_home" %}' class='text-gray-300 hover:text-emerald-400 transition-colors duration-200 flex items-center gap-1'>
+                                Jogos
+                                <svg class='w-4 h-4' fill='none' stroke='currentColor' viewBox='0 0 24 24' aria-hidden='true'>
+                                    <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'></path>
+                                </svg>
+                            </a>
+                            <div class='absolute left-0 top-full hidden group-hover:flex group-focus-within:flex flex-col bg-gray-900 border border-gray-700 rounded-lg shadow-lg min-w-[180px] py-2 z-50'>
+                                <a href='{% url "match_schedule" %}' class='px-4 py-2 text-gray-300 hover:bg-gray-800 hover:text-emerald-400 transition-colors duration-200'>Agenda</a>
+                                <a href='{% url "match_groups" %}' class='px-4 py-2 text-gray-300 hover:bg-gray-800 hover:text-emerald-400 transition-colors duration-200'>Grupos</a>
+                                <a href='{% url "match_bracket" %}' class='px-4 py-2 text-gray-300 hover:bg-gray-800 hover:text-emerald-400 transition-colors duration-200'>Chaveamento</a>
+                            </div>
+                        </div>
                         <a href='{% url "pool_list" %}' class='text-gray-300 hover:text-emerald-400 transition-colors duration-200'>Meus Bolões</a>
                         <form method='post' action='{% url "logout" %}' class='inline'>
                             {% csrf_token %}

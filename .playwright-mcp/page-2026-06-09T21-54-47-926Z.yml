@@ -1,0 +1,39 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e4]:
+      - link "BolãoCopa" [ref=e5] [cursor=pointer]:
+        - /url: /
+      - generic [ref=e6]:
+        - link "Dashboard" [ref=e7] [cursor=pointer]:
+          - /url: /dashboard/
+        - link "Jogos" [ref=e9] [cursor=pointer]:
+          - /url: /matches/
+          - text: Jogos
+          - img [ref=e10]
+        - link "Meus Bolões" [ref=e12] [cursor=pointer]:
+          - /url: /pools/
+        - button "Sair" [ref=e14] [cursor=pointer]
+  - main [ref=e15]:
+    - generic [ref=e16]:
+      - generic [ref=e17]:
+        - heading "Jogos da Copa" [level=1] [ref=e18]
+        - paragraph [ref=e19]: Explore a agenda, a tabela de grupos e o chaveamento do mata-mata.
+      - generic [ref=e20]:
+        - link "Agenda Veja os jogos do dia e navegue por data. /matches/schedule/" [ref=e21] [cursor=pointer]:
+          - /url: /matches/schedule/2026-06-09/
+          - img [ref=e23]
+          - heading "Agenda" [level=2] [ref=e25]
+          - paragraph [ref=e26]: Veja os jogos do dia e navegue por data.
+          - paragraph [ref=e27]: /matches/schedule/
+        - link "Grupos Tabela completa dos 12 grupos com classificação atualizada. /matches/groups/" [ref=e28] [cursor=pointer]:
+          - /url: /matches/groups/
+          - img [ref=e30]
+          - heading "Grupos" [level=2] [ref=e32]
+          - paragraph [ref=e33]: Tabela completa dos 12 grupos com classificação atualizada.
+          - paragraph [ref=e34]: /matches/groups/
+        - 'link "Chaveamento Acompanhe o mata-mata: 16-avos ate a final. /matches/bracket/" [ref=e35] [cursor=pointer]':
+          - /url: /matches/bracket/
+          - img [ref=e37]
+          - heading "Chaveamento" [level=2] [ref=e39]
+          - paragraph [ref=e40]: "Acompanhe o mata-mata: 16-avos ate a final."
+          - paragraph [ref=e41]: /matches/bracket/

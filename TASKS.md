@@ -367,12 +367,15 @@
     - [X] Calculos baseados em jogos finalizados com fallback para FDO standings
     - [X] Top 2 destacados (classificam); 3º com destaque amarelo (melhores terceiros)
     - [X] Ordenacao por pontos (desc), depois saldo, depois gols pro
+    - [X] **Correcao (Sprint 7 polish)**: bug no parser `_get_fdo_snapshot` agrupava todos os 12 grupos do FDO em "G" — corrigido. Agora cada grupo mostra exatamente 4 times. Fixo tambem fallback que garante 4 linhas por grupo mesmo sem dados
   - [X] **Sub-view `/matches/bracket/`** (Chaveamento):
-    - [X] Bracket visual em HTML+CSS mostrando 32-avos → Oitavas → Quartas → Semis → Final
+    - [X] Bracket visual em HTML+CSS mostrando 16-avos → Oitavas → Quartas → Semis → Final
     - [X] Cada confronto como um mini-card com: time mandante (ou TBD), time visitante (ou TBD), data
     - [X] Times TBD renderizados como "A definir" (sem link externo ate o jogo existir)
     - [X] Disputa de 3o lugar em card separado abaixo das semis
-    - [X] Visual: grid com conectores emerald/30 entre fases, scroll horizontal em mobile
+    - [X] **Correcao (Sprint 7 polish)**: fases centralizadas verticalmente em relacao a maior fase (16-avos) via `inline-flex items-stretch` + `justify-center` em cada coluna
+    - [X] **Renomeacao (Sprint 7 polish)**: "32-avos" → "16-avos" (display label; codigo interno `trinta_dois_avos` preservado para nao quebrar queries)
+  - [X] **Navbar — submenu "Jogos" (Sprint 7 polish)**: dropdown CSS puro com 3 sub-links (Agenda/Grupos/Chaveamento) no hover
   - [X] Rota catch-all para qualquer uma das 3 sub-views: `/matches/schedule/<YYYY-MM-DD>/`
   - [X] Todas as views autenticadas com `LoginRequiredMixin`
 

@@ -266,7 +266,7 @@ class MatchBracketViewTests(TestCase):
         )
         self.client.force_login(self.user)
         # Make sure all 5 knockout phase rounds exist.
-        self.round_32 = _make_round('32-avos de Final', 2, 'trinta_dois_avos')
+        self.round_32 = _make_round('16-avos de Final', 2, 'trinta_dois_avos')
         self.round_16 = _make_round('Oitavas de Final', 3, 'oitavas')
         self.round_8 = _make_round('Quartas de Final', 4, 'quartas')
         self.round_semi = _make_round('Semifinal', 5, 'semi')
@@ -322,7 +322,7 @@ class MatchBracketViewTests(TestCase):
         self.assertEqual(response.status_code, 200)
         rounds = response.context['rounds']
         self.assertEqual(len(rounds), 5)
-        # Ordered by round.order — 32-avos first.
+        # Ordered by round.order — 16-avos first.
         self.assertEqual(rounds[0]['phase'], 'trinta_dois_avos')
         self.assertEqual(rounds[-1]['phase'], 'final')
         # Third place is exposed as a separate key.

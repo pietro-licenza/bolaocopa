@@ -41,7 +41,7 @@ class Stadium(models.Model):
 class Round(models.Model):
     PHASE_CHOICES = (
         ('grupo', 'Fase de Grupos'),
-        ('trinta_dois_avos', '32-avos de Final'),
+        ('trinta_dois_avos', '16-avos de Final'),
         ('oitavas', 'Oitavas de Final'),
         ('quartas', 'Quartas de Final'),
         ('semi', 'Semifinal'),

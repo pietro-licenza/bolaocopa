@@ -150,7 +150,7 @@ class MatchHomeView(LoginRequiredMixin, TemplateView):
             },
             {
                 'label': 'Chaveamento',
-                'description': 'Acompanhe o mata-mata: 32-avos ate a final.',
+                'description': 'Acompanhe o mata-mata: 16-avos ate a final.',
                 'href_label': '/matches/bracket/',
                 'url': '/matches/bracket/',
                 'icon_path': 'M3 4h18v4H3V4zm0 6h6v10H3V10zm10 0h8v10h-8V10z',
@@ -272,8 +272,18 @@ class MatchGroupsView(LoginRequiredMixin, TemplateView):
             groups_roster[letter] = list(
                 self._teams_by_codes(codes)
             )
+        # Build a parallel {group_letter: {team_pk: row_dict}} index so
+        # the template can look up a team's stats by primary key while
+        # iterating the full 4-team roster (needed to always render
+        # all 4 teams, not just the ones that have already played).
+        standings_by_team = {}
+        for letter, rows in standings.items():
+            standings_by_team[letter] = {
+                row['team'].pk: row for row in rows
+            }
         context['groups'] = groups_roster
         context['standings'] = standings
+        context['standings_by_team'] = standings_by_team
         context['group_letters'] = get_all_groups()
         return context
 
@@ -359,6 +369,15 @@ class MatchGroupsView(LoginRequiredMixin, TemplateView):
 
         # Build the output, sorted per group, with FDO merging.
         out = {}
+        # Pre-fetch the full draw roster once so we can fill in any
+        # team that has neither local nor FDO data (e.g. group stage
+        # not yet started, or FDO unreachable). This ensures every
+        # group always has 4 rows, one per team, with a proper
+        # 1-4 position assigned after sorting.
+        roster_by_letter = {
+            letter: list(self._teams_by_codes(codes))
+            for letter, codes in WORLD_CUP_2026_GROUPS.items()
+        }
         for letter in get_all_groups():
             group_stats = list(stats.get(letter, {}).values())
             # If the FDO has data for some team in this group and we
@@ -382,6 +401,18 @@ class MatchGroupsView(LoginRequiredMixin, TemplateView):
                     'GP': fdo_row.get('goals_for', 0),
                     'GC': fdo_row.get('goals_against', 0),
                     'SG': 0,
+                })
+            # Fallback: any team in the draw that still has no row
+            # (no local stats and no FDO data) gets a zeroed row so
+            # every group renders 4 teams with positions 1-4.
+            seen_pks = {row['team'].pk for row in group_stats}
+            for team in roster_by_letter.get(letter, []):
+                if team.pk in seen_pks:
+                    continue
+                group_stats.append({
+                    'team': team,
+                    'P': 0, 'J': 0, 'V': 0, 'E': 0, 'D': 0,
+                    'GP': 0, 'GC': 0, 'SG': 0,
                 })
             # Compute SG last so it always reflects the final
             # GP/GC values (local or merged).
@@ -438,7 +469,13 @@ class MatchGroupsView(LoginRequiredMixin, TemplateView):
             group_name = (raw.get('group') or '').strip()
             if not group_name:
                 continue
-            letter = group_name.upper()[0]
+            # FDO devolve o rotulo no formato "Group A", "Group B" ...
+            # (com prefixo "Group " -- nao usar ``group_name[0]``, que
+            # sempre seria "G"). Tomamos a ULTIMA palavra e o primeiro
+            # caractere, cobrindo tanto "Group A" quanto casos futuros
+            # como "Group A (UEFA)" ou somente "A".
+            parts = group_name.split()
+            letter = (parts[-1][0] if parts else '').upper()
             if letter not in WORLD_CUP_2026_GROUPS:
                 continue
             per_team = {}
@@ -460,7 +497,7 @@ class MatchGroupsView(LoginRequiredMixin, TemplateView):
 
 
 class MatchBracketView(LoginRequiredMixin, TemplateView):
-    """Render the knockout bracket (32-avos -> final).
+    """Render the knockout bracket (16-avos -> final).
 
     The 32 knockout matches are grouped by :class:`Round`, ordered
     by ``round.order``. The match for third place lives in a

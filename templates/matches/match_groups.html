@@ -36,6 +36,12 @@
                             </tr>
                         </thead>
                         <tbody>
+                            {# O view sempre devolve 4 selecoes por grupo (as 4 #}
+                            {# do sorteio), com a posicao 1-4 calculada pela #}
+                            {# ordenacao oficial (P, SG, GP, nome). Quando o #}
+                            {# time ainda nao jogou, stats vem zerado e ele #}
+                            {# aparece no fim da tabela (pior colocado entre #}
+                            {# os 0-pontos, por ordem alfabetica). #}
                             {% for row in standings|get_item:letter %}
                                 <tr class='border-t border-gray-800 hover:bg-gray-800/60 transition-colors duration-200
                                     {% if row.position == 1 or row.position == 2 %}border-l-4 border-emerald-500
@@ -70,6 +76,9 @@
                                     </td>
                                 </tr>
                             {% empty %}
+                                {# Fallback defensivo: se a view nao devolver #}
+                                {# nenhuma linha (improvavel), renderiza o #}
+                                {# roster puro do sorteio. #}
                                 {% for team in groups|get_item:letter %}
                                     <tr class='border-t border-gray-800 border-l-4 border-transparent'>
                                         <td class='py-1.5 pr-1 text-gray-400'>{{ forloop.counter }}</td>
