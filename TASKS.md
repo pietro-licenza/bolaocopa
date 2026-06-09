@@ -203,10 +203,10 @@
 **US-6.3: Popular estadios (Stadium)**
 - **Como** administrador, **quero** cadastrar os estadios sede da Copa 2026, **para** que sejam exibidos nas paginas de jogos.
 - **Criterios de aceite:**
-  - [ ] Cadastrar 16 estadios sede da Copa 2026
-  - [ ] Para cada estadio: nome, cidade, pais (EUA/Canada/Mexico) e capacidade
-  - [ ] Verificar duplicatas pelo nome antes de criar
-  - [ ] Atualizar dados se o estadio ja existir (upsert)
+  - [X] Cadastrar 16 estadios sede da Copa 2026
+  - [X] Para cada estadio: nome, cidade, pais (EUA/Canada/Mexico) e capacidade
+  - [X] Verificar duplicatas pelo nome antes de criar
+  - [X] Atualizar dados se o estadio ja existir (upsert)
 
 **US-6.4: Popular rodadas (Round)**
 - **Como** administrador, **quero** cadastrar as fases/rodadas do torneio, **para** organizar e exibir os jogos agrupados.

@@ -12,7 +12,8 @@ class TeamAdmin(admin.ModelAdmin):
 
 @admin.register(Stadium)
 class StadiumAdmin(admin.ModelAdmin):
-    list_display = ('name', 'city', 'country')
+    list_display = ('name', 'city', 'country', 'capacity')
+    list_filter = ('country',)
     search_fields = ('name', 'city', 'country')
 
 

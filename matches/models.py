@@ -29,6 +29,7 @@ class Stadium(models.Model):
     name = models.CharField(max_length=200)
     city = models.CharField(max_length=100)
     country = models.CharField(max_length=100)
+    capacity = models.PositiveIntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
