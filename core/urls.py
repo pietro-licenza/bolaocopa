@@ -7,4 +7,5 @@ urlpatterns = [
     path('', include('pools.urls')),
     path('', include('predictions.urls')),
     path('', include('matches.urls')),
+    path('', include('rankings.urls')),
 ]

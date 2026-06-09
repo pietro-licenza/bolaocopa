@@ -58,6 +58,9 @@
         <a href='{% url "my_predictions" pool_id=pool.pk %}' class='border border-gray-600 hover:border-emerald-500 text-gray-300 font-semibold rounded-lg px-6 py-3 transition-colors duration-200 inline-block'>
             Meus Palpites
         </a>
+        <a href='{% url "pool_ranking" pool_id=pool.pk %}' class='border border-gray-600 hover:border-emerald-500 text-gray-300 font-semibold rounded-lg px-6 py-3 transition-colors duration-200 inline-block'>
+            Ver Ranking
+        </a>
         <a href='{% url "pool_list" %}' class='text-emerald-400 hover:text-emerald-300 transition-colors duration-200 self-center'>
             &larr; Voltar para Meus Bolões
         </a>

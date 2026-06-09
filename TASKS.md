@@ -151,12 +151,12 @@
 
 ### Epico 5: Rankings
 
-**US-5.1: Ver ranking do bolao**
+**US-5.1: Ver ranking do bolao** ✓
 - **Como** membro de um bolao, **quero** ver o ranking, **para** saber minha posicao.
 - **Criterios de aceite:**
-  - [ ] Exibir tabela com posicao, nome do membro e pontuacao total
-  - [ ] Destacar a posicao do usuario logado
-  - [ ] Ordenar por pontuacao decrescente
+  - [X] Exibir tabela com posicao, nome do membro e pontuacao total
+  - [X] Destacar a posicao do usuario logado
+  - [X] Ordenar por pontuacao decrescente
 
 **US-5.2: Calculo automatizado de pontos**
 - **Como** sistema, **quero** calcular pontos automaticamente, **para** manter rankings atualizados.
@@ -177,4 +177,119 @@
   - [ ] Validar que o Django signal dispara corretamente ao salvar resultado real
   - [ ] Validar atualizacao automatica do ranking apos calculo de pontos
   - [ ] Validar persistencia: ranking persiste corretamente apos multiplos resultados
+  - [ ] Corrigir bugs encontrados
+
+### Epico 6: Seed da Copa do Mundo 2026
+
+**US-6.1: Criar management command de seed**
+- **Como** administrador do sistema, **quero** executar um comando que popule o banco com os dados da Copa do Mundo 2026, **para** que os usuarios tenham jogos, selecoes, estadios e rodadas disponiveis para palpitar.
+- **Criterios de aceite:**
+  - [ ] Criar management command `seed_world_cup_2026` em `matches/management/commands/`
+  - [ ] Comando idempotente: pode ser executado multiplas vezes sem duplicar registros
+  - [ ] Confirmar com o usuario antes de popular (prompt ou flag `--no-input`)
+  - [ ] Exibir resumo final: total de selecoes, estadios, rodadas e jogos criados/atualizados
+  - [ ] Registrar data/hora de execucao em log ou output do comando
+
+**US-6.2: Popular selecoes (Team)**
+- **Como** administrador, **quero** cadastrar as 48 selecoes que disputarao a Copa 2026, **para** que possam ser associadas aos jogos.
+- **Criterios de aceite:**
+  - [ ] Cadastrar 48 selecoes com nome oficial, codigo FIFA (3 letras) e confederacao
+  - [ ] Incluir as 3 selecoes sedes: Canada, EUA, Mexico
+  - [ ] Incluir as selecoes classificadas via eliminatorias ate o momento do seed
+  - [ ] Verificar duplicatas pelo codigo FIFA antes de criar
+  - [ ] Atualizar dados se a selecao ja existir (upsert)
+
+**US-6.3: Popular estadios (Stadium)**
+- **Como** administrador, **quero** cadastrar os estadios sede da Copa 2026, **para** que sejam exibidos nas paginas de jogos.
+- **Criterios de aceite:**
+  - [ ] Cadastrar 16 estadios sede da Copa 2026
+  - [ ] Para cada estadio: nome, cidade, pais (EUA/Canada/Mexico) e capacidade
+  - [ ] Verificar duplicatas pelo nome antes de criar
+  - [ ] Atualizar dados se o estadio ja existir (upsert)
+
+**US-6.4: Popular rodadas (Round)**
+- **Como** administrador, **quero** cadastrar as fases/rodadas do torneio, **para** organizar e exibir os jogos agrupados.
+- **Criterios de aceite:**
+  - [ ] Cadastrar as 7 fases: Fase de Grupos, 32-avos (se aplicavel), Oitavas de Final, Quartas de Final, Semifinais, Disputa de 3o lugar, Final
+  - [ ] Cada rodada com `name`, `order` (para ordenacao) e `start_date`/`end_date` (se aplicavel)
+  - [ ] Ordenacao logica: Fase de Grupos (1), Oitavas (2), Quartas (3), Semis (4), 3o lugar (5), Final (6)
+  - [ ] Verificar duplicatas pelo nome antes de criar
+
+**US-6.5: Popular jogos da fase de grupos (Match)**
+- **Como** administrador, **quero** cadastrar os 72 jogos da fase de grupos (12 grupos x 6 jogos), **para** que os usuarios possam palpitar desde o inicio do torneio.
+- **Criterios de aceite:**
+  - [ ] Cadastrar 72 jogos da fase de grupos com `home_team`, `away_team`, `stadium`, `round`, `match_datetime`
+  - [ ] Agrupar corretamente os jogos em 12 grupos de 4 selecoes (A, B, C, ..., L)
+  - [ ] Datas, horarios e locais conforme tabela oficial da FIFA
+  - [ ] Todos os jogos com `status='agendado'` por padrao
+  - [ ] Nenhum jogo pode ter `home_team == away_team`
+  - [ ] Verificar duplicatas (`home_team`+`away_team`+`match_datetime`) antes de criar
+
+**US-6.6: Popular jogos do mata-mata (Match)**
+- **Como** administrador, **quero** cadastrar os jogos do mata-mata, **para** que o sistema tenha a tabela completa da Copa 2026.
+- **Criterios de aceite:**
+  - [ ] Cadastrar 32-avos de final (se aplicavel ao formato de 48 selecoes): 16 jogos
+  - [ ] Cadastrar Oitavas de Final: 16 jogos
+  - [ ] Cadastrar Quartas de Final: 8 jogos
+  - [ ] Cadastrar Semifinais: 4 jogos
+  - [ ] Cadastrar Disputa de 3o lugar: 1 jogo
+  - [ ] Cadastrar Final: 1 jogo
+  - [ ] Todos com `status='agendado'` por padrao
+  - [ ] Datas, horarios e locais conforme calendario oficial
+
+**US-6.VAL: Validacao do Sprint 6 — Seed da Copa 2026**
+- **Como** agente de QA, **quero** validar todo o trabalho do Sprint 6, **para** garantir que o banco esta populado corretamente e o sistema consegue consumir os dados.
+- **Criterios de aceite:**
+  - [ ] Executar `python manage.py seed_world_cup_2026` em banco de teste
+  - [ ] Validar contagens: 48 selecoes, 16 estadios, 7 rodadas, 104 jogos
+  - [ ] Validar que nenhum jogo esta duplicado
+  - [ ] Validar que o comando pode ser executado 2x sem duplicar nada
+  - [ ] Validar listagem de jogos na UI: ordenacao por data, exibicao de selecoes/estadio/status
+  - [ ] Validar que eh possivel registrar palpite em um jogo seedado
+  - [ ] Corrigir bugs encontrados
+
+### Epico 7: Regras de pontuacao
+
+**US-7.1: Avaliar existencia de modelo de regras de pontuacao**
+- **Como** administrador, **quero** verificar se ja existe um modelo que armazene as regras de pontuacao do sistema, **para** decidir se precisa criar um novo.
+- **Criterios de aceite:**
+  - [ ] Verificar models existentes em `predictions/`, `matches/`, `rankings/`
+  - [ ] Documentar no PRD ou em doc tecnica o que ja existe (pontos fixos no signal vs. modelo parametrizavel)
+  - [ ] Se ja existir modelo parametrizavel: cancelar US-7.2 a US-7.5 e seguir para validacao
+  - [ ] Se existir apenas logica hardcoded no signal: seguir para US-7.2
+
+**US-7.2: Criar modelo ScoringRule**
+- **Como** administrador, **quero** um modelo que armazene as regras de pontuacao de forma parametrizavel, **para** ajustar valores sem alterar codigo nem rodar migracoes.
+- **Criterios de aceite:**
+  - [ ] Criar model `ScoringRule` no app `predictions` (ou `matches`) com campos: `name` (identificador), `points` (int positivo), `description` (texto)
+  - [ ] Metodo de classe para retornar pontos por tipo de acerto (ex: `ScoringRule.points_for('exact')`, `points_for('winner_or_draw')`, `points_for('wrong')`)
+  - [ ] Defaults criados via data migration: exato=3, vencedor/empate=1, erro=0
+  - [ ] Campo `is_active` (bool) para permitir multiplas versoes de regras (caso mude no meio do torneio)
+  - [ ] Audit fields: `created_at`, `updated_at`
+  - [ ] Admin Django registrado para `ScoringRule`
+
+**US-7.3: Refatorar signal de calculo de pontos para usar ScoringRule**
+- **Como** desenvolvedor, **quero** que o signal de calculo de pontos leia os valores do modelo `ScoringRule`, **para** tornar o sistema configuravel.
+- **Criterios de aceite:**
+  - [ ] Substituir literais hardcoded (3, 1, 0) no signal por chamadas a `ScoringRule.points_for(...)`
+  - [ ] Manter retrocompatibilidade: se nao houver regra ativa, usar defaults em codigo (3/1/0)
+  - [ ] Adicionar testes manuais ou log mostrando qual regra foi aplicada em cada calculo
+  - [ ] Garantir que o calculo continua disparando ao mudar status do jogo para `finalizado`
+
+**US-7.4: Exibir regras de pontuacao na UI**
+- **Como** usuario logado, **quero** ver as regras de pontuacao vigentes, **para** saber quanto posso ganhar com cada tipo de acerto.
+- **Criterios de aceite:**
+  - [ ] Criar pagina `/regras/` (ou incluir na landing/dashboard) com a tabela de regras ativas
+  - [ ] Exibir: tipo de acerto, pontos, descricao em pt-BR
+  - [ ] Link "Regras" na navbar ou no dashboard
+  - [ ] Tela responsiva com design system dark theme
+
+**US-7.VAL: Validacao do Sprint 7 — Regras de pontuacao**
+- **Como** agente de QA, **quero** validar todo o trabalho do Sprint 7, **para** garantir que as regras estao configuraveis e o calculo continua funcionando.
+- **Criterios de aceite:**
+  - [ ] Validar que `ScoringRule` aparece no Django Admin e pode ser editado
+  - [ ] Validar que ao alterar `points` no admin, o proximo calculo de pontos usa o novo valor
+  - [ ] Validar cenarios: acerto exato (3 pts), acerto de vencedor (1 pt), erro (0 pts)
+  - [ ] Validar exibicao das regras na UI em `/regras/`
+  - [ ] Validar retrocompatibilidade: se nenhuma regra estiver ativa, defaults 3/1/0 continuam funcionando
   - [ ] Corrigir bugs encontrados
