@@ -1,6 +1,7 @@
 from django.core.management.base import BaseCommand
 from django.utils import timezone
 
+from matches.management.commands.seeders import group_matches as group_matches_seeder
 from matches.management.commands.seeders import rounds as rounds_seeder
 from matches.management.commands.seeders import stadiums as stadiums_seeder
 from matches.management.commands.seeders import teams as teams_seeder
@@ -53,10 +54,32 @@ class Command(BaseCommand):
             ),
         )
 
+        # US-6.5: 72 jogos da fase de grupos (upsert idempotente por
+        # home_team + away_team + match_datetime).
+        (
+            matches_criados,
+            matches_atualizados,
+            matches_total,
+            matches_erros,
+        ) = group_matches_seeder.upsert_group_matches()
+        self.stdout.write(
+            self.style.SUCCESS(
+                f'Jogos (fase de grupos): {matches_total} processados '
+                f'({matches_criados} criados, {matches_atualizados} atualizados, '
+                f'{matches_erros} erros de validacao).',
+            ),
+        )
+
         self.stdout.write('')
         self.stdout.write(self.style.SUCCESS('=== Resumo ==='))
         self.stdout.write(f'Selecoes: {teams_total} ({teams_criados} criadas, {teams_atualizados} atualizadas)')
         self.stdout.write(f'Estadios: {stadiums_total} ({stadiums_criados} criados, {stadiums_atualizados} atualizados)')
         self.stdout.write(f'Rodadas: {rounds_total} ({rounds_criados} criadas, {rounds_atualizados} atualizadas)')
-        self.stdout.write('Jogos: 0 (stub - sera implementado na US 6.5 e 6.6)')
+        self.stdout.write(
+            f'Jogos (fase de grupos): {matches_total} '
+            f'({matches_criados} criados, {matches_atualizados} atualizados)',
+        )
+        self.stdout.write(
+            'Jogos (mata-mata): 0 (sera implementado na US-6.6)',
+        )
         self.stdout.write(f'Partidas removidas: {total_matches_deletados}')

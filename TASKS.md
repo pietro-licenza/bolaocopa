@@ -219,12 +219,12 @@
 **US-6.5: Popular jogos da fase de grupos (Match)**
 - **Como** administrador, **quero** cadastrar os 72 jogos da fase de grupos (12 grupos x 6 jogos), **para** que os usuarios possam palpitar desde o inicio do torneio.
 - **Criterios de aceite:**
-  - [ ] Cadastrar 72 jogos da fase de grupos com `home_team`, `away_team`, `stadium`, `round`, `match_datetime`
-  - [ ] Agrupar corretamente os jogos em 12 grupos de 4 selecoes (A, B, C, ..., L)
-  - [ ] Datas, horarios e locais conforme tabela oficial da FIFA
-  - [ ] Todos os jogos com `status='agendado'` por padrao
-  - [ ] Nenhum jogo pode ter `home_team == away_team`
-  - [ ] Verificar duplicatas (`home_team`+`away_team`+`match_datetime`) antes de criar
+  - [X] Cadastrar 72 jogos da fase de grupos com `home_team`, `away_team`, `stadium`, `round`, `match_datetime`
+  - [X] Agrupar corretamente os jogos em 12 grupos de 4 selecoes (A, B, C, ..., L)
+  - [X] Datas, horarios e locais conforme tabela oficial da FIFA
+  - [X] Todos os jogos com `status='agendado'` por padrao
+  - [X] Nenhum jogo pode ter `home_team == away_team`
+  - [X] Verificar duplicatas (`home_team`+`away_team`+`match_datetime`) antes de criar
 
 **US-6.6: Popular jogos do mata-mata (Match)**
 - **Como** administrador, **quero** cadastrar os jogos do mata-mata, **para** que o sistema tenha a tabela completa da Copa 2026.
