@@ -252,3 +252,118 @@
   - [X] Validar listagem de jogos na UI: ordenacao por data, exibicao de selecoes/estadio/status
   - [X] Validar que eh possivel registrar palpite em um jogo seedado
   - [X] Corrigir bugs encontrados
+  
+### Epico 7: Jogos ao vivo, eventos e navegacao
+
+**Contexto geral:**
+- API-Football v3 (plano free, 100 req/dia) — chave salva em `.env` na variavel `API-FOOTBALL-KEY`
+- Base URL: `https://v3.football.api-sports.io`
+- Header de auth: `x-apisports-key: <KEY>`
+- Endpoints principais a usar:
+  - `GET /fixtures?id={fixture_id}` — detalhes de um jogo (status, elapsed, score, penalties)
+  - `GET /fixtures?date=YYYY-MM-DD&league=1&season=2026` — jogos por data
+  - `GET /fixtures/events?fixture={fixture_id}` — eventos (gols, cartoes, substituicoes)
+- Estrategia de rate-limit: 1 requisicao manual por botao clicado. Sync automatico via cron sera implementado em sprint futuro.
+
+**US-7.1: Cliente da API-Football**
+- **Como** sistema, **quero** ter um cliente Python que encapsule as chamadas a API-Football, **para** que o resto do codigo nao dependa de detalhes HTTP.
+- **Criterios de aceite:**
+  - [X] Criar app `live/` com `live/services/api_football.py`
+  - [X] Adicionar `live` ao `INSTALLED_APPS` em `core/settings.py`
+  - [X] Carregar `API-FOOTBALL-KEY` do `.env` (usar `os.getenv('API-FOOTBALL-KEY')` ou `python-decouple`)
+  - [X] Adicionar `API_FOOTBALL_KEY`, `API_FOOTBALL_BASE_URL`, `API_FOOTBALL_LEAGUE_ID=1` (World Cup) e `API_FOOTBALL_SEASON=2026` em settings
+  - [X] Implementar metodos: `get_fixture(fixture_id)`, `get_fixtures_by_date(date_str)`, `get_fixture_events(fixture_id)`
+  - [X] Tratar erros de rede e respostas com `response.ok == False` retornando valores seguros (None ou lista vazia)
+  - [X] Logar cada chamada no console (timestamp + endpoint) para debug
+
+**US-7.2: Mapear Match com API-Football via `external_id`**
+- **Como** sistema, **quero** associar cada Match do banco a um `fixture_id` da API-Football, **para** conseguir buscar dados ao vivo.
+- **Criterios de aceite:**
+  - [ ] Adicionar campo `external_id = models.PositiveIntegerField(null=True, blank=True, db_index=True)` ao model `Match`
+  - [ ] Adicionar `penalties_home = models.PositiveSmallIntegerField(null=True, blank=True)` e `penalties_away = models.PositiveSmallIntegerField(null=True, blank=True)` ao model `Match`
+  - [ ] Gerar e aplicar migration
+  - [ ] Atualizar admin para exibir `external_id`
+  - [ ] Criar management command `backfill_match_external_ids` que, para cada Match agendado, busca o fixture correspondente na API-Football por data+selecoes e preenche `external_id` (idempotente)
+  - [ ] Documentar fonte do mapeamento (data + home_team.country_code + away_team.country_code)
+
+**US-7.3: Botao manual "Buscar resultado" na pagina do bolao/jogo**
+- **Como** usuario, **quero** clicar em um botao "Buscar resultado" em uma pagina de jogo, **para** atualizar o placar e eventos sem eu precisar esperar um sync automatico.
+- **Criterios de aceite:**
+  - [ ] View `MatchSyncView` (LoginRequiredMixin, POST only) que recebe `match_id`, chama o cliente API-Football e atualiza placar/status/eventos
+  - [ ] Botao "Buscar resultado" visivel apenas em jogos com `external_id` preenchido
+  - [ ] Botao desabilitado visualmente por 5 segundos apos click (evitar duplo-clique que gastaria 2 requests)
+  - [ ] Apos sincronizar, redirecionar de volta para a pagina de origem com mensagem de sucesso "Placar atualizado"
+  - [ ] Cada click = 1 request `/fixtures` + 1 request `/fixtures/events` (2 requests por botao, dentro do limite diario)
+  - [ ] Em caso de erro da API (404, 429, 500), exibir mensagem amigavel em pt-BR
+  - [ ] Rate-limit client-side: contador diario de requests em `cache` (Django cache framework, LocMem) — se passar de 95 requests no dia, bloquear botao e exibir "Limite diario da API atingido, tente amanha"
+  - [ ] Estrutura preparada para futura task de cron (deixar funcao `sync_match_from_api(match)` isolada e chamavel por command)
+
+**US-7.4: Indicador "Ao vivo" e placar em tempo real**
+- **Como** usuario, **quero** ver claramente quais jogos estao acontecendo agora, **para** nao perder nenhum lance.
+- **Criterios de aceite:**
+  - [ ] Card de match com status `em_andamento` exibe badge "AO VIVO" em vermelho pulsante (animacao CSS `animate-pulse` do Tailwind)
+  - [ ] Exibir minuto do jogo (`Match.elapsed_minute`) ao lado do badge "AO VIVO" (campo novo adicionado na US-7.2 ou nesta US)
+  - [ ] Placar atualizado em destaque: fonte maior, cor branca, formatado como `HOME 2 x 1 AWAY`
+  - [ ] Em jogos finalizados com penaltis, mostrar mini-placar `(4) 2 x 1 (3)` abaixo do placar normal
+  - [ ] Auto-refresh a cada 60 segundos via polling JS (fetch de partial view `/matches/<id>/_partial/` que retorna so o card) — esta e a unica excecao ao stack DTL puro, justificada pela experiencia ao vivo
+  - [ ] Polling so roda se `Match.status == 'em_andamento'`. Em outros status, polling e desativado
+  - [ ] Indicador visual de "atualizando..." durante a requisicao
+
+**US-7.5: Marcadores de gols, cartoes e substituicoes**
+- **Como** usuario, **quero** ver quem fez gol, levou cartao e foi substituido em cada jogo, **para** acompanhar os lances.
+- **Criterios de aceite:**
+  - [ ] Criar model `MatchEvent(match FK, minute PositiveSmallIntegerField, type choices [goal, yellow_card, red_card, substitution_in, substitution_out], team ForeignKey Team, player CharField, assist_player CharField null/blank, created_at, updated_at)` em `live/models.py`
+  - [ ] Migration + admin
+  - [ ] Abaixo do card de match finalizado ou em andamento, exibir lista de eventos ordenada por minuto
+  - [ ] Cada evento renderizado com icone: ⚽ gol, 🟨 amarelo, 🟥 vermelho, ⇥ entrou, ⇤ saiu
+  - [ ] Linha de gol mostra: `45' ⚽ Neymar (BRA) · assist: Vinicius Jr` (ou padrao similar)
+  - [ ] Linha de cartao mostra: `30' 🟨 Casemiro (BRA)`
+  - [ ] Linha de substituicao mostra: `65' ⇥ Antony ⇤ Raphinha (BRA)` em uma unica linha
+  - [ ] Icones centralizados, fonte mono para o minuto
+  - [ ] Visual segue o design system dark theme (bg-gray-900, text-gray-300, icones coloridos)
+
+**US-7.6: Placar de penaltis**
+- **Como** usuario, **quero** ver o resultado dos penaltis ao final de jogos eliminatorios, **para** saber quem avancou na copa.
+- **Criterios de aceite:**
+  - [ ] Exibir mini-placar de penaltis abaixo do placar original quando `penalties_home` e `penalties_away` estiverem populados
+  - [ ] Formato visual: `(4) 1 x 1 (3)` com numeros de penaltis em circulo/badge, integrando com US-7.4
+  - [ ] Adicionar label "penaltis" em texto pequeno abaixo
+  - [ ] Disponivel tanto em jogos finalizados quanto em exibicao historica
+
+**US-7.7: Nova aba "Jogos" na navbar com submenus**
+- **Como** usuario, **quero** acessar uma area dedicada de "Jogos" na navbar, **para** navegar entre agenda, grupos e chaveamento.
+- **Criterios de aceite:**
+  - [ ] Adicionar link "Jogos" na navbar que aponta para `/matches/` (CBV `MatchHomeView`)
+  - [ ] Pagina `/matches/` exibe 3 cards/botoes grandes: "Agenda", "Grupos", "Chaveamento" — sao links para as sub-views
+  - [ ] **Sub-view `/matches/schedule/`** (Agenda):
+    - [ ] Seletor de data (input date ou botoes de dia)
+    - [ ] Lista de jogos do dia selecionado, ordenados por horario
+    - [ ] Mostra selecoes, estadio, status
+    - [ ] Default = data de hoje
+  - [ ] **Sub-view `/matches/groups/`** (Grupos):
+    - [ ] Exibe 12 grupos (A-L), cada um como um card
+    - [ ] Dentro de cada grupo, tabela com: Posicao, Selecao (bandeira + nome), P (pontos), J (jogos), V (vitorias), E (empates), D (derrotas), GP (gols pro), GC (gols contra), SG (saldo)
+    - [ ] Calculos baseados em jogos finalizados (signal/sync ao finalizar jogo atualiza a tabela)
+    - [ ] Ordenacao por pontos (desc), depois saldo, depois gols pro
+    - [ ] Selecao do usuario logado destacada se for uma das 48
+  - [ ] **Sub-view `/matches/bracket/`** (Chaveamento):
+    - [ ] Bracket visual em HTML+CSS mostrando 32-avos → Oitavas → Quartas → Semis → Final
+    - [ ] Cada confronto como um mini-card com: time mandante (ou TBD), time visitante (ou TBD), data
+    - [ ] Times TBD renderizados como card cinza "A definir" com link para o jogo que define o confronto
+    - [ ] Disputa de 3o lugar em card separado abaixo das semis
+    - [ ] Visual: conectores simples em CSS (linhas) ou grid/flex com bordas
+  - [ ] Rota catch-all para qualquer uma das 3 sub-views: `/matches/schedule/<YYYY-MM-DD>/`
+  - [ ] Todas as views autenticadas com `LoginRequiredMixin`
+
+**US-7.VAL: Validacao do Sprint 7 — Jogos ao vivo e navegacao**
+- **Como** agente de QA, **quero** validar todo o trabalho do Sprint 7, **para** garantir que a integracao com a API-Football, eventos e nova aba de jogos funcionam corretamente.
+- **Criterios de aceite:**
+  - [ ] Configurar `.env` com `API-FOOTBALL-KEY` real e validar que cliente nao quebra com chave invalida
+  - [ ] Rodar `backfill_match_external_ids` e validar que jogos seedados recebem `external_id` (ou documentar limitacao caso a API nao retorne a Copa 2026 ainda)
+  - [ ] Testar botao "Buscar resultado" em 1 jogo: verificar 2 requests feitas, placar atualizado, eventos listados
+  - [ ] Validar rate-limit: simular 96 requests via console e verificar que a 97a e bloqueada
+  - [ ] Tirar prints: badge "AO VIVO" pulsante, lista de eventos, mini-placar de penaltis, aba "Jogos", sub-telas Agenda/Grupos/Chaveamento
+  - [ ] Validar navegacao pela aba "Jogos" como usuario logado
+  - [ ] Validar chaveamento: times definidos aparecem com nome+bandeira, TBD aparece como "A definir"
+  - [ ] Validar grupos: jogos finalizados recalculam pontos/saldo/GP/GC
+  - [ ] Corrigir bugs encontrados

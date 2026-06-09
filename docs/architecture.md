@@ -32,6 +32,19 @@ bolaocopa/
 │   ├── tests.py
 │   ├── urls.py
 │   └── views.py
+├── live/                  # Integracao API-Football, eventos ao vivo (gols, cartoes, substituicoes)
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── migrations/
+│   ├── models.py
+│   ├── services/
+│   │   └── api_football.py   # cliente HTTP da API-Football v3
+│   ├── urls.py
+│   ├── views.py
+│   └── management/
+│       └── commands/
+│           └── backfill_match_external_ids.py
 ├── pools/                 # Boloes (criar, listar, convite, membros)
 │   ├── __init__.py
 │   ├── admin.py
@@ -120,3 +133,12 @@ bolaocopa/
 - `TIME_ZONE = 'America/Sao_Paulo'`
 - `LOGIN_URL` e `LOGIN_REDIRECT_URL` configurados
 - Templates directory aponta para `templates/` na raiz do projeto
+
+### Integracao com API-Football (Sprint 7)
+
+- Chave em `.env`: `API-FOOTBALL-KEY`
+- Variaveis em settings: `API_FOOTBALL_KEY`, `API_FOOTBALL_BASE_URL` (default `https://v3.football.api-sports.io`), `API_FOOTBALL_LEAGUE_ID=1`, `API_FOOTBALL_SEASON=2026`
+- Plano free: 100 req/dia. Rate-limit client-side via Django cache (LocMem) com contador diario; limite conservador de 95 req/dia
+- `Match.external_id` mapeia para `fixture.id` da API
+- `MatchEvent` (em `live/models.py`) armazena eventos (gols, cartoes, substituicoes) com minuto, jogador, time
+- Sync por enquanto via botao manual; sync automatico por cron previsto para sprint futuro

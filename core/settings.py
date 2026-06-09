@@ -10,10 +10,23 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Load variables from a local .env file (if present) into os.environ so
+# settings below can rely on os.getenv(...). We use a tiny stdlib-only
+# parser to avoid pulling python-decouple / python-dotenv as a dependency.
+_ENV_PATH = BASE_DIR / '.env'
+if _ENV_PATH.exists():
+    for _line in _ENV_PATH.read_text(encoding='utf-8').splitlines():
+        _line = _line.strip()
+        if not _line or _line.startswith('#') or '=' not in _line:
+            continue
+        _key, _, _value = _line.partition('=')
+        os.environ.setdefault(_key.strip(), _value.strip())
 
 
 # Quick-start development settings - unsuitable for production
@@ -42,6 +55,7 @@ INSTALLED_APPS = [
     'matches',
     'predictions',
     'rankings',
+    'live',
 ]
 
 MIDDLEWARE = [
@@ -132,3 +146,13 @@ LOGOUT_REDIRECT_URL = '/'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 DEFAULT_FROM_EMAIL = 'bolao@bolao copa.com'
+
+# API-Football v3 (free tier, 100 req/day)
+API_FOOTBALL_KEY = os.getenv('API-FOOTBALL-KEY', '')
+API_FOOTBALL_BASE_URL = os.getenv(
+    'API-FOOTBALL-BASE-URL',
+    'https://v3.football.api-sports.io',
+)
+API_FOOTBALL_LEAGUE_ID = int(os.getenv('API-FOOTBALL-LEAGUE-ID', '1'))
+API_FOOTBALL_SEASON = int(os.getenv('API-FOOTBALL-SEASON', '2026'))
+API_FOOTBALL_TIMEOUT = int(os.getenv('API-FOOTBALL-TIMEOUT', '15'))
