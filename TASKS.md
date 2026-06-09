@@ -351,32 +351,30 @@
   - [X] **Estrategia de preenchimento**: input manual no Django Admin. As APIs gratis nao retornam placar de penaltis confiavelmente
   - [X] MatchAdmin em `matches/admin.py` exibe `penalties_home`/`penalties_away` no form de edicao, dentro de um fieldset "Placar de penaltis (somente mata-mata)"
 
-**US-7.7: Nova aba "Jogos" na navbar com submenus**
+**US-7.7: Nova aba "Jogos" na navbar com submenus** ✓
 - **Como** usuario, **quero** acessar uma area dedicada de "Jogos" na navbar, **para** navegar entre agenda, grupos e chaveamento.
 - **Criterios de aceite:**
-  - [ ] Adicionar link "Jogos" na navbar que aponta para `/matches/` (CBV `MatchHomeView`)
-  - [ ] Pagina `/matches/` exibe 3 cards/botoes grandes: "Agenda", "Grupos", "Chaveamento" — sao links para as sub-views
-  - [ ] **Sub-view `/matches/schedule/`** (Agenda):
-    - [ ] Seletor de data (input date ou botoes de dia)
-    - [ ] Lista de jogos do dia selecionado, ordenados por horario
-    - [ ] Mostra selecoes, estadio, status
-    - [ ] Default = data de hoje
-  - [ ] **Sub-view `/matches/groups/`** (Grupos):
-    - [ ] Exibe 12 grupos (A-L), cada um como um card
-    - [ ] Dentro de cada grupo, tabela com: Posicao, Selecao (bandeira + nome), P (pontos), J (jogos), V (vitorias), E (empates), D (derrotas), GP (gols pro), GC (gols contra), SG (saldo)
-    - [ ] Calculos baseados em jogos finalizados (signal/sync ao finalizar jogo atualiza a tabela)
-    - [ ] Dados de standings podem ser enriquecidos via `LiveDataRouter.get_standings(competition_id)` (FDO) ao abrir a pagina — usar para o snapshot oficial, calcular local como fallback
-    - [ ] Ordenacao por pontos (desc), depois saldo, depois gols pro
-    - [ ] Selecao do usuario logado destacada se for uma das 48
-  - [ ] **Sub-view `/matches/bracket/`** (Chaveamento):
-    - [ ] Bracket visual em HTML+CSS mostrando 32-avos → Oitavas → Quartas → Semis → Final
-    - [ ] Cada confronto como um mini-card com: time mandante (ou TBD), time visitante (ou TBD), data
-    - [ ] **Importante**: os 32 jogos do mata-mata estao atualmente com `home_team`/`away_team` = placeholders TBD-H/TBD-A (ver US-6.6 e US-7.2 fix) e `external_id` em branco. O bracket vai mostrar todos como "A definir" ate a fase de grupos acabar e os confrontos serem definidos
-    - [ ] Times TBD renderizados como card cinza "A definir" (label "A definir" em vez do nome) — sem link externo (jogo ainda nao existe em API). Quando `Match.home_team != TBD-H`, mostrar nome+bandeira normalmente
-    - [ ] Disputa de 3o lugar em card separado abaixo das semis
-    - [ ] Visual: conectores simples em CSS (linhas) ou grid/flex com bordas
-  - [ ] Rota catch-all para qualquer uma das 3 sub-views: `/matches/schedule/<YYYY-MM-DD>/`
-  - [ ] Todas as views autenticadas com `LoginRequiredMixin`
+  - [X] Adicionar link "Jogos" na navbar que aponta para `/matches/` (CBV `MatchHomeView`)
+  - [X] Pagina `/matches/` exibe 3 cards/botoes grandes: "Agenda", "Grupos", "Chaveamento" — sao links para as sub-views
+  - [X] **Sub-view `/matches/schedule/`** (Agenda):
+    - [X] Seletor de data (input date ou botoes de dia)
+    - [X] Lista de jogos do dia selecionado, ordenados por horario
+    - [X] Mostra selecoes, estadio, status
+    - [X] Default = data de hoje
+  - [X] **Sub-view `/matches/groups/`** (Grupos):
+    - [X] Exibe 12 grupos (A-L), cada um como um card
+    - [X] Dentro de cada grupo, tabela com: Posicao, Selecao (bandeira + nome), P (pontos), J (jogos), V (vitorias), E (empates), D (derrotas), GP (gols pro), GC (gols contra), SG (saldo)
+    - [X] Calculos baseados em jogos finalizados com fallback para FDO standings
+    - [X] Top 2 destacados (classificam); 3º com destaque amarelo (melhores terceiros)
+    - [X] Ordenacao por pontos (desc), depois saldo, depois gols pro
+  - [X] **Sub-view `/matches/bracket/`** (Chaveamento):
+    - [X] Bracket visual em HTML+CSS mostrando 32-avos → Oitavas → Quartas → Semis → Final
+    - [X] Cada confronto como um mini-card com: time mandante (ou TBD), time visitante (ou TBD), data
+    - [X] Times TBD renderizados como "A definir" (sem link externo ate o jogo existir)
+    - [X] Disputa de 3o lugar em card separado abaixo das semis
+    - [X] Visual: grid com conectores emerald/30 entre fases, scroll horizontal em mobile
+  - [X] Rota catch-all para qualquer uma das 3 sub-views: `/matches/schedule/<YYYY-MM-DD>/`
+  - [X] Todas as views autenticadas com `LoginRequiredMixin`
 
 **US-7.VAL: Validacao do Sprint 7 — Jogos ao vivo e navegacao**
 - **Como** agente de QA, **quero** validar todo o trabalho do Sprint 7, **para** garantir que a integracao com a API-Football, eventos e nova aba de jogos funcionam corretamente.

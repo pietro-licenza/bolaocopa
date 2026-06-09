@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+
+{% load matches_extras %}
+
+{% block title %}Fase de Grupos — BolãoCopa{% endblock %}
+
+{% block content %}
+<div class='py-8'>
+    <header class='mb-8'>
+        <h1 class='text-3xl md:text-4xl font-bold text-white'>Fase de Grupos</h1>
+        <p class='text-gray-400 mt-2 text-lg'>Classificação atualizada dos 12 grupos da Copa 2026.</p>
+    </header>
+
+    <div class='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4'>
+        {% for letter in group_letters %}
+            <article class='bg-gray-900 border border-gray-700 rounded-xl p-4 hover:border-emerald-500/50 transition-colors duration-200'>
+                <header class='flex items-center gap-3 mb-3'>
+                    <span class='bg-emerald-600 text-white font-bold w-10 h-10 rounded-full flex items-center justify-center'>{{ letter }}</span>
+                    <h2 class='text-lg font-semibold text-white'>Grupo {{ letter }}</h2>
+                </header>
+
+                <div class='overflow-x-auto'>
+                    <table class='w-full text-sm text-gray-300'>
+                        <thead>
+                            <tr class='text-left text-gray-500 text-xs uppercase border-b border-gray-800'>
+                                <th class='py-2 pr-1 w-8'>#</th>
+                                <th class='py-2'>Seleção</th>
+                                <th class='py-2 px-1 text-right' title='Pontos'>P</th>
+                                <th class='py-2 px-1 text-right' title='Jogos'>J</th>
+                                <th class='py-2 px-1 text-right' title='Vitórias'>V</th>
+                                <th class='py-2 px-1 text-right' title='Empates'>E</th>
+                                <th class='py-2 px-1 text-right' title='Derrotas'>D</th>
+                                <th class='py-2 px-1 text-right' title='Gols Pró'>GP</th>
+                                <th class='py-2 px-1 text-right' title='Gols Contra'>GC</th>
+                                <th class='py-2 pl-1 text-right' title='Saldo de Gols'>SG</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for row in standings|get_item:letter %}
+                                <tr class='border-t border-gray-800 hover:bg-gray-800/60 transition-colors duration-200
+                                    {% if row.position == 1 or row.position == 2 %}border-l-4 border-emerald-500
+                                    {% elif row.position == 3 %}border-l-4 border-yellow-500
+                                    {% else %}border-l-4 border-transparent
+                                    {% endif %}'>
+                                    <td class='py-1.5 pr-1 font-semibold
+                                        {% if row.position == 1 %}text-emerald-400
+                                        {% elif row.position == 2 %}text-emerald-400
+                                        {% elif row.position == 3 %}text-yellow-400
+                                        {% else %}text-gray-400
+                                        {% endif %}'>{{ row.position }}</td>
+                                    <td class='py-1.5'>
+                                        <span class='inline-flex items-center gap-2 min-w-0'>
+                                            <span class='text-base'>{{ row.team.flag_emoji }}</span>
+                                            <span class='text-white truncate max-w-[110px]'>{{ row.team.name }}</span>
+                                        </span>
+                                    </td>
+                                    <td class='py-1.5 px-1 text-right font-semibold text-white'>{{ row.P }}</td>
+                                    <td class='py-1.5 px-1 text-right'>{{ row.J }}</td>
+                                    <td class='py-1.5 px-1 text-right'>{{ row.V }}</td>
+                                    <td class='py-1.5 px-1 text-right'>{{ row.E }}</td>
+                                    <td class='py-1.5 px-1 text-right'>{{ row.D }}</td>
+                                    <td class='py-1.5 px-1 text-right'>{{ row.GP }}</td>
+                                    <td class='py-1.5 px-1 text-right'>{{ row.GC }}</td>
+                                    <td class='py-1.5 pl-1 text-right tabular-nums
+                                        {% if row.SG > 0 %}text-emerald-400
+                                        {% elif row.SG < 0 %}text-red-400
+                                        {% else %}text-gray-400
+                                        {% endif %}'>
+                                        {% if row.SG > 0 %}+{{ row.SG }}{% else %}{{ row.SG }}{% endif %}
+                                    </td>
+                                </tr>
+                            {% empty %}
+                                {% for team in groups|get_item:letter %}
+                                    <tr class='border-t border-gray-800 border-l-4 border-transparent'>
+                                        <td class='py-1.5 pr-1 text-gray-400'>{{ forloop.counter }}</td>
+                                        <td class='py-1.5'>
+                                            <span class='inline-flex items-center gap-2 min-w-0'>
+                                                <span class='text-base'>{{ team.flag_emoji }}</span>
+                                                <span class='text-white truncate max-w-[110px]'>{{ team.name }}</span>
+                                            </span>
+                                        </td>
+                                        <td class='py-1.5 px-1 text-right text-gray-500'>0</td>
+                                        <td class='py-1.5 px-1 text-right text-gray-500'>0</td>
+                                        <td class='py-1.5 px-1 text-right text-gray-500'>0</td>
+                                        <td class='py-1.5 px-1 text-right text-gray-500'>0</td>
+                                        <td class='py-1.5 px-1 text-right text-gray-500'>0</td>
+                                        <td class='py-1.5 px-1 text-right text-gray-500'>0</td>
+                                        <td class='py-1.5 px-1 text-right text-gray-500'>0</td>
+                                        <td class='py-1.5 pl-1 text-right text-gray-500'>0</td>
+                                    </tr>
+                                {% endfor %}
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+        {% endfor %}
+    </div>
+
+    <div class='mt-6 text-xs text-gray-500 flex flex-wrap items-center gap-4'>
+        <span class='inline-flex items-center gap-2'>
+            <span class='inline-block w-1 h-4 bg-emerald-500 rounded'></span>
+            <span>Classificado (1º e 2º)</span>
+        </span>
+        <span class='inline-flex items-center gap-2'>
+            <span class='inline-block w-1 h-4 bg-yellow-500 rounded'></span>
+            <span>Pode classificar (melhores 3ºs)</span>
+        </span>
+    </div>
+</div>
+{% endblock %}

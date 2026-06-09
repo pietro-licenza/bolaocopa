@@ -227,3 +227,67 @@
 [ 3420211ms] [LOG] [live-poll] match 932 failed: TypeError: Failed to fetch
     at pollCard (http://127.0.0.1:8765/matches/:1713:13)
     at tick (http://127.0.0.1:8765/matches/:1752:17) @ http://127.0.0.1:8765/matches/:1735
+[ 3480216ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:8765/matches/932/_partial/:0
+[ 3480216ms] [LOG] [live-poll] match 932 failed: TypeError: Failed to fetch
+    at pollCard (http://127.0.0.1:8765/matches/:1713:13)
+    at tick (http://127.0.0.1:8765/matches/:1752:17) @ http://127.0.0.1:8765/matches/:1735
+[ 3540213ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:8765/matches/932/_partial/:0
+[ 3540213ms] [LOG] [live-poll] match 932 failed: TypeError: Failed to fetch
+    at pollCard (http://127.0.0.1:8765/matches/:1713:13)
+    at tick (http://127.0.0.1:8765/matches/:1752:17) @ http://127.0.0.1:8765/matches/:1735
+[ 3600213ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:8765/matches/932/_partial/:0
+[ 3600213ms] [LOG] [live-poll] match 932 failed: TypeError: Failed to fetch
+    at pollCard (http://127.0.0.1:8765/matches/:1713:13)
+    at tick (http://127.0.0.1:8765/matches/:1752:17) @ http://127.0.0.1:8765/matches/:1735
+[ 3660214ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:8765/matches/932/_partial/:0
+[ 3660214ms] [LOG] [live-poll] match 932 failed: TypeError: Failed to fetch
+    at pollCard (http://127.0.0.1:8765/matches/:1713:13)
+    at tick (http://127.0.0.1:8765/matches/:1752:17) @ http://127.0.0.1:8765/matches/:1735
+[ 3720214ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:8765/matches/932/_partial/:0
+[ 3720214ms] [LOG] [live-poll] match 932 failed: TypeError: Failed to fetch
+    at pollCard (http://127.0.0.1:8765/matches/:1713:13)
+    at tick (http://127.0.0.1:8765/matches/:1752:17) @ http://127.0.0.1:8765/matches/:1735
+[ 3780215ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:8765/matches/932/_partial/:0
+[ 3780215ms] [LOG] [live-poll] match 932 failed: TypeError: Failed to fetch
+    at pollCard (http://127.0.0.1:8765/matches/:1713:13)
+    at tick (http://127.0.0.1:8765/matches/:1752:17) @ http://127.0.0.1:8765/matches/:1735
+[ 3840214ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:8765/matches/932/_partial/:0
+[ 3840214ms] [LOG] [live-poll] match 932 failed: TypeError: Failed to fetch
+    at pollCard (http://127.0.0.1:8765/matches/:1713:13)
+    at tick (http://127.0.0.1:8765/matches/:1752:17) @ http://127.0.0.1:8765/matches/:1735
+[ 3900214ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:8765/matches/932/_partial/:0
+[ 3900214ms] [LOG] [live-poll] match 932 failed: TypeError: Failed to fetch
+    at pollCard (http://127.0.0.1:8765/matches/:1713:13)
+    at tick (http://127.0.0.1:8765/matches/:1752:17) @ http://127.0.0.1:8765/matches/:1735
+[ 3960215ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:8765/matches/932/_partial/:0
+[ 3960215ms] [LOG] [live-poll] match 932 failed: TypeError: Failed to fetch
+    at pollCard (http://127.0.0.1:8765/matches/:1713:13)
+    at tick (http://127.0.0.1:8765/matches/:1752:17) @ http://127.0.0.1:8765/matches/:1735
+[ 4020214ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:8765/matches/932/_partial/:0
+[ 4020214ms] [LOG] [live-poll] match 932 failed: TypeError: Failed to fetch
+    at pollCard (http://127.0.0.1:8765/matches/:1713:13)
+    at tick (http://127.0.0.1:8765/matches/:1752:17) @ http://127.0.0.1:8765/matches/:1735
+[ 4080215ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:8765/matches/932/_partial/:0
+[ 4080215ms] [LOG] [live-poll] match 932 failed: TypeError: Failed to fetch
+    at pollCard (http://127.0.0.1:8765/matches/:1713:13)
+    at tick (http://127.0.0.1:8765/matches/:1752:17) @ http://127.0.0.1:8765/matches/:1735
+[ 4140215ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:8765/matches/932/_partial/:0
+[ 4140215ms] [LOG] [live-poll] match 932 failed: TypeError: Failed to fetch
+    at pollCard (http://127.0.0.1:8765/matches/:1713:13)
+    at tick (http://127.0.0.1:8765/matches/:1752:17) @ http://127.0.0.1:8765/matches/:1735
+[ 4200216ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:8765/matches/932/_partial/:0
+[ 4200216ms] [LOG] [live-poll] match 932 failed: TypeError: Failed to fetch
+    at pollCard (http://127.0.0.1:8765/matches/:1713:13)
+    at tick (http://127.0.0.1:8765/matches/:1752:17) @ http://127.0.0.1:8765/matches/:1735
+[ 4260216ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:8765/matches/932/_partial/:0
+[ 4260216ms] [LOG] [live-poll] match 932 failed: TypeError: Failed to fetch
+    at pollCard (http://127.0.0.1:8765/matches/:1713:13)
+    at tick (http://127.0.0.1:8765/matches/:1752:17) @ http://127.0.0.1:8765/matches/:1735
+[ 4320216ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:8765/matches/932/_partial/:0
+[ 4320216ms] [LOG] [live-poll] match 932 failed: TypeError: Failed to fetch
+    at pollCard (http://127.0.0.1:8765/matches/:1713:13)
+    at tick (http://127.0.0.1:8765/matches/:1752:17) @ http://127.0.0.1:8765/matches/:1735
+[ 4380216ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:8765/matches/932/_partial/:0
+[ 4380216ms] [LOG] [live-poll] match 932 failed: TypeError: Failed to fetch
+    at pollCard (http://127.0.0.1:8765/matches/:1713:13)
+    at tick (http://127.0.0.1:8765/matches/:1752:17) @ http://127.0.0.1:8765/matches/:1735

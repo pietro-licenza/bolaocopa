@@ -1,0 +1,139 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e4]:
+      - link "BolãoCopa" [ref=e5] [cursor=pointer]:
+        - /url: /
+      - generic [ref=e6]:
+        - link "Dashboard" [ref=e7] [cursor=pointer]:
+          - /url: /dashboard/
+        - link "Jogos" [ref=e8] [cursor=pointer]:
+          - /url: /matches/
+        - link "Meus Bolões" [ref=e9] [cursor=pointer]:
+          - /url: /pools/
+        - button "Sair" [ref=e11] [cursor=pointer]
+  - main [ref=e12]:
+    - generic [ref=e13]:
+      - generic [ref=e14]:
+        - heading "Mata-mata" [level=1] [ref=e15]
+        - paragraph [ref=e16]: "Acompanhe o chaveamento: 32-avos até a grande final."
+      - generic [ref=e18]:
+        - generic [ref=e19]:
+          - heading "32-avos de Final" [level=2] [ref=e21]
+          - article [ref=e22]:
+            - generic [ref=e23]:
+              - generic [ref=e24]:
+                - generic [ref=e25]: "?"
+                - generic [ref=e26]: A definir
+              - generic [ref=e28]: vs
+              - generic [ref=e29]:
+                - generic [ref=e30]: "?"
+                - generic [ref=e31]: A definir
+              - generic [ref=e33]: 29/06 17:51
+          - article [ref=e34]:
+            - generic [ref=e35]:
+              - generic [ref=e36]:
+                - generic [ref=e37]: "?"
+                - generic [ref=e38]: A definir
+              - generic [ref=e40]: vs
+              - generic [ref=e41]:
+                - generic [ref=e42]: "?"
+                - generic [ref=e43]: A definir
+              - generic [ref=e45]: 30/06 17:51
+          - article [ref=e46]:
+            - generic [ref=e47]:
+              - generic [ref=e48]:
+                - generic [ref=e49]: "?"
+                - generic [ref=e50]: A definir
+              - generic [ref=e52]: vs
+              - generic [ref=e53]:
+                - generic [ref=e54]: "?"
+                - generic [ref=e55]: A definir
+              - generic [ref=e57]: 01/07 17:51
+          - article [ref=e58]:
+            - generic [ref=e59]:
+              - generic [ref=e60]:
+                - generic [ref=e61]: "?"
+                - generic [ref=e62]: A definir
+              - generic [ref=e64]: vs
+              - generic [ref=e65]:
+                - generic [ref=e66]: "?"
+                - generic [ref=e67]: A definir
+              - generic [ref=e69]: 02/07 17:51
+        - generic [ref=e70]:
+          - heading "Oitavas de Final" [level=2] [ref=e72]
+          - article [ref=e73]:
+            - generic [ref=e74]:
+              - generic [ref=e75]:
+                - generic [ref=e76]: "?"
+                - generic [ref=e77]: A definir
+              - generic [ref=e79]: vs
+              - generic [ref=e80]:
+                - generic [ref=e81]: "?"
+                - generic [ref=e82]: A definir
+              - generic [ref=e84]: 29/06 17:51
+          - article [ref=e85]:
+            - generic [ref=e86]:
+              - generic [ref=e87]:
+                - generic [ref=e88]: "?"
+                - generic [ref=e89]: A definir
+              - generic [ref=e91]: vs
+              - generic [ref=e92]:
+                - generic [ref=e93]: "?"
+                - generic [ref=e94]: A definir
+              - generic [ref=e96]: 30/06 17:51
+          - article [ref=e97]:
+            - generic [ref=e98]:
+              - generic [ref=e99]:
+                - generic [ref=e100]: "?"
+                - generic [ref=e101]: A definir
+              - generic [ref=e103]: vs
+              - generic [ref=e104]:
+                - generic [ref=e105]: "?"
+                - generic [ref=e106]: A definir
+              - generic [ref=e108]: 01/07 17:51
+        - generic [ref=e109]:
+          - heading "Quartas de Final" [level=2] [ref=e111]
+          - article [ref=e112]:
+            - generic [ref=e113]:
+              - generic [ref=e114]:
+                - generic [ref=e115]: "?"
+                - generic [ref=e116]: A definir
+              - generic [ref=e118]: vs
+              - generic [ref=e119]:
+                - generic [ref=e120]: "?"
+                - generic [ref=e121]: A definir
+              - generic [ref=e123]: 29/06 17:51
+          - article [ref=e124]:
+            - generic [ref=e125]:
+              - generic [ref=e126]:
+                - generic [ref=e127]: "?"
+                - generic [ref=e128]: A definir
+              - generic [ref=e130]: vs
+              - generic [ref=e131]:
+                - generic [ref=e132]: "?"
+                - generic [ref=e133]: A definir
+              - generic [ref=e135]: 30/06 17:51
+        - generic [ref=e136]:
+          - heading "Semifinal" [level=2] [ref=e138]
+          - article [ref=e139]:
+            - generic [ref=e140]:
+              - generic [ref=e141]:
+                - generic [ref=e142]: "?"
+                - generic [ref=e143]: A definir
+              - generic [ref=e145]: vs
+              - generic [ref=e146]:
+                - generic [ref=e147]: "?"
+                - generic [ref=e148]: A definir
+              - generic [ref=e150]: 29/06 17:51
+      - generic [ref=e151]:
+        - heading "Disputa de 3º lugar" [level=2] [ref=e153]
+        - article [ref=e155]:
+          - generic [ref=e156]:
+            - generic [ref=e157]:
+              - generic [ref=e158]: "?"
+              - generic [ref=e159]: A definir
+            - generic [ref=e161]: vs
+            - generic [ref=e162]:
+              - generic [ref=e163]: "?"
+              - generic [ref=e164]: A definir
+            - generic [ref=e166]: 09/07 17:51

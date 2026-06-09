@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block title %}Agenda de jogos — BolãoCopa{% endblock %}
+
+{% block content %}
+<div class='py-8'>
+    <header class='mb-8'>
+        <h1 class='text-3xl md:text-4xl font-bold text-white'>Agenda de jogos</h1>
+        <p class='text-gray-400 mt-2 text-lg'>Selecione uma data para ver os jogos do dia.</p>
+    </header>
+
+    <!-- Date picker + quick-jump pills -->
+    <section class='bg-gray-900 border border-gray-700 rounded-xl p-4 md:p-5 mb-6'>
+        <form method='get' action='{% url "match_schedule" %}' class='flex flex-col sm:flex-row items-stretch sm:items-end gap-3'>
+            <div class='flex-1 min-w-0'>
+                <label for='schedule-date' class='block text-sm font-medium text-gray-400 mb-1'>Data</label>
+                <input type='date' id='schedule-date' name='date' value='{{ selected_date|date:"Y-m-d" }}' class='w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 text-white focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 focus:outline-none transition-colors duration-200' required>
+            </div>
+            <button type='submit' class='inline-flex items-center justify-center px-6 py-2 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold rounded-lg transition-colors duration-200'>
+                Ir
+            </button>
+        </form>
+
+        {% if available_dates %}
+            <div class='mt-5'>
+                <p class='text-xs font-semibold uppercase tracking-wider text-gray-500 mb-2'>Próximas datas com jogos</p>
+                <div class='flex flex-wrap gap-2'>
+                    {% for d in available_dates %}
+                        <a href='{% url "match_schedule" d|date:"Y-m-d" %}' class='border border-gray-600 hover:border-emerald-500 text-gray-300 hover:text-emerald-400 text-sm font-semibold rounded-lg px-3 py-1 transition-colors duration-200{% if d == selected_date %} border-emerald-500 text-emerald-400{% endif %}'>
+                            {{ d|date:"d/m" }}
+                            <span class='text-gray-500 font-normal'>{{ d|date:"D" }}</span>
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+    </section>
+
+    <!-- Selected date header -->
+    <div class='mb-4 flex items-center justify-between gap-2 flex-wrap'>
+        <h2 class='text-xl font-semibold text-white'>
+            Exibindo jogos de
+            <span class='text-emerald-400'>{{ selected_date|date:"d/m/Y" }}</span>
+            {% if invalid_date %}<span class='text-amber-400 text-sm font-normal'>(data inválida — exibindo hoje)</span>{% endif %}
+        </h2>
+        <span class='text-sm text-gray-400'>{{ page_obj.paginator.count }} jogo{{ page_obj.paginator.count|pluralize:"s" }}</span>
+    </div>
+
+    <!-- Matches list -->
+    {% if matches %}
+        <div class='grid grid-cols-1 lg:grid-cols-2 gap-4'>
+            {% for match in matches %}
+                {% include 'live/partials/match_card.html' with match=match user_has_predicted=False %}
+            {% endfor %}
+        </div>
+
+        {% if is_paginated %}
+            <div class='flex items-center justify-between mt-8 gap-2 flex-wrap'>
+                {% if page_obj.has_previous %}
+                    <a href='?date={{ selected_date|date:"Y-m-d" }}&page={{ page_obj.previous_page_number }}' class='inline-flex items-center justify-center px-4 py-2 border border-gray-600 hover:border-emerald-500 text-gray-300 hover:text-emerald-400 font-semibold rounded-lg transition-colors duration-200'>&larr; Anterior</a>
+                {% else %}
+                    <span></span>
+                {% endif %}
+                <span class='text-gray-400 text-sm'>Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}</span>
+                {% if page_obj.has_next %}
+                    <a href='?date={{ selected_date|date:"Y-m-d" }}&page={{ page_obj.next_page_number }}' class='inline-flex items-center justify-center px-4 py-2 border border-gray-600 hover:border-emerald-500 text-gray-300 hover:text-emerald-400 font-semibold rounded-lg transition-colors duration-200'>Próxima &rarr;</a>
+                {% else %}
+                    <span></span>
+                {% endif %}
+            </div>
+        {% endif %}
+    {% else %}
+        <div class='bg-gray-900 border border-gray-700 rounded-xl p-12 text-center'>
+            <div class='text-4xl mb-3'>📅</div>
+            <p class='text-gray-300 text-lg font-semibold mb-1'>Nenhum jogo nesta data.</p>
+            <p class='text-gray-500 text-sm'>Tente selecionar outra data no campo acima ou volte para a <a href='{% url "match_schedule" %}' class='text-emerald-400 hover:text-emerald-300 transition-colors duration-200'>agenda de hoje</a>.</p>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

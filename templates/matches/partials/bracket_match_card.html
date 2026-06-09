@@ -1,0 +1,63 @@
+{% comment %}
+Card de confronto usado no chaveamento (US-7.7).
+
+Layout vertical: mandante -> placar -> visitante -> data/hora.
+
+Suporta dois tipos de "time":
+* Time real: ``match.home_team`` e ``match.away_team`` apontam para
+  objetos ``Team`` validos (bandeira + nome).
+* TBD: o seed inicial cadastra os 32 jogos do mata-mata com
+  ``home_team`` / ``away_team`` = placeholders ``TBD-H`` / ``TBD-A``
+  (definidos em ``matches.management.commands.seeders.knockout_matches``).
+  Nesse caso renderizamos um card cinza neutro com o label "A definir".
+
+Variaveis de contexto:
+* ``match`` -- objeto ``Match`` com ``home_team``, ``away_team``,
+  ``match_datetime``, ``home_score``, ``away_score``, ``status`` e
+  ``round`` (opcional).
+{% endcomment %}
+{% load matches_extras %}
+<article class='bg-gray-900 border border-gray-700 rounded-lg p-3 hover:border-emerald-500/50 transition-colors duration-200'>
+    <div class='flex flex-col gap-1.5'>
+        {# Home team #}
+        <div class='flex items-center gap-2'>
+            {% if match.home_team.country_code == 'TBD-H' or match.home_team.flag_emoji == '' and match.home_team.country_code == 'TBD' %}
+                <span class='inline-flex items-center justify-center w-6 h-6 rounded bg-gray-800 text-gray-500 text-xs font-semibold border border-gray-700'>?</span>
+                <span class='text-gray-500 italic text-sm'>A definir</span>
+            {% else %}
+                <span class='text-lg'>{{ match.home_team.flag_emoji }}</span>
+                <span class='text-white font-semibold text-sm truncate'>{{ match.home_team.name }}</span>
+            {% endif %}
+        </div>
+
+        {# Score / divider #}
+        <div class='flex items-center justify-center py-1'>
+            {% if match.home_score is not None and match.away_score is not None %}
+                <span class='text-2xl font-bold text-white tabular-nums'>{{ match.home_score }} <span class='text-gray-500 mx-1'>x</span> {{ match.away_score }}</span>
+            {% else %}
+                <span class='text-sm text-gray-500 uppercase tracking-wider'>vs</span>
+            {% endif %}
+        </div>
+
+        {# Away team #}
+        <div class='flex items-center gap-2'>
+            {% if match.away_team.country_code == 'TBD-A' or match.away_team.flag_emoji == '' and match.away_team.country_code == 'TBD' %}
+                <span class='inline-flex items-center justify-center w-6 h-6 rounded bg-gray-800 text-gray-500 text-xs font-semibold border border-gray-700'>?</span>
+                <span class='text-gray-500 italic text-sm'>A definir</span>
+            {% else %}
+                <span class='text-lg'>{{ match.away_team.flag_emoji }}</span>
+                <span class='text-white font-semibold text-sm truncate'>{{ match.away_team.name }}</span>
+            {% endif %}
+        </div>
+
+        {# Footer: date/time + status #}
+        <div class='flex items-center justify-between mt-2 pt-2 border-t border-gray-800 text-xs text-gray-500'>
+            <span>{{ match.match_datetime|date:'d/m H:i' }}</span>
+            {% if match.status == 'finalizado' %}
+                <span class='text-amber-400 font-semibold uppercase tracking-wider'>Final</span>
+            {% elif match.status == 'em_andamento' %}
+                <span class='text-emerald-400 font-semibold uppercase tracking-wider'>Ao vivo</span>
+            {% endif %}
+        </div>
+    </div>
+</article>
