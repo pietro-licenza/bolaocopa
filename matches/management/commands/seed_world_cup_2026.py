@@ -2,6 +2,7 @@ from django.core.management.base import BaseCommand
 from django.utils import timezone
 
 from matches.management.commands.seeders import group_matches as group_matches_seeder
+from matches.management.commands.seeders import knockout_matches as knockout_matches_seeder
 from matches.management.commands.seeders import rounds as rounds_seeder
 from matches.management.commands.seeders import stadiums as stadiums_seeder
 from matches.management.commands.seeders import teams as teams_seeder
@@ -70,6 +71,23 @@ class Command(BaseCommand):
             ),
         )
 
+        # US-6.6: 32 jogos do mata-mata (upsert idempotente por
+        # round + stadium + match_datetime). Usa placeholders TBD-H/TBD-A
+        # em home_team/away_team ate a fase de grupos ser finalizada.
+        (
+            ko_criados,
+            ko_atualizados,
+            ko_total,
+            ko_erros,
+        ) = knockout_matches_seeder.upsert_knockout_matches()
+        self.stdout.write(
+            self.style.SUCCESS(
+                f'Jogos (mata-mata): {ko_total} processados '
+                f'({ko_criados} criados, {ko_atualizados} atualizados, '
+                f'{ko_erros} erros de validacao).',
+            ),
+        )
+
         self.stdout.write('')
         self.stdout.write(self.style.SUCCESS('=== Resumo ==='))
         self.stdout.write(f'Selecoes: {teams_total} ({teams_criados} criadas, {teams_atualizados} atualizadas)')
@@ -80,6 +98,7 @@ class Command(BaseCommand):
             f'({matches_criados} criados, {matches_atualizados} atualizados)',
         )
         self.stdout.write(
-            'Jogos (mata-mata): 0 (sera implementado na US-6.6)',
+            f'Jogos (mata-mata): {ko_total} '
+            f'({ko_criados} criados, {ko_atualizados} atualizados)',
         )
         self.stdout.write(f'Partidas removidas: {total_matches_deletados}')

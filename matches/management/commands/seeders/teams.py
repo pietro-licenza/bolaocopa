@@ -72,6 +72,14 @@ WORLD_CUP_2026_TEAMS = [
     ('Uzbequistao', 'UZB', Team.Confederation.AFC, '\U0001F1FA\U0001F1FF'),
     # OFC
     ('Nova Zelandia', 'NZL', Team.Confederation.OFC, '\U0001F1F3\U0001F1FF'),
+    # Placeholders TBD (US-6.6): usados como mandante/visitante nos jogos
+    # do mata-mata enquanto os resultados da fase de grupos nao existem.
+    # O `country_code` distinto garante `home_team != away_team` (verificado
+    # no seeder de mata-mata) e mantem o model `Match` sem `null=True` em
+    # home_team/away_team. Quando a fase de grupos for finalizada, basta
+    # atualizar os registros para os times reais.
+    ('A definir (mandante)', 'TBD-H', '', ''),
+    ('A definir (visitante)', 'TBD-A', '', ''),
 ]
 
 

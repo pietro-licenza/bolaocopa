@@ -229,14 +229,18 @@
 **US-6.6: Popular jogos do mata-mata (Match)**
 - **Como** administrador, **quero** cadastrar os jogos do mata-mata, **para** que o sistema tenha a tabela completa da Copa 2026.
 - **Criterios de aceite:**
-  - [ ] Cadastrar 32-avos de final (se aplicavel ao formato de 48 selecoes): 16 jogos
-  - [ ] Cadastrar Oitavas de Final: 16 jogos
-  - [ ] Cadastrar Quartas de Final: 8 jogos
-  - [ ] Cadastrar Semifinais: 4 jogos
-  - [ ] Cadastrar Disputa de 3o lugar: 1 jogo
-  - [ ] Cadastrar Final: 1 jogo
-  - [ ] Todos com `status='agendado'` por padrao
-  - [ ] Datas, horarios e locais conforme calendario oficial
+  - [X] Cadastrar 32-avos de final: 16 jogos (28/jun a 03/jul)
+  - [X] Cadastrar Oitavas de Final: 8 jogos (04-07/jul)
+  - [X] Cadastrar Quartas de Final: 4 jogos (09-11/jul)
+  - [X] Cadastrar Semifinais: 2 jogos (14-15/jul)
+  - [X] Cadastrar Disputa de 3o lugar: 1 jogo (18/jul)
+  - [X] Cadastrar Final: 1 jogo (19/jul)
+  - [X] Total: 32 jogos (16+8+4+2+1+1) - formato oficial FIFA de 48 selecoes
+  - [X] Todos com `status='agendado'` por padrao
+  - [X] Datas, horarios e locais conforme calendario oficial FIFA
+  - [X] `home_team`/`away_team` preenchidos com placeholders TBD-H/TBD-A ate a fase de grupos ser finalizada (model Match nao permite null nessas colunas)
+  - [X] Verificar `home_team != away_team` (TBD-H != TBD-A)
+  - [X] Idempotencia via `update_or_create` por (round, stadium, match_datetime)
 
 **US-6.VAL: Validacao do Sprint 6 — Seed da Copa 2026**
 - **Como** agente de QA, **quero** validar todo o trabalho do Sprint 6, **para** garantir que o banco esta populado corretamente e o sistema consegue consumir os dados.
