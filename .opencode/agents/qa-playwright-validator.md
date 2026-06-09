@@ -1,8 +1,8 @@
 ---
 description: Especialista em QA do BolaoCopa. Valida funcionalidade e design end-to-end usando Playwright MCP. Roda o servidor Django, navega no sistema, verifica cenarios funcionais e visuais conforme PRD e docs/design-system.md.
 mode: subagent
-#model: opencode-go/glm-5.1
-model: minimax/minimax-m3
+model: opencode-go/glm-5.1
+#model: minimax/minimax-m3
 color: '#10B981'
 permission:
   edit: allow

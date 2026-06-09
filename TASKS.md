@@ -184,12 +184,12 @@
 **US-6.1: Criar management command de seed**
 - **Como** administrador do sistema, **quero** executar um comando que popule o banco com os dados da Copa do Mundo 2026, **para** que os usuarios tenham jogos, selecoes, estadios e rodadas disponiveis para palpitar.
 - **Criterios de aceite:**
-  - [ ] Criar management command `seed_world_cup_2026` em `matches/management/commands/`
-  - [ ] Apagar todas as partidas existentes, e deixar apenas as partidas novas que serao anexadas
-  - [ ] Comando idempotente: pode ser executado multiplas vezes sem duplicar registros
-  - [ ] Confirmar com o usuario antes de popular (prompt ou flag `--no-input`)
-  - [ ] Exibir resumo final: total de selecoes, estadios, rodadas e jogos criados/atualizados
-  - [ ] Registrar data/hora de execucao em log ou output do comando
+  - [X] Criar management command `seed_world_cup_2026` em `matches/management/commands/`
+  - [X] Apagar todas as partidas existentes, e deixar apenas as partidas novas que serao anexadas
+  - [X] Comando idempotente: pode ser executado multiplas vezes sem duplicar registros
+  - [X] Confirmar com o usuario antes de popular (prompt ou flag `--no-input`)
+  - [X] Exibir resumo final: total de selecoes, estadios, rodadas e jogos criados/atualizados
+  - [X] Registrar data/hora de execucao em log ou output do comando
 
 **US-6.2: Popular selecoes (Team)**
 - **Como** administrador, **quero** cadastrar as 48 selecoes que disputarao a Copa 2026, **para** que possam ser associadas aos jogos.
