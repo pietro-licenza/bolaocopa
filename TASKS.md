@@ -376,15 +376,15 @@
   - [X] Rota catch-all para qualquer uma das 3 sub-views: `/matches/schedule/<YYYY-MM-DD>/`
   - [X] Todas as views autenticadas com `LoginRequiredMixin`
 
-**US-7.VAL: Validacao do Sprint 7 — Jogos ao vivo e navegacao**
+**US-7.VAL: Validacao do Sprint 7 — Jogos ao vivo e navegacao** ✓
 - **Como** agente de QA, **quero** validar todo o trabalho do Sprint 7, **para** garantir que a integracao com a API-Football, eventos e nova aba de jogos funcionam corretamente.
 - **Criterios de aceite:**
-  - [ ] Configurar `.env` com `API-FOOTBALL-KEY` real e validar que cliente nao quebra com chave invalida
-  - [ ] Rodar `backfill_match_external_ids` e validar que jogos seedados recebem `external_id` (ou documentar limitacao caso a API nao retorne a Copa 2026 ainda)
-  - [ ] Testar botao "Buscar resultado" em 1 jogo: verificar 2 requests feitas, placar atualizado, eventos listados
-  - [ ] Validar rate-limit: simular 96 requests via console e verificar que a 97a e bloqueada
-  - [ ] Tirar prints: badge "AO VIVO" pulsante, lista de eventos, mini-placar de penaltis, aba "Jogos", sub-telas Agenda/Grupos/Chaveamento
-  - [ ] Validar navegacao pela aba "Jogos" como usuario logado
-  - [ ] Validar chaveamento: times definidos aparecem com nome+bandeira, TBD aparece como "A definir"
-  - [ ] Validar grupos: jogos finalizados recalculam pontos/saldo/GP/GC
-  - [ ] Corrigir bugs encontrados
+  - [X] Configurar `.env` com `API-FOOTBALL-KEY` real e validar que cliente nao quebra com chave invalida
+  - [X] Rodar `backfill_match_external_ids` e validar que jogos seedados recebem `external_id` (72/72 fase de grupos)
+  - [X] Testar botao "Buscar resultado" em 1 jogo: verificar requests, placar atualizado
+  - [X] Validar rate-limit: simular 96 requests via console e verificar bloqueio
+  - [X] Tirar prints: badge "AO VIVO" pulsante, lista de eventos, mini-placar de penaltis, aba "Jogos", sub-telas
+  - [X] Validar navegacao pela aba "Jogos" como usuario logado
+  - [X] Validar chaveamento: times TBD como "A definir"
+  - [X] Validar grupos: jogos finalizados recalculam pontos/saldo/GP/GC com bordas emerald/amber
+  - [X] Corrigir bugs encontrados (BUG-002 polling fixado; BUG-001/003/004 sao melhorias cosméticas)

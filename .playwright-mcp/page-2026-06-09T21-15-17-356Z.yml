@@ -1,0 +1,179 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e4]:
+      - link "BolãoCopa" [ref=e5] [cursor=pointer]:
+        - /url: /
+      - generic [ref=e6]:
+        - link "Dashboard" [ref=e7] [cursor=pointer]:
+          - /url: /dashboard/
+        - link "Jogos" [ref=e8] [cursor=pointer]:
+          - /url: /matches/
+        - link "Meus Bolões" [ref=e9] [cursor=pointer]:
+          - /url: /pools/
+        - button "Sair" [ref=e11] [cursor=pointer]
+  - main [ref=e12]:
+    - generic [ref=e13]:
+      - generic [ref=e14]:
+        - heading "Agenda de jogos" [level=1] [ref=e15]
+        - paragraph [ref=e16]: Selecione uma data para ver os jogos do dia.
+      - generic [ref=e17]:
+        - generic [ref=e18]:
+          - generic [ref=e19]:
+            - generic [ref=e20]: Data
+            - textbox "Data" [ref=e21]: 2026-06-15
+          - button "Ir" [ref=e22] [cursor=pointer]
+        - generic [ref=e23]:
+          - paragraph [ref=e24]: Próximas datas com jogos
+          - generic [ref=e25]:
+            - link "11/06 Qui" [ref=e26] [cursor=pointer]:
+              - /url: /matches/schedule/2026-06-11/
+            - link "12/06 Sex" [ref=e27] [cursor=pointer]:
+              - /url: /matches/schedule/2026-06-12/
+            - link "13/06 Sab" [ref=e28] [cursor=pointer]:
+              - /url: /matches/schedule/2026-06-13/
+            - link "14/06 Dom" [ref=e29] [cursor=pointer]:
+              - /url: /matches/schedule/2026-06-14/
+            - link "15/06 Seg" [ref=e30] [cursor=pointer]:
+              - /url: /matches/schedule/2026-06-15/
+            - link "16/06 Ter" [ref=e31] [cursor=pointer]:
+              - /url: /matches/schedule/2026-06-16/
+            - link "17/06 Qua" [ref=e32] [cursor=pointer]:
+              - /url: /matches/schedule/2026-06-17/
+            - link "18/06 Qui" [ref=e33] [cursor=pointer]:
+              - /url: /matches/schedule/2026-06-18/
+            - link "19/06 Sex" [ref=e34] [cursor=pointer]:
+              - /url: /matches/schedule/2026-06-19/
+            - link "20/06 Sab" [ref=e35] [cursor=pointer]:
+              - /url: /matches/schedule/2026-06-20/
+            - link "21/06 Dom" [ref=e36] [cursor=pointer]:
+              - /url: /matches/schedule/2026-06-21/
+            - link "22/06 Seg" [ref=e37] [cursor=pointer]:
+              - /url: /matches/schedule/2026-06-22/
+            - link "23/06 Ter" [ref=e38] [cursor=pointer]:
+              - /url: /matches/schedule/2026-06-23/
+            - link "24/06 Qua" [ref=e39] [cursor=pointer]:
+              - /url: /matches/schedule/2026-06-24/
+            - link "25/06 Qui" [ref=e40] [cursor=pointer]:
+              - /url: /matches/schedule/2026-06-25/
+            - link "26/06 Sex" [ref=e41] [cursor=pointer]:
+              - /url: /matches/schedule/2026-06-26/
+            - link "27/06 Sab" [ref=e42] [cursor=pointer]:
+              - /url: /matches/schedule/2026-06-27/
+            - link "28/06 Dom" [ref=e43] [cursor=pointer]:
+              - /url: /matches/schedule/2026-06-28/
+            - link "29/06 Seg" [ref=e44] [cursor=pointer]:
+              - /url: /matches/schedule/2026-06-29/
+            - link "30/06 Ter" [ref=e45] [cursor=pointer]:
+              - /url: /matches/schedule/2026-06-30/
+            - link "01/07 Qua" [ref=e46] [cursor=pointer]:
+              - /url: /matches/schedule/2026-07-01/
+            - link "02/07 Qui" [ref=e47] [cursor=pointer]:
+              - /url: /matches/schedule/2026-07-02/
+            - link "03/07 Sex" [ref=e48] [cursor=pointer]:
+              - /url: /matches/schedule/2026-07-03/
+            - link "04/07 Sab" [ref=e49] [cursor=pointer]:
+              - /url: /matches/schedule/2026-07-04/
+            - link "05/07 Dom" [ref=e50] [cursor=pointer]:
+              - /url: /matches/schedule/2026-07-05/
+            - link "06/07 Seg" [ref=e51] [cursor=pointer]:
+              - /url: /matches/schedule/2026-07-06/
+            - link "07/07 Ter" [ref=e52] [cursor=pointer]:
+              - /url: /matches/schedule/2026-07-07/
+            - link "09/07 Qui" [ref=e53] [cursor=pointer]:
+              - /url: /matches/schedule/2026-07-09/
+      - generic [ref=e54]:
+        - heading "Exibindo jogos de 15/06/2026" [level=2] [ref=e55]
+        - generic [ref=e56]: 4 jogos
+      - generic [ref=e57]:
+        - article [ref=e58]:
+          - generic [ref=e59]:
+            - generic [ref=e60]: Fase de Grupos · Mercedes-Benz Stadium
+            - generic [ref=e62]:
+              - generic [ref=e64]: AO VIVO
+              - generic [ref=e65]: · 78'
+          - generic [ref=e66]:
+            - generic [ref=e67]:
+              - generic [ref=e68]: 🇪🇸
+              - generic [ref=e69]: Espanha
+            - generic [ref=e71]: 2 x 1
+            - generic [ref=e72]:
+              - generic [ref=e73]: 🇨🇻
+              - generic [ref=e74]: Cabo Verde
+          - generic [ref=e75]:
+            - generic [ref=e76]:
+              - generic [ref=e77]: "4"
+              - generic [ref=e78]: x
+              - generic [ref=e79]: "3"
+            - generic [ref=e80]: penaltis
+          - generic [ref=e81]:
+            - generic [ref=e82]:
+              - generic [ref=e83]: 12'
+              - generic [ref=e84]: ⚽
+              - generic [ref=e85]: Lamine Yamal
+              - generic [ref=e86]: (ESP)
+            - generic [ref=e87]:
+              - generic [ref=e88]: 28'
+              - generic [ref=e89]: 🟨
+              - generic [ref=e90]: Stopira (CPV)
+            - generic [ref=e91]:
+              - generic [ref=e92]: 45'
+              - generic [ref=e93]: ⚽
+              - generic [ref=e94]: Gavrelinan
+              - generic [ref=e95]: (CPV)
+              - generic [ref=e96]: "· assist: Rocha"
+            - generic [ref=e97]:
+              - generic [ref=e98]: 60'
+              - generic [ref=e99]: ↳
+              - generic [ref=e100]: Morata saiu (ESP)
+            - generic [ref=e101]:
+              - generic [ref=e102]: 60'
+              - generic [ref=e103]: ⇢
+              - generic [ref=e104]: Oyarzabal entrou (ESP)
+          - generic [ref=e105]:
+            - generic [ref=e106]: 15/06/2026 13:00
+            - button "Buscar resultado" [ref=e108] [cursor=pointer]
+        - article [ref=e109]:
+          - generic [ref=e110]:
+            - generic [ref=e111]: Fase de Grupos · Lumen Field
+            - generic [ref=e113]: Agendado
+          - generic [ref=e114]:
+            - generic [ref=e115]:
+              - generic [ref=e116]: 🇧🇪
+              - generic [ref=e117]: Belgica
+            - generic [ref=e119]: ·
+            - generic [ref=e120]:
+              - generic [ref=e121]: 🇪🇬
+              - generic [ref=e122]: Egito
+          - generic [ref=e123]:
+            - generic [ref=e124]: 15/06/2026 16:00
+            - button "Buscar resultado" [ref=e126] [cursor=pointer]
+        - article [ref=e127]:
+          - generic [ref=e128]:
+            - generic [ref=e129]: Fase de Grupos · Hard Rock Stadium
+            - generic [ref=e131]: Agendado
+          - generic [ref=e132]:
+            - generic [ref=e133]:
+              - generic [ref=e134]: 🇸🇦
+              - generic [ref=e135]: Arabia Saudita
+            - generic [ref=e137]: ·
+            - generic [ref=e138]:
+              - generic [ref=e139]: 🇺🇾
+              - generic [ref=e140]: Uruguai
+          - generic [ref=e141]:
+            - generic [ref=e142]: 15/06/2026 19:00
+            - button "Buscar resultado" [ref=e144] [cursor=pointer]
+        - article [ref=e145]:
+          - generic [ref=e146]:
+            - generic [ref=e147]: Fase de Grupos · SoFi Stadium
+            - generic [ref=e149]: Agendado
+          - generic [ref=e150]:
+            - generic [ref=e151]:
+              - generic [ref=e152]: 🇮🇷
+              - generic [ref=e153]: Ira
+            - generic [ref=e155]: ·
+            - generic [ref=e156]:
+              - generic [ref=e157]: 🇳🇿
+              - generic [ref=e158]: Nova Zelandia
+          - generic [ref=e159]:
+            - generic [ref=e160]: 15/06/2026 22:00
+            - button "Buscar resultado" [ref=e162] [cursor=pointer]

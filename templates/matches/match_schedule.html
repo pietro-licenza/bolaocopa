@@ -77,4 +77,7 @@
         </div>
     {% endif %}
 </div>
+
+{# US-7.4: ativa o polling a cada 60s para cards com data-live="1" renderizados por live/partials/match_card.html. #}
+{% include 'live/partials/poll_script.html' %}
 {% endblock %}
