@@ -1,0 +1,215 @@
+- generic [active] [ref=e1]:
+  - link "Ir para o conteúdo principal" [ref=e2] [cursor=pointer]:
+    - /url: "#content-start"
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - link "Administração do Django" [ref=e7] [cursor=pointer]:
+        - /url: /admin/
+      - generic [ref=e8]:
+        - text: Bem-vindo(a),
+        - strong [ref=e9]: admin@bolao.com
+        - text: .
+        - link "Ver o site" [ref=e10] [cursor=pointer]:
+          - /url: /
+        - text: /
+        - link "Alterar senha" [ref=e11] [cursor=pointer]:
+          - /url: /admin/password_change/
+        - text: /
+        - button "Encerrar sessão" [ref=e13] [cursor=pointer]
+        - 'button "Alternar tema (tema atual: automático)" [ref=e14] [cursor=pointer]':
+          - generic [ref=e15]: "Alternar tema (tema atual: automático)"
+          - img [ref=e16]
+    - main [ref=e19]:
+      - generic [ref=e20]:
+        - heading "Administração do Site" [level=1] [ref=e21]
+        - generic [ref=e22]:
+          - table "Autenticação e Autorização" [ref=e24]:
+            - caption [ref=e25]:
+              - link "Autenticação e Autorização" [ref=e26] [cursor=pointer]:
+                - /url: /admin/auth/
+            - rowgroup [ref=e27]:
+              - row "Nome do modelo Adicionar link Alterar ou ver link de lista" [ref=e28]:
+                - columnheader "Nome do modelo" [ref=e29]
+                - columnheader "Adicionar link" [ref=e30]
+                - columnheader "Alterar ou ver link de lista" [ref=e31]
+            - rowgroup [ref=e32]:
+              - row "Grupos Adicionar Modificar" [ref=e33]:
+                - rowheader "Grupos" [ref=e34]:
+                  - link "Grupos" [ref=e35] [cursor=pointer]:
+                    - /url: /admin/auth/group/
+                - cell "Adicionar" [ref=e36]:
+                  - link "Adicionar" [ref=e37] [cursor=pointer]:
+                    - /url: /admin/auth/group/add/
+                - cell "Modificar" [ref=e38]:
+                  - link "Modificar" [ref=e39] [cursor=pointer]:
+                    - /url: /admin/auth/group/
+          - table "Matches" [ref=e41]:
+            - caption [ref=e42]:
+              - link "Matches" [ref=e43] [cursor=pointer]:
+                - /url: /admin/matches/
+            - rowgroup [ref=e44]:
+              - row "Nome do modelo Adicionar link Alterar ou ver link de lista" [ref=e45]:
+                - columnheader "Nome do modelo" [ref=e46]
+                - columnheader "Adicionar link" [ref=e47]
+                - columnheader "Alterar ou ver link de lista" [ref=e48]
+            - rowgroup [ref=e49]:
+              - row "Matchs Adicionar Modificar" [ref=e50]:
+                - rowheader "Matchs" [ref=e51]:
+                  - link "Matchs" [ref=e52] [cursor=pointer]:
+                    - /url: /admin/matches/match/
+                - cell "Adicionar" [ref=e53]:
+                  - link "Adicionar" [ref=e54] [cursor=pointer]:
+                    - /url: /admin/matches/match/add/
+                - cell "Modificar" [ref=e55]:
+                  - link "Modificar" [ref=e56] [cursor=pointer]:
+                    - /url: /admin/matches/match/
+              - row "Rounds Adicionar Modificar" [ref=e57]:
+                - rowheader "Rounds" [ref=e58]:
+                  - link "Rounds" [ref=e59] [cursor=pointer]:
+                    - /url: /admin/matches/round/
+                - cell "Adicionar" [ref=e60]:
+                  - link "Adicionar" [ref=e61] [cursor=pointer]:
+                    - /url: /admin/matches/round/add/
+                - cell "Modificar" [ref=e62]:
+                  - link "Modificar" [ref=e63] [cursor=pointer]:
+                    - /url: /admin/matches/round/
+              - row "Stadiums Adicionar Modificar" [ref=e64]:
+                - rowheader "Stadiums" [ref=e65]:
+                  - link "Stadiums" [ref=e66] [cursor=pointer]:
+                    - /url: /admin/matches/stadium/
+                - cell "Adicionar" [ref=e67]:
+                  - link "Adicionar" [ref=e68] [cursor=pointer]:
+                    - /url: /admin/matches/stadium/add/
+                - cell "Modificar" [ref=e69]:
+                  - link "Modificar" [ref=e70] [cursor=pointer]:
+                    - /url: /admin/matches/stadium/
+              - row "Teams Adicionar Modificar" [ref=e71]:
+                - rowheader "Teams" [ref=e72]:
+                  - link "Teams" [ref=e73] [cursor=pointer]:
+                    - /url: /admin/matches/team/
+                - cell "Adicionar" [ref=e74]:
+                  - link "Adicionar" [ref=e75] [cursor=pointer]:
+                    - /url: /admin/matches/team/add/
+                - cell "Modificar" [ref=e76]:
+                  - link "Modificar" [ref=e77] [cursor=pointer]:
+                    - /url: /admin/matches/team/
+          - table "Pools" [ref=e79]:
+            - caption [ref=e80]:
+              - link "Pools" [ref=e81] [cursor=pointer]:
+                - /url: /admin/pools/
+            - rowgroup [ref=e82]:
+              - row "Nome do modelo Adicionar link Alterar ou ver link de lista" [ref=e83]:
+                - columnheader "Nome do modelo" [ref=e84]
+                - columnheader "Adicionar link" [ref=e85]
+                - columnheader "Alterar ou ver link de lista" [ref=e86]
+            - rowgroup [ref=e87]:
+              - row "Pool members Adicionar Modificar" [ref=e88]:
+                - rowheader "Pool members" [ref=e89]:
+                  - link "Pool members" [ref=e90] [cursor=pointer]:
+                    - /url: /admin/pools/poolmember/
+                - cell "Adicionar" [ref=e91]:
+                  - link "Adicionar" [ref=e92] [cursor=pointer]:
+                    - /url: /admin/pools/poolmember/add/
+                - cell "Modificar" [ref=e93]:
+                  - link "Modificar" [ref=e94] [cursor=pointer]:
+                    - /url: /admin/pools/poolmember/
+              - row "Pools Adicionar Modificar" [ref=e95]:
+                - rowheader "Pools" [ref=e96]:
+                  - link "Pools" [ref=e97] [cursor=pointer]:
+                    - /url: /admin/pools/pool/
+                - cell "Adicionar" [ref=e98]:
+                  - link "Adicionar" [ref=e99] [cursor=pointer]:
+                    - /url: /admin/pools/pool/add/
+                - cell "Modificar" [ref=e100]:
+                  - link "Modificar" [ref=e101] [cursor=pointer]:
+                    - /url: /admin/pools/pool/
+          - table "Predictions" [ref=e103]:
+            - caption [ref=e104]:
+              - link "Predictions" [ref=e105] [cursor=pointer]:
+                - /url: /admin/predictions/
+            - rowgroup [ref=e106]:
+              - row "Nome do modelo Adicionar link Alterar ou ver link de lista" [ref=e107]:
+                - columnheader "Nome do modelo" [ref=e108]
+                - columnheader "Adicionar link" [ref=e109]
+                - columnheader "Alterar ou ver link de lista" [ref=e110]
+            - rowgroup [ref=e111]:
+              - row "Predictions Adicionar Modificar" [ref=e112]:
+                - rowheader "Predictions" [ref=e113]:
+                  - link "Predictions" [ref=e114] [cursor=pointer]:
+                    - /url: /admin/predictions/prediction/
+                - cell "Adicionar" [ref=e115]:
+                  - link "Adicionar" [ref=e116] [cursor=pointer]:
+                    - /url: /admin/predictions/prediction/add/
+                - cell "Modificar" [ref=e117]:
+                  - link "Modificar" [ref=e118] [cursor=pointer]:
+                    - /url: /admin/predictions/prediction/
+          - table "Rankings" [ref=e120]:
+            - caption [ref=e121]:
+              - link "Rankings" [ref=e122] [cursor=pointer]:
+                - /url: /admin/rankings/
+            - rowgroup [ref=e123]:
+              - row "Nome do modelo Adicionar link Alterar ou ver link de lista" [ref=e124]:
+                - columnheader "Nome do modelo" [ref=e125]
+                - columnheader "Adicionar link" [ref=e126]
+                - columnheader "Alterar ou ver link de lista" [ref=e127]
+            - rowgroup [ref=e128]:
+              - row "Rankings Adicionar Modificar" [ref=e129]:
+                - rowheader "Rankings" [ref=e130]:
+                  - link "Rankings" [ref=e131] [cursor=pointer]:
+                    - /url: /admin/rankings/ranking/
+                - cell "Adicionar" [ref=e132]:
+                  - link "Adicionar" [ref=e133] [cursor=pointer]:
+                    - /url: /admin/rankings/ranking/add/
+                - cell "Modificar" [ref=e134]:
+                  - link "Modificar" [ref=e135] [cursor=pointer]:
+                    - /url: /admin/rankings/ranking/
+          - table "Users" [ref=e137]:
+            - caption [ref=e138]:
+              - link "Users" [ref=e139] [cursor=pointer]:
+                - /url: /admin/users/
+            - rowgroup [ref=e140]:
+              - row "Nome do modelo Adicionar link Alterar ou ver link de lista" [ref=e141]:
+                - columnheader "Nome do modelo" [ref=e142]
+                - columnheader "Adicionar link" [ref=e143]
+                - columnheader "Alterar ou ver link de lista" [ref=e144]
+            - rowgroup [ref=e145]:
+              - row "Usuários Adicionar Modificar" [ref=e146]:
+                - rowheader "Usuários" [ref=e147]:
+                  - link "Usuários" [ref=e148] [cursor=pointer]:
+                    - /url: /admin/users/customuser/
+                - cell "Adicionar" [ref=e149]:
+                  - link "Adicionar" [ref=e150] [cursor=pointer]:
+                    - /url: /admin/users/customuser/add/
+                - cell "Modificar" [ref=e151]:
+                  - link "Modificar" [ref=e152] [cursor=pointer]:
+                    - /url: /admin/users/customuser/
+        - generic [ref=e154]:
+          - heading "Ações recentes" [level=2] [ref=e155]
+          - heading "Minhas Ações" [level=3] [ref=e156]
+          - list [ref=e157]:
+            - listitem [ref=e158]:
+              - generic [ref=e159]: "Alterado:"
+              - link "Argentina x França" [ref=e160] [cursor=pointer]:
+                - /url: /admin/matches/match/50/change/
+              - text: Match
+            - listitem [ref=e161]:
+              - generic [ref=e162]: "Alterado:"
+              - link "Argentina x França" [ref=e163] [cursor=pointer]:
+                - /url: /admin/matches/match/50/change/
+              - text: Match
+            - listitem [ref=e164]:
+              - generic [ref=e165]: "Alterado:"
+              - link "Argentina x França" [ref=e166] [cursor=pointer]:
+                - /url: /admin/matches/match/50/change/
+              - text: Match
+            - listitem [ref=e167]:
+              - generic [ref=e168]: "Alterado:"
+              - link "Brasil x Argentina" [ref=e169] [cursor=pointer]:
+                - /url: /admin/matches/match/45/change/
+              - text: Match
+            - listitem [ref=e170]:
+              - generic [ref=e171]: "Alterado:"
+              - link "Brasil x França" [ref=e172] [cursor=pointer]:
+                - /url: /admin/matches/match/42/change/
+              - text: Match
+    - contentinfo

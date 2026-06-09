@@ -158,14 +158,14 @@
   - [X] Destacar a posicao do usuario logado
   - [X] Ordenar por pontuacao decrescente
 
-**US-5.2: Calculo automatizado de pontos**
+**US-5.2: Calculo automatizado de pontos** ✓
 - **Como** sistema, **quero** calcular pontos automaticamente, **para** manter rankings atualizados.
 - **Criterios de aceite:**
-  - [ ] Acerto exato do placar: 3 pontos
-  - [ ] Acerto do vencedor ou empate: 1 ponto
-  - [ ] Erro total: 0 pontos
-  - [ ] Calculo disparado via Django signal ao salvar resultado real do jogo
-  - [ ] Atualizar ranking do bolao apos calculo
+  - [X] Acerto exato do placar: 3 pontos
+  - [X] Acerto do vencedor ou empate: 1 ponto
+  - [X] Erro total: 0 pontos
+  - [X] Calculo disparado via Django signal ao salvar resultado real do jogo
+  - [X] Atualizar ranking do bolao apos calculo
 
 **US-5.VAL: Validacao do Sprint 5 — Rankings**
 - **Como** agente de QA, **quero** validar todo o trabalho do Sprint 5, **para** garantir que as funcionalidades de rankings estao corretas e sem bugs.
@@ -246,50 +246,4 @@
   - [ ] Validar que o comando pode ser executado 2x sem duplicar nada
   - [ ] Validar listagem de jogos na UI: ordenacao por data, exibicao de selecoes/estadio/status
   - [ ] Validar que eh possivel registrar palpite em um jogo seedado
-  - [ ] Corrigir bugs encontrados
-
-### Epico 7: Regras de pontuacao
-
-**US-7.1: Avaliar existencia de modelo de regras de pontuacao**
-- **Como** administrador, **quero** verificar se ja existe um modelo que armazene as regras de pontuacao do sistema, **para** decidir se precisa criar um novo.
-- **Criterios de aceite:**
-  - [ ] Verificar models existentes em `predictions/`, `matches/`, `rankings/`
-  - [ ] Documentar no PRD ou em doc tecnica o que ja existe (pontos fixos no signal vs. modelo parametrizavel)
-  - [ ] Se ja existir modelo parametrizavel: cancelar US-7.2 a US-7.5 e seguir para validacao
-  - [ ] Se existir apenas logica hardcoded no signal: seguir para US-7.2
-
-**US-7.2: Criar modelo ScoringRule**
-- **Como** administrador, **quero** um modelo que armazene as regras de pontuacao de forma parametrizavel, **para** ajustar valores sem alterar codigo nem rodar migracoes.
-- **Criterios de aceite:**
-  - [ ] Criar model `ScoringRule` no app `predictions` (ou `matches`) com campos: `name` (identificador), `points` (int positivo), `description` (texto)
-  - [ ] Metodo de classe para retornar pontos por tipo de acerto (ex: `ScoringRule.points_for('exact')`, `points_for('winner_or_draw')`, `points_for('wrong')`)
-  - [ ] Defaults criados via data migration: exato=3, vencedor/empate=1, erro=0
-  - [ ] Campo `is_active` (bool) para permitir multiplas versoes de regras (caso mude no meio do torneio)
-  - [ ] Audit fields: `created_at`, `updated_at`
-  - [ ] Admin Django registrado para `ScoringRule`
-
-**US-7.3: Refatorar signal de calculo de pontos para usar ScoringRule**
-- **Como** desenvolvedor, **quero** que o signal de calculo de pontos leia os valores do modelo `ScoringRule`, **para** tornar o sistema configuravel.
-- **Criterios de aceite:**
-  - [ ] Substituir literais hardcoded (3, 1, 0) no signal por chamadas a `ScoringRule.points_for(...)`
-  - [ ] Manter retrocompatibilidade: se nao houver regra ativa, usar defaults em codigo (3/1/0)
-  - [ ] Adicionar testes manuais ou log mostrando qual regra foi aplicada em cada calculo
-  - [ ] Garantir que o calculo continua disparando ao mudar status do jogo para `finalizado`
-
-**US-7.4: Exibir regras de pontuacao na UI**
-- **Como** usuario logado, **quero** ver as regras de pontuacao vigentes, **para** saber quanto posso ganhar com cada tipo de acerto.
-- **Criterios de aceite:**
-  - [ ] Criar pagina `/regras/` (ou incluir na landing/dashboard) com a tabela de regras ativas
-  - [ ] Exibir: tipo de acerto, pontos, descricao em pt-BR
-  - [ ] Link "Regras" na navbar ou no dashboard
-  - [ ] Tela responsiva com design system dark theme
-
-**US-7.VAL: Validacao do Sprint 7 — Regras de pontuacao**
-- **Como** agente de QA, **quero** validar todo o trabalho do Sprint 7, **para** garantir que as regras estao configuraveis e o calculo continua funcionando.
-- **Criterios de aceite:**
-  - [ ] Validar que `ScoringRule` aparece no Django Admin e pode ser editado
-  - [ ] Validar que ao alterar `points` no admin, o proximo calculo de pontos usa o novo valor
-  - [ ] Validar cenarios: acerto exato (3 pts), acerto de vencedor (1 pt), erro (0 pts)
-  - [ ] Validar exibicao das regras na UI em `/regras/`
-  - [ ] Validar retrocompatibilidade: se nenhuma regra estiver ativa, defaults 3/1/0 continuam funcionando
   - [ ] Corrigir bugs encontrados
