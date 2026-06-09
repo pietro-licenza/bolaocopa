@@ -1,0 +1,377 @@
+- generic [active] [ref=e1]:
+  - link "Ir para o conteúdo principal" [ref=e2] [cursor=pointer]:
+    - /url: "#content-start"
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - link "Administração do Django" [ref=e7] [cursor=pointer]:
+        - /url: /admin/
+      - generic [ref=e8]:
+        - text: Bem-vindo(a),
+        - strong [ref=e9]: admin@bolao.com
+        - text: .
+        - link "Ver o site" [ref=e10] [cursor=pointer]:
+          - /url: /
+        - text: /
+        - link "Alterar senha" [ref=e11] [cursor=pointer]:
+          - /url: /admin/password_change/
+        - text: /
+        - button "Encerrar sessão" [ref=e13] [cursor=pointer]
+        - 'button "Alternar tema (tema atual: automático)" [ref=e14] [cursor=pointer]':
+          - generic [ref=e15]: "Alternar tema (tema atual: automático)"
+          - img [ref=e16]
+    - navigation "Marcas de navegação" [ref=e18]:
+      - generic [ref=e19]:
+        - link "Início" [ref=e20] [cursor=pointer]:
+          - /url: /admin/
+        - text: ›
+        - link "Matches" [ref=e21] [cursor=pointer]:
+          - /url: /admin/matches/
+        - text: › Matchs
+    - generic [ref=e22]:
+      - button "Alternar navegação" [ref=e23] [cursor=pointer]: «
+      - navigation "Barra Lateral" [ref=e24]:
+        - searchbox "Filtrar itens de navegação" [ref=e25]
+        - table "Autenticação e Autorização" [ref=e27]:
+          - caption [ref=e28]:
+            - link "Autenticação e Autorização" [ref=e29] [cursor=pointer]:
+              - /url: /admin/auth/
+          - rowgroup [ref=e30]:
+            - row "Nome do modelo Adicionar link Alterar ou ver link de lista" [ref=e31]:
+              - columnheader "Nome do modelo" [ref=e32]
+              - columnheader "Adicionar link" [ref=e33]
+              - columnheader "Alterar ou ver link de lista" [ref=e34]
+          - rowgroup [ref=e35]:
+            - row "Grupos Adicionar" [ref=e36]:
+              - rowheader "Grupos" [ref=e37]:
+                - link "Grupos" [ref=e38] [cursor=pointer]:
+                  - /url: /admin/auth/group/
+              - cell "Adicionar" [ref=e39]:
+                - link "Adicionar" [ref=e40] [cursor=pointer]:
+                  - /url: /admin/auth/group/add/
+        - table "Matches" [ref=e42]:
+          - caption [ref=e43]:
+            - link "Matches" [ref=e44] [cursor=pointer]:
+              - /url: /admin/matches/
+          - rowgroup [ref=e45]:
+            - row "Nome do modelo Adicionar link Alterar ou ver link de lista" [ref=e46]:
+              - columnheader "Nome do modelo" [ref=e47]
+              - columnheader "Adicionar link" [ref=e48]
+              - columnheader "Alterar ou ver link de lista" [ref=e49]
+          - rowgroup [ref=e50]:
+            - row "Matchs Adicionar" [ref=e51]:
+              - rowheader "Matchs" [ref=e52]:
+                - link "Matchs" [ref=e53] [cursor=pointer]:
+                  - /url: /admin/matches/match/
+              - cell "Adicionar" [ref=e54]:
+                - link "Adicionar" [ref=e55] [cursor=pointer]:
+                  - /url: /admin/matches/match/add/
+            - row "Rounds Adicionar" [ref=e56]:
+              - rowheader "Rounds" [ref=e57]:
+                - link "Rounds" [ref=e58] [cursor=pointer]:
+                  - /url: /admin/matches/round/
+              - cell "Adicionar" [ref=e59]:
+                - link "Adicionar" [ref=e60] [cursor=pointer]:
+                  - /url: /admin/matches/round/add/
+            - row "Stadiums Adicionar" [ref=e61]:
+              - rowheader "Stadiums" [ref=e62]:
+                - link "Stadiums" [ref=e63] [cursor=pointer]:
+                  - /url: /admin/matches/stadium/
+              - cell "Adicionar" [ref=e64]:
+                - link "Adicionar" [ref=e65] [cursor=pointer]:
+                  - /url: /admin/matches/stadium/add/
+            - row "Teams Adicionar" [ref=e66]:
+              - rowheader "Teams" [ref=e67]:
+                - link "Teams" [ref=e68] [cursor=pointer]:
+                  - /url: /admin/matches/team/
+              - cell "Adicionar" [ref=e69]:
+                - link "Adicionar" [ref=e70] [cursor=pointer]:
+                  - /url: /admin/matches/team/add/
+        - table "Pools" [ref=e72]:
+          - caption [ref=e73]:
+            - link "Pools" [ref=e74] [cursor=pointer]:
+              - /url: /admin/pools/
+          - rowgroup [ref=e75]:
+            - row "Nome do modelo Adicionar link Alterar ou ver link de lista" [ref=e76]:
+              - columnheader "Nome do modelo" [ref=e77]
+              - columnheader "Adicionar link" [ref=e78]
+              - columnheader "Alterar ou ver link de lista" [ref=e79]
+          - rowgroup [ref=e80]:
+            - row "Pool members Adicionar" [ref=e81]:
+              - rowheader "Pool members" [ref=e82]:
+                - link "Pool members" [ref=e83] [cursor=pointer]:
+                  - /url: /admin/pools/poolmember/
+              - cell "Adicionar" [ref=e84]:
+                - link "Adicionar" [ref=e85] [cursor=pointer]:
+                  - /url: /admin/pools/poolmember/add/
+            - row "Pools Adicionar" [ref=e86]:
+              - rowheader "Pools" [ref=e87]:
+                - link "Pools" [ref=e88] [cursor=pointer]:
+                  - /url: /admin/pools/pool/
+              - cell "Adicionar" [ref=e89]:
+                - link "Adicionar" [ref=e90] [cursor=pointer]:
+                  - /url: /admin/pools/pool/add/
+        - table "Predictions" [ref=e92]:
+          - caption [ref=e93]:
+            - link "Predictions" [ref=e94] [cursor=pointer]:
+              - /url: /admin/predictions/
+          - rowgroup [ref=e95]:
+            - row "Nome do modelo Adicionar link Alterar ou ver link de lista" [ref=e96]:
+              - columnheader "Nome do modelo" [ref=e97]
+              - columnheader "Adicionar link" [ref=e98]
+              - columnheader "Alterar ou ver link de lista" [ref=e99]
+          - rowgroup [ref=e100]:
+            - row "Predictions Adicionar" [ref=e101]:
+              - rowheader "Predictions" [ref=e102]:
+                - link "Predictions" [ref=e103] [cursor=pointer]:
+                  - /url: /admin/predictions/prediction/
+              - cell "Adicionar" [ref=e104]:
+                - link "Adicionar" [ref=e105] [cursor=pointer]:
+                  - /url: /admin/predictions/prediction/add/
+        - table "Rankings" [ref=e107]:
+          - caption [ref=e108]:
+            - link "Rankings" [ref=e109] [cursor=pointer]:
+              - /url: /admin/rankings/
+          - rowgroup [ref=e110]:
+            - row "Nome do modelo Adicionar link Alterar ou ver link de lista" [ref=e111]:
+              - columnheader "Nome do modelo" [ref=e112]
+              - columnheader "Adicionar link" [ref=e113]
+              - columnheader "Alterar ou ver link de lista" [ref=e114]
+          - rowgroup [ref=e115]:
+            - row "Rankings Adicionar" [ref=e116]:
+              - rowheader "Rankings" [ref=e117]:
+                - link "Rankings" [ref=e118] [cursor=pointer]:
+                  - /url: /admin/rankings/ranking/
+              - cell "Adicionar" [ref=e119]:
+                - link "Adicionar" [ref=e120] [cursor=pointer]:
+                  - /url: /admin/rankings/ranking/add/
+        - table "Users" [ref=e122]:
+          - caption [ref=e123]:
+            - link "Users" [ref=e124] [cursor=pointer]:
+              - /url: /admin/users/
+          - rowgroup [ref=e125]:
+            - row "Nome do modelo Adicionar link Alterar ou ver link de lista" [ref=e126]:
+              - columnheader "Nome do modelo" [ref=e127]
+              - columnheader "Adicionar link" [ref=e128]
+              - columnheader "Alterar ou ver link de lista" [ref=e129]
+          - rowgroup [ref=e130]:
+            - row "Usuários Adicionar" [ref=e131]:
+              - rowheader "Usuários" [ref=e132]:
+                - link "Usuários" [ref=e133] [cursor=pointer]:
+                  - /url: /admin/users/customuser/
+              - cell "Adicionar" [ref=e134]:
+                - link "Adicionar" [ref=e135] [cursor=pointer]:
+                  - /url: /admin/users/customuser/add/
+      - main [ref=e136]:
+        - list [ref=e137]:
+          - listitem [ref=e138]:
+            - text: O match “
+            - link "Brasil x Argentina" [ref=e139] [cursor=pointer]:
+              - /url: /admin/matches/match/54/change/
+            - text: ” foi alterado com sucesso.
+        - generic [ref=e140]:
+          - heading "Selecione match para modificar" [level=1] [ref=e141]
+          - generic [ref=e142]:
+            - list [ref=e143]:
+              - listitem [ref=e144]:
+                - link "Adicionar match" [ref=e145] [cursor=pointer]:
+                  - /url: /admin/matches/match/add/
+            - generic [ref=e147]:
+              - search "Filtro" [ref=e148]:
+                - heading "Filtro" [level=2] [ref=e149]
+                - heading "Mostrar contagem" [level=3] [ref=e151]:
+                  - link "Mostrar contagem" [ref=e152] [cursor=pointer]:
+                    - /url: "?_facets=True"
+                - group [ref=e153]:
+                  - generic "↓ Por status" [ref=e154] [cursor=pointer]
+                  - list [ref=e155]:
+                    - listitem [ref=e156]:
+                      - link "Todos" [ref=e157] [cursor=pointer]:
+                        - /url: "?"
+                    - listitem [ref=e158]:
+                      - link "Agendado" [ref=e159] [cursor=pointer]:
+                        - /url: "?status__exact=agendado"
+                    - listitem [ref=e160]:
+                      - link "Em andamento" [ref=e161] [cursor=pointer]:
+                        - /url: "?status__exact=em_andamento"
+                    - listitem [ref=e162]:
+                      - link "Finalizado" [ref=e163] [cursor=pointer]:
+                        - /url: "?status__exact=finalizado"
+                - group [ref=e164]:
+                  - generic "↓ Por match datetime" [ref=e165] [cursor=pointer]
+                  - list [ref=e166]:
+                    - listitem [ref=e167]:
+                      - link "Qualquer data" [ref=e168] [cursor=pointer]:
+                        - /url: "?"
+                    - listitem [ref=e169]:
+                      - link "Hoje" [ref=e170] [cursor=pointer]:
+                        - /url: "?match_datetime__gte=2026-06-08+00%3A00%3A00-03%3A00&match_datetime__lt=2026-06-09+00%3A00%3A00-03%3A00"
+                    - listitem [ref=e171]:
+                      - link "Últimos 7 dias" [ref=e172] [cursor=pointer]:
+                        - /url: "?match_datetime__gte=2026-06-01+00%3A00%3A00-03%3A00&match_datetime__lt=2026-06-09+00%3A00%3A00-03%3A00"
+                    - listitem [ref=e173]:
+                      - link "Este mês" [ref=e174] [cursor=pointer]:
+                        - /url: "?match_datetime__gte=2026-06-01+00%3A00%3A00-03%3A00&match_datetime__lt=2026-07-01+00%3A00%3A00-03%3A00"
+                    - listitem [ref=e175]:
+                      - link "Este ano" [ref=e176] [cursor=pointer]:
+                        - /url: "?match_datetime__gte=2026-01-01+00%3A00%3A00-03%3A00&match_datetime__lt=2027-01-01+00%3A00%3A00-03%3A00"
+              - generic [ref=e177]:
+                - generic [ref=e178]:
+                  - heading "Busca matchs" [level=2] [ref=e179]
+                  - search "Busca matchs" [ref=e180]:
+                    - generic [ref=e181]:
+                      - img "Search" [ref=e183]
+                      - textbox "Search" [ref=e184]
+                      - button "Pesquisar" [ref=e185] [cursor=pointer]
+                - navigation [ref=e186]:
+                  - link "‹ 2026" [ref=e187] [cursor=pointer]:
+                    - /url: "?match_datetime__year=2026"
+                  - link "8 de Julho" [ref=e188] [cursor=pointer]:
+                    - /url: "?match_datetime__day=8&match_datetime__month=7&match_datetime__year=2026"
+                  - link "9 de Julho" [ref=e189] [cursor=pointer]:
+                    - /url: "?match_datetime__day=9&match_datetime__month=7&match_datetime__year=2026"
+                - generic [ref=e190]:
+                  - generic [ref=e191]:
+                    - generic [ref=e192]:
+                      - text: "Ação:"
+                      - combobox "Ação:" [ref=e193]:
+                        - option "---------" [selected]
+                        - option "Remover matchs selecionados"
+                        - option "Marcar jogos selecionados como finalizado"
+                    - button "Executar" [ref=e194] [cursor=pointer]
+                    - text: 0 de 6 selecionado
+                  - table [ref=e196]:
+                    - rowgroup [ref=e197]:
+                      - row "Selecione todos os objetos nessa página para uma ação Home team Away team Alternar ordenção Match datetime Stadium Home score Away score Status" [ref=e198]:
+                        - columnheader "Selecione todos os objetos nessa página para uma ação" [ref=e199]:
+                          - checkbox "Selecione todos os objetos nessa página para uma ação" [ref=e202]
+                        - columnheader "Home team" [ref=e203]:
+                          - button "Home team" [ref=e205] [cursor=pointer]
+                        - columnheader "Away team" [ref=e206]:
+                          - button "Away team" [ref=e208] [cursor=pointer]
+                        - columnheader "Alternar ordenção Match datetime" [ref=e209]:
+                          - link "Alternar ordenção" [ref=e211] [cursor=pointer]:
+                            - /url: "?o=-3"
+                          - button "Match datetime" [ref=e213] [cursor=pointer]
+                        - columnheader "Stadium" [ref=e214]:
+                          - button "Stadium" [ref=e216] [cursor=pointer]
+                        - columnheader "Home score" [ref=e217]:
+                          - button "Home score" [ref=e219] [cursor=pointer]
+                        - columnheader "Away score" [ref=e220]:
+                          - button "Away score" [ref=e222] [cursor=pointer]
+                        - columnheader "Status" [ref=e223]:
+                          - button "Status" [ref=e225] [cursor=pointer]
+                    - rowgroup [ref=e226]:
+                      - row "Selecione esse objeto para uma ação - Brasil x Argentina Brasil Argentina 8 de Julho de 2026 às 21:49 Maracanã (Rio de Janeiro) 2 1 Finalizado" [ref=e227]:
+                        - cell "Selecione esse objeto para uma ação - Brasil x Argentina" [ref=e228]:
+                          - checkbox "Selecione esse objeto para uma ação - Brasil x Argentina" [ref=e229]
+                        - rowheader "Brasil" [ref=e230]:
+                          - link "Brasil" [ref=e231] [cursor=pointer]:
+                            - /url: /admin/matches/match/54/change/
+                        - cell "Argentina" [ref=e232]
+                        - cell "8 de Julho de 2026 às 21:49" [ref=e233]
+                        - cell "Maracanã (Rio de Janeiro)" [ref=e234]
+                        - cell "2" [ref=e235]:
+                          - spinbutton [ref=e236]: "2"
+                        - cell "1" [ref=e237]:
+                          - spinbutton [ref=e238]: "1"
+                        - cell "Finalizado" [ref=e239]:
+                          - combobox [ref=e240]:
+                            - option "Agendado"
+                            - option "Em andamento"
+                            - option "Finalizado" [selected]
+                      - row "Selecione esse objeto para uma ação - Brasil x Argentina Brasil Argentina 8 de Julho de 2026 às 22:49 Maracanã (Rio de Janeiro) 1 1 Em andamento" [ref=e241]:
+                        - cell "Selecione esse objeto para uma ação - Brasil x Argentina" [ref=e242]:
+                          - checkbox "Selecione esse objeto para uma ação - Brasil x Argentina" [ref=e243]
+                        - rowheader "Brasil" [ref=e244]:
+                          - link "Brasil" [ref=e245] [cursor=pointer]:
+                            - /url: /admin/matches/match/55/change/
+                        - cell "Argentina" [ref=e246]
+                        - cell "8 de Julho de 2026 às 22:49" [ref=e247]
+                        - cell "Maracanã (Rio de Janeiro)" [ref=e248]
+                        - cell "1" [ref=e249]:
+                          - spinbutton [ref=e250]: "1"
+                        - cell "1" [ref=e251]:
+                          - spinbutton [ref=e252]: "1"
+                        - cell "Em andamento" [ref=e253]:
+                          - combobox [ref=e254]:
+                            - option "Agendado"
+                            - option "Em andamento" [selected]
+                            - option "Finalizado"
+                      - row "Selecione esse objeto para uma ação - Brasil x Argentina Brasil Argentina 8 de Julho de 2026 às 23:49 Maracanã (Rio de Janeiro) 3 0 Em andamento" [ref=e255]:
+                        - cell "Selecione esse objeto para uma ação - Brasil x Argentina" [ref=e256]:
+                          - checkbox "Selecione esse objeto para uma ação - Brasil x Argentina" [ref=e257]
+                        - rowheader "Brasil" [ref=e258]:
+                          - link "Brasil" [ref=e259] [cursor=pointer]:
+                            - /url: /admin/matches/match/56/change/
+                        - cell "Argentina" [ref=e260]
+                        - cell "8 de Julho de 2026 às 23:49" [ref=e261]
+                        - cell "Maracanã (Rio de Janeiro)" [ref=e262]
+                        - cell "3" [ref=e263]:
+                          - spinbutton [ref=e264]: "3"
+                        - cell "0" [ref=e265]:
+                          - spinbutton [ref=e266]: "0"
+                        - cell "Em andamento" [ref=e267]:
+                          - combobox [ref=e268]:
+                            - option "Agendado"
+                            - option "Em andamento" [selected]
+                            - option "Finalizado"
+                      - row "Selecione esse objeto para uma ação - Brasil x Argentina Brasil Argentina 9 de Julho de 2026 às 00:49 Maracanã (Rio de Janeiro) 2 2 Em andamento" [ref=e269]:
+                        - cell "Selecione esse objeto para uma ação - Brasil x Argentina" [ref=e270]:
+                          - checkbox "Selecione esse objeto para uma ação - Brasil x Argentina" [ref=e271]
+                        - rowheader "Brasil" [ref=e272]:
+                          - link "Brasil" [ref=e273] [cursor=pointer]:
+                            - /url: /admin/matches/match/57/change/
+                        - cell "Argentina" [ref=e274]
+                        - cell "9 de Julho de 2026 às 00:49" [ref=e275]
+                        - cell "Maracanã (Rio de Janeiro)" [ref=e276]
+                        - cell "2" [ref=e277]:
+                          - spinbutton [ref=e278]: "2"
+                        - cell "2" [ref=e279]:
+                          - spinbutton [ref=e280]: "2"
+                        - cell "Em andamento" [ref=e281]:
+                          - combobox [ref=e282]:
+                            - option "Agendado"
+                            - option "Em andamento" [selected]
+                            - option "Finalizado"
+                      - row "Selecione esse objeto para uma ação - Brasil x Argentina Brasil Argentina 9 de Julho de 2026 às 01:49 Maracanã (Rio de Janeiro) 1 0 Em andamento" [ref=e283]:
+                        - cell "Selecione esse objeto para uma ação - Brasil x Argentina" [ref=e284]:
+                          - checkbox "Selecione esse objeto para uma ação - Brasil x Argentina" [ref=e285]
+                        - rowheader "Brasil" [ref=e286]:
+                          - link "Brasil" [ref=e287] [cursor=pointer]:
+                            - /url: /admin/matches/match/58/change/
+                        - cell "Argentina" [ref=e288]
+                        - cell "9 de Julho de 2026 às 01:49" [ref=e289]
+                        - cell "Maracanã (Rio de Janeiro)" [ref=e290]
+                        - cell "1" [ref=e291]:
+                          - spinbutton [ref=e292]: "1"
+                        - cell "0" [ref=e293]:
+                          - spinbutton [ref=e294]: "0"
+                        - cell "Em andamento" [ref=e295]:
+                          - combobox [ref=e296]:
+                            - option "Agendado"
+                            - option "Em andamento" [selected]
+                            - option "Finalizado"
+                      - row "Selecione esse objeto para uma ação - Brasil x Argentina Brasil Argentina 9 de Julho de 2026 às 02:49 Maracanã (Rio de Janeiro) 4 2 Em andamento" [ref=e297]:
+                        - cell "Selecione esse objeto para uma ação - Brasil x Argentina" [ref=e298]:
+                          - checkbox "Selecione esse objeto para uma ação - Brasil x Argentina" [ref=e299]
+                        - rowheader "Brasil" [ref=e300]:
+                          - link "Brasil" [ref=e301] [cursor=pointer]:
+                            - /url: /admin/matches/match/59/change/
+                        - cell "Argentina" [ref=e302]
+                        - cell "9 de Julho de 2026 às 02:49" [ref=e303]
+                        - cell "Maracanã (Rio de Janeiro)" [ref=e304]
+                        - cell "4" [ref=e305]:
+                          - spinbutton [ref=e306]: "4"
+                        - cell "2" [ref=e307]:
+                          - spinbutton [ref=e308]: "2"
+                        - cell "Em andamento" [ref=e309]:
+                          - combobox [ref=e310]:
+                            - option "Agendado"
+                            - option "Em andamento" [selected]
+                            - option "Finalizado"
+                  - generic [ref=e311]:
+                    - navigation "Paginação matchs" [ref=e312]:
+                      - heading "Paginação matchs" [level=2] [ref=e313]
+                      - text: 6 matchs
+                    - button "Salvar" [ref=e314] [cursor=pointer]
+    - contentinfo

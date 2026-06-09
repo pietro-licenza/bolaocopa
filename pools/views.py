@@ -38,16 +38,20 @@ class PoolDetailView(LoginRequiredMixin, DetailView):
         members_qs = self.object.members.select_related('user').order_by(
             'joined_at',
         )
+        rankings_by_user = {
+            r.user_id: r
+            for r in self.object.rankings.all()
+        }
         ranked_members = []
-        for index, member in enumerate(members_qs, start=1):
+        for member in members_qs:
+            ranking = rankings_by_user.get(member.user_id)
             ranked_members.append({
-                'position': index,
                 'name': member.user.get_full_name() or member.user.email,
                 'email': member.user.email,
                 'is_creator': member.user == self.object.created_by,
-                'points': 0,
+                'points': ranking.total_points if ranking else 0,
             })
-        ranked_members.sort(key=lambda m: (-m['points'], m['position']))
+        ranked_members.sort(key=lambda m: (-m['points'], m['email']))
         for index, member in enumerate(ranked_members, start=1):
             member['position'] = index
         context['ranked_members'] = ranked_members

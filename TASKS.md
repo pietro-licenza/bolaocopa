@@ -167,17 +167,17 @@
   - [X] Calculo disparado via Django signal ao salvar resultado real do jogo
   - [X] Atualizar ranking do bolao apos calculo
 
-**US-5.VAL: Validacao do Sprint 5 — Rankings**
+**US-5.VAL: Validacao do Sprint 5 — Rankings** ✓
 - **Como** agente de QA, **quero** validar todo o trabalho do Sprint 5, **para** garantir que as funcionalidades de rankings estao corretas e sem bugs.
 - **Criterios de aceite:**
-  - [ ] Tirar prints da tabela de ranking e do comportamento atualizado
-  - [ ] Validar tabela de ranking: posicao, nome e pontuacao total, ordenacao decrescente
-  - [ ] Validar destaque da posicao do usuario logado no ranking
-  - [ ] Validar calculo de pontos: 3 para acerto exato, 1 para vencedor/empate, 0 para erro
-  - [ ] Validar que o Django signal dispara corretamente ao salvar resultado real
-  - [ ] Validar atualizacao automatica do ranking apos calculo de pontos
-  - [ ] Validar persistencia: ranking persiste corretamente apos multiplos resultados
-  - [ ] Corrigir bugs encontrados
+  - [X] Tirar prints da tabela de ranking e do comportamento atualizado
+  - [X] Validar tabela de ranking: posicao, nome e pontuacao total, ordenacao decrescente
+  - [X] Validar destaque da posicao do usuario logado no ranking
+  - [X] Validar calculo de pontos: 3 para acerto exato, 1 para vencedor/empate, 0 para erro
+  - [X] Validar que o Django signal dispara corretamente ao salvar resultado real
+  - [X] Validar atualizacao automatica do ranking apos calculo de pontos
+  - [X] Validar persistencia: ranking persiste corretamente apos multiplos resultados
+  - [X] Corrigir bugs encontrados
 
 ### Epico 6: Seed da Copa do Mundo 2026
 
@@ -185,6 +185,7 @@
 - **Como** administrador do sistema, **quero** executar um comando que popule o banco com os dados da Copa do Mundo 2026, **para** que os usuarios tenham jogos, selecoes, estadios e rodadas disponiveis para palpitar.
 - **Criterios de aceite:**
   - [ ] Criar management command `seed_world_cup_2026` em `matches/management/commands/`
+  - [ ] Apagar todas as partidas existentes, e deixar apenas as partidas novas que serao anexadas
   - [ ] Comando idempotente: pode ser executado multiplas vezes sem duplicar registros
   - [ ] Confirmar com o usuario antes de popular (prompt ou flag `--no-input`)
   - [ ] Exibir resumo final: total de selecoes, estadios, rodadas e jogos criados/atualizados

@@ -1,0 +1,72 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e4]:
+      - link "BolãoCopa" [ref=e5] [cursor=pointer]:
+        - /url: /
+      - generic [ref=e6]:
+        - link "Dashboard" [ref=e7] [cursor=pointer]:
+          - /url: /dashboard/
+        - link "Meus Bolões" [ref=e8] [cursor=pointer]:
+          - /url: /pools/
+        - button "Sair" [ref=e10] [cursor=pointer]
+  - main [ref=e11]:
+    - generic [ref=e12]:
+      - generic [ref=e13]:
+        - generic [ref=e14]:
+          - heading "Ranking" [level=1] [ref=e15]
+          - paragraph [ref=e16]: Bolão da Copa 2026
+        - link "← Voltar para o Bolão" [ref=e17] [cursor=pointer]:
+          - /url: /pools/4/
+      - generic [ref=e18]:
+        - generic [ref=e19]:
+          - text: 🥇
+          - paragraph [ref=e20]: "#1"
+          - paragraph [ref=e21]: Convidado Teste
+          - paragraph [ref=e22]: 11 pts
+        - generic [ref=e23]:
+          - text: 🥈
+          - paragraph [ref=e24]: "#2"
+          - paragraph [ref=e25]: Criador Validador
+          - paragraph [ref=e26]: 8 pts
+        - generic [ref=e27]:
+          - text: 🥉
+          - paragraph [ref=e28]: "#3"
+          - paragraph [ref=e29]: Pietro Licenza
+          - paragraph [ref=e30]: 1 pts
+      - generic [ref=e31]:
+        - generic [ref=e32]:
+          - generic [ref=e33]:
+            - generic [ref=e34]: "#1"
+            - generic [ref=e35]:
+              - paragraph [ref=e37]: Convidado Teste
+              - paragraph [ref=e38]: convidado.sprint2@example.com
+          - generic [ref=e39]:
+            - generic [ref=e40]:
+              - paragraph [ref=e41]: Palpites
+              - paragraph [ref=e42]: "6"
+            - paragraph [ref=e44]: 11 pts
+        - generic [ref=e45]:
+          - generic [ref=e46]:
+            - generic [ref=e47]: "#2"
+            - generic [ref=e48]:
+              - generic [ref=e49]:
+                - paragraph [ref=e50]: Criador Validador
+                - generic [ref=e51]: Criador
+                - generic [ref=e52]: (Você)
+              - paragraph [ref=e53]: criador.sprint2@example.com
+          - generic [ref=e54]:
+            - generic [ref=e55]:
+              - paragraph [ref=e56]: Palpites
+              - paragraph [ref=e57]: "6"
+            - paragraph [ref=e59]: 8 pts
+        - generic [ref=e60]:
+          - generic [ref=e61]:
+            - generic [ref=e62]: "#3"
+            - generic [ref=e63]:
+              - paragraph [ref=e65]: Pietro Licenza
+              - paragraph [ref=e66]: pietro.licenza@hotmail.com
+          - generic [ref=e67]:
+            - generic [ref=e68]:
+              - paragraph [ref=e69]: Palpites
+              - paragraph [ref=e70]: "6"
+            - paragraph [ref=e72]: 1 pts
