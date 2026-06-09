@@ -1,8 +1,7 @@
 ---
 description: Especialista em Django backend para o BolaoCopa. Implementa modelos, views CBV, signals, forms, auth por email, URLs e migracoes. Sempre consulta Context7 para Django 6.0.x antes de escrever codigo nao-trivial.
 mode: subagent
-model: opencode-go/glm-5.1
-#model: minimax/minimax-m3
+#model: opencode-go/glm-5.1
 color: info
 permission:
   edit: allow

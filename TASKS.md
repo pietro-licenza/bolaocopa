@@ -194,11 +194,11 @@
 **US-6.2: Popular selecoes (Team)**
 - **Como** administrador, **quero** cadastrar as 48 selecoes que disputarao a Copa 2026, **para** que possam ser associadas aos jogos.
 - **Criterios de aceite:**
-  - [ ] Cadastrar 48 selecoes com nome oficial, codigo FIFA (3 letras) e confederacao
-  - [ ] Incluir as 3 selecoes sedes: Canada, EUA, Mexico
-  - [ ] Incluir as selecoes classificadas via eliminatorias ate o momento do seed
-  - [ ] Verificar duplicatas pelo codigo FIFA antes de criar
-  - [ ] Atualizar dados se a selecao ja existir (upsert)
+  - [X] Cadastrar 48 selecoes com nome oficial, codigo FIFA (3 letras) e confederacao
+  - [X] Incluir as 3 selecoes sedes: Canada, EUA, Mexico
+  - [X] Incluir as selecoes classificadas via eliminatorias ate o momento do seed
+  - [X] Verificar duplicatas pelo codigo FIFA antes de criar
+  - [X] Atualizar dados se a selecao ja existir (upsert)
 
 **US-6.3: Popular estadios (Stadium)**
 - **Como** administrador, **quero** cadastrar os estadios sede da Copa 2026, **para** que sejam exibidos nas paginas de jogos.

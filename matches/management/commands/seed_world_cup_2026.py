@@ -1,6 +1,7 @@
 from django.core.management.base import BaseCommand
 from django.utils import timezone
 
+from matches.management.commands.seeders import teams as teams_seeder
 from matches.models import Match
 
 
@@ -26,12 +27,17 @@ class Command(BaseCommand):
 
         total_matches_deletados, _ = Match.objects.all().delete()
 
-        self.stdout.write(self.style.SUCCESS('Comando executado (esqueleto).'))
-        self.stdout.write(self.style.WARNING('A logica completa de seed sera implementada nas US 6.2 a 6.6.'))
+        # US-6.2: selecoes (upsert idempotente por country_code).
+        teams_criados, teams_atualizados, teams_total = teams_seeder.upsert_teams()
+        self.stdout.write(
+            self.style.SUCCESS(
+                f'Selecoes: {teams_total} processadas ({teams_criados} criadas, {teams_atualizados} atualizadas).',
+            ),
+        )
 
         self.stdout.write('')
         self.stdout.write(self.style.SUCCESS('=== Resumo ==='))
-        self.stdout.write('Selecoes: 0 (stub - sera implementado na US 6.2)')
+        self.stdout.write(f'Selecoes: {teams_total} ({teams_criados} criadas, {teams_atualizados} atualizadas)')
         self.stdout.write('Estadios: 0 (stub - sera implementado na US 6.3)')
         self.stdout.write('Rodadas: 0 (stub - sera implementado na US 6.4)')
         self.stdout.write('Jogos: 0 (stub - sera implementado na US 6.5 e 6.6)')

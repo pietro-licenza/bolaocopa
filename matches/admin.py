@@ -5,7 +5,9 @@ from .models import Match, Round, Stadium, Team
 
 @admin.register(Team)
 class TeamAdmin(admin.ModelAdmin):
-    list_display = ('name', 'country_code', 'flag_emoji')
+    list_display = ('name', 'country_code', 'confederation', 'flag_emoji')
+    list_filter = ('confederation',)
+    search_fields = ('name', 'country_code')
 
 
 @admin.register(Stadium)

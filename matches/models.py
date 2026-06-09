@@ -2,9 +2,22 @@ from django.db import models
 
 
 class Team(models.Model):
+    class Confederation(models.TextChoices):
+        CONMEBOL = 'CONMEBOL', 'CONMEBOL'
+        UEFA = 'UEFA', 'UEFA'
+        CAF = 'CAF', 'CAF'
+        AFC = 'AFC', 'AFC'
+        OFC = 'OFC', 'OFC'
+        CONCACAF = 'CONCACAF', 'CONCACAF'
+
     name = models.CharField(max_length=100)
     country_code = models.CharField(max_length=3, unique=True)
     flag_emoji = models.CharField(max_length=10, blank=True)
+    confederation = models.CharField(
+        max_length=10,
+        choices=Confederation.choices,
+        blank=True,
+    )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
