@@ -1,0 +1,19 @@
+- generic [ref=e1]:
+  - link "Ir para o conteúdo principal" [ref=e2] [cursor=pointer]:
+    - /url: "#content-start"
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - link "Administração do Django" [ref=e7] [cursor=pointer]:
+        - /url: /admin/
+    - main [ref=e9]:
+      - generic [ref=e11]:
+        - paragraph [ref=e12]: Você está autenticado como criador.sprint2@example.com, mas não está autorizado a acessar esta página. Você gostaria de realizar login com uma conta diferente?
+        - generic [ref=e13]:
+          - generic [ref=e14]:
+            - generic [ref=e15]: "Email:"
+            - textbox "Email:" [active] [ref=e16]: pietro.licenza@hotmail.com
+          - generic [ref=e17]:
+            - generic [ref=e18]: "Senha:"
+            - textbox "Senha:" [ref=e19]: 102030mm
+          - button "Acessar" [ref=e21] [cursor=pointer]
+    - contentinfo

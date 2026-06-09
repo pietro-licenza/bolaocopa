@@ -130,13 +130,13 @@
   - [X] Indicar status: agendado, em andamento, finalizado
   - [X] Marcar jogos que o usuario ja palpitou
 
-**US-4.2: Registrar resultado real (admin)**
+**US-4.2: Registrar resultado real (admin)** ✓
 - **Como** administrador, **quero** registrar o resultado real de um jogo, **para** calcular as pontuacoes.
 - **Criterios de aceite:**
-  - [ ] Acesso restrito ao admin via Django Admin
-  - [ ] Registrar placar final (home_score, away_score)
-  - [ ] Alterar status do jogo para "finalizado"
-  - [ ] Ao salvar resultado, disparar signal para calculo de pontos
+  - [X] Acesso restrito ao admin via Django Admin
+  - [X] Registrar placar final (home_score, away_score)
+  - [X] Alterar status do jogo para "finalizado"
+  - [X] Ao salvar resultado, disparar signal para calculo de pontos
 
 **US-4.VAL: Validacao do Sprint 4 — Jogos e resultados**
 - **Como** agente de QA, **quero** validar todo o trabalho do Sprint 4, **para** garantir que as funcionalidades de jogos e resultados estao corretas e sem bugs.
