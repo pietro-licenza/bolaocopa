@@ -302,17 +302,18 @@
   - [X] Documentar fonte do mapeamento no docstring do command
   - [X] **Correcao (US-7.2 fix)**: casar nomes pt-BR com nomes em ingles da API por multipla variante (``team.name`` → ``team.name_en`` → ``team.country_code`` / TLA), permitindo que as 48 selecoes + TBDs sejam reconhecidas. Adicionado campo ``Team.name_en`` e migracao ``0006_team_name_en``; o backfill agora mapeia **72 de 72 jogos da fase de grupos**. Os 32 jogos do mata-mata continuam com ``external_id`` em branco ate a fase de grupos acabar (eles usam placeholders TBD-H/TBD-A por design — ver US-6.6); serao remapeados quando os confrontos forem definidos e um novo backfill for executado.
 
-**US-7.3: Botao manual "Buscar resultado" na pagina do bolao/jogo**
+**US-7.3: Botao manual "Buscar resultado" na pagina do bolao/jogo** ✓
 - **Como** usuario, **quero** clicar em um botao "Buscar resultado" em uma pagina de jogo, **para** atualizar o placar e eventos sem eu precisar esperar um sync automatico.
 - **Criterios de aceite:**
-  - [ ] View `MatchSyncView` (LoginRequiredMixin, POST only) que recebe `match_id`, chama o cliente API-Football e atualiza placar/status/eventos
-  - [ ] Botao "Buscar resultado" visivel apenas em jogos com `external_id` preenchido
-  - [ ] Botao desabilitado visualmente por 5 segundos apos click (evitar duplo-clique que gastaria 2 requests)
-  - [ ] Apos sincronizar, redirecionar de volta para a pagina de origem com mensagem de sucesso "Placar atualizado"
-  - [ ] Cada click = 1 request `/fixtures` + 1 request `/fixtures/events` (2 requests por botao, dentro do limite diario)
-  - [ ] Em caso de erro da API (404, 429, 500), exibir mensagem amigavel em pt-BR
-  - [ ] Rate-limit client-side: contador diario de requests em `cache` (Django cache framework, LocMem) — se passar de 95 requests no dia, bloquear botao e exibir "Limite diario da API atingido, tente amanha"
-  - [ ] Estrutura preparada para futura task de cron (deixar funcao `sync_match_from_api(match)` isolada e chamavel por command)
+  - [X] View `MatchSyncView` (LoginRequiredMixin, POST only) que recebe `match_id` e usa o `LiveDataRouter` para atualizar placar/status
+  - [X] Botao "Buscar resultado" visivel apenas em jogos com `external_id` preenchido
+  - [X] Botao desabilitado visualmente por 5 segundos apos click (evitar duplo-clique)
+  - [X] Apos sincronizar, redirecionar de volta para a pagina de origem com mensagem de sucesso "Placar atualizado"
+  - [X] Cada click = **1 request FDO** via router primario. Se FDO falhar, fallback para API-Football. Eventos detalhados sao US-7.5 (ainda nao sincronizados)
+  - [X] Rate-limit client-side: contador diario em Django cache, limite 95 req/dia somando as 2 APIs
+  - [X] Rate-limit football-data.org: maximo 10 requests/minuto
+  - [X] Em caso de erro da API, exibir mensagem amigavel em pt-BR
+  - [X] Funcao `sync_match_from_api(match)` isolada em `live/services/sync.py`, idempotente, com `SyncResult` dataclass
 
 **US-7.4: Indicador "Ao vivo" e placar em tempo real**
 - **Como** usuario, **quero** ver claramente quais jogos estao acontecendo agora, **para** nao perder nenhum lance.
@@ -330,6 +331,8 @@
 - **Criterios de aceite:**
   - [ ] Criar model `MatchEvent(match FK, minute PositiveSmallIntegerField, type choices [goal, yellow_card, red_card, substitution_in, substitution_out], team ForeignKey Team, player CharField, assist_player CharField null/blank, created_at, updated_at)` em `live/models.py`
   - [ ] Migration + admin
+  - [ ] Sincronizacao de eventos usa API-Football **primario** (unica das 2 APIs com `/fixtures/events` detalhado). football-data.org nao expoe eventos publicamente no free, entao se API-Football falhar, lista fica vazia (sem fallback)
+  - [ ] Idempotencia: ao sincronizar, limpar `MatchEvent` antigos do match e recriar a partir da API (chave unica: `match+minute+type+player`)
   - [ ] Abaixo do card de match finalizado ou em andamento, exibir lista de eventos ordenada por minuto
   - [ ] Cada evento renderizado com icone: ⚽ gol, 🟨 amarelo, 🟥 vermelho, ⇥ entrou, ⇤ saiu
   - [ ] Linha de gol mostra: `45' ⚽ Neymar (BRA) · assist: Vinicius Jr` (ou padrao similar)
@@ -338,13 +341,15 @@
   - [ ] Icones centralizados, fonte mono para o minuto
   - [ ] Visual segue o design system dark theme (bg-gray-900, text-gray-300, icones coloridos)
 
-**US-7.6: Placar de penaltis**
+**US-7.6: Placar de penaltis (input manual no admin)**
 - **Como** usuario, **quero** ver o resultado dos penaltis ao final de jogos eliminatorios, **para** saber quem avancou na copa.
 - **Criterios de aceite:**
   - [ ] Exibir mini-placar de penaltis abaixo do placar original quando `penalties_home` e `penalties_away` estiverem populados
   - [ ] Formato visual: `(4) 1 x 1 (3)` com numeros de penaltis em circulo/badge, integrando com US-7.4
   - [ ] Adicionar label "penaltis" em texto pequeno abaixo
   - [ ] Disponivel tanto em jogos finalizados quanto em exibicao historica
+  - [ ] **Estrategia de preenchimento**: input manual no Django Admin. As APIs gratis (football-data.org e API-Football free) nao retornam placar de penaltis confiavelmente. O admin do Django permitira ao operador preencher `penalties_home`/`penalties_away` para cada jogo do mata-mata que terminar em penaltis (cobrir os ~15 jogos eliminatorios da Copa 2026)
+  - [ ] MatchAdmin em `matches/admin.py` exibe `penalties_home`/`penalties_away` no form de edicao, dentro de um fieldset "Placar de penaltis (somente mata-mata)"
 
 **US-7.7: Nova aba "Jogos" na navbar com submenus**
 - **Como** usuario, **quero** acessar uma area dedicada de "Jogos" na navbar, **para** navegar entre agenda, grupos e chaveamento.
@@ -360,12 +365,14 @@
     - [ ] Exibe 12 grupos (A-L), cada um como um card
     - [ ] Dentro de cada grupo, tabela com: Posicao, Selecao (bandeira + nome), P (pontos), J (jogos), V (vitorias), E (empates), D (derrotas), GP (gols pro), GC (gols contra), SG (saldo)
     - [ ] Calculos baseados em jogos finalizados (signal/sync ao finalizar jogo atualiza a tabela)
+    - [ ] Dados de standings podem ser enriquecidos via `LiveDataRouter.get_standings(competition_id)` (FDO) ao abrir a pagina — usar para o snapshot oficial, calcular local como fallback
     - [ ] Ordenacao por pontos (desc), depois saldo, depois gols pro
     - [ ] Selecao do usuario logado destacada se for uma das 48
   - [ ] **Sub-view `/matches/bracket/`** (Chaveamento):
     - [ ] Bracket visual em HTML+CSS mostrando 32-avos → Oitavas → Quartas → Semis → Final
     - [ ] Cada confronto como um mini-card com: time mandante (ou TBD), time visitante (ou TBD), data
-    - [ ] Times TBD renderizados como card cinza "A definir" com link para o jogo que define o confronto
+    - [ ] **Importante**: os 32 jogos do mata-mata estao atualmente com `home_team`/`away_team` = placeholders TBD-H/TBD-A (ver US-6.6 e US-7.2 fix) e `external_id` em branco. O bracket vai mostrar todos como "A definir" ate a fase de grupos acabar e os confrontos serem definidos
+    - [ ] Times TBD renderizados como card cinza "A definir" (label "A definir" em vez do nome) — sem link externo (jogo ainda nao existe em API). Quando `Match.home_team != TBD-H`, mostrar nome+bandeira normalmente
     - [ ] Disputa de 3o lugar em card separado abaixo das semis
     - [ ] Visual: conectores simples em CSS (linhas) ou grid/flex com bordas
   - [ ] Rota catch-all para qualquer uma das 3 sub-views: `/matches/schedule/<YYYY-MM-DD>/`

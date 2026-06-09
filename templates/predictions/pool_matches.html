@@ -46,7 +46,7 @@
                         </div>
                     </div>
 
-                    <div class='mt-6 pt-4 border-t border-gray-700 flex items-center justify-between'>
+                    <div class='mt-6 pt-4 border-t border-gray-700 flex items-center justify-between gap-3 flex-wrap'>
                         {% if item.user_prediction %}
                             <span class='text-emerald-400 font-semibold'>Seu palpite: {{ item.user_prediction.home_score }} x {{ item.user_prediction.away_score }}</span>
                         {% elif item.is_locked %}
@@ -54,15 +54,18 @@
                         {% else %}
                             <span class='text-gray-400'>Você ainda não palpitou neste jogo</span>
                         {% endif %}
-                        {% if not item.is_locked and not item.user_prediction %}
-                            <a href='{% url "prediction_create" pool_id=pool.pk match_id=item.match.pk %}' class='bg-emerald-600 hover:bg-emerald-500 text-white font-semibold rounded-lg px-4 py-2 transition-colors duration-200'>
-                                Palpitar
-                            </a>
-                        {% elif not item.is_locked and item.user_prediction %}
-                            <a href='{% url "prediction_update" pool_id=pool.pk match_id=item.match.pk %}' class='border border-gray-600 hover:border-emerald-500 text-gray-300 hover:text-emerald-400 font-semibold rounded-lg px-4 py-2 transition-colors duration-200'>
-                                Editar
-                            </a>
-                        {% endif %}
+                        <div class='flex items-center gap-2'>
+                            {% if not item.is_locked and not item.user_prediction %}
+                                <a href='{% url "prediction_create" pool_id=pool.pk match_id=item.match.pk %}' class='bg-emerald-600 hover:bg-emerald-500 text-white font-semibold rounded-lg px-4 py-2 transition-colors duration-200'>
+                                    Palpitar
+                                </a>
+                            {% elif not item.is_locked and item.user_prediction %}
+                                <a href='{% url "prediction_update" pool_id=pool.pk match_id=item.match.pk %}' class='border border-gray-600 hover:border-emerald-500 text-gray-300 hover:text-emerald-400 font-semibold rounded-lg px-4 py-2 transition-colors duration-200'>
+                                    Editar
+                                </a>
+                            {% endif %}
+                            {% include 'live/partials/sync_button.html' with match=item.match %}
+                        </div>
                     </div>
                 </div>
             {% endfor %}

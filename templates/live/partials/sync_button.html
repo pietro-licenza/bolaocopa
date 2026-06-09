@@ -1,0 +1,50 @@
+{% comment %}
+Reusable "Buscar resultado" button.
+
+Rendered as a small POST form pointing at the sync endpoint
+``{% url 'match_sync' match.id %}``. The button is hidden when the
+match has no ``external_id`` (the upstream APIs have nothing to look
+up in that case), and the inline JS disables the button for 5
+seconds after submit so a double-click cannot burn two requests.
+
+Each include emits its own ``<script>`` block; the script targets
+the form it lives next to (the previous sibling) rather than a global
+query, so multiple matches on the same page each get their own
+listener and their own re-enable timeout.
+{% endcomment %}
+{% if match.external_id and user.is_authenticated %}
+    <form method='post'
+          action='{% url "match_sync" match.id %}'
+          class='inline-block'
+          data-sync>
+        {% csrf_token %}
+        <button type='submit'
+                data-sync-target
+                class='bg-emerald-600 hover:bg-emerald-500 text-white font-semibold rounded-lg px-4 py-2 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed'>
+            <span data-sync-label>Buscar resultado</span>
+        </button>
+    </form>
+    <script>
+        (function () {
+            // The ``<script>`` is rendered right after the form, so
+            // ``document.currentScript.previousElementSibling`` is the
+            // form we want to attach the listener to. This works for
+            // every match card on the page independently.
+            var script = document.currentScript;
+            if (!script) { return; }
+            var form = script.previousElementSibling;
+            if (!form || form.tagName !== 'FORM') { return; }
+            var button = form.querySelector('button[data-sync-target]');
+            var label = form.querySelector('[data-sync-label]');
+            var original = label ? label.textContent : 'Buscar resultado';
+            form.addEventListener('submit', function () {
+                if (button) { button.disabled = true; }
+                if (label) { label.textContent = 'Atualizando...'; }
+                setTimeout(function () {
+                    if (button) { button.disabled = false; }
+                    if (label) { label.textContent = original; }
+                }, 5000);
+            });
+        })();
+    </script>
+{% endif %}

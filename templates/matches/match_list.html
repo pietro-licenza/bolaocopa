@@ -65,6 +65,12 @@
                             <span class='text-amber-400 text-sm font-semibold'>Resultado final: {{ item.match.home_score }} x {{ item.match.away_score }}</span>
                         </div>
                     {% endif %}
+
+                    {% if item.status != 'finalizado' %}
+                        <div class='mt-4 flex justify-end'>
+                            {% include 'live/partials/sync_button.html' with match=item.match %}
+                        </div>
+                    {% endif %}
                 </div>
             {% endfor %}
         </div>

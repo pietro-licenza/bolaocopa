@@ -8,4 +8,5 @@ urlpatterns = [
     path('', include('predictions.urls')),
     path('', include('matches.urls')),
     path('', include('rankings.urls')),
+    path('', include('live.urls')),
 ]

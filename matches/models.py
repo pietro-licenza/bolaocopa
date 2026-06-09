@@ -112,6 +112,10 @@ class Match(models.Model):
         null=True,
         blank=True,
     )
+    elapsed_minute = models.PositiveSmallIntegerField(
+        null=True,
+        blank=True,
+    )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

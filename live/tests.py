@@ -650,5 +650,108 @@ class BackfillMatchExternalIdsTests(TestCase):
         self.assertEqual(label, '')
 
 
+class MatchSyncViewTests(TestCase):
+    """Smoke tests for the ``MatchSyncView`` endpoint.
+
+    The router is mocked so the tests stay offline and deterministic.
+    """
+
+    def setUp(self):
+        from django.contrib.auth import get_user_model
+        from django.core.cache import cache
+        from matches.models import Match, Round, Stadium, Team
+
+        User = get_user_model()
+        self.user = User.objects.create_user(
+            email='sync@example.com', password='x',
+        )
+        # ``self.client`` is created per-test by Django's TestCase; we
+        # need to log the user in here so authenticated-only assertions
+        # can be exercised.
+        self.client.force_login(self.user)
+
+        self.stadium, _ = Stadium.objects.get_or_create(
+            name='Sync Stadium',
+            defaults={'city': 'SC', 'country': 'SC', 'capacity': 1},
+        )
+        self.round_, _ = Round.objects.get_or_create(
+            name='Sync Round',
+            defaults={'order': 1, 'phase': 'grupo'},
+        )
+        self.home, _ = Team.objects.get_or_create(
+            country_code='HOM',
+            defaults={'name': 'Home', 'confederation': 'UEFA'},
+        )
+        self.away, _ = Team.objects.get_or_create(
+            country_code='AWA',
+            defaults={'name': 'Away', 'confederation': 'UEFA'},
+        )
+        self.match = Match.objects.create(
+            round=self.round_,
+            stadium=self.stadium,
+            home_team=self.home,
+            away_team=self.away,
+            match_datetime=datetime_type(2026, 6, 11, 19, 0),
+            external_id=4242,
+        )
+        # Make sure the rate-limit cache doesn't leak between tests.
+        cache.clear()
+
+    def test_post_calls_sync_match_from_api(self):
+        """The view delegates to ``sync_match_from_api`` for valid matches."""
+        from django.urls import reverse
+
+        from live.services.sync import SyncResult
+
+        with mock.patch(
+            'live.views.sync_match_from_api',
+        ) as sync_mock:
+            sync_mock.return_value = SyncResult(
+                success=True, status_changed=False, events_synced=0,
+            )
+            response = self.client.post(
+                reverse('match_sync', args=[self.match.pk]),
+            )
+
+        sync_mock.assert_called_once()
+        # First positional arg is the Match instance.
+        self.assertEqual(sync_mock.call_args.args[0].pk, self.match.pk)
+        # Successful sync redirects somewhere (referer or match_list).
+        self.assertEqual(response.status_code, 302)
+
+    def test_post_requires_login(self):
+        from django.urls import reverse
+
+        self.client.logout()
+        response = self.client.post(
+            reverse('match_sync', args=[self.match.pk]),
+        )
+        # LoginRequiredMixin redirects to LOGIN_URL when unauthenticated.
+        self.assertEqual(response.status_code, 302)
+        self.assertIn('/login/', response.url)
+
+    def test_post_rejects_get(self):
+        from django.urls import reverse
+
+        response = self.client.get(
+            reverse('match_sync', args=[self.match.pk]),
+        )
+        self.assertEqual(response.status_code, 405)
+
+    def test_post_without_external_id_does_not_call_sync(self):
+        from django.urls import reverse
+
+        self.match.external_id = None
+        self.match.save()
+
+        with mock.patch('live.views.sync_match_from_api') as sync_mock:
+            response = self.client.post(
+                reverse('match_sync', args=[self.match.pk]),
+            )
+
+        sync_mock.assert_not_called()
+        self.assertEqual(response.status_code, 302)
+
+
 if __name__ == '__main__':  # pragma: no cover
     unittest.main()
