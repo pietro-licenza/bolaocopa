@@ -11,6 +11,7 @@ class Team(models.Model):
         CONCACAF = 'CONCACAF', 'CONCACAF'
 
     name = models.CharField(max_length=100)
+    name_en = models.CharField(max_length=100, blank=True, default='')
     country_code = models.CharField(max_length=3, unique=True)
     flag_emoji = models.CharField(max_length=10, blank=True)
     confederation = models.CharField(
@@ -97,6 +98,19 @@ class Match(models.Model):
         max_length=20,
         choices=STATUS_CHOICES,
         default='agendado',
+    )
+    external_id = models.PositiveIntegerField(
+        null=True,
+        blank=True,
+        db_index=True,
+    )
+    penalties_home = models.PositiveSmallIntegerField(
+        null=True,
+        blank=True,
+    )
+    penalties_away = models.PositiveSmallIntegerField(
+        null=True,
+        blank=True,
     )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

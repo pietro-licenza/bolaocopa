@@ -5,9 +5,9 @@ from .models import Match, Round, Stadium, Team
 
 @admin.register(Team)
 class TeamAdmin(admin.ModelAdmin):
-    list_display = ('name', 'country_code', 'confederation', 'flag_emoji')
+    list_display = ('name', 'name_en', 'country_code', 'confederation', 'flag_emoji')
     list_filter = ('confederation',)
-    search_fields = ('name', 'country_code')
+    search_fields = ('name', 'name_en', 'country_code')
 
 
 @admin.register(Stadium)
@@ -35,10 +35,11 @@ class MatchAdmin(admin.ModelAdmin):
         'home_score',
         'away_score',
         'status',
+        'external_id',
     )
     list_editable = ('home_score', 'away_score', 'status')
     list_filter = ('status', 'round', 'match_datetime')
-    search_fields = ('home_team__name', 'away_team__name')
+    search_fields = ('home_team__name', 'away_team__name', 'external_id')
     date_hierarchy = 'match_datetime'
     actions = ['mark_as_finalizado']
 
@@ -47,7 +48,10 @@ class MatchAdmin(admin.ModelAdmin):
             'fields': ('round', 'stadium', 'home_team', 'away_team', 'match_datetime'),
         }),
         ('Resultado', {
-            'fields': ('home_score', 'away_score', 'status'),
+            'fields': ('home_score', 'away_score', 'status', 'penalties_home', 'penalties_away'),
+        }),
+        ('API-Football', {
+            'fields': ('external_id',),
         }),
         ('Auditoria', {
             'fields': ('created_at', 'updated_at'),

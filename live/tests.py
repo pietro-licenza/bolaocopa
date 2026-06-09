@@ -1,23 +1,36 @@
 """
-Smoke tests for the API-Football client.
+Smoke tests for the live data clients and router.
 
-The HTTP layer is patched so the test does not hit the real API
-(and does not consume the 100 req/day free-tier quota).
+The HTTP layer is patched so the tests do not hit the real APIs
+(and do not consume the free-tier quotas).
 """
 
 import io
 import json
 import unittest
+from datetime import date as date_type
+from datetime import datetime as datetime_type
 from unittest import mock
 
-from django.test import SimpleTestCase, override_settings
+from django.test import SimpleTestCase, TestCase, override_settings
 
 from live.services.api_football import ApiFootballClient
+from live.services.football_data_org import FootballDataOrgClient
+from live.services.router import LiveDataRouter
 
 
-FIXTURE_URL = 'https://v3.football.api-sports.io/fixtures'
-EVENTS_URL = 'https://v3.football.api-sports.io/fixtures/events'
-API_KEY = 'd44477e3b2d6ab2ddae8b6d5fa7207c6'
+# API-Football
+AF_BASE_URL = 'https://v3.football.api-sports.io'
+AF_FIXTURE_URL = '{0}/fixtures'.format(AF_BASE_URL)
+AF_EVENTS_URL = '{0}/fixtures/events'.format(AF_BASE_URL)
+AF_KEY = 'd44477e3b2d6ab2ddae8b6d5fa7207c6'
+
+# football-data.org
+FDO_BASE_URL = 'https://api.football-data.org/v4'
+FDO_MATCH_URL = '{0}/matches'.format(FDO_BASE_URL)
+FDO_COMPETITION_MATCHES_URL = '{0}/competitions/2000/matches'.format(FDO_BASE_URL)
+FDO_STANDINGS_URL = '{0}/competitions/2000/standings'.format(FDO_BASE_URL)
+FDO_KEY = 'fa7d6c4136794bbe97501e998edc0d63'
 
 
 def _make_response(body, status=200):
@@ -31,8 +44,8 @@ def _make_response(body, status=200):
 
 
 @override_settings(
-    API_FOOTBALL_KEY=API_KEY,
-    API_FOOTBALL_BASE_URL='https://v3.football.api-sports.io',
+    API_FOOTBALL_KEY=AF_KEY,
+    API_FOOTBALL_BASE_URL=AF_BASE_URL,
     API_FOOTBALL_LEAGUE_ID=1,
     API_FOOTBALL_SEASON=2026,
 )
@@ -41,10 +54,6 @@ class ApiFootballClientTests(SimpleTestCase):
 
     def _assert_request(self, request, expected_url, expected_header):
         self.assertEqual(request.full_url, expected_url)
-        # urllib stores headers verbatim (case-sensitive). Look up the
-        # auth header by its exact key in header_items() instead of
-        # relying on request.get_header(), which is unreliable for
-        # non-standard header names.
         headers = {
             name.lower(): value
             for name, value in request.header_items()
@@ -64,8 +73,8 @@ class ApiFootballClientTests(SimpleTestCase):
 
         self._assert_request(
             urlopen.call_args.args[0],
-            '{0}?id=123'.format(FIXTURE_URL),
-            API_KEY,
+            '{0}?id=123'.format(AF_FIXTURE_URL),
+            AF_KEY,
         )
         self.assertEqual(result, {'fixture': {'id': 123}})
 
@@ -80,8 +89,8 @@ class ApiFootballClientTests(SimpleTestCase):
 
         self._assert_request(
             urlopen.call_args.args[0],
-            '{0}?date=2026-06-11&league=1&season=2026'.format(FIXTURE_URL),
-            API_KEY,
+            '{0}?date=2026-06-11&league=1&season=2026'.format(AF_FIXTURE_URL),
+            AF_KEY,
         )
         self.assertEqual(len(result), 2)
 
@@ -96,8 +105,8 @@ class ApiFootballClientTests(SimpleTestCase):
 
         self._assert_request(
             urlopen.call_args.args[0],
-            '{0}?fixture=456'.format(EVENTS_URL),
-            API_KEY,
+            '{0}?fixture=456'.format(AF_EVENTS_URL),
+            AF_KEY,
         )
         self.assertEqual(result, [{'type': 'Goal'}])
 
@@ -121,6 +130,524 @@ class ApiFootballClientTests(SimpleTestCase):
     def test_get_fixture_returns_none_when_api_key_missing(self):
         with override_settings(API_FOOTBALL_KEY=''):
             self.assertIsNone(ApiFootballClient().get_fixture(1))
+
+
+@override_settings(
+    FOOTBALL_DATA_ORG_KEY=FDO_KEY,
+    FOOTBALL_DATA_ORG_BASE_URL=FDO_BASE_URL,
+    FOOTBALL_DATA_ORG_WORLD_CUP_ID=2000,
+)
+class FootballDataOrgClientTests(SimpleTestCase):
+    """Verify URL composition, headers and basic payload parsing for FDO."""
+
+    def _assert_request(self, request, expected_url, expected_header):
+        self.assertEqual(request.full_url, expected_url)
+        headers = {
+            name.lower(): value
+            for name, value in request.header_items()
+        }
+        self.assertEqual(headers.get('x-auth-token'), expected_header)
+        self.assertEqual(headers.get('accept'), 'application/json')
+        self.assertEqual(request.get_method(), 'GET')
+
+    def test_get_match_builds_url_and_returns_payload(self):
+        payload = {
+            'id': 1,
+            'utcDate': '2026-06-11T19:00:00Z',
+            'homeTeam': {'name': 'Mexico'},
+            'awayTeam': {'name': 'South Africa'},
+        }
+        with mock.patch(
+            'urllib.request.urlopen',
+            return_value=_make_response(payload),
+        ) as urlopen:
+            client = FootballDataOrgClient()
+            result = client.get_match(1)
+
+        self._assert_request(
+            urlopen.call_args.args[0],
+            '{0}/1'.format(FDO_MATCH_URL),
+            FDO_KEY,
+        )
+        self.assertEqual(result, payload)
+
+    def test_get_competition_matches_passes_date_range(self):
+        payload = {
+            'matches': [
+                {
+                    'id': 1,
+                    'utcDate': '2026-06-11T19:00:00Z',
+                    'homeTeam': {'name': 'Mexico'},
+                    'awayTeam': {'name': 'South Africa'},
+                },
+            ],
+        }
+        with mock.patch(
+            'urllib.request.urlopen',
+            return_value=_make_response(payload),
+        ) as urlopen:
+            client = FootballDataOrgClient()
+            result = client.get_competition_matches(
+                2000, date_from='2026-06-11', date_to='2026-07-19',
+            )
+
+        self._assert_request(
+            urlopen.call_args.args[0],
+            '{0}?dateFrom=2026-06-11&dateTo=2026-07-19'.format(
+                FDO_COMPETITION_MATCHES_URL,
+            ),
+            FDO_KEY,
+        )
+        self.assertEqual(len(result), 1)
+        self.assertEqual(result[0]['id'], 1)
+
+    def test_get_competition_matches_without_dates_omits_query_string(self):
+        payload = {'matches': []}
+        with mock.patch(
+            'urllib.request.urlopen',
+            return_value=_make_response(payload),
+        ) as urlopen:
+            client = FootballDataOrgClient()
+            result = client.get_competition_matches(2000)
+
+        self._assert_request(
+            urlopen.call_args.args[0],
+            FDO_COMPETITION_MATCHES_URL,
+            FDO_KEY,
+        )
+        self.assertEqual(result, [])
+
+    def test_get_standings_returns_list(self):
+        payload = {
+            'standings': [
+                {'stage': 'GROUP_A', 'table': []},
+            ],
+        }
+        with mock.patch(
+            'urllib.request.urlopen',
+            return_value=_make_response(payload),
+        ) as urlopen:
+            client = FootballDataOrgClient()
+            result = client.get_standings(2000)
+
+        self._assert_request(
+            urlopen.call_args.args[0],
+            FDO_STANDINGS_URL,
+            FDO_KEY,
+        )
+        self.assertEqual(result, [{'stage': 'GROUP_A', 'table': []}])
+
+    def test_get_match_returns_none_on_http_error(self):
+        with mock.patch(
+            'urllib.request.urlopen',
+            side_effect=OSError('boom'),
+        ):
+            self.assertIsNone(FootballDataOrgClient().get_match(1))
+
+    def test_get_competition_matches_returns_empty_list_on_http_error(self):
+        with mock.patch(
+            'urllib.request.urlopen',
+            side_effect=OSError('boom'),
+        ):
+            self.assertEqual(
+                FootballDataOrgClient().get_competition_matches(2000),
+                [],
+            )
+
+    def test_get_match_returns_none_when_api_key_missing(self):
+        with override_settings(FOOTBALL_DATA_ORG_KEY=''):
+            self.assertIsNone(FootballDataOrgClient().get_match(1))
+
+
+class LiveDataRouterTests(SimpleTestCase):
+    """Verify the router delegates to the right client and caches results."""
+
+    def _fdo_payload(self):
+        return [
+            {
+                'id': 1,
+                'utcDate': '2026-06-11T19:00:00Z',
+                'homeTeam': {'name': 'Mexico'},
+                'awayTeam': {'name': 'South Africa'},
+            },
+            {
+                'id': 2,
+                'utcDate': '2026-06-12T19:00:00Z',
+                'homeTeam': {'name': 'Canada'},
+                'awayTeam': {'name': 'Bosnia and Herzegovina'},
+            },
+        ]
+
+    def test_find_world_cup_match_uses_fdo_first(self):
+        fdo = mock.Mock(spec=FootballDataOrgClient)
+        af = mock.Mock(spec=ApiFootballClient)
+        fdo.get_competition_matches.return_value = self._fdo_payload()
+
+        router = LiveDataRouter(
+            fdo_client=fdo, api_football_client=af, world_cup_id=2000,
+        )
+        result = router.find_world_cup_match('2026-06-11', '2026-07-19')
+
+        fdo.get_competition_matches.assert_called_once_with(
+            2000, date_from='2026-06-11', date_to='2026-07-19',
+        )
+        af.get_fixtures_by_date.assert_not_called()
+        self.assertEqual(len(result), 2)
+
+    def test_find_world_cup_match_falls_back_to_api_football(self):
+        fdo = mock.Mock(spec=FootballDataOrgClient)
+        af = mock.Mock(spec=ApiFootballClient)
+        fdo.get_competition_matches.return_value = []
+        af.get_fixtures_by_date.side_effect = [
+            # Two days of calls. The router iterates from
+            # 2026-06-11 to 2026-06-12 inclusive in this test.
+            [
+                {
+                    'fixture': {'id': 99, 'date': '2026-06-11T19:00:00Z'},
+                    'teams': {
+                        'home': {'name': 'Mexico'},
+                        'away': {'name': 'South Africa'},
+                    },
+                },
+            ],
+            [
+                {
+                    'fixture': {'id': 100, 'date': '2026-06-12T19:00:00Z'},
+                    'teams': {
+                        'home': {'name': 'Canada'},
+                        'away': {'name': 'Bosnia and Herzegovina'},
+                    },
+                },
+            ],
+        ]
+
+        router = LiveDataRouter(
+            fdo_client=fdo, api_football_client=af, world_cup_id=2000,
+        )
+        result = router.find_world_cup_match('2026-06-11', '2026-06-12')
+
+        fdo.get_competition_matches.assert_called_once()
+        self.assertEqual(af.get_fixtures_by_date.call_count, 2)
+        self.assertEqual(len(result), 2)
+
+    def test_find_world_cup_match_caches_result(self):
+        fdo = mock.Mock(spec=FootballDataOrgClient)
+        af = mock.Mock(spec=ApiFootballClient)
+        fdo.get_competition_matches.return_value = self._fdo_payload()
+
+        router = LiveDataRouter(
+            fdo_client=fdo, api_football_client=af, world_cup_id=2000,
+        )
+        first = router.find_world_cup_match('2026-06-11', '2026-07-19')
+        second = router.find_world_cup_match('2026-06-11', '2026-07-19')
+
+        self.assertEqual(first, second)
+        fdo.get_competition_matches.assert_called_once()
+        af.get_fixtures_by_date.assert_not_called()
+
+    def test_get_match_live_data_uses_fdo_first(self):
+        fdo_match = {'id': 7, 'status': 'IN_PLAY'}
+        fdo = mock.Mock(spec=FootballDataOrgClient)
+        af = mock.Mock(spec=ApiFootballClient)
+        fdo.get_match.return_value = fdo_match
+
+        match = mock.Mock(pk=1, external_id=7)
+        router = LiveDataRouter(
+            fdo_client=fdo, api_football_client=af, world_cup_id=2000,
+        )
+        result = router.get_match_live_data(match)
+
+        fdo.get_match.assert_called_once_with(7)
+        af.get_fixture.assert_not_called()
+        self.assertEqual(result, fdo_match)
+
+    def test_get_match_live_data_falls_back_to_api_football(self):
+        fdo = mock.Mock(spec=FootballDataOrgClient)
+        af = mock.Mock(spec=ApiFootballClient)
+        fdo.get_match.return_value = None
+        af.get_fixture.return_value = {'fixture': {'id': 7}}
+
+        match = mock.Mock(pk=1, external_id=7)
+        router = LiveDataRouter(
+            fdo_client=fdo, api_football_client=af, world_cup_id=2000,
+        )
+        result = router.get_match_live_data(match)
+
+        fdo.get_match.assert_called_once_with(7)
+        af.get_fixture.assert_called_once_with(7)
+        self.assertEqual(result, {'fixture': {'id': 7}})
+
+    def test_get_match_live_data_returns_none_without_external_id(self):
+        fdo = mock.Mock(spec=FootballDataOrgClient)
+        af = mock.Mock(spec=ApiFootballClient)
+        router = LiveDataRouter(
+            fdo_client=fdo, api_football_client=af, world_cup_id=2000,
+        )
+
+        self.assertIsNone(router.get_match_live_data(mock.Mock(external_id=None)))
+        fdo.get_match.assert_not_called()
+        af.get_fixture.assert_not_called()
+
+    def test_get_match_events_prefers_api_football(self):
+        events = [{'type': 'Goal', 'detail': 'Neymar 45'}]
+        fdo = mock.Mock(spec=FootballDataOrgClient)
+        af = mock.Mock(spec=ApiFootballClient)
+        af.get_fixture_events.return_value = events
+
+        router = LiveDataRouter(
+            fdo_client=fdo, api_football_client=af, world_cup_id=2000,
+        )
+        result = router.get_match_events(mock.Mock(external_id=7))
+
+        af.get_fixture_events.assert_called_once_with(7)
+        fdo.get_match.assert_not_called()
+        self.assertEqual(result, events)
+
+    def test_get_match_events_falls_back_to_empty_list(self):
+        fdo = mock.Mock(spec=FootballDataOrgClient)
+        af = mock.Mock(spec=ApiFootballClient)
+        af.get_fixture_events.return_value = []
+        fdo.get_match.return_value = {'id': 7}
+
+        router = LiveDataRouter(
+            fdo_client=fdo, api_football_client=af, world_cup_id=2000,
+        )
+        result = router.get_match_events(mock.Mock(external_id=7))
+
+        self.assertEqual(result, [])
+
+    def test_router_default_world_cup_id_uses_fdo_setting(self):
+        fdo = mock.Mock(spec=FootballDataOrgClient)
+        fdo.world_cup_id = 2000
+        af = mock.Mock(spec=ApiFootballClient)
+        fdo.get_competition_matches.return_value = []
+        # The fallback path will iterate per-day through API-Football;
+        # return an empty list on every call so the test only asserts
+        # that the FDO call was made with the right competition id.
+        af.get_fixtures_by_date.return_value = []
+
+        with override_settings(FOOTBALL_DATA_ORG_WORLD_CUP_ID=2000):
+            router = LiveDataRouter(fdo_client=fdo, api_football_client=af)
+            router.find_world_cup_match('2026-06-11', '2026-06-12')
+
+        fdo.get_competition_matches.assert_called_once_with(
+            2000, date_from='2026-06-11', date_to='2026-06-12',
+        )
+
+
+class BackfillMatchExternalIdsTests(TestCase):
+    """Cover the multi-variant matching added for US-7.2.
+
+    The fixtures below deliberately use pt-BR names on the local side
+    (the same as the seeder) and English names on the FDO side, so the
+    only way for the matcher to succeed is by consulting ``name_en``
+    (and falling back to ``country_code`` when needed).
+    """
+
+    def _make_match(self, home, away, dt, external_id=None):
+        """Helper: build a Match with a fake home/away team and stadium."""
+        from matches.models import Match, Round, Stadium, Team
+
+        stadium, _ = Stadium.objects.get_or_create(
+            name='Test Stadium',
+            defaults={'city': 'TC', 'country': 'TC', 'capacity': 1},
+        )
+        round_, _ = Round.objects.get_or_create(
+            name='Test Round',
+            defaults={'order': 99, 'phase': 'grupo'},
+        )
+        home_team, _ = Team.objects.update_or_create(
+            country_code=home['country_code'],
+            defaults={
+                'name': home['name'],
+                'name_en': home.get('name_en', ''),
+                'confederation': home.get('confederation', 'UEFA'),
+                'flag_emoji': '',
+            },
+        )
+        away_team, _ = Team.objects.update_or_create(
+            country_code=away['country_code'],
+            defaults={
+                'name': away['name'],
+                'name_en': away.get('name_en', ''),
+                'confederation': away.get('confederation', 'UEFA'),
+                'flag_emoji': '',
+            },
+        )
+        return Match.objects.create(
+            round=round_,
+            stadium=stadium,
+            home_team=home_team,
+            away_team=away_team,
+            match_datetime=dt,
+            external_id=external_id,
+        )
+
+    def _run_command(self, source='[FDO]'):
+        from io import StringIO
+        from django.core.management import call_command
+
+        from live.management.commands.backfill_match_external_ids import Command
+
+        out = StringIO()
+        cmd = Command()
+        cmd.stdout = out
+        # Build a router-like stub that bypasses the network entirely.
+        router = mock.Mock()
+        # The command inspects ``router._cache`` to detect the source.
+        router._cache = {
+            ('find_world_cup_match', '2026-06-11', '2026-06-12'): self._fdo_payload,
+        }
+        router.find_world_cup_match.return_value = self._fdo_payload
+        with mock.patch(
+            'live.management.commands.backfill_match_external_ids.LiveDataRouter',
+            return_value=router,
+        ):
+            cmd.handle(
+                **{},
+                **{'no_input': True, 'dry_run': False, 'date_from': '2026-06-11', 'date_to': '2026-06-12'},
+            )
+        return out.getvalue()
+
+    def setUp(self):
+        self._fdo_payload = [
+            {
+                'id': 1,
+                'utcDate': '2026-06-11T19:00:00Z',
+                'homeTeam': {'name': 'South Korea', 'tla': 'KOR'},
+                'awayTeam': {'name': 'Czechia', 'tla': 'CZE'},
+            },
+            {
+                'id': 2,
+                'utcDate': '2026-06-12T19:00:00Z',
+                'homeTeam': {'name': 'Morocco', 'tla': 'MAR'},
+                'awayTeam': {'name': 'Bosnia-Herzegovina', 'tla': 'BIH'},
+            },
+            {
+                'id': 3,
+                'utcDate': '2026-06-12T22:00:00Z',
+                'homeTeam': {'name': 'United States', 'tla': 'USA'},
+                'awayTeam': {'name': 'Paraguay', 'tla': 'PAR'},
+            },
+        ]
+
+    def test_candidate_keys_prefer_pt_name_then_en_then_tla(self):
+        from matches.models import Team
+        t = Team(
+            name='Franca',
+            name_en='France',
+            country_code='FRA',
+        )
+        from live.management.commands.backfill_match_external_ids import (
+            Command as BackfillCommand,
+        )
+        cands = BackfillCommand()._candidate_keys(t)
+        self.assertEqual(cands, ['franca', 'france', 'fra'])
+
+    def test_candidate_keys_skip_empty_fields(self):
+        from matches.models import Team
+        # Simulates a TBD placeholder: name_en is blank, code is TBD-H.
+        t = Team(
+            name='A definir (mandante)',
+            name_en='',
+            country_code='TBD-H',
+        )
+        from live.management.commands.backfill_match_external_ids import (
+            Command as BackfillCommand,
+        )
+        cands = BackfillCommand()._candidate_keys(t)
+        # 'TBD-H' normalized to 'tbdh' is still a candidate, but if we
+        # had wanted to exclude TBDs we'd just not call the function.
+        # The important assertion is that name_en did not contribute.
+        self.assertNotIn('', cands)
+        self.assertIn('adefinirmandante', cands)
+
+    def test_find_fixture_matches_by_name_en(self):
+        from live.management.commands.backfill_match_external_ids import (
+            Command as BackfillCommand,
+        )
+        cmd = BackfillCommand()
+        # Local match uses pt-BR; upstream uses English.
+        match = self._make_match(
+            home={'name': 'Coreia do Sul', 'name_en': 'South Korea', 'country_code': 'KOR'},
+            away={'name': 'Chequia', 'name_en': 'Czechia', 'country_code': 'CZE'},
+            dt=datetime_type(2026, 6, 11, 19, 0),
+        )
+        from collections import defaultdict
+        # Reuse the production indexer: it inserts the primary (name) key
+        # plus the TLA key.
+        fixture_index, _ = cmd._index_upstream(
+            cmd._parse_fixture(f, '[FDO]') and [f] for f in self._fdo_payload
+        ) if False else (defaultdict(dict), 0)
+        # Manually index the payload (avoids relying on the private
+        # chain above).
+        for f in self._fdo_payload:
+            parsed = cmd._parse_fixture(f, '[FDO]')
+            if parsed is None:
+                continue
+            md, h, a, ht, at = parsed
+            fixture_index[md][(h, a)] = f
+            if ht and at:
+                fixture_index[md].setdefault((ht, at), f)
+
+        fixtures = fixture_index[date_type(2026, 6, 11)]
+        fixture, inverted, label = cmd._find_fixture(match, fixtures)
+        self.assertIsNotNone(fixture)
+        self.assertFalse(inverted)
+        self.assertIn('South Korea', label)
+        self.assertEqual(cmd._extract_external_id(fixture, '[FDO]'), 1)
+
+    def test_find_fixture_matches_by_country_code_when_names_fail(self):
+        from live.management.commands.backfill_match_external_ids import (
+            Command as BackfillCommand,
+        )
+        cmd = BackfillCommand()
+        # Names diverge in every field; the only common key is the TLA.
+        match = self._make_match(
+            home={'name': 'Desconhecido A', 'name_en': 'Desconhecido A', 'country_code': 'MAR'},
+            away={'name': 'Desconhecido B', 'name_en': 'Desconhecido B', 'country_code': 'BIH'},
+            dt=datetime_type(2026, 6, 12, 19, 0),
+        )
+        from collections import defaultdict
+        fixture_index = defaultdict(dict)
+        for f in self._fdo_payload:
+            parsed = cmd._parse_fixture(f, '[FDO]')
+            if parsed is None:
+                continue
+            md, h, a, ht, at = parsed
+            fixture_index[md][(h, a)] = f
+            if ht and at:
+                fixture_index[md].setdefault((ht, at), f)
+        fixtures = fixture_index[date_type(2026, 6, 12)]
+        fixture, inverted, label = cmd._find_fixture(match, fixtures)
+        self.assertIsNotNone(fixture)
+        self.assertEqual(cmd._extract_external_id(fixture, '[FDO]'), 2)
+        self.assertIn('MAR', label)
+        self.assertIn('BIH', label)
+
+    def test_find_fixture_returns_none_for_tbd(self):
+        from live.management.commands.backfill_match_external_ids import (
+            Command as BackfillCommand,
+        )
+        cmd = BackfillCommand()
+        match = self._make_match(
+            home={'name': 'A definir (mandante)', 'name_en': '', 'country_code': 'TBD-H'},
+            away={'name': 'A definir (visitante)', 'name_en': '', 'country_code': 'TBD-A'},
+            dt=datetime_type(2026, 6, 15, 19, 0),
+        )
+        from collections import defaultdict
+        fixture_index = defaultdict(dict)
+        for f in self._fdo_payload:
+            parsed = cmd._parse_fixture(f, '[FDO]')
+            if parsed is None:
+                continue
+            md, h, a, ht, at = parsed
+            fixture_index[md][(h, a)] = f
+        fixtures = fixture_index[date_type(2026, 6, 15)]
+        fixture, inverted, label = cmd._find_fixture(match, fixtures)
+        self.assertIsNone(fixture)
+        self.assertEqual(inverted, False)
+        self.assertEqual(label, '')
 
 
 if __name__ == '__main__':  # pragma: no cover

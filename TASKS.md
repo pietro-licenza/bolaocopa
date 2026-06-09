@@ -255,36 +255,52 @@
   
 ### Epico 7: Jogos ao vivo, eventos e navegacao
 
-**Contexto geral:**
-- API-Football v3 (plano free, 100 req/dia) — chave salva em `.env` na variavel `API-FOOTBALL-KEY`
-- Base URL: `https://v3.football.api-sports.io`
-- Header de auth: `x-apisports-key: <KEY>`
-- Endpoints principais a usar:
-  - `GET /fixtures?id={fixture_id}` — detalhes de um jogo (status, elapsed, score, penalties)
-  - `GET /fixtures?date=YYYY-MM-DD&league=1&season=2026` — jogos por data
-  - `GET /fixtures/events?fixture={fixture_id}` — eventos (gols, cartoes, substituicoes)
-- Estrategia de rate-limit: 1 requisicao manual por botao clicado. Sync automatico via cron sera implementado em sprint futuro.
+**Contexto geral — duas APIs gratis:**
+- **API-Football v3** (api-sports, plano free, 100 req/dia) — chave em `.env` `API-FOOTBALL-KEY`. Boa para eventos detalhados (gols/cartoes/subs), mas a Copa 2026 pode nao estar totalmente disponivel no free.
+  - Base URL: `https://v3.football.api-sports.io`
+  - Header: `x-apisports-key: <KEY>`
+  - Endpoints: `GET /fixtures?id=`, `GET /fixtures?date=&league=1&season=2026`, `GET /fixtures/events?fixture=`
+- **football-data.org v4** (free, 10 req/min) — chave em `.env` `football-data-org-key`. **Cobre FIFA World Cup oficialmente no plano free**.
+  - Base URL: `https://api.football-data.org/v4`
+  - Header: `X-Auth-Token: <KEY>`
+  - Endpoints: `GET /competitions/{wc_id}/matches?dateFrom=&dateTo=`, `GET /matches/{match_id}`, `GET /competitions/{wc_id}/standings`
+  - **Importante**: events detalhados (gols/cartoes) sao limitados no free. Placar/status/standings sao completos.
+- **Estrategia hibrida** (criada na US-7.1 e aplicada na US-7.2):
+  - **Backfill de IDs / descoberta de jogos**: football-data.org (oficial, sempre disponivel)
+  - **Placar / status / standings**: football-data.org (primario) → API-Football (fallback)
+  - **Eventos detalhados (gols/cartoes/subs)**: API-Football (primario) → football-data.org (basico)
+- Rate-limit consolidado: contador diario de requests em Django cache, limite 95 req/dia somando as 2 APIs (football-data 10/min separado).
+- Sync por enquanto via botao manual; sync automatico por cron previsto para sprint futuro.
 
-**US-7.1: Cliente da API-Football**
-- **Como** sistema, **quero** ter um cliente Python que encapsule as chamadas a API-Football, **para** que o resto do codigo nao dependa de detalhes HTTP.
+**US-7.1: Clientes das APIs (API-Football + football-data.org)**
+- **Como** sistema, **quero** ter clientes Python para as duas APIs, **para** que o resto do codigo nao dependa de detalhes HTTP.
 - **Criterios de aceite:**
   - [X] Criar app `live/` com `live/services/api_football.py`
   - [X] Adicionar `live` ao `INSTALLED_APPS` em `core/settings.py`
-  - [X] Carregar `API-FOOTBALL-KEY` do `.env` (usar `os.getenv('API-FOOTBALL-KEY')` ou `python-decouple`)
-  - [X] Adicionar `API_FOOTBALL_KEY`, `API_FOOTBALL_BASE_URL`, `API_FOOTBALL_LEAGUE_ID=1` (World Cup) e `API_FOOTBALL_SEASON=2026` em settings
-  - [X] Implementar metodos: `get_fixture(fixture_id)`, `get_fixtures_by_date(date_str)`, `get_fixture_events(fixture_id)`
+  - [X] Carregar `API-FOOTBALL-KEY` e `football-data-org-key` do `.env`
+  - [X] Adicionar settings: `API_FOOTBALL_KEY`, `API_FOOTBALL_BASE_URL`, `API_FOOTBALL_LEAGUE_ID=1`, `API_FOOTBALL_SEASON=2026`, `FOOTBALL_DATA_ORG_KEY`, `FOOTBALL_DATA_ORG_BASE_URL=https://api.football-data.org/v4`, `FOOTBALL_DATA_ORG_WORLD_CUP_ID` (descoberto via API, default 1 mas confirmar)
+  - [X] Implementar `ApiFootballClient.get_fixture(fixture_id)`, `get_fixtures_by_date(date_str)`, `get_fixture_events(fixture_id)`
+  - [X] Criar `live/services/football_data_org.py` com `FootballDataOrgClient` implementando: `get_match(match_id)`, `get_competition_matches(competition_id, date_from, date_to)`, `get_standings(competition_id)`
+  - [X] Criar `live/services/router.py` com `LiveDataRouter` que decide qual API usar conforme o tipo de dado (backfill, placar, eventos, standings). Cache simples de resultado.
   - [X] Tratar erros de rede e respostas com `response.ok == False` retornando valores seguros (None ou lista vazia)
-  - [X] Logar cada chamada no console (timestamp + endpoint) para debug
+  - [X] Logar cada chamada com prefixo indicando qual API: `[API-Football] ...` ou `[FDO] ...`
 
-**US-7.2: Mapear Match com API-Football via `external_id`**
-- **Como** sistema, **quero** associar cada Match do banco a um `fixture_id` da API-Football, **para** conseguir buscar dados ao vivo.
+**US-7.2: Mapear Match com football-data.org via `external_id` + backfill**
+- **Como** sistema, **quero** associar cada Match do banco a um `match_id` da football-data.org, **para** conseguir buscar dados oficiais da Copa 2026.
 - **Criterios de aceite:**
-  - [ ] Adicionar campo `external_id = models.PositiveIntegerField(null=True, blank=True, db_index=True)` ao model `Match`
-  - [ ] Adicionar `penalties_home = models.PositiveSmallIntegerField(null=True, blank=True)` e `penalties_away = models.PositiveSmallIntegerField(null=True, blank=True)` ao model `Match`
-  - [ ] Gerar e aplicar migration
-  - [ ] Atualizar admin para exibir `external_id`
-  - [ ] Criar management command `backfill_match_external_ids` que, para cada Match agendado, busca o fixture correspondente na API-Football por data+selecoes e preenche `external_id` (idempotente)
-  - [ ] Documentar fonte do mapeamento (data + home_team.country_code + away_team.country_code)
+  - [X] Adicionar campo `external_id = models.PositiveIntegerField(null=True, blank=True, db_index=True)` ao model `Match`
+  - [X] Adicionar `penalties_home = models.PositiveSmallIntegerField(null=True, blank=True)` e `penalties_away = models.PositiveSmallIntegerField(null=True, blank=True)` ao model `Match`
+  - [X] Gerar e aplicar migration
+  - [X] Atualizar admin para exibir `external_id`
+  - [X] Criar management command `backfill_match_external_ids` em `live/management/commands/` que:
+    - Primeiro tenta football-data.org (competicao World Cup, intervalo de datas da Copa 2026)
+    - Se nao encontrar, fallback para API-Football
+    - Matchear por data + nomes das selecoes (case-insensitive, normalizado)
+    - Idempotente: filtra `external_id__isnull=True` e usa `update_fields=['external_id']`
+    - Flag `--dry-run` para simular
+    - Logar origem do mapeamento (`[FDO]` ou `[API-Football]`)
+  - [X] Documentar fonte do mapeamento no docstring do command
+  - [X] **Correcao (US-7.2 fix)**: casar nomes pt-BR com nomes em ingles da API por multipla variante (``team.name`` → ``team.name_en`` → ``team.country_code`` / TLA), permitindo que as 48 selecoes + TBDs sejam reconhecidas. Adicionado campo ``Team.name_en`` e migracao ``0006_team_name_en``; o backfill agora mapeia **72 de 72 jogos da fase de grupos**. Os 32 jogos do mata-mata continuam com ``external_id`` em branco ate a fase de grupos acabar (eles usam placeholders TBD-H/TBD-A por design — ver US-6.6); serao remapeados quando os confrontos forem definidos e um novo backfill for executado.
 
 **US-7.3: Botao manual "Buscar resultado" na pagina do bolao/jogo**
 - **Como** usuario, **quero** clicar em um botao "Buscar resultado" em uma pagina de jogo, **para** atualizar o placar e eventos sem eu precisar esperar um sync automatico.

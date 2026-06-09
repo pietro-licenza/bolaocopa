@@ -156,3 +156,18 @@ API_FOOTBALL_BASE_URL = os.getenv(
 API_FOOTBALL_LEAGUE_ID = int(os.getenv('API-FOOTBALL-LEAGUE-ID', '1'))
 API_FOOTBALL_SEASON = int(os.getenv('API-FOOTBALL-SEASON', '2026'))
 API_FOOTBALL_TIMEOUT = int(os.getenv('API-FOOTBALL-TIMEOUT', '15'))
+
+# football-data.org v4 (free tier, 10 req/min).
+# The 2026 FIFA World Cup is officially covered by this API on the free
+# plan; its competition id is 2000 (discovered via /competitions).
+FOOTBALL_DATA_ORG_KEY = os.getenv('FOOTBALL-DATA-ORG-KEY', '')
+FOOTBALL_DATA_ORG_BASE_URL = os.getenv(
+    'FOOTBALL-DATA-ORG-BASE-URL',
+    'https://api.football-data.org/v4',
+)
+FOOTBALL_DATA_ORG_WORLD_CUP_ID = int(
+    os.getenv('FOOTBALL-DATA-ORG-WORLD-CUP-ID', '2000'),
+)
+FOOTBALL_DATA_ORG_TIMEOUT = int(
+    os.getenv('FOOTBALL-DATA-ORG-TIMEOUT', '15'),
+)
