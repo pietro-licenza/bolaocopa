@@ -326,20 +326,20 @@
   - [X] Polling so roda se `Match.status == 'em_andamento'`. Em outros status, polling e desativado
   - [X] Indicador visual de "atualizando..." durante a requisicao (`opacity-50` no article)
 
-**US-7.5: Marcadores de gols, cartoes e substituicoes**
+**US-7.5: Marcadores de gols, cartoes e substituicoes** ✓
 - **Como** usuario, **quero** ver quem fez gol, levou cartao e foi substituido em cada jogo, **para** acompanhar os lances.
 - **Criterios de aceite:**
-  - [ ] Criar model `MatchEvent(match FK, minute PositiveSmallIntegerField, type choices [goal, yellow_card, red_card, substitution_in, substitution_out], team ForeignKey Team, player CharField, assist_player CharField null/blank, created_at, updated_at)` em `live/models.py`
-  - [ ] Migration + admin
-  - [ ] Sincronizacao de eventos usa API-Football **primario** (unica das 2 APIs com `/fixtures/events` detalhado). football-data.org nao expoe eventos publicamente no free, entao se API-Football falhar, lista fica vazia (sem fallback)
-  - [ ] Idempotencia: ao sincronizar, limpar `MatchEvent` antigos do match e recriar a partir da API (chave unica: `match+minute+type+player`)
-  - [ ] Abaixo do card de match finalizado ou em andamento, exibir lista de eventos ordenada por minuto
-  - [ ] Cada evento renderizado com icone: ⚽ gol, 🟨 amarelo, 🟥 vermelho, ⇥ entrou, ⇤ saiu
-  - [ ] Linha de gol mostra: `45' ⚽ Neymar (BRA) · assist: Vinicius Jr` (ou padrao similar)
-  - [ ] Linha de cartao mostra: `30' 🟨 Casemiro (BRA)`
-  - [ ] Linha de substituicao mostra: `65' ⇥ Antony ⇤ Raphinha (BRA)` em uma unica linha
-  - [ ] Icones centralizados, fonte mono para o minuto
-  - [ ] Visual segue o design system dark theme (bg-gray-900, text-gray-300, icones coloridos)
+  - [X] Criar model `MatchEvent(match FK, minute PositiveSmallIntegerField, type choices [goal, yellow_card, red_card, substitution_in, substitution_out], team ForeignKey Team, player CharField, assist_player CharField null/blank, created_at, updated_at)` em `live/models.py`
+  - [X] Migration + admin
+  - [X] Sincronizacao de eventos usa API-Football **primario** (unica das 2 APIs com `/fixtures/events` detalhado)
+  - [X] Idempotencia: ao sincronizar, limpar `MatchEvent` antigos do match e recriar
+  - [X] Abaixo do card de match finalizado ou em andamento, exibir lista de eventos ordenada por minuto
+  - [X] Cada evento renderizado com icone: ⚽ gol, 🟨 amarelo, 🟥 vermelho, ⇥ entrou, ⇤ saiu
+  - [X] Linha de gol mostra: `45' ⚽ Neymar (BRA) · assist: Vinicius Jr`
+  - [X] Linha de cartao mostra: `30' 🟨 Casemiro (BRA)`
+  - [X] Linha de substituicao mostra: `65' ⇥ Antony ⇤ Raphinha (BRA)` em uma unica linha
+  - [X] Icones centralizados, fonte mono para o minuto
+  - [X] Visual segue o design system dark theme (bg-gray-900, text-gray-300, icones coloridos)
 
 **US-7.6: Placar de penaltis (input manual no admin)**
 - **Como** usuario, **quero** ver o resultado dos penaltis ao final de jogos eliminatorios, **para** saber quem avancou na copa.

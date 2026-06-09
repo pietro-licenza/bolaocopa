@@ -17,9 +17,11 @@ O conteudo do card inclui:
   (US-7.4);
 * placar grande ``HOME 2 x 1 AWAY`` em ``text-5xl`` (US-7.4). Para
   jogos agendados (sem placar registrado) exibe um placeholder "·";
-* mini-placar de penaltis abaixo do placar principal quando
-  ``penalties_home``/``penalties_away`` estao preenchidos (US-7.6);
-* botao "Buscar resultado" para sincronizar com a API upstream,
+ * mini-placar de penaltis abaixo do placar principal quando
+   ``penalties_home``/``penalties_away`` estao preenchidos (US-7.6);
+ * lista de eventos (gols / cartoes / substituicoes) abaixo do
+   placar para jogos que nao estejam mais "agendado" (US-7.5);
+ * botao "Buscar resultado" para sincronizar com a API upstream,
   renderizado pelo partial ``sync_button.html`` apenas quando
   ``match.external_id`` existe e o usuario esta autenticado;
 * indicadores contextuais de palpite/horario exibidos pelos callers
@@ -56,6 +58,10 @@ card renderiza sem elas):
 
     {% include 'live/partials/score_display.html' %}
     {% include 'live/partials/penalty_score.html' %}
+
+    {% if match.status != 'agendado' %}
+        {% include 'live/partials/events_list.html' %}
+    {% endif %}
 
     <div class='flex items-center justify-between mt-4 text-xs text-gray-500 gap-2 flex-wrap'>
         <span>{{ match_datetime_label|default:match.match_datetime|date:'d/m/Y H:i' }}</span>

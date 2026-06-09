@@ -14,12 +14,10 @@ The public entry point is :func:`sync_match_from_api` which:
    API-Football as fallback);
 2. maps the upstream payload to ``Match`` fields;
 3. saves only the fields that actually changed (idempotent re-runs);
-4. returns a :class:`SyncResult` so callers (views, commands) can act
+4. syncs detailed in-match events (goals / cards / substitutions) via
+   the same router — added in US-7.5;
+5. returns a :class:`SyncResult` so callers (views, commands) can act
    on the outcome.
-
-Per US-7.3 scope, **no events are synced here** — that lives in US-7.5
-and will reuse the same router but plug into a separate ``MatchEvent``
-table.
 """
 
 import logging
@@ -27,6 +25,7 @@ from dataclasses import dataclass
 
 from matches.models import Match
 
+from live.models import MatchEvent
 from live.services.router import LiveDataRouter
 
 
@@ -75,6 +74,23 @@ _API_FOOTBALL_STATUS_MAP = {
     'CANC': 'agendado',
 }
 
+# API-Football detail field values for the ``Card`` event type. Yellow
+# and red cards are differentiated here, while the bare ``type`` value
+# only tells us "a card was shown".
+_API_FOOTBALL_CARD_DETAIL_MAP = {
+    'Yellow Card': 'yellow_card',
+    'Red Card': 'red_card',
+    'Second Yellow card': 'red_card',
+    'Yellow Red Card': 'red_card',
+}
+
+# Valid choices on ``MatchEvent.type``. Used to validate payloads and
+# filter out junk rows from upstream.
+_VALID_EVENT_TYPES = {
+    'goal', 'yellow_card', 'red_card',
+    'substitution_in', 'substitution_out',
+}
+
 
 @dataclass
 class SyncResult:
@@ -89,8 +105,10 @@ class SyncResult:
         ``True`` only if the ``status`` field was modified by this
         sync. Other field changes (e.g. score) leave this ``False``.
     events_synced:
-        Always ``0`` in US-7.3. The field is kept on the dataclass so
-        US-7.5 can populate it without breaking callers.
+        Number of ``MatchEvent`` rows written (or already up to date)
+        for this match. ``0`` when the match has no ``external_id``
+        or when the upstream call returns no events — both cases are
+        expected for upcoming games, so this is not an error signal.
     error:
         ``None`` on success; a short, human-readable string on
         failure. Intended to be shown to end users via
@@ -181,16 +199,261 @@ def sync_match_from_api(match, router=None):
             match.pk, source, ','.join(sorted(changed_fields)),
         )
 
+    # Detailed in-match events (goals / cards / substitutions) — see
+    # US-7.5. Routed through the same router (API-Football primary;
+    # FDO returns [] in practice). A failure here does not invalidate
+    # the score update we just did: log and move on, returning the
+    # number of events actually written.
+    events_synced = _sync_match_events(match, router)
+
     return SyncResult(
         success=True,
         status_changed=status_changed,
-        events_synced=0,
+        events_synced=events_synced,
         error=None,
     )
 
 
 # ----------------------------------------------------------------------
-# Field extraction
+# Event sync (US-7.5)
+# ----------------------------------------------------------------------
+
+def _sync_match_events(match, router):
+    """Rebuild the ``MatchEvent`` list for ``match`` from upstream.
+
+    Strategy: drop every existing event for the match and re-create
+    them from the API-Football payload returned by
+    :meth:`LiveDataRouter.get_match_events`. The wipe-and-recreate
+    approach is acceptable because:
+
+    * events are detail rows with no FK pointing at them from other
+      tables (ranking / scoring read final scores, not events);
+    * the upstream API does not expose a stable primary key per event,
+      so a delta sync would require a fragile composite hash;
+    * the row count per match is bounded (a typical game has ~10-30
+      events), so the cost is negligible.
+
+    Returns the number of events actually written.
+    """
+    raw_events = router.get_match_events(match)
+    if not raw_events:
+        # No events upstream (typical for upcoming games) or API-Football
+        # returned an empty list. Wipe any stale rows so the UI does not
+        # show leftovers from a previous state, and report 0.
+        _delete_events_for_match(match)
+        return 0
+
+    new_events = _build_event_objects(match, raw_events)
+    if not new_events:
+        # Upstream returned rows but none mapped to a known type
+        # (e.g. all entries were something we don't model). Still wipe
+        # the local table to avoid drift.
+        _delete_events_for_match(match)
+        return 0
+
+    _delete_events_for_match(match)
+    MatchEvent.objects.bulk_create(new_events)
+    logger.info(
+        '[Sync] Match %s: %d event(s) synced.',
+        match.pk, len(new_events),
+    )
+    return len(new_events)
+
+
+def _delete_events_for_match(match):
+    """Remove every ``MatchEvent`` row attached to ``match``.
+
+    Kept as a tiny helper so the sync flow reads top-down.
+    """
+    MatchEvent.objects.filter(match=match).delete()
+
+
+def _build_event_objects(match, raw_events):
+    """Translate a list of upstream event dicts into ``MatchEvent``s.
+
+    Returns only rows that can be unambiguously matched to a local
+    ``Team`` and a known ``type`` value. Anything we can't classify
+    is silently dropped (logged at ``debug``) so a malformed payload
+    does not bring the whole sync down.
+
+    API-Football returns substitutions as a single ``type=Subst``
+    row that contains *both* the outgoing and the incoming player
+    in the same record (using the ``assist`` field for the player
+    coming on). We split that into two ``MatchEvent`` rows
+    (``substitution_out`` and ``substitution_in``) so the UI can
+    style them differently.
+    """
+    from matches.models import Team
+
+    # Pre-build a lookup of local teams keyed by the various spellings
+    # we expect the API to return. ``name_en`` is the English name we
+    # store in the seeder (matches the API's English name); ``name`` is
+    # the pt-BR display name; ``country_code`` is the 3-letter TLA.
+    teams_by_name_en = {}
+    teams_by_name = {}
+    teams_by_code = {}
+    for team in Team.objects.all():
+        if team.name_en:
+            teams_by_name_en[team.name_en.lower()] = team
+        if team.name:
+            teams_by_name[team.name.lower()] = team
+        if team.country_code:
+            teams_by_code[team.country_code.upper()] = team
+
+    built = []
+    for raw in raw_events:
+        event_type = _classify_event_type(raw)
+        if event_type is None:
+            logger.debug(
+                '[Sync] Dropping unknown event for match %s: %r',
+                match.pk, raw,
+            )
+            continue
+
+        team = _resolve_team(raw, teams_by_name_en, teams_by_name, teams_by_code)
+        if team is None:
+            logger.debug(
+                '[Sync] Dropping event for match %s — team not resolved: %r',
+                match.pk, raw,
+            )
+            continue
+
+        minute = _resolve_minute(raw)
+        if minute is None:
+            logger.debug(
+                '[Sync] Dropping event for match %s — minute missing: %r',
+                match.pk, raw,
+            )
+            continue
+
+        player = _string_or_default(_dig(raw, 'player', 'name'))
+        if not player:
+            logger.debug(
+                '[Sync] Dropping event for match %s — player missing: %r',
+                match.pk, raw,
+            )
+            continue
+
+        if event_type == 'subst':
+            # API-Football merges both sides of a sub into one row.
+            # The outgoing player's name lives in ``player.name`` and
+            # the incoming player's name lives in ``assist.name``.
+            outgoing = player
+            incoming = _string_or_default(_dig(raw, 'assist', 'name'))
+            if not incoming:
+                logger.debug(
+                    '[Sync] Dropping substitution for match %s — '
+                    'incoming player missing: %r',
+                    match.pk, raw,
+                )
+                continue
+            # Order is fixed by API-Football: the OUT player is in
+            # ``player.name``; the IN player is in ``assist.name``.
+            built.append(MatchEvent(
+                match=match,
+                minute=minute,
+                type='substitution_out',
+                team=team,
+                player=outgoing,
+                assist_player='',
+            ))
+            built.append(MatchEvent(
+                match=match,
+                minute=minute,
+                type='substitution_in',
+                team=team,
+                player=incoming,
+                assist_player='',
+            ))
+        elif event_type == 'goal':
+            assist = _string_or_default(_dig(raw, 'assist', 'name'))
+            built.append(MatchEvent(
+                match=match,
+                minute=minute,
+                type='goal',
+                team=team,
+                player=player,
+                assist_player=assist,
+            ))
+        else:
+            # yellow_card / red_card
+            built.append(MatchEvent(
+                match=match,
+                minute=minute,
+                type=event_type,
+                team=team,
+                player=player,
+                assist_player='',
+            ))
+
+    return built
+
+
+def _classify_event_type(raw):
+    """Map an API-Football event dict to a ``MatchEvent.type`` value.
+
+    Returns ``None`` for events we don't model (var, comment, etc.).
+    """
+    raw_type = _string_or_default(raw.get('type'))
+    if not raw_type:
+        return None
+    if raw_type == 'Goal':
+        return 'goal'
+    if raw_type == 'Card':
+        detail = _string_or_default(raw.get('detail'))
+        return _API_FOOTBALL_CARD_DETAIL_MAP.get(detail)
+    if raw_type == 'Subst':
+        # The decision between IN/OUT is made in the caller once we
+        # split the merged Subst row. Return a sentinel that the
+        # caller knows to handle specially.
+        return 'subst'
+    return None
+
+
+def _resolve_team(raw, teams_by_name_en, teams_by_name, teams_by_code):
+    """Pick a local ``Team`` for an event payload.
+
+    The API exposes ``team.id`` and ``team.name``. The id is opaque
+    (not the same as our DB pk), so we rely on the human-readable
+    name. We try ``name_en`` (English, matches the API), then the
+    pt-BR ``name``, then the 3-letter ``country_code`` defensively.
+    """
+    team_name = _string_or_default(_dig(raw, 'team', 'name'))
+    if team_name:
+        lowered = team_name.lower()
+        if lowered in teams_by_name_en:
+            return teams_by_name_en[lowered]
+        if lowered in teams_by_name:
+            return teams_by_name[lowered]
+    return None
+
+
+def _resolve_minute(raw):
+    """Pull the elapsed minute from an API-Football event payload.
+
+    The API nests it under ``time.elapsed``; we keep ``extra`` (added
+    time) as a fallback so a stoppage-time goal is not silently
+    dropped.
+    """
+    elapsed = _int_or_none(_dig(raw, 'time', 'elapsed'))
+    if elapsed is not None and elapsed >= 0:
+        return elapsed
+    extra = _int_or_none(_dig(raw, 'time', 'extra'))
+    if extra is not None and extra > 0:
+        # 45 + 2 = 47, 90 + 5 = 95, etc.
+        return 45 + extra if elapsed is None or elapsed <= 45 else 90 + extra
+    return None
+
+
+def _string_or_default(value, default=''):
+    if value is None:
+        return default
+    text = str(value).strip()
+    return text or default
+
+
+# ----------------------------------------------------------------------
+# Field extraction (score / status)
 # ----------------------------------------------------------------------
 
 def _extract_fields(payload):

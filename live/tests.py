@@ -882,5 +882,347 @@ class MatchCardPartialViewTests(TestCase):
         self.assertEqual(response.status_code, 404)
 
 
+# ----------------------------------------------------------------------
+# US-7.5: MatchEvent model + sync of events from API-Football + UI partial
+# ----------------------------------------------------------------------
+
+class MatchEventModelTests(TestCase):
+    """Cover the ``MatchEvent`` model basics: __str__ and ordering."""
+
+    def setUp(self):
+        from matches.models import Match, Round, Stadium, Team
+
+        self.stadium, _ = Stadium.objects.get_or_create(
+            name='Event Stadium',
+            defaults={'city': 'EC', 'country': 'EC', 'capacity': 1},
+        )
+        self.round_, _ = Round.objects.get_or_create(
+            name='Event Round',
+            defaults={'order': 1, 'phase': 'grupo'},
+        )
+        self.home, _ = Team.objects.get_or_create(
+            country_code='HME',
+            defaults={'name': 'HomeE', 'name_en': 'HomeE', 'confederation': 'UEFA'},
+        )
+        self.away, _ = Team.objects.get_or_create(
+            country_code='AWE',
+            defaults={'name': 'AwayE', 'name_en': 'AwayE', 'confederation': 'UEFA'},
+        )
+        self.match = Match.objects.create(
+            round=self.round_,
+            stadium=self.stadium,
+            home_team=self.home,
+            away_team=self.away,
+            match_datetime=datetime_type(2026, 6, 11, 19, 0),
+        )
+
+    def _make_event(self, **overrides):
+        from live.models import MatchEvent
+
+        defaults = {
+            'match': self.match,
+            'minute': 30,
+            'type': 'goal',
+            'team': self.home,
+            'player': 'Neymar',
+            'assist_player': 'Vinicius',
+        }
+        defaults.update(overrides)
+        return MatchEvent.objects.create(**defaults)
+
+    def test_str_includes_minute_type_player_and_team(self):
+        event = self._make_event()
+        # __str__ = "<minute>' <type display> <player> (<team>)"
+        rendered = str(event)
+        self.assertIn("30'", rendered)
+        self.assertIn('Gol', rendered)
+        self.assertIn('Neymar', rendered)
+        self.assertIn(str(self.home), rendered)
+
+    def test_default_ordering_is_by_minute_then_id(self):
+        later = self._make_event(minute=80, player='Late')
+        earlier = self._make_event(minute=10, player='Early')
+        same_minute_first = self._make_event(minute=30, player='FirstAt30')
+        same_minute_second = self._make_event(minute=30, player='SecondAt30')
+
+        events = list(self.match.events.all())
+        # The default ordering on ``MatchEvent.Meta`` is
+        # ``(minute, id)`` so the two 30' events come in insertion
+        # order and 10' precedes 80'.
+        self.assertEqual(
+            [e.pk for e in events],
+            [earlier.pk, same_minute_first.pk, same_minute_second.pk, later.pk],
+        )
+
+
+class SyncMatchEventsTests(TestCase):
+    """US-7.5 sync of in-match events from the API-Football payload.
+
+    The router is mocked so the tests stay offline and deterministic.
+    A small fake ``ApiFootballClient`` is plugged in to return exactly
+    the event list we want to exercise.
+    """
+
+    def setUp(self):
+        from matches.models import Match, Round, Stadium, Team
+
+        self.stadium, _ = Stadium.objects.get_or_create(
+            name='SyncEv Stadium',
+            defaults={'city': 'SE', 'country': 'SE', 'capacity': 1},
+        )
+        self.round_, _ = Round.objects.get_or_create(
+            name='SyncEv Round',
+            defaults={'order': 1, 'phase': 'grupo'},
+        )
+        # Teams are stored with English ``name_en`` so the sync can
+        # resolve them by the English name the API exposes.
+        self.home, _ = Team.objects.get_or_create(
+            country_code='HE1',
+            defaults={
+                'name': 'Brasil', 'name_en': 'Brazil',
+                'confederation': 'CONMEBOL',
+            },
+        )
+        self.away, _ = Team.objects.get_or_create(
+            country_code='AE1',
+            defaults={
+                'name': 'Franca', 'name_en': 'France',
+                'confederation': 'UEFA',
+            },
+        )
+        self.match = Match.objects.create(
+            round=self.round_,
+            stadium=self.stadium,
+            home_team=self.home,
+            away_team=self.away,
+            match_datetime=datetime_type(2026, 6, 11, 19, 0),
+            external_id=987,
+        )
+        # The ``MatchSyncView``-side cache must be empty so the rate
+        # limit does not leak into these tests.
+        from django.core.cache import cache
+        cache.clear()
+
+    def _build_router(self, af_payload, fdo_payload=None):
+        """Wire up a LiveDataRouter with mocked clients."""
+        fdo = mock.Mock(spec=FootballDataOrgClient)
+        fdo.world_cup_id = 2000
+        af = mock.Mock(spec=ApiFootballClient)
+        af.get_fixture_events.return_value = af_payload
+        # The score/status side of the sync needs a get_fixture() call
+        # too. Hand it back a minimal "this is a finished match"
+        # payload so the sync does not bail out.
+        fdo.get_match.return_value = None
+        af.get_fixture.return_value = {
+            'fixture': {
+                'id': 987,
+                'status': {'short': 'FT', 'elapsed': 90},
+            },
+            'goals': {'home': 1, 'away': 0},
+            'teams': {
+                'home': {'id': 1, 'name': 'Brazil'},
+                'away': {'id': 2, 'name': 'France'},
+            },
+        }
+        return LiveDataRouter(
+            fdo_client=fdo, api_football_client=af, world_cup_id=2000,
+        )
+
+    def test_sync_with_one_goal_creates_one_event(self):
+        from live.models import MatchEvent
+        from live.services.sync import sync_match_from_api
+
+        af_payload = [
+            {
+                'time': {'elapsed': 45},
+                'team': {'id': 1, 'name': 'Brazil'},
+                'player': {'id': 99, 'name': 'Neymar'},
+                'assist': {'id': 100, 'name': 'Vinicius Jr'},
+                'type': 'Goal',
+                'detail': 'Normal Goal',
+            },
+        ]
+        router = self._build_router(af_payload)
+        result = sync_match_from_api(self.match, router=router)
+
+        self.assertTrue(result.success)
+        self.assertEqual(result.events_synced, 1)
+        events = list(MatchEvent.objects.filter(match=self.match))
+        self.assertEqual(len(events), 1)
+        self.assertEqual(events[0].type, 'goal')
+        self.assertEqual(events[0].player, 'Neymar')
+        self.assertEqual(events[0].team, self.home)
+        self.assertEqual(events[0].assist_player, 'Vinicius Jr')
+        self.assertEqual(events[0].minute, 45)
+
+    def test_sync_with_yellow_card_creates_event_with_type_yellow(self):
+        from live.models import MatchEvent
+        from live.services.sync import sync_match_from_api
+
+        af_payload = [
+            {
+                'time': {'elapsed': 30},
+                'team': {'id': 1, 'name': 'Brazil'},
+                'player': {'id': 7, 'name': 'Casemiro'},
+                'type': 'Card',
+                'detail': 'Yellow Card',
+            },
+        ]
+        router = self._build_router(af_payload)
+        result = sync_match_from_api(self.match, router=router)
+
+        self.assertTrue(result.success)
+        self.assertEqual(result.events_synced, 1)
+        event = MatchEvent.objects.get(match=self.match)
+        self.assertEqual(event.type, 'yellow_card')
+        self.assertEqual(event.player, 'Casemiro')
+        self.assertEqual(event.minute, 30)
+        self.assertEqual(event.assist_player, '')
+
+    def test_sync_without_external_id_creates_no_events(self):
+        from live.models import MatchEvent
+        from live.services.sync import sync_match_from_api
+
+        self.match.external_id = None
+        self.match.save()
+        # No router needed; the no-external-id branch short-circuits.
+        result = sync_match_from_api(self.match)
+
+        self.assertFalse(result.success)
+        self.assertEqual(result.events_synced, 0)
+        self.assertEqual(MatchEvent.objects.filter(match=self.match).count(), 0)
+
+    def test_sync_with_substitution_splits_into_in_and_out(self):
+        from live.models import MatchEvent
+        from live.services.sync import sync_match_from_api
+
+        af_payload = [
+            {
+                'time': {'elapsed': 65},
+                'team': {'id': 1, 'name': 'Brazil'},
+                'player': {'id': 11, 'name': 'Raphinha'},
+                'assist': {'id': 19, 'name': 'Antony'},
+                'type': 'Subst',
+                'detail': 'Substitution 1',
+            },
+        ]
+        router = self._build_router(af_payload)
+        result = sync_match_from_api(self.match, router=router)
+
+        self.assertTrue(result.success)
+        # A single Subst row maps to two MatchEvent rows (in + out).
+        self.assertEqual(result.events_synced, 2)
+        events = list(
+            MatchEvent.objects.filter(match=self.match).order_by('type'),
+        )
+        self.assertEqual(len(events), 2)
+        types = {e.type for e in events}
+        self.assertEqual(types, {'substitution_in', 'substitution_out'})
+        # The OUT player is in player.name; the IN player is in
+        # assist.name.
+        out_event = next(e for e in events if e.type == 'substitution_out')
+        in_event = next(e for e in events if e.type == 'substitution_in')
+        self.assertEqual(out_event.player, 'Raphinha')
+        self.assertEqual(in_event.player, 'Antony')
+
+
+class MatchCardPartialEventsTests(TestCase):
+    """Verify the events list is rendered inside the card partial.
+
+    The endpoint is the same ``MatchCardPartialView`` polled by the
+    60s script of US-7.4 — we just need to confirm that, for a match
+    with events, the response body includes the expected markers.
+    """
+
+    def setUp(self):
+        from matches.models import Match, Round, Stadium, Team
+        from django.contrib.auth import get_user_model
+
+        User = get_user_model()
+        self.user = User.objects.create_user(
+            email='partial-events@example.com', password='x',
+        )
+        self.client.force_login(self.user)
+
+        self.stadium, _ = Stadium.objects.get_or_create(
+            name='PE Stadium',
+            defaults={'city': 'PE', 'country': 'PE', 'capacity': 1},
+        )
+        self.round_, _ = Round.objects.get_or_create(
+            name='PE Round',
+            defaults={'order': 1, 'phase': 'grupo'},
+        )
+        self.home, _ = Team.objects.get_or_create(
+            country_code='HE2',
+            defaults={
+                'name': 'Brasil', 'name_en': 'Brazil',
+                'confederation': 'CONMEBOL',
+            },
+        )
+        self.away, _ = Team.objects.get_or_create(
+            country_code='AE2',
+            defaults={
+                'name': 'Franca', 'name_en': 'France',
+                'confederation': 'UEFA',
+            },
+        )
+        self.match = Match.objects.create(
+            round=self.round_,
+            stadium=self.stadium,
+            home_team=self.home,
+            away_team=self.away,
+            match_datetime=datetime_type(2026, 6, 11, 19, 0),
+            status='finalizado',
+        )
+
+    def test_partial_renders_event_lines(self):
+        from django.urls import reverse
+        from live.models import MatchEvent
+
+        MatchEvent.objects.create(
+            match=self.match,
+            minute=45,
+            type='goal',
+            team=self.home,
+            player='Neymar',
+            assist_player='Vinicius',
+        )
+        MatchEvent.objects.create(
+            match=self.match,
+            minute=30,
+            type='yellow_card',
+            team=self.away,
+            player='Mbappe',
+            assist_player='',
+        )
+
+        response = self.client.get(
+            reverse('match_card_partial', args=[self.match.pk]),
+        )
+        self.assertEqual(response.status_code, 200)
+        body = response.content.decode('utf-8')
+
+        # Goal line: minute, soccer ball, player, assist.
+        self.assertIn("45'", body)
+        self.assertIn('Neymar', body)
+        self.assertIn('Vinicius', body)
+        # Yellow card line.
+        self.assertIn("30'", body)
+        self.assertIn('Mbappe', body)
+        # The yellow card uses the emoji icon; the goal uses a soccer
+        # ball. Both unicode characters should appear in the body.
+        self.assertIn('\u26bd', body)  # goal emoji (soccer ball)
+
+    def test_partial_renders_empty_state_when_no_events(self):
+        from django.urls import reverse
+
+        response = self.client.get(
+            reverse('match_card_partial', args=[self.match.pk]),
+        )
+        self.assertEqual(response.status_code, 200)
+        body = response.content.decode('utf-8')
+        self.assertIn('Nenhum evento registrado.', body)
+
+
 if __name__ == '__main__':  # pragma: no cover
     unittest.main()

@@ -1,0 +1,49 @@
+{% comment %}
+Lista de eventos de um jogo (gols, cartoes, substituicoes).
+
+Renderizada abaixo do placar / penaltis no card de match. Espera
+``match`` no contexto; usa ``match.events`` (FK related_name do
+``MatchEvent``).
+
+Visual:
+* container: ``mt-4 space-y-1.5 text-sm``
+* cada evento: linha ``flex items-center gap-3`` com
+  - minuto em fonte mono (bg-gray-800, rounded)
+  - icone do tipo (⚽, 🟨, 🟥, ⇥, ⇤)
+  - nome do jogador (bold) + abreviacao do time (TLA)
+  - para gols, sufixo "assist: Nome" se houver
+* lista vazia: texto cinza discreto
+
+Dependencias: ``match`` no contexto.
+{% endcomment %}
+{% if match.events.all %}
+    <div class='mt-4 space-y-1.5 text-sm'>
+        {% for event in match.events.all %}
+            <div class='flex items-center gap-3'>
+                <span class='font-mono text-xs bg-gray-800 px-2 py-0.5 rounded text-gray-300'>{{ event.minute }}'</span>
+                {% if event.type == 'goal' %}
+                    <span aria-hidden='true'>⚽</span>
+                    <span class='text-white font-semibold'>{{ event.player }}</span>
+                    <span class='text-gray-400'>({{ event.team.country_code }})</span>
+                    {% if event.assist_player %}
+                        <span class='text-gray-500'>&middot; assist: {{ event.assist_player }}</span>
+                    {% endif %}
+                {% elif event.type == 'yellow_card' %}
+                    <span aria-hidden='true'>🟨</span>
+                    <span class='text-yellow-400'>{{ event.player }} ({{ event.team.country_code }})</span>
+                {% elif event.type == 'red_card' %}
+                    <span aria-hidden='true'>🟥</span>
+                    <span class='text-red-400'>{{ event.player }} ({{ event.team.country_code }})</span>
+                {% elif event.type == 'substitution_in' %}
+                    <span aria-hidden='true' class='text-emerald-400'>&#8674;</span>
+                    <span class='text-emerald-400'>{{ event.player }} entrou ({{ event.team.country_code }})</span>
+                {% elif event.type == 'substitution_out' %}
+                    <span aria-hidden='true' class='text-gray-400'>&#8627;</span>
+                    <span class='text-gray-400'>{{ event.player }} saiu ({{ event.team.country_code }})</span>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <p class='mt-4 text-xs text-gray-500 italic'>Nenhum evento registrado.</p>
+{% endif %}
