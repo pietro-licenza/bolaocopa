@@ -1,0 +1,31 @@
+{% comment %}
+Placar destacado usado no card de match (US-7.4).
+
+Layout: time mandante a esquerda, placar grande no centro, time
+visitante a direita. Quando ``home_score`` ou ``away_score`` ainda
+estao em branco (jogo agendado), um placeholder "·" e exibido no
+lugar para manter o alinhamento visual.
+
+Dependencias: espera ``match`` no contexto (objeto ``Match`` do
+``matches.models``). Os nomes das selecoes sao truncados em ate
+120px para evitar quebra de layout em mobile.
+{% endcomment %}
+<div class='flex items-center justify-between gap-4 my-4'>
+    <div class='flex flex-col items-center gap-1 flex-1 min-w-0'>
+        <span class='text-3xl'>{{ match.home_team.flag_emoji }}</span>
+        <span class='text-white font-semibold truncate max-w-[120px]'>{{ match.home_team.name }}</span>
+    </div>
+    <div class='flex flex-col items-center gap-1'>
+        <span class='text-5xl font-bold text-white tabular-nums'>
+            {% if match.home_score is not None and match.away_score is not None %}
+                {{ match.home_score }} x {{ match.away_score }}
+            {% else %}
+                &middot;
+            {% endif %}
+        </span>
+    </div>
+    <div class='flex flex-col items-center gap-1 flex-1 min-w-0'>
+        <span class='text-3xl'>{{ match.away_team.flag_emoji }}</span>
+        <span class='text-white font-semibold truncate max-w-[120px]'>{{ match.away_team.name }}</span>
+    </div>
+</div>

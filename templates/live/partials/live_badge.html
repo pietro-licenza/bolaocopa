@@ -1,0 +1,19 @@
+{% comment %}
+Reusable "AO VIVO" badge for a match that is currently in progress.
+
+Rendered only when ``match.status == 'em_andamento'``; emits an empty
+string otherwise so the include can be dropped into any card layout
+without conditionals at the call site. The badge uses an animated
+pulse (TailwindCSS ``animate-pulse`` utility) to draw the eye to live
+games, and optionally appends the elapsed minute pulled from
+``match.elapsed_minute`` (added in the US-7.3 migration).
+{% endcomment %}
+{% if match.status == 'em_andamento' %}
+    <span class='inline-flex items-center gap-2 bg-red-600 text-white px-3 py-1 rounded-full text-sm font-semibold animate-pulse'>
+        <span class='w-2 h-2 bg-white rounded-full'></span>
+        <span>AO VIVO</span>
+        {% if match.elapsed_minute is not None %}
+            <span>&middot; {{ match.elapsed_minute }}'</span>
+        {% endif %}
+    </span>
+{% endif %}

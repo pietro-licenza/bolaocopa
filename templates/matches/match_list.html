@@ -23,55 +23,11 @@
     {% if match_items %}
         <div class='space-y-4'>
             {% for item in match_items %}
-                <div class='bg-gray-900 border border-gray-700 rounded-xl p-6 hover:border-emerald-500/50 transition-colors duration-200'>
-                    <div class='flex items-center justify-between mb-4'>
-                        <div class='flex items-center gap-2 text-sm'>
-                            <span class='text-xs font-semibold uppercase tracking-wider text-gray-500'>{{ item.round.name }}</span>
-                            <span class='text-gray-600'>·</span>
-                            <span class='text-gray-400'>{{ item.stadium }}</span>
-                        </div>
-                        <div class='flex items-center gap-2'>
-                            {% if item.user_has_predicted %}
-                                <span class='text-xs font-semibold px-2 py-1 rounded-full bg-emerald-600/20 text-emerald-400'>Palpitado</span>
-                            {% endif %}
-                            {% if item.status == 'agendado' %}
-                                <span class='text-xs font-semibold uppercase tracking-wider px-2 py-1 rounded-full bg-gray-700 text-gray-300'>Agendado</span>
-                            {% elif item.status == 'em_andamento' %}
-                                <span class='text-xs font-semibold uppercase tracking-wider px-2 py-1 rounded-full bg-emerald-600/20 text-emerald-400'>Em andamento</span>
-                            {% elif item.status == 'finalizado' %}
-                                <span class='text-xs font-semibold uppercase tracking-wider px-2 py-1 rounded-full bg-amber-600/20 text-amber-400'>Finalizado</span>
-                            {% endif %}
-                        </div>
-                    </div>
-
-                    <div class='flex items-center justify-between gap-4'>
-                        <div class='flex flex-col items-center gap-2 flex-1'>
-                            <span class='text-3xl'>{{ item.home_team.flag_emoji }}</span>
-                            <span class='text-white font-semibold'>{{ item.home_team.name }}</span>
-                        </div>
-                        <div class='flex flex-col items-center gap-1'>
-                            <span class='text-gray-500 text-xs uppercase tracking-wider'>vs</span>
-                            <span class='text-white text-sm'>{{ item.match_datetime|date:"d/m/Y H:i" }}</span>
-                        </div>
-                        <div class='flex flex-col items-center gap-2 flex-1'>
-                            <span class='text-3xl'>{{ item.away_team.flag_emoji }}</span>
-                            <span class='text-white font-semibold'>{{ item.away_team.name }}</span>
-                        </div>
-                    </div>
-
-                    {% if item.status == 'finalizado' %}
-                        <div class='mt-4 flex flex-col items-center gap-1'>
-                            <span class='text-4xl md:text-5xl font-bold text-white tabular-nums'>{{ item.match.home_score }} x {{ item.match.away_score }}</span>
-                            <span class='text-amber-400 text-sm font-semibold'>Resultado final: {{ item.match.home_score }} x {{ item.match.away_score }}</span>
-                        </div>
-                    {% endif %}
-
-                    {% if item.status != 'finalizado' %}
-                        <div class='mt-4 flex justify-end'>
-                            {% include 'live/partials/sync_button.html' with match=item.match %}
-                        </div>
-                    {% endif %}
-                </div>
+                {% comment %}US-7.4: o card de match foi extraido para um partial
+                   (``live/partials/match_card.html``) que tambem serve
+                   de payload para o endpoint de polling. ``data-match-id``
+                   e ``data-live`` sao os hooks do poll_script.html.{% endcomment %}
+                {% include 'live/partials/match_card.html' with match=item.match user_has_predicted=item.user_has_predicted %}
             {% endfor %}
         </div>
 
@@ -100,4 +56,7 @@
         </div>
     {% endif %}
 </div>
+
+{# US-7.4: ativa o polling a cada 60s para cards com data-live="1". #}
+{% include 'live/partials/poll_script.html' %}
 {% endblock %}

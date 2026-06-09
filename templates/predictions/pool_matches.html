@@ -17,34 +17,38 @@
     {% if match_items %}
         <div class='space-y-4'>
             {% for item in match_items %}
-                <div class='bg-gray-900 border border-gray-700 rounded-xl p-6 hover:border-emerald-500/50 transition-colors duration-200'>
-                    <div class='flex items-center justify-between mb-4'>
+                {% comment %}US-7.4: o card agora expoe ``data-match-id`` e
+                   ``data-live`` para o poll_script.html, e usa os
+                   partials ``live_badge`` / ``score_display`` /
+                   ``penalty_score`` para destacar jogos em
+                   andamento. O rodape de palpite (botoes Palpitar /
+                   Editar, status de bloqueio) continua especifico
+                   desta pagina, por isso nao delegamos o card
+                   inteiro ao partial generico.{% endcomment %}
+                <article data-match-id='{{ item.match.id }}' data-live='{% if item.match.status == "em_andamento" %}1{% else %}0{% endif %}' class='bg-gray-900 border border-gray-700 rounded-xl p-6 hover:border-emerald-500/50 transition-colors duration-200'>
+                    <div class='flex items-center justify-between mb-3 gap-2 flex-wrap'>
                         <div class='flex items-center gap-2 text-sm'>
                             <span class='text-xs font-semibold uppercase tracking-wider text-gray-500'>{{ item.match.round.name }}</span>
                             <span class='text-gray-600'>·</span>
                             <span class='text-gray-400'>{{ item.match.stadium }}</span>
                         </div>
-                        {% if item.is_locked %}
-                            <span class='text-xs font-semibold uppercase tracking-wider px-2 py-1 rounded-full bg-red-600/20 text-red-400'>Bloqueado</span>
-                        {% else %}
-                            <span class='text-xs font-semibold uppercase tracking-wider px-2 py-1 rounded-full bg-gray-700 text-gray-300'>Agendado</span>
-                        {% endif %}
+                        <div class='flex items-center gap-2'>
+                            {% if item.is_locked %}
+                                <span class='text-xs font-semibold uppercase tracking-wider px-2 py-1 rounded-full bg-red-600/20 text-red-400'>Bloqueado</span>
+                            {% else %}
+                                <span class='text-xs font-semibold uppercase tracking-wider px-2 py-1 rounded-full bg-gray-700 text-gray-300'>Agendado</span>
+                            {% endif %}
+                            {% comment %}US-7.4: badge AO VIVO pulsante quando o jogo esta em andamento.{% endcomment %}
+                            {% include 'live/partials/live_badge.html' with match=item.match %}
+                        </div>
                     </div>
 
-                    <div class='flex items-center justify-between gap-4'>
-                        <div class='flex flex-col items-center gap-2 flex-1'>
-                            <span class='text-3xl'>{{ item.match.home_team.flag_emoji }}</span>
-                            <span class='text-white font-semibold'>{{ item.match.home_team.name }}</span>
-                        </div>
-                        <div class='flex flex-col items-center gap-1'>
-                            <span class='text-gray-500 text-xs uppercase tracking-wider'>vs</span>
-                            <span class='text-white text-sm'>{{ item.match.match_datetime|date:"d/m/Y H:i" }}</span>
-                        </div>
-                        <div class='flex flex-col items-center gap-2 flex-1'>
-                            <span class='text-3xl'>{{ item.match.away_team.flag_emoji }}</span>
-                            <span class='text-white font-semibold'>{{ item.match.away_team.name }}</span>
-                        </div>
-                    </div>
+                    {% comment %}US-7.4: placar grande centralizado. Em jogos
+                       agendados (sem placar) o partial exibe "·"
+                       para manter o alinhamento visual.{% endcomment %}
+                    {% include 'live/partials/score_display.html' with match=item.match %}
+                    {% comment %}US-7.6: mini-placar de penaltis (quando aplicavel).{% endcomment %}
+                    {% include 'live/partials/penalty_score.html' with match=item.match %}
 
                     <div class='mt-6 pt-4 border-t border-gray-700 flex items-center justify-between gap-3 flex-wrap'>
                         {% if item.user_prediction %}
@@ -67,7 +71,7 @@
                             {% include 'live/partials/sync_button.html' with match=item.match %}
                         </div>
                     </div>
-                </div>
+                </article>
             {% endfor %}
         </div>
     {% else %}
@@ -76,4 +80,7 @@
         </div>
     {% endif %}
 </div>
+
+{# US-7.4: ativa o polling a cada 60s para cards com data-live="1". #}
+{% include 'live/partials/poll_script.html' %}
 {% endblock %}

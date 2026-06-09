@@ -753,5 +753,134 @@ class MatchSyncViewTests(TestCase):
         self.assertEqual(response.status_code, 302)
 
 
+class MatchCardPartialViewTests(TestCase):
+    """Smoke tests for the polling endpoint of US-7.4.
+
+    The view is the payload side of the JS polling that runs every
+    60s for cards with ``data-live="1"``. It must:
+
+    * require authentication (unauthenticated requests redirect);
+    * return the rendered ``match_card.html`` partial (200) for an
+      existing match;
+    * include the article wrapper with the ``data-match-id`` and
+      ``data-live`` attributes that the client-side script keys off;
+    * flip ``data-live`` to ``"0"`` for any non-live match;
+    * 404 for a missing match (so a stale id is a clean failure).
+    """
+
+    def setUp(self):
+        from django.contrib.auth import get_user_model
+        from matches.models import Match, Round, Stadium, Team
+
+        User = get_user_model()
+        self.user = User.objects.create_user(
+            email='partial@example.com', password='x',
+        )
+        self.client.force_login(self.user)
+
+        self.stadium, _ = Stadium.objects.get_or_create(
+            name='Partial Stadium',
+            defaults={'city': 'PC', 'country': 'PC', 'capacity': 1},
+        )
+        self.round_, _ = Round.objects.get_or_create(
+            name='Partial Round',
+            defaults={'order': 1, 'phase': 'grupo'},
+        )
+        self.home, _ = Team.objects.get_or_create(
+            country_code='HOP',
+            defaults={'name': 'HomeP', 'confederation': 'UEFA'},
+        )
+        self.away, _ = Team.objects.get_or_create(
+            country_code='AWP',
+            defaults={'name': 'AwayP', 'confederation': 'UEFA'},
+        )
+        # ``Match`` is imported in setUp so the helper method below
+        # can reference it via ``self.Match`` (instance attribute,
+        # not class-level). Importing at the top of the file would
+        # shadow the helper method's local namespace and break.
+        self.Match = Match
+
+    def _make_match(self, **overrides):
+        defaults = {
+            'round': self.round_,
+            'stadium': self.stadium,
+            'home_team': self.home,
+            'away_team': self.away,
+            'match_datetime': datetime_type(2026, 6, 11, 19, 0),
+        }
+        defaults.update(overrides)
+        return self.Match.objects.create(**defaults)
+
+    def test_get_returns_200_and_renders_partial(self):
+        from django.urls import reverse
+
+        match = self._make_match()
+        response = self.client.get(
+            reverse('match_card_partial', args=[match.pk]),
+        )
+        self.assertEqual(response.status_code, 200)
+        body = response.content.decode('utf-8')
+        # The partial renders the article wrapper that the
+        # client-side polling script keys off.
+        self.assertIn("data-match-id='{0}'".format(match.pk), body)
+        # No live game in the test fixtures -> data-live="0".
+        self.assertIn("data-live='0'", body)
+        # Placar placeholder para jogos sem placar registrado.
+        self.assertIn('&middot;', body)
+
+    def test_get_marks_live_match_with_data_live_1(self):
+        from django.urls import reverse
+
+        match = self._make_match(status='em_andamento', elapsed_minute=42)
+        response = self.client.get(
+            reverse('match_card_partial', args=[match.pk]),
+        )
+        self.assertEqual(response.status_code, 200)
+        body = response.content.decode('utf-8')
+        self.assertIn("data-live='1'", body)
+        # O badge AO VIVO aparece e mostra o minuto decorrido.
+        self.assertIn('AO VIVO', body)
+        self.assertIn("42'", body)
+
+    def test_get_renders_penalty_score_when_present(self):
+        from django.urls import reverse
+
+        match = self._make_match(
+            status='finalizado',
+            home_score=1,
+            away_score=1,
+            penalties_home=4,
+            penalties_away=3,
+        )
+        response = self.client.get(
+            reverse('match_card_partial', args=[match.pk]),
+        )
+        self.assertEqual(response.status_code, 200)
+        body = response.content.decode('utf-8')
+        self.assertIn('penaltis', body)
+        # Numeros de penaltis convertidos aparecem dentro do card.
+        self.assertIn('>4<', body)
+        self.assertIn('>3<', body)
+
+    def test_get_requires_login(self):
+        from django.urls import reverse
+
+        match = self._make_match()
+        self.client.logout()
+        response = self.client.get(
+            reverse('match_card_partial', args=[match.pk]),
+        )
+        self.assertEqual(response.status_code, 302)
+        self.assertIn('/login/', response.url)
+
+    def test_get_404_for_missing_match(self):
+        from django.urls import reverse
+
+        response = self.client.get(
+            reverse('match_card_partial', args=[999999]),
+        )
+        self.assertEqual(response.status_code, 404)
+
+
 if __name__ == '__main__':  # pragma: no cover
     unittest.main()

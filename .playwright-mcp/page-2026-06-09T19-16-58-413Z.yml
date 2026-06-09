@@ -1,0 +1,356 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e4]:
+      - link "BolãoCopa" [ref=e5] [cursor=pointer]:
+        - /url: /
+      - generic [ref=e6]:
+        - link "Dashboard" [ref=e7] [cursor=pointer]:
+          - /url: /dashboard/
+        - link "Meus Bolões" [ref=e8] [cursor=pointer]:
+          - /url: /pools/
+        - button "Sair" [ref=e10] [cursor=pointer]
+  - main [ref=e11]:
+    - generic [ref=e12]:
+      - generic [ref=e13]:
+        - heading "Jogos da Copa" [level=1] [ref=e14]
+        - paragraph [ref=e15]: Todos os jogos disponíveis para palpite
+      - generic [ref=e16]:
+        - generic [ref=e17]:
+          - text: Agendados
+          - paragraph [ref=e18]: "101"
+        - generic [ref=e19]:
+          - text: Finalizados
+          - paragraph [ref=e20]: "2"
+      - generic [ref=e21]:
+        - text: "{# US-7.4: o card de match foi extraido para um partial (``live/partials/match_card.html``) que tambem serve de payload para o endpoint de polling. ``data-match-id`` e ``data-live`` sao os hooks do poll_script.html. #}"
+        - article [ref=e22]:
+          - generic [ref=e23]:
+            - generic [ref=e24]: Fase de Grupos · Estadio Azteca
+            - generic [ref=e26]:
+              - generic [ref=e28]: AO VIVO
+              - generic [ref=e29]: · 67'
+          - generic [ref=e30]:
+            - generic [ref=e31]:
+              - generic [ref=e32]: 🇲🇽
+              - generic [ref=e33]: Mexico
+            - generic [ref=e35]: 2 x 1
+            - generic [ref=e36]:
+              - generic [ref=e37]: 🇿🇦
+              - generic [ref=e38]: Africa do Sul
+          - generic [ref=e39]:
+            - generic [ref=e40]: 11/06/2026 16:00
+            - button "Buscar resultado" [ref=e42] [cursor=pointer]
+        - text: "{# US-7.4: o card de match foi extraido para um partial (``live/partials/match_card.html``) que tambem serve de payload para o endpoint de polling. ``data-match-id`` e ``data-live`` sao os hooks do poll_script.html. #}"
+        - article [ref=e43]:
+          - generic [ref=e44]:
+            - generic [ref=e45]: Fase de Grupos · Estadio Akron
+            - generic [ref=e47]: Finalizado
+          - generic [ref=e48]:
+            - generic [ref=e49]:
+              - generic [ref=e50]: 🇰🇷
+              - generic [ref=e51]: Coreia do Sul
+            - generic [ref=e53]: 1 x 1
+            - generic [ref=e54]:
+              - generic [ref=e55]: 🇨🇿
+              - generic [ref=e56]: Chequia
+          - generic [ref=e57]:
+            - generic [ref=e58]:
+              - generic [ref=e59]: "4"
+              - generic [ref=e60]: x
+              - generic [ref=e61]: "3"
+            - generic [ref=e62]: penaltis
+          - generic [ref=e63]:
+            - generic [ref=e64]: 11/06/2026 23:00
+            - button "Buscar resultado" [ref=e66] [cursor=pointer]
+        - text: "{# US-7.4: o card de match foi extraido para um partial (``live/partials/match_card.html``) que tambem serve de payload para o endpoint de polling. ``data-match-id`` e ``data-live`` sao os hooks do poll_script.html. #}"
+        - article [ref=e67]:
+          - generic [ref=e68]:
+            - generic [ref=e69]: Fase de Grupos · BMO Field
+            - generic [ref=e71]: Finalizado
+          - generic [ref=e72]:
+            - generic [ref=e73]:
+              - generic [ref=e74]: 🇨🇦
+              - generic [ref=e75]: Canada
+            - generic [ref=e77]: 1 x 1
+            - generic [ref=e78]:
+              - generic [ref=e79]: 🇧🇦
+              - generic [ref=e80]: Bosnia e Herzegovina
+          - generic [ref=e81]:
+            - generic [ref=e82]: 12/06/2026 16:00
+            - button "Buscar resultado" [ref=e84] [cursor=pointer]
+        - text: "{# US-7.4: o card de match foi extraido para um partial (``live/partials/match_card.html``) que tambem serve de payload para o endpoint de polling. ``data-match-id`` e ``data-live`` sao os hooks do poll_script.html. #}"
+        - article [ref=e85]:
+          - generic [ref=e86]:
+            - generic [ref=e87]: Fase de Grupos · SoFi Stadium
+            - generic [ref=e89]: Agendado
+          - generic [ref=e90]:
+            - generic [ref=e91]:
+              - generic [ref=e92]: 🇺🇸
+              - generic [ref=e93]: Estados Unidos
+            - generic [ref=e95]: ·
+            - generic [ref=e96]:
+              - generic [ref=e97]: 🇵🇾
+              - generic [ref=e98]: Paraguai
+          - generic [ref=e99]:
+            - generic [ref=e100]: 12/06/2026 22:00
+            - button "Buscar resultado" [ref=e102] [cursor=pointer]
+        - text: "{# US-7.4: o card de match foi extraido para um partial (``live/partials/match_card.html``) que tambem serve de payload para o endpoint de polling. ``data-match-id`` e ``data-live`` sao os hooks do poll_script.html. #}"
+        - article [ref=e103]:
+          - generic [ref=e104]:
+            - generic [ref=e105]: Fase de Grupos · Levi's Stadium
+            - generic [ref=e107]: Agendado
+          - generic [ref=e108]:
+            - generic [ref=e109]:
+              - generic [ref=e110]: 🇶🇦
+              - generic [ref=e111]: Catar
+            - generic [ref=e113]: ·
+            - generic [ref=e114]:
+              - generic [ref=e115]: 🇨🇭
+              - generic [ref=e116]: Suica
+          - generic [ref=e117]:
+            - generic [ref=e118]: 13/06/2026 16:00
+            - button "Buscar resultado" [ref=e120] [cursor=pointer]
+        - text: "{# US-7.4: o card de match foi extraido para um partial (``live/partials/match_card.html``) que tambem serve de payload para o endpoint de polling. ``data-match-id`` e ``data-live`` sao os hooks do poll_script.html. #}"
+        - article [ref=e121]:
+          - generic [ref=e122]:
+            - generic [ref=e123]: Fase de Grupos · MetLife Stadium
+            - generic [ref=e125]: Agendado
+          - generic [ref=e126]:
+            - generic [ref=e127]:
+              - generic [ref=e128]: 🇧🇷
+              - generic [ref=e129]: Brasil
+            - generic [ref=e131]: ·
+            - generic [ref=e132]:
+              - generic [ref=e133]: 🇲🇦
+              - generic [ref=e134]: Marracos
+          - generic [ref=e135]:
+            - generic [ref=e136]: 13/06/2026 19:00
+            - button "Buscar resultado" [ref=e138] [cursor=pointer]
+        - text: "{# US-7.4: o card de match foi extraido para um partial (``live/partials/match_card.html``) que tambem serve de payload para o endpoint de polling. ``data-match-id`` e ``data-live`` sao os hooks do poll_script.html. #}"
+        - article [ref=e139]:
+          - generic [ref=e140]:
+            - generic [ref=e141]: Fase de Grupos · Gillette Stadium
+            - generic [ref=e143]: Agendado
+          - generic [ref=e144]:
+            - generic [ref=e145]:
+              - generic [ref=e146]: 🇭🇹
+              - generic [ref=e147]: Haiti
+            - generic [ref=e149]: ·
+            - generic [ref=e150]:
+              - generic [ref=e151]: 🏴󠁧󠁢󠁥󠁮󠁧󠁿
+              - generic [ref=e152]: Escocia
+          - generic [ref=e153]:
+            - generic [ref=e154]: 13/06/2026 22:00
+            - button "Buscar resultado" [ref=e156] [cursor=pointer]
+        - text: "{# US-7.4: o card de match foi extraido para um partial (``live/partials/match_card.html``) que tambem serve de payload para o endpoint de polling. ``data-match-id`` e ``data-live`` sao os hooks do poll_script.html. #}"
+        - article [ref=e157]:
+          - generic [ref=e158]:
+            - generic [ref=e159]: Fase de Grupos · BC Place
+            - generic [ref=e161]: Agendado
+          - generic [ref=e162]:
+            - generic [ref=e163]:
+              - generic [ref=e164]: 🇦🇺
+              - generic [ref=e165]: Australia
+            - generic [ref=e167]: ·
+            - generic [ref=e168]:
+              - generic [ref=e169]: 🇹🇷
+              - generic [ref=e170]: Turquia
+          - generic [ref=e171]:
+            - generic [ref=e172]: 14/06/2026 01:00
+            - button "Buscar resultado" [ref=e174] [cursor=pointer]
+        - text: "{# US-7.4: o card de match foi extraido para um partial (``live/partials/match_card.html``) que tambem serve de payload para o endpoint de polling. ``data-match-id`` e ``data-live`` sao os hooks do poll_script.html. #}"
+        - article [ref=e175]:
+          - generic [ref=e176]:
+            - generic [ref=e177]: Fase de Grupos · NRG Stadium
+            - generic [ref=e179]: Agendado
+          - generic [ref=e180]:
+            - generic [ref=e181]:
+              - generic [ref=e182]: 🇩🇪
+              - generic [ref=e183]: Alemanha
+            - generic [ref=e185]: ·
+            - generic [ref=e186]:
+              - generic [ref=e187]: 🇨🇼
+              - generic [ref=e188]: Curacao
+          - generic [ref=e189]:
+            - generic [ref=e190]: 14/06/2026 14:00
+            - button "Buscar resultado" [ref=e192] [cursor=pointer]
+        - text: "{# US-7.4: o card de match foi extraido para um partial (``live/partials/match_card.html``) que tambem serve de payload para o endpoint de polling. ``data-match-id`` e ``data-live`` sao os hooks do poll_script.html. #}"
+        - article [ref=e193]:
+          - generic [ref=e194]:
+            - generic [ref=e195]: Fase de Grupos · AT&T Stadium
+            - generic [ref=e197]: Agendado
+          - generic [ref=e198]:
+            - generic [ref=e199]:
+              - generic [ref=e200]: 🇳🇱
+              - generic [ref=e201]: Holanda
+            - generic [ref=e203]: ·
+            - generic [ref=e204]:
+              - generic [ref=e205]: 🇯🇵
+              - generic [ref=e206]: Japao
+          - generic [ref=e207]:
+            - generic [ref=e208]: 14/06/2026 17:00
+            - button "Buscar resultado" [ref=e210] [cursor=pointer]
+        - text: "{# US-7.4: o card de match foi extraido para um partial (``live/partials/match_card.html``) que tambem serve de payload para o endpoint de polling. ``data-match-id`` e ``data-live`` sao os hooks do poll_script.html. #}"
+        - article [ref=e211]:
+          - generic [ref=e212]:
+            - generic [ref=e213]: Fase de Grupos · Lincoln Financial Field
+            - generic [ref=e215]: Agendado
+          - generic [ref=e216]:
+            - generic [ref=e217]:
+              - generic [ref=e218]: 🇨🇮
+              - generic [ref=e219]: Costa do Marfim
+            - generic [ref=e221]: ·
+            - generic [ref=e222]:
+              - generic [ref=e223]: 🇪🇨
+              - generic [ref=e224]: Equador
+          - generic [ref=e225]:
+            - generic [ref=e226]: 14/06/2026 20:00
+            - button "Buscar resultado" [ref=e228] [cursor=pointer]
+        - text: "{# US-7.4: o card de match foi extraido para um partial (``live/partials/match_card.html``) que tambem serve de payload para o endpoint de polling. ``data-match-id`` e ``data-live`` sao os hooks do poll_script.html. #}"
+        - article [ref=e229]:
+          - generic [ref=e230]:
+            - generic [ref=e231]: Fase de Grupos · Estadio BBVA
+            - generic [ref=e233]: Agendado
+          - generic [ref=e234]:
+            - generic [ref=e235]:
+              - generic [ref=e236]: 🇸🇪
+              - generic [ref=e237]: Suecia
+            - generic [ref=e239]: ·
+            - generic [ref=e240]:
+              - generic [ref=e241]: 🇹🇳
+              - generic [ref=e242]: Tunisia
+          - generic [ref=e243]:
+            - generic [ref=e244]: 14/06/2026 23:00
+            - button "Buscar resultado" [ref=e246] [cursor=pointer]
+        - text: "{# US-7.4: o card de match foi extraido para um partial (``live/partials/match_card.html``) que tambem serve de payload para o endpoint de polling. ``data-match-id`` e ``data-live`` sao os hooks do poll_script.html. #}"
+        - article [ref=e247]:
+          - generic [ref=e248]:
+            - generic [ref=e249]: Fase de Grupos · Mercedes-Benz Stadium
+            - generic [ref=e251]: Agendado
+          - generic [ref=e252]:
+            - generic [ref=e253]:
+              - generic [ref=e254]: 🇪🇸
+              - generic [ref=e255]: Espanha
+            - generic [ref=e257]: ·
+            - generic [ref=e258]:
+              - generic [ref=e259]: 🇨🇻
+              - generic [ref=e260]: Cabo Verde
+          - generic [ref=e261]:
+            - generic [ref=e262]: 15/06/2026 13:00
+            - button "Buscar resultado" [ref=e264] [cursor=pointer]
+        - text: "{# US-7.4: o card de match foi extraido para um partial (``live/partials/match_card.html``) que tambem serve de payload para o endpoint de polling. ``data-match-id`` e ``data-live`` sao os hooks do poll_script.html. #}"
+        - article [ref=e265]:
+          - generic [ref=e266]:
+            - generic [ref=e267]: Fase de Grupos · Lumen Field
+            - generic [ref=e269]: Agendado
+          - generic [ref=e270]:
+            - generic [ref=e271]:
+              - generic [ref=e272]: 🇧🇪
+              - generic [ref=e273]: Belgica
+            - generic [ref=e275]: ·
+            - generic [ref=e276]:
+              - generic [ref=e277]: 🇪🇬
+              - generic [ref=e278]: Egito
+          - generic [ref=e279]:
+            - generic [ref=e280]: 15/06/2026 16:00
+            - button "Buscar resultado" [ref=e282] [cursor=pointer]
+        - text: "{# US-7.4: o card de match foi extraido para um partial (``live/partials/match_card.html``) que tambem serve de payload para o endpoint de polling. ``data-match-id`` e ``data-live`` sao os hooks do poll_script.html. #}"
+        - article [ref=e283]:
+          - generic [ref=e284]:
+            - generic [ref=e285]: Fase de Grupos · Hard Rock Stadium
+            - generic [ref=e287]: Agendado
+          - generic [ref=e288]:
+            - generic [ref=e289]:
+              - generic [ref=e290]: 🇸🇦
+              - generic [ref=e291]: Arabia Saudita
+            - generic [ref=e293]: ·
+            - generic [ref=e294]:
+              - generic [ref=e295]: 🇺🇾
+              - generic [ref=e296]: Uruguai
+          - generic [ref=e297]:
+            - generic [ref=e298]: 15/06/2026 19:00
+            - button "Buscar resultado" [ref=e300] [cursor=pointer]
+        - text: "{# US-7.4: o card de match foi extraido para um partial (``live/partials/match_card.html``) que tambem serve de payload para o endpoint de polling. ``data-match-id`` e ``data-live`` sao os hooks do poll_script.html. #}"
+        - article [ref=e301]:
+          - generic [ref=e302]:
+            - generic [ref=e303]: Fase de Grupos · SoFi Stadium
+            - generic [ref=e305]: Agendado
+          - generic [ref=e306]:
+            - generic [ref=e307]:
+              - generic [ref=e308]: 🇮🇷
+              - generic [ref=e309]: Ira
+            - generic [ref=e311]: ·
+            - generic [ref=e312]:
+              - generic [ref=e313]: 🇳🇿
+              - generic [ref=e314]: Nova Zelandia
+          - generic [ref=e315]:
+            - generic [ref=e316]: 15/06/2026 22:00
+            - button "Buscar resultado" [ref=e318] [cursor=pointer]
+        - text: "{# US-7.4: o card de match foi extraido para um partial (``live/partials/match_card.html``) que tambem serve de payload para o endpoint de polling. ``data-match-id`` e ``data-live`` sao os hooks do poll_script.html. #}"
+        - article [ref=e319]:
+          - generic [ref=e320]:
+            - generic [ref=e321]: Fase de Grupos · MetLife Stadium
+            - generic [ref=e323]: Agendado
+          - generic [ref=e324]:
+            - generic [ref=e325]:
+              - generic [ref=e326]: 🇫🇷
+              - generic [ref=e327]: Franca
+            - generic [ref=e329]: ·
+            - generic [ref=e330]:
+              - generic [ref=e331]: 🇸🇳
+              - generic [ref=e332]: Senegal
+          - generic [ref=e333]:
+            - generic [ref=e334]: 16/06/2026 16:00
+            - button "Buscar resultado" [ref=e336] [cursor=pointer]
+        - text: "{# US-7.4: o card de match foi extraido para um partial (``live/partials/match_card.html``) que tambem serve de payload para o endpoint de polling. ``data-match-id`` e ``data-live`` sao os hooks do poll_script.html. #}"
+        - article [ref=e337]:
+          - generic [ref=e338]:
+            - generic [ref=e339]: Fase de Grupos · Gillette Stadium
+            - generic [ref=e341]: Agendado
+          - generic [ref=e342]:
+            - generic [ref=e343]:
+              - generic [ref=e344]: 🇮🇶
+              - generic [ref=e345]: Iraque
+            - generic [ref=e347]: ·
+            - generic [ref=e348]:
+              - generic [ref=e349]: 🇳🇴
+              - generic [ref=e350]: Noruega
+          - generic [ref=e351]:
+            - generic [ref=e352]: 16/06/2026 19:00
+            - button "Buscar resultado" [ref=e354] [cursor=pointer]
+        - text: "{# US-7.4: o card de match foi extraido para um partial (``live/partials/match_card.html``) que tambem serve de payload para o endpoint de polling. ``data-match-id`` e ``data-live`` sao os hooks do poll_script.html. #}"
+        - article [ref=e355]:
+          - generic [ref=e356]:
+            - generic [ref=e357]: Fase de Grupos · Arrowhead Stadium
+            - generic [ref=e359]: Agendado
+          - generic [ref=e360]:
+            - generic [ref=e361]:
+              - generic [ref=e362]: 🇦🇷
+              - generic [ref=e363]: Argentina
+            - generic [ref=e365]: ·
+            - generic [ref=e366]:
+              - generic [ref=e367]: 🇩🇿
+              - generic [ref=e368]: Argelia
+          - generic [ref=e369]:
+            - generic [ref=e370]: 16/06/2026 22:00
+            - button "Buscar resultado" [ref=e372] [cursor=pointer]
+        - text: "{# US-7.4: o card de match foi extraido para um partial (``live/partials/match_card.html``) que tambem serve de payload para o endpoint de polling. ``data-match-id`` e ``data-live`` sao os hooks do poll_script.html. #}"
+        - article [ref=e373]:
+          - generic [ref=e374]:
+            - generic [ref=e375]: Fase de Grupos · Levi's Stadium
+            - generic [ref=e377]: Agendado
+          - generic [ref=e378]:
+            - generic [ref=e379]:
+              - generic [ref=e380]: 🇦🇹
+              - generic [ref=e381]: Austria
+            - generic [ref=e383]: ·
+            - generic [ref=e384]:
+              - generic [ref=e385]: 🇯🇴
+              - generic [ref=e386]: Jordania
+          - generic [ref=e387]:
+            - generic [ref=e388]: 17/06/2026 01:00
+            - button "Buscar resultado" [ref=e390] [cursor=pointer]
+      - generic [ref=e391]:
+        - generic [ref=e392]: Página 1 de 6
+        - link "Próxima →" [ref=e393] [cursor=pointer]:
+          - /url: "?page=2"

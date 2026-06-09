@@ -1,0 +1,22 @@
+{% comment %}
+Mini-placar de penaltis exibido abaixo do placar principal.
+
+Renderiza apenas quando ambos os placares de penaltis estao
+preenchidos (jogo eliminado terminou nos penaltis). Visual: dois
+badges circulares com o numero de penaltis convertidos por cada time,
+conectados por um "x" centralizado, e um label "penaltis" discreto
+abaixo.
+
+Dependencias: ``match`` no contexto, com ``penalties_home`` e
+``penalties_away``.
+{% endcomment %}
+{% if match.penalties_home is not None and match.penalties_away is not None %}
+    <div class='flex flex-col items-center mt-2'>
+        <div class='flex items-center justify-center gap-3'>
+            <span class='rounded-full w-8 h-8 flex items-center justify-center bg-gray-800 text-emerald-400 font-bold'>{{ match.penalties_home }}</span>
+            <span class='text-gray-500 font-semibold'>x</span>
+            <span class='rounded-full w-8 h-8 flex items-center justify-center bg-gray-800 text-emerald-400 font-bold'>{{ match.penalties_away }}</span>
+        </div>
+        <span class='text-xs text-gray-500 text-center mt-1'>penaltis</span>
+    </div>
+{% endif %}

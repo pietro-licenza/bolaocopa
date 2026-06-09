@@ -315,16 +315,16 @@
   - [X] Em caso de erro da API, exibir mensagem amigavel em pt-BR
   - [X] Funcao `sync_match_from_api(match)` isolada em `live/services/sync.py`, idempotente, com `SyncResult` dataclass
 
-**US-7.4: Indicador "Ao vivo" e placar em tempo real**
+**US-7.4: Indicador "Ao vivo" e placar em tempo real** ✓
 - **Como** usuario, **quero** ver claramente quais jogos estao acontecendo agora, **para** nao perder nenhum lance.
 - **Criterios de aceite:**
-  - [ ] Card de match com status `em_andamento` exibe badge "AO VIVO" em vermelho pulsante (animacao CSS `animate-pulse` do Tailwind)
-  - [ ] Exibir minuto do jogo (`Match.elapsed_minute`) ao lado do badge "AO VIVO" (campo novo adicionado na US-7.2 ou nesta US)
-  - [ ] Placar atualizado em destaque: fonte maior, cor branca, formatado como `HOME 2 x 1 AWAY`
-  - [ ] Em jogos finalizados com penaltis, mostrar mini-placar `(4) 2 x 1 (3)` abaixo do placar normal
-  - [ ] Auto-refresh a cada 60 segundos via polling JS (fetch de partial view `/matches/<id>/_partial/` que retorna so o card) — esta e a unica excecao ao stack DTL puro, justificada pela experiencia ao vivo
-  - [ ] Polling so roda se `Match.status == 'em_andamento'`. Em outros status, polling e desativado
-  - [ ] Indicador visual de "atualizando..." durante a requisicao
+  - [X] Card de match com status `em_andamento` exibe badge "AO VIVO" em vermelho pulsante (animacao CSS `animate-pulse` do Tailwind)
+  - [X] Exibir minuto do jogo (`Match.elapsed_minute`) ao lado do badge "AO VIVO"
+  - [X] Placar atualizado em destaque: fonte maior, cor branca, formatado como `HOME 2 x 1 AWAY`
+  - [X] Em jogos finalizados com penaltis, mostrar mini-placar `(4) 2 x 1 (3)` abaixo do placar normal
+  - [X] Auto-refresh a cada 60 segundos via polling JS (fetch de partial view `/matches/<id>/_partial/` que retorna so o card) — unica excecao justificada ao stack DTL puro
+  - [X] Polling so roda se `Match.status == 'em_andamento'`. Em outros status, polling e desativado
+  - [X] Indicador visual de "atualizando..." durante a requisicao (`opacity-50` no article)
 
 **US-7.5: Marcadores de gols, cartoes e substituicoes**
 - **Como** usuario, **quero** ver quem fez gol, levou cartao e foi substituido em cada jogo, **para** acompanhar os lances.

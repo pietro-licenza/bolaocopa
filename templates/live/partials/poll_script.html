@@ -1,0 +1,112 @@
+{% comment %}
+Inline JS que faz polling de cards de jogos em andamento.
+
+Incluir uma unica vez no final de paginas que listam matches
+(``matches/match_list.html``, ``predictions/pool_matches.html``). O
+script vasculha o DOM em busca de ``<article>`` com os atributos
+``data-match-id`` e ``data-live="1"`` e, a cada 60 segundos, faz um
+``fetch`` na rota ``match_card_partial`` correspondente
+(``/matches/<id>/_partial/``), trocando o HTML interno do card pelo
+retorno.
+
+Esta e a unica excecao ao stack "DTL puro, zero JS" do projeto
+(US-7.4 explicita essa justificativa): placares ao vivo nao podem
+ser entregues sem algum mecanismo client-side, e a alternativa
+(server-sent events / websockets) esta fora do escopo.
+
+Comportamento:
+
+* Apenas cards com ``data-live="1"`` sao polled. Quando o jogo sai de
+  "em_andamento" o backend renderiza o card com ``data-live="0"`` e
+  o script para de atualiza-lo a partir do proximo tick.
+* Durante a requisicao, o card recebe a classe ``opacity-50`` como
+  feedback visual de "atualizando...".
+* Em caso de erro de rede, o erro e logado no ``console`` e o
+  proximo tick tenta de novo (60s depois). Nao ha backoff agressivo
+  para nao mascarar falhas transitorias do servidor de dev.
+{% endcomment %}
+<script>
+    (function () {
+        // Tempo entre requisicoes (60s conforme US-7.4).
+        var POLL_INTERVAL_MS = 60000;
+        // Janela minima entre dois polls de um mesmo card. Impede
+        // dois ticks simultaneos quando a aba ficou inativa e o
+        // navegador dispara varios timers atrasados em seguida.
+        var MIN_GAP_MS = 30000;
+
+        function pollCard(article) {
+            var matchId = article.getAttribute('data-match-id');
+            if (!matchId) { return; }
+            var lastRun = article.getAttribute('data-last-poll');
+            var now = Date.now();
+            if (lastRun && (now - parseInt(lastRun, 10)) < MIN_GAP_MS) {
+                return;
+            }
+
+            // Marca o card como "atualizando" e dispara o fetch.
+            article.setAttribute('data-last-poll', String(now));
+            article.classList.add('opacity-50');
+
+            // O URL da rota ``match_card_partial`` tem o formato
+            // ``/matches/<id>/_partial/``. Montamos a partir do
+            // ``data-match-id`` e da ``window.location.origin`` para
+            // funcionar independente de subpath configurado.
+            var url = window.location.origin + '/matches/' + encodeURIComponent(matchId) + '/_partial/';
+
+            fetch(url, {
+                credentials: 'same-origin',
+                headers: { 'X-Requested-With': 'fetch' },
+            }).then(function (response) {
+                if (!response.ok) {
+                    throw new Error('HTTP ' + response.status);
+                }
+                return response.text();
+            }).then(function (html) {
+                // O endpoint retorna o ``<article>`` completo (com
+                // seus data-match-id / data-live atualizados pelo
+                // servidor). Substituimos via ``outerHTML`` para que
+                // o navegador mantenha o wrapper novo e os atributos
+                // de polling em sincronia com o estado do banco.
+                // Quando o jogo deixa de estar "em andamento", o
+                // servidor devolve ``data-live="0"`` e o proximo
+                // tick nao inclui mais este card no ``querySelectorAll``.
+                article.outerHTML = html;
+            }).catch(function (err) {
+                // Nao removemos a classe opacity-50 em caso de erro
+                // porque o conteudo nao foi substituido; mantemos
+                // o feedback ate o proximo tick bem-sucedido.
+                if (window.console && window.console.log) {
+                    window.console.log('[live-poll] match ' + matchId + ' failed:', err);
+                }
+            }).finally(function () {
+                // Como usamos ``outerHTML``, a referencia ``article``
+                // aponta para um no que ja foi removido do DOM. A
+                // classe ``opacity-50`` ainda existe nele, mas nao
+                // afeta mais o usuario. Nao precisamos remove-la.
+            });
+        }
+
+        function tick() {
+            // Reconsulta o DOM a cada tick porque o HTML interno
+            // pode ter sido substituido (perdendo listeners) ou
+            // porque o usuario navegou dentro de uma SPA hipotetica.
+            var cards = document.querySelectorAll('article[data-match-id][data-live="1"]');
+            for (var i = 0; i < cards.length; i++) {
+                pollCard(cards[i]);
+            }
+        }
+
+        // Primeiro tick eh agendado com um pequeno delay para nao
+        // competir com o carregamento inicial da pagina; ticks
+        // subsequentes usam o intervalo nominal de 60s.
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', function () {
+                setTimeout(tick, POLL_INTERVAL_MS);
+                setInterval(tick, POLL_INTERVAL_MS);
+            });
+        } else {
+            setTimeout(tick, POLL_INTERVAL_MS);
+            setInterval(tick, POLL_INTERVAL_MS);
+        }
+    })();
+</script>
