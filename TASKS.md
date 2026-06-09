@@ -341,15 +341,15 @@
   - [X] Icones centralizados, fonte mono para o minuto
   - [X] Visual segue o design system dark theme (bg-gray-900, text-gray-300, icones coloridos)
 
-**US-7.6: Placar de penaltis (input manual no admin)**
+**US-7.6: Placar de penaltis (input manual no admin)** ✓
 - **Como** usuario, **quero** ver o resultado dos penaltis ao final de jogos eliminatorios, **para** saber quem avancou na copa.
 - **Criterios de aceite:**
-  - [ ] Exibir mini-placar de penaltis abaixo do placar original quando `penalties_home` e `penalties_away` estiverem populados
-  - [ ] Formato visual: `(4) 1 x 1 (3)` com numeros de penaltis em circulo/badge, integrando com US-7.4
-  - [ ] Adicionar label "penaltis" em texto pequeno abaixo
-  - [ ] Disponivel tanto em jogos finalizados quanto em exibicao historica
-  - [ ] **Estrategia de preenchimento**: input manual no Django Admin. As APIs gratis (football-data.org e API-Football free) nao retornam placar de penaltis confiavelmente. O admin do Django permitira ao operador preencher `penalties_home`/`penalties_away` para cada jogo do mata-mata que terminar em penaltis (cobrir os ~15 jogos eliminatorios da Copa 2026)
-  - [ ] MatchAdmin em `matches/admin.py` exibe `penalties_home`/`penalties_away` no form de edicao, dentro de um fieldset "Placar de penaltis (somente mata-mata)"
+  - [X] Exibir mini-placar de penaltis abaixo do placar original quando `penalties_home` e `penalties_away` estiverem populados
+  - [X] Formato visual: `(4) 1 x 1 (3)` com numeros de penaltis em circulo/badge, integrando com US-7.4
+  - [X] Adicionar label "penaltis" em texto pequeno abaixo
+  - [X] Disponivel tanto em jogos finalizados quanto em exibicao historica
+  - [X] **Estrategia de preenchimento**: input manual no Django Admin. As APIs gratis nao retornam placar de penaltis confiavelmente
+  - [X] MatchAdmin em `matches/admin.py` exibe `penalties_home`/`penalties_away` no form de edicao, dentro de um fieldset "Placar de penaltis (somente mata-mata)"
 
 **US-7.7: Nova aba "Jogos" na navbar com submenus**
 - **Como** usuario, **quero** acessar uma area dedicada de "Jogos" na navbar, **para** navegar entre agenda, grupos e chaveamento.
