@@ -245,10 +245,10 @@
 **US-6.VAL: Validacao do Sprint 6 — Seed da Copa 2026**
 - **Como** agente de QA, **quero** validar todo o trabalho do Sprint 6, **para** garantir que o banco esta populado corretamente e o sistema consegue consumir os dados.
 - **Criterios de aceite:**
-  - [ ] Executar `python manage.py seed_world_cup_2026` em banco de teste
-  - [ ] Validar contagens: 48 selecoes, 16 estadios, 7 rodadas, 104 jogos
-  - [ ] Validar que nenhum jogo esta duplicado
-  - [ ] Validar que o comando pode ser executado 2x sem duplicar nada
-  - [ ] Validar listagem de jogos na UI: ordenacao por data, exibicao de selecoes/estadio/status
-  - [ ] Validar que eh possivel registrar palpite em um jogo seedado
-  - [ ] Corrigir bugs encontrados
+  - [X] Executar `python manage.py seed_world_cup_2026` em banco de teste
+  - [X] Validar contagens: 48 selecoes, 16 estadios, 7 rodadas, 104 jogos
+  - [X] Validar que nenhum jogo esta duplicado
+  - [X] Validar que o comando pode ser executado 2x sem duplicar nada
+  - [X] Validar listagem de jogos na UI: ordenacao por data, exibicao de selecoes/estadio/status
+  - [X] Validar que eh possivel registrar palpite em um jogo seedado
+  - [X] Corrigir bugs encontrados

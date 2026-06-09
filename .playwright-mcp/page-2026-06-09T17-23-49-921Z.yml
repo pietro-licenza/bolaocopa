@@ -1,0 +1,40 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e4]:
+      - link "BolãoCopa" [ref=e5] [cursor=pointer]:
+        - /url: /
+      - generic [ref=e6]:
+        - link "Dashboard" [ref=e7] [cursor=pointer]:
+          - /url: /dashboard/
+        - link "Meus Bolões" [ref=e8] [cursor=pointer]:
+          - /url: /pools/
+        - button "Sair" [ref=e10] [cursor=pointer]
+  - main [ref=e11]:
+    - generic [ref=e12]:
+      - generic [ref=e13]:
+        - heading "bolao teste" [level=1] [ref=e14]
+        - generic [ref=e16]:
+          - generic [ref=e17]:
+            - paragraph [ref=e18]: Criado por
+            - paragraph [ref=e19]: pietro.licenza@gmail.com
+          - generic [ref=e20]:
+            - paragraph [ref=e21]: Link de convite
+            - paragraph [ref=e22]: 127.0.0.1:8000/pools/join/8c617b14-f35b-4730-bf4c-7860d161864b/
+        - generic [ref=e23]:
+          - heading "Membros (1)" [level=2] [ref=e24]
+          - generic [ref=e26]:
+            - generic [ref=e27]:
+              - generic [ref=e28]: "#1"
+              - generic [ref=e29]:
+                - paragraph [ref=e30]: pietro.licenza@gmail.com
+                - text: Criador
+            - generic [ref=e31]: 0 pts
+      - generic [ref=e32]:
+        - link "Ver Jogos" [ref=e33] [cursor=pointer]:
+          - /url: /pools/7/matches/
+        - link "Meus Palpites" [ref=e34] [cursor=pointer]:
+          - /url: /pools/7/predictions/
+        - link "Ver Ranking" [ref=e35] [cursor=pointer]:
+          - /url: /pools/7/ranking/
+        - link "← Voltar para Meus Bolões" [ref=e36] [cursor=pointer]:
+          - /url: /pools/

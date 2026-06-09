@@ -1,0 +1,2077 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e4]:
+      - link "BolãoCopa" [ref=e5] [cursor=pointer]:
+        - /url: /
+      - generic [ref=e6]:
+        - link "Dashboard" [ref=e7] [cursor=pointer]:
+          - /url: /dashboard/
+        - link "Meus Bolões" [ref=e8] [cursor=pointer]:
+          - /url: /pools/
+        - button "Sair" [ref=e10] [cursor=pointer]
+  - generic [ref=e12]: Palpite registrado com sucesso!
+  - main [ref=e13]:
+    - generic [ref=e14]:
+      - generic [ref=e15]:
+        - generic [ref=e16]:
+          - heading "bolao teste" [level=1] [ref=e17]
+          - paragraph [ref=e18]: Jogos disponíveis para palpite
+        - link "← Voltar para o Bolão" [ref=e19] [cursor=pointer]:
+          - /url: /pools/7/
+      - generic [ref=e20]:
+        - generic [ref=e21]:
+          - generic [ref=e22]:
+            - generic [ref=e23]:
+              - generic [ref=e24]: Fase de Grupos
+              - generic [ref=e25]: ·
+              - generic [ref=e26]: Estadio Azteca (Mexico City)
+            - generic [ref=e27]: Agendado
+          - generic [ref=e28]:
+            - generic [ref=e29]:
+              - generic [ref=e30]: 🇲🇽
+              - generic [ref=e31]: Mexico
+            - generic [ref=e32]:
+              - generic [ref=e33]: vs
+              - generic [ref=e34]: 11/06/2026 16:00
+            - generic [ref=e35]:
+              - generic [ref=e36]: 🇿🇦
+              - generic [ref=e37]: Africa do Sul
+          - generic [ref=e38]:
+            - generic [ref=e39]: "Seu palpite: 2 x 1"
+            - link "Editar" [ref=e40] [cursor=pointer]:
+              - /url: /pools/7/matches/620/edit/
+        - generic [ref=e41]:
+          - generic [ref=e42]:
+            - generic [ref=e43]:
+              - generic [ref=e44]: Fase de Grupos
+              - generic [ref=e45]: ·
+              - generic [ref=e46]: Estadio Akron (Zapopan)
+            - generic [ref=e47]: Agendado
+          - generic [ref=e48]:
+            - generic [ref=e49]:
+              - generic [ref=e50]: 🇰🇷
+              - generic [ref=e51]: Coreia do Sul
+            - generic [ref=e52]:
+              - generic [ref=e53]: vs
+              - generic [ref=e54]: 11/06/2026 23:00
+            - generic [ref=e55]:
+              - generic [ref=e56]: 🇨🇿
+              - generic [ref=e57]: Chequia
+          - generic [ref=e58]:
+            - generic [ref=e59]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e60] [cursor=pointer]:
+              - /url: /pools/7/matches/621/predict/
+        - generic [ref=e61]:
+          - generic [ref=e62]:
+            - generic [ref=e63]:
+              - generic [ref=e64]: Fase de Grupos
+              - generic [ref=e65]: ·
+              - generic [ref=e66]: BMO Field (Toronto)
+            - generic [ref=e67]: Agendado
+          - generic [ref=e68]:
+            - generic [ref=e69]:
+              - generic [ref=e70]: 🇨🇦
+              - generic [ref=e71]: Canada
+            - generic [ref=e72]:
+              - generic [ref=e73]: vs
+              - generic [ref=e74]: 12/06/2026 16:00
+            - generic [ref=e75]:
+              - generic [ref=e76]: 🇧🇦
+              - generic [ref=e77]: Bosnia e Herzegovina
+          - generic [ref=e78]:
+            - generic [ref=e79]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e80] [cursor=pointer]:
+              - /url: /pools/7/matches/622/predict/
+        - generic [ref=e81]:
+          - generic [ref=e82]:
+            - generic [ref=e83]:
+              - generic [ref=e84]: Fase de Grupos
+              - generic [ref=e85]: ·
+              - generic [ref=e86]: SoFi Stadium (Inglewood)
+            - generic [ref=e87]: Agendado
+          - generic [ref=e88]:
+            - generic [ref=e89]:
+              - generic [ref=e90]: 🇺🇸
+              - generic [ref=e91]: Estados Unidos
+            - generic [ref=e92]:
+              - generic [ref=e93]: vs
+              - generic [ref=e94]: 12/06/2026 22:00
+            - generic [ref=e95]:
+              - generic [ref=e96]: 🇵🇾
+              - generic [ref=e97]: Paraguai
+          - generic [ref=e98]:
+            - generic [ref=e99]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e100] [cursor=pointer]:
+              - /url: /pools/7/matches/623/predict/
+        - generic [ref=e101]:
+          - generic [ref=e102]:
+            - generic [ref=e103]:
+              - generic [ref=e104]: Fase de Grupos
+              - generic [ref=e105]: ·
+              - generic [ref=e106]: Levi's Stadium (Santa Clara)
+            - generic [ref=e107]: Agendado
+          - generic [ref=e108]:
+            - generic [ref=e109]:
+              - generic [ref=e110]: 🇶🇦
+              - generic [ref=e111]: Catar
+            - generic [ref=e112]:
+              - generic [ref=e113]: vs
+              - generic [ref=e114]: 13/06/2026 16:00
+            - generic [ref=e115]:
+              - generic [ref=e116]: 🇨🇭
+              - generic [ref=e117]: Suica
+          - generic [ref=e118]:
+            - generic [ref=e119]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e120] [cursor=pointer]:
+              - /url: /pools/7/matches/627/predict/
+        - generic [ref=e121]:
+          - generic [ref=e122]:
+            - generic [ref=e123]:
+              - generic [ref=e124]: Fase de Grupos
+              - generic [ref=e125]: ·
+              - generic [ref=e126]: MetLife Stadium (East Rutherford)
+            - generic [ref=e127]: Agendado
+          - generic [ref=e128]:
+            - generic [ref=e129]:
+              - generic [ref=e130]: 🇧🇷
+              - generic [ref=e131]: Brasil
+            - generic [ref=e132]:
+              - generic [ref=e133]: vs
+              - generic [ref=e134]: 13/06/2026 19:00
+            - generic [ref=e135]:
+              - generic [ref=e136]: 🇲🇦
+              - generic [ref=e137]: Marracos
+          - generic [ref=e138]:
+            - generic [ref=e139]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e140] [cursor=pointer]:
+              - /url: /pools/7/matches/626/predict/
+        - generic [ref=e141]:
+          - generic [ref=e142]:
+            - generic [ref=e143]:
+              - generic [ref=e144]: Fase de Grupos
+              - generic [ref=e145]: ·
+              - generic [ref=e146]: Gillette Stadium (Foxborough)
+            - generic [ref=e147]: Agendado
+          - generic [ref=e148]:
+            - generic [ref=e149]:
+              - generic [ref=e150]: 🇭🇹
+              - generic [ref=e151]: Haiti
+            - generic [ref=e152]:
+              - generic [ref=e153]: vs
+              - generic [ref=e154]: 13/06/2026 22:00
+            - generic [ref=e155]:
+              - generic [ref=e156]: 🏴󠁧󠁢󠁥󠁮󠁧󠁿
+              - generic [ref=e157]: Escocia
+          - generic [ref=e158]:
+            - generic [ref=e159]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e160] [cursor=pointer]:
+              - /url: /pools/7/matches/624/predict/
+        - generic [ref=e161]:
+          - generic [ref=e162]:
+            - generic [ref=e163]:
+              - generic [ref=e164]: Fase de Grupos
+              - generic [ref=e165]: ·
+              - generic [ref=e166]: BC Place (Vancouver)
+            - generic [ref=e167]: Agendado
+          - generic [ref=e168]:
+            - generic [ref=e169]:
+              - generic [ref=e170]: 🇦🇺
+              - generic [ref=e171]: Australia
+            - generic [ref=e172]:
+              - generic [ref=e173]: vs
+              - generic [ref=e174]: 14/06/2026 01:00
+            - generic [ref=e175]:
+              - generic [ref=e176]: 🇹🇷
+              - generic [ref=e177]: Turquia
+          - generic [ref=e178]:
+            - generic [ref=e179]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e180] [cursor=pointer]:
+              - /url: /pools/7/matches/625/predict/
+        - generic [ref=e181]:
+          - generic [ref=e182]:
+            - generic [ref=e183]:
+              - generic [ref=e184]: Fase de Grupos
+              - generic [ref=e185]: ·
+              - generic [ref=e186]: NRG Stadium (Houston)
+            - generic [ref=e187]: Agendado
+          - generic [ref=e188]:
+            - generic [ref=e189]:
+              - generic [ref=e190]: 🇩🇪
+              - generic [ref=e191]: Alemanha
+            - generic [ref=e192]:
+              - generic [ref=e193]: vs
+              - generic [ref=e194]: 14/06/2026 14:00
+            - generic [ref=e195]:
+              - generic [ref=e196]: 🇨🇼
+              - generic [ref=e197]: Curacao
+          - generic [ref=e198]:
+            - generic [ref=e199]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e200] [cursor=pointer]:
+              - /url: /pools/7/matches/629/predict/
+        - generic [ref=e201]:
+          - generic [ref=e202]:
+            - generic [ref=e203]:
+              - generic [ref=e204]: Fase de Grupos
+              - generic [ref=e205]: ·
+              - generic [ref=e206]: AT&T Stadium (Arlington)
+            - generic [ref=e207]: Agendado
+          - generic [ref=e208]:
+            - generic [ref=e209]:
+              - generic [ref=e210]: 🇳🇱
+              - generic [ref=e211]: Holanda
+            - generic [ref=e212]:
+              - generic [ref=e213]: vs
+              - generic [ref=e214]: 14/06/2026 17:00
+            - generic [ref=e215]:
+              - generic [ref=e216]: 🇯🇵
+              - generic [ref=e217]: Japao
+          - generic [ref=e218]:
+            - generic [ref=e219]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e220] [cursor=pointer]:
+              - /url: /pools/7/matches/630/predict/
+        - generic [ref=e221]:
+          - generic [ref=e222]:
+            - generic [ref=e223]:
+              - generic [ref=e224]: Fase de Grupos
+              - generic [ref=e225]: ·
+              - generic [ref=e226]: Lincoln Financial Field (Philadelphia)
+            - generic [ref=e227]: Agendado
+          - generic [ref=e228]:
+            - generic [ref=e229]:
+              - generic [ref=e230]: 🇨🇮
+              - generic [ref=e231]: Costa do Marfim
+            - generic [ref=e232]:
+              - generic [ref=e233]: vs
+              - generic [ref=e234]: 14/06/2026 20:00
+            - generic [ref=e235]:
+              - generic [ref=e236]: 🇪🇨
+              - generic [ref=e237]: Equador
+          - generic [ref=e238]:
+            - generic [ref=e239]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e240] [cursor=pointer]:
+              - /url: /pools/7/matches/628/predict/
+        - generic [ref=e241]:
+          - generic [ref=e242]:
+            - generic [ref=e243]:
+              - generic [ref=e244]: Fase de Grupos
+              - generic [ref=e245]: ·
+              - generic [ref=e246]: Estadio BBVA (Guadalupe)
+            - generic [ref=e247]: Agendado
+          - generic [ref=e248]:
+            - generic [ref=e249]:
+              - generic [ref=e250]: 🇸🇪
+              - generic [ref=e251]: Suecia
+            - generic [ref=e252]:
+              - generic [ref=e253]: vs
+              - generic [ref=e254]: 14/06/2026 23:00
+            - generic [ref=e255]:
+              - generic [ref=e256]: 🇹🇳
+              - generic [ref=e257]: Tunisia
+          - generic [ref=e258]:
+            - generic [ref=e259]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e260] [cursor=pointer]:
+              - /url: /pools/7/matches/631/predict/
+        - generic [ref=e261]:
+          - generic [ref=e262]:
+            - generic [ref=e263]:
+              - generic [ref=e264]: Fase de Grupos
+              - generic [ref=e265]: ·
+              - generic [ref=e266]: Mercedes-Benz Stadium (Atlanta)
+            - generic [ref=e267]: Agendado
+          - generic [ref=e268]:
+            - generic [ref=e269]:
+              - generic [ref=e270]: 🇪🇸
+              - generic [ref=e271]: Espanha
+            - generic [ref=e272]:
+              - generic [ref=e273]: vs
+              - generic [ref=e274]: 15/06/2026 13:00
+            - generic [ref=e275]:
+              - generic [ref=e276]: 🇨🇻
+              - generic [ref=e277]: Cabo Verde
+          - generic [ref=e278]:
+            - generic [ref=e279]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e280] [cursor=pointer]:
+              - /url: /pools/7/matches/633/predict/
+        - generic [ref=e281]:
+          - generic [ref=e282]:
+            - generic [ref=e283]:
+              - generic [ref=e284]: Fase de Grupos
+              - generic [ref=e285]: ·
+              - generic [ref=e286]: Lumen Field (Seattle)
+            - generic [ref=e287]: Agendado
+          - generic [ref=e288]:
+            - generic [ref=e289]:
+              - generic [ref=e290]: 🇧🇪
+              - generic [ref=e291]: Belgica
+            - generic [ref=e292]:
+              - generic [ref=e293]: vs
+              - generic [ref=e294]: 15/06/2026 16:00
+            - generic [ref=e295]:
+              - generic [ref=e296]: 🇪🇬
+              - generic [ref=e297]: Egito
+          - generic [ref=e298]:
+            - generic [ref=e299]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e300] [cursor=pointer]:
+              - /url: /pools/7/matches/635/predict/
+        - generic [ref=e301]:
+          - generic [ref=e302]:
+            - generic [ref=e303]:
+              - generic [ref=e304]: Fase de Grupos
+              - generic [ref=e305]: ·
+              - generic [ref=e306]: Hard Rock Stadium (Miami Gardens)
+            - generic [ref=e307]: Agendado
+          - generic [ref=e308]:
+            - generic [ref=e309]:
+              - generic [ref=e310]: 🇸🇦
+              - generic [ref=e311]: Arabia Saudita
+            - generic [ref=e312]:
+              - generic [ref=e313]: vs
+              - generic [ref=e314]: 15/06/2026 19:00
+            - generic [ref=e315]:
+              - generic [ref=e316]: 🇺🇾
+              - generic [ref=e317]: Uruguai
+          - generic [ref=e318]:
+            - generic [ref=e319]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e320] [cursor=pointer]:
+              - /url: /pools/7/matches/632/predict/
+        - generic [ref=e321]:
+          - generic [ref=e322]:
+            - generic [ref=e323]:
+              - generic [ref=e324]: Fase de Grupos
+              - generic [ref=e325]: ·
+              - generic [ref=e326]: SoFi Stadium (Inglewood)
+            - generic [ref=e327]: Agendado
+          - generic [ref=e328]:
+            - generic [ref=e329]:
+              - generic [ref=e330]: 🇮🇷
+              - generic [ref=e331]: Ira
+            - generic [ref=e332]:
+              - generic [ref=e333]: vs
+              - generic [ref=e334]: 15/06/2026 22:00
+            - generic [ref=e335]:
+              - generic [ref=e336]: 🇳🇿
+              - generic [ref=e337]: Nova Zelandia
+          - generic [ref=e338]:
+            - generic [ref=e339]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e340] [cursor=pointer]:
+              - /url: /pools/7/matches/634/predict/
+        - generic [ref=e341]:
+          - generic [ref=e342]:
+            - generic [ref=e343]:
+              - generic [ref=e344]: Fase de Grupos
+              - generic [ref=e345]: ·
+              - generic [ref=e346]: MetLife Stadium (East Rutherford)
+            - generic [ref=e347]: Agendado
+          - generic [ref=e348]:
+            - generic [ref=e349]:
+              - generic [ref=e350]: 🇫🇷
+              - generic [ref=e351]: Franca
+            - generic [ref=e352]:
+              - generic [ref=e353]: vs
+              - generic [ref=e354]: 16/06/2026 16:00
+            - generic [ref=e355]:
+              - generic [ref=e356]: 🇸🇳
+              - generic [ref=e357]: Senegal
+          - generic [ref=e358]:
+            - generic [ref=e359]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e360] [cursor=pointer]:
+              - /url: /pools/7/matches/636/predict/
+        - generic [ref=e361]:
+          - generic [ref=e362]:
+            - generic [ref=e363]:
+              - generic [ref=e364]: Fase de Grupos
+              - generic [ref=e365]: ·
+              - generic [ref=e366]: Gillette Stadium (Foxborough)
+            - generic [ref=e367]: Agendado
+          - generic [ref=e368]:
+            - generic [ref=e369]:
+              - generic [ref=e370]: 🇮🇶
+              - generic [ref=e371]: Iraque
+            - generic [ref=e372]:
+              - generic [ref=e373]: vs
+              - generic [ref=e374]: 16/06/2026 19:00
+            - generic [ref=e375]:
+              - generic [ref=e376]: 🇳🇴
+              - generic [ref=e377]: Noruega
+          - generic [ref=e378]:
+            - generic [ref=e379]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e380] [cursor=pointer]:
+              - /url: /pools/7/matches/637/predict/
+        - generic [ref=e381]:
+          - generic [ref=e382]:
+            - generic [ref=e383]:
+              - generic [ref=e384]: Fase de Grupos
+              - generic [ref=e385]: ·
+              - generic [ref=e386]: Arrowhead Stadium (Kansas City)
+            - generic [ref=e387]: Agendado
+          - generic [ref=e388]:
+            - generic [ref=e389]:
+              - generic [ref=e390]: 🇦🇷
+              - generic [ref=e391]: Argentina
+            - generic [ref=e392]:
+              - generic [ref=e393]: vs
+              - generic [ref=e394]: 16/06/2026 22:00
+            - generic [ref=e395]:
+              - generic [ref=e396]: 🇩🇿
+              - generic [ref=e397]: Argelia
+          - generic [ref=e398]:
+            - generic [ref=e399]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e400] [cursor=pointer]:
+              - /url: /pools/7/matches/638/predict/
+        - generic [ref=e401]:
+          - generic [ref=e402]:
+            - generic [ref=e403]:
+              - generic [ref=e404]: Fase de Grupos
+              - generic [ref=e405]: ·
+              - generic [ref=e406]: Levi's Stadium (Santa Clara)
+            - generic [ref=e407]: Agendado
+          - generic [ref=e408]:
+            - generic [ref=e409]:
+              - generic [ref=e410]: 🇦🇹
+              - generic [ref=e411]: Austria
+            - generic [ref=e412]:
+              - generic [ref=e413]: vs
+              - generic [ref=e414]: 17/06/2026 01:00
+            - generic [ref=e415]:
+              - generic [ref=e416]: 🇯🇴
+              - generic [ref=e417]: Jordania
+          - generic [ref=e418]:
+            - generic [ref=e419]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e420] [cursor=pointer]:
+              - /url: /pools/7/matches/639/predict/
+        - generic [ref=e421]:
+          - generic [ref=e422]:
+            - generic [ref=e423]:
+              - generic [ref=e424]: Fase de Grupos
+              - generic [ref=e425]: ·
+              - generic [ref=e426]: NRG Stadium (Houston)
+            - generic [ref=e427]: Agendado
+          - generic [ref=e428]:
+            - generic [ref=e429]:
+              - generic [ref=e430]: 🇵🇹
+              - generic [ref=e431]: Portugal
+            - generic [ref=e432]:
+              - generic [ref=e433]: vs
+              - generic [ref=e434]: 17/06/2026 14:00
+            - generic [ref=e435]:
+              - generic [ref=e436]: 🇨🇩
+              - generic [ref=e437]: Republica Democratica do Congo
+          - generic [ref=e438]:
+            - generic [ref=e439]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e440] [cursor=pointer]:
+              - /url: /pools/7/matches/642/predict/
+        - generic [ref=e441]:
+          - generic [ref=e442]:
+            - generic [ref=e443]:
+              - generic [ref=e444]: Fase de Grupos
+              - generic [ref=e445]: ·
+              - generic [ref=e446]: AT&T Stadium (Arlington)
+            - generic [ref=e447]: Agendado
+          - generic [ref=e448]:
+            - generic [ref=e449]:
+              - generic [ref=e450]: 🏴󠁧󠁢󠁥󠁮󠁣󠁴󠁿
+              - generic [ref=e451]: Inglaterra
+            - generic [ref=e452]:
+              - generic [ref=e453]: vs
+              - generic [ref=e454]: 17/06/2026 17:00
+            - generic [ref=e455]:
+              - generic [ref=e456]: 🇭🇷
+              - generic [ref=e457]: Croatia
+          - generic [ref=e458]:
+            - generic [ref=e459]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e460] [cursor=pointer]:
+              - /url: /pools/7/matches/641/predict/
+        - generic [ref=e461]:
+          - generic [ref=e462]:
+            - generic [ref=e463]:
+              - generic [ref=e464]: Fase de Grupos
+              - generic [ref=e465]: ·
+              - generic [ref=e466]: BMO Field (Toronto)
+            - generic [ref=e467]: Agendado
+          - generic [ref=e468]:
+            - generic [ref=e469]:
+              - generic [ref=e470]: 🇬🇭
+              - generic [ref=e471]: Gana
+            - generic [ref=e472]:
+              - generic [ref=e473]: vs
+              - generic [ref=e474]: 17/06/2026 20:00
+            - generic [ref=e475]:
+              - generic [ref=e476]: 🇵🇦
+              - generic [ref=e477]: Panama
+          - generic [ref=e478]:
+            - generic [ref=e479]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e480] [cursor=pointer]:
+              - /url: /pools/7/matches/640/predict/
+        - generic [ref=e481]:
+          - generic [ref=e482]:
+            - generic [ref=e483]:
+              - generic [ref=e484]: Fase de Grupos
+              - generic [ref=e485]: ·
+              - generic [ref=e486]: Estadio Azteca (Mexico City)
+            - generic [ref=e487]: Agendado
+          - generic [ref=e488]:
+            - generic [ref=e489]:
+              - generic [ref=e490]: 🇺🇿
+              - generic [ref=e491]: Uzbequistao
+            - generic [ref=e492]:
+              - generic [ref=e493]: vs
+              - generic [ref=e494]: 17/06/2026 23:00
+            - generic [ref=e495]:
+              - generic [ref=e496]: 🇨🇴
+              - generic [ref=e497]: Colombia
+          - generic [ref=e498]:
+            - generic [ref=e499]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e500] [cursor=pointer]:
+              - /url: /pools/7/matches/643/predict/
+        - generic [ref=e501]:
+          - generic [ref=e502]:
+            - generic [ref=e503]:
+              - generic [ref=e504]: Fase de Grupos
+              - generic [ref=e505]: ·
+              - generic [ref=e506]: Mercedes-Benz Stadium (Atlanta)
+            - generic [ref=e507]: Agendado
+          - generic [ref=e508]:
+            - generic [ref=e509]:
+              - generic [ref=e510]: 🇨🇿
+              - generic [ref=e511]: Chequia
+            - generic [ref=e512]:
+              - generic [ref=e513]: vs
+              - generic [ref=e514]: 18/06/2026 13:00
+            - generic [ref=e515]:
+              - generic [ref=e516]: 🇿🇦
+              - generic [ref=e517]: Africa do Sul
+          - generic [ref=e518]:
+            - generic [ref=e519]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e520] [cursor=pointer]:
+              - /url: /pools/7/matches/644/predict/
+        - generic [ref=e521]:
+          - generic [ref=e522]:
+            - generic [ref=e523]:
+              - generic [ref=e524]: Fase de Grupos
+              - generic [ref=e525]: ·
+              - generic [ref=e526]: SoFi Stadium (Inglewood)
+            - generic [ref=e527]: Agendado
+          - generic [ref=e528]:
+            - generic [ref=e529]:
+              - generic [ref=e530]: 🇨🇭
+              - generic [ref=e531]: Suica
+            - generic [ref=e532]:
+              - generic [ref=e533]: vs
+              - generic [ref=e534]: 18/06/2026 16:00
+            - generic [ref=e535]:
+              - generic [ref=e536]: 🇧🇦
+              - generic [ref=e537]: Bosnia e Herzegovina
+          - generic [ref=e538]:
+            - generic [ref=e539]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e540] [cursor=pointer]:
+              - /url: /pools/7/matches/645/predict/
+        - generic [ref=e541]:
+          - generic [ref=e542]:
+            - generic [ref=e543]:
+              - generic [ref=e544]: Fase de Grupos
+              - generic [ref=e545]: ·
+              - generic [ref=e546]: BC Place (Vancouver)
+            - generic [ref=e547]: Agendado
+          - generic [ref=e548]:
+            - generic [ref=e549]:
+              - generic [ref=e550]: 🇨🇦
+              - generic [ref=e551]: Canada
+            - generic [ref=e552]:
+              - generic [ref=e553]: vs
+              - generic [ref=e554]: 18/06/2026 19:00
+            - generic [ref=e555]:
+              - generic [ref=e556]: 🇶🇦
+              - generic [ref=e557]: Catar
+          - generic [ref=e558]:
+            - generic [ref=e559]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e560] [cursor=pointer]:
+              - /url: /pools/7/matches/646/predict/
+        - generic [ref=e561]:
+          - generic [ref=e562]:
+            - generic [ref=e563]:
+              - generic [ref=e564]: Fase de Grupos
+              - generic [ref=e565]: ·
+              - generic [ref=e566]: Estadio Akron (Zapopan)
+            - generic [ref=e567]: Agendado
+          - generic [ref=e568]:
+            - generic [ref=e569]:
+              - generic [ref=e570]: 🇲🇽
+              - generic [ref=e571]: Mexico
+            - generic [ref=e572]:
+              - generic [ref=e573]: vs
+              - generic [ref=e574]: 18/06/2026 22:00
+            - generic [ref=e575]:
+              - generic [ref=e576]: 🇰🇷
+              - generic [ref=e577]: Coreia do Sul
+          - generic [ref=e578]:
+            - generic [ref=e579]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e580] [cursor=pointer]:
+              - /url: /pools/7/matches/647/predict/
+        - generic [ref=e581]:
+          - generic [ref=e582]:
+            - generic [ref=e583]:
+              - generic [ref=e584]: Fase de Grupos
+              - generic [ref=e585]: ·
+              - generic [ref=e586]: Lumen Field (Seattle)
+            - generic [ref=e587]: Agendado
+          - generic [ref=e588]:
+            - generic [ref=e589]:
+              - generic [ref=e590]: 🇺🇸
+              - generic [ref=e591]: Estados Unidos
+            - generic [ref=e592]:
+              - generic [ref=e593]: vs
+              - generic [ref=e594]: 19/06/2026 16:00
+            - generic [ref=e595]:
+              - generic [ref=e596]: 🇦🇺
+              - generic [ref=e597]: Australia
+          - generic [ref=e598]:
+            - generic [ref=e599]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e600] [cursor=pointer]:
+              - /url: /pools/7/matches/651/predict/
+        - generic [ref=e601]:
+          - generic [ref=e602]:
+            - generic [ref=e603]:
+              - generic [ref=e604]: Fase de Grupos
+              - generic [ref=e605]: ·
+              - generic [ref=e606]: Gillette Stadium (Foxborough)
+            - generic [ref=e607]: Agendado
+          - generic [ref=e608]:
+            - generic [ref=e609]:
+              - generic [ref=e610]: 🏴󠁧󠁢󠁥󠁮󠁧󠁿
+              - generic [ref=e611]: Escocia
+            - generic [ref=e612]:
+              - generic [ref=e613]: vs
+              - generic [ref=e614]: 19/06/2026 19:00
+            - generic [ref=e615]:
+              - generic [ref=e616]: 🇲🇦
+              - generic [ref=e617]: Marracos
+          - generic [ref=e618]:
+            - generic [ref=e619]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e620] [cursor=pointer]:
+              - /url: /pools/7/matches/649/predict/
+        - generic [ref=e621]:
+          - generic [ref=e622]:
+            - generic [ref=e623]:
+              - generic [ref=e624]: Fase de Grupos
+              - generic [ref=e625]: ·
+              - generic [ref=e626]: Lincoln Financial Field (Philadelphia)
+            - generic [ref=e627]: Agendado
+          - generic [ref=e628]:
+            - generic [ref=e629]:
+              - generic [ref=e630]: 🇧🇷
+              - generic [ref=e631]: Brasil
+            - generic [ref=e632]:
+              - generic [ref=e633]: vs
+              - generic [ref=e634]: 19/06/2026 21:30
+            - generic [ref=e635]:
+              - generic [ref=e636]: 🇭🇹
+              - generic [ref=e637]: Haiti
+          - generic [ref=e638]:
+            - generic [ref=e639]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e640] [cursor=pointer]:
+              - /url: /pools/7/matches/648/predict/
+        - generic [ref=e641]:
+          - generic [ref=e642]:
+            - generic [ref=e643]:
+              - generic [ref=e644]: Fase de Grupos
+              - generic [ref=e645]: ·
+              - generic [ref=e646]: Levi's Stadium (Santa Clara)
+            - generic [ref=e647]: Agendado
+          - generic [ref=e648]:
+            - generic [ref=e649]:
+              - generic [ref=e650]: 🇹🇷
+              - generic [ref=e651]: Turquia
+            - generic [ref=e652]:
+              - generic [ref=e653]: vs
+              - generic [ref=e654]: 20/06/2026 00:00
+            - generic [ref=e655]:
+              - generic [ref=e656]: 🇵🇾
+              - generic [ref=e657]: Paraguai
+          - generic [ref=e658]:
+            - generic [ref=e659]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e660] [cursor=pointer]:
+              - /url: /pools/7/matches/650/predict/
+        - generic [ref=e661]:
+          - generic [ref=e662]:
+            - generic [ref=e663]:
+              - generic [ref=e664]: Fase de Grupos
+              - generic [ref=e665]: ·
+              - generic [ref=e666]: NRG Stadium (Houston)
+            - generic [ref=e667]: Agendado
+          - generic [ref=e668]:
+            - generic [ref=e669]:
+              - generic [ref=e670]: 🇳🇱
+              - generic [ref=e671]: Holanda
+            - generic [ref=e672]:
+              - generic [ref=e673]: vs
+              - generic [ref=e674]: 20/06/2026 14:00
+            - generic [ref=e675]:
+              - generic [ref=e676]: 🇸🇪
+              - generic [ref=e677]: Suecia
+          - generic [ref=e678]:
+            - generic [ref=e679]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e680] [cursor=pointer]:
+              - /url: /pools/7/matches/654/predict/
+        - generic [ref=e681]:
+          - generic [ref=e682]:
+            - generic [ref=e683]:
+              - generic [ref=e684]: Fase de Grupos
+              - generic [ref=e685]: ·
+              - generic [ref=e686]: BMO Field (Toronto)
+            - generic [ref=e687]: Agendado
+          - generic [ref=e688]:
+            - generic [ref=e689]:
+              - generic [ref=e690]: 🇩🇪
+              - generic [ref=e691]: Alemanha
+            - generic [ref=e692]:
+              - generic [ref=e693]: vs
+              - generic [ref=e694]: 20/06/2026 17:00
+            - generic [ref=e695]:
+              - generic [ref=e696]: 🇨🇮
+              - generic [ref=e697]: Costa do Marfim
+          - generic [ref=e698]:
+            - generic [ref=e699]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e700] [cursor=pointer]:
+              - /url: /pools/7/matches/652/predict/
+        - generic [ref=e701]:
+          - generic [ref=e702]:
+            - generic [ref=e703]:
+              - generic [ref=e704]: Fase de Grupos
+              - generic [ref=e705]: ·
+              - generic [ref=e706]: Arrowhead Stadium (Kansas City)
+            - generic [ref=e707]: Agendado
+          - generic [ref=e708]:
+            - generic [ref=e709]:
+              - generic [ref=e710]: 🇪🇨
+              - generic [ref=e711]: Equador
+            - generic [ref=e712]:
+              - generic [ref=e713]: vs
+              - generic [ref=e714]: 20/06/2026 21:00
+            - generic [ref=e715]:
+              - generic [ref=e716]: 🇨🇼
+              - generic [ref=e717]: Curacao
+          - generic [ref=e718]:
+            - generic [ref=e719]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e720] [cursor=pointer]:
+              - /url: /pools/7/matches/653/predict/
+        - generic [ref=e721]:
+          - generic [ref=e722]:
+            - generic [ref=e723]:
+              - generic [ref=e724]: Fase de Grupos
+              - generic [ref=e725]: ·
+              - generic [ref=e726]: Estadio BBVA (Guadalupe)
+            - generic [ref=e727]: Agendado
+          - generic [ref=e728]:
+            - generic [ref=e729]:
+              - generic [ref=e730]: 🇹🇳
+              - generic [ref=e731]: Tunisia
+            - generic [ref=e732]:
+              - generic [ref=e733]: vs
+              - generic [ref=e734]: 21/06/2026 01:00
+            - generic [ref=e735]:
+              - generic [ref=e736]: 🇯🇵
+              - generic [ref=e737]: Japao
+          - generic [ref=e738]:
+            - generic [ref=e739]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e740] [cursor=pointer]:
+              - /url: /pools/7/matches/655/predict/
+        - generic [ref=e741]:
+          - generic [ref=e742]:
+            - generic [ref=e743]:
+              - generic [ref=e744]: Fase de Grupos
+              - generic [ref=e745]: ·
+              - generic [ref=e746]: Mercedes-Benz Stadium (Atlanta)
+            - generic [ref=e747]: Agendado
+          - generic [ref=e748]:
+            - generic [ref=e749]:
+              - generic [ref=e750]: 🇪🇸
+              - generic [ref=e751]: Espanha
+            - generic [ref=e752]:
+              - generic [ref=e753]: vs
+              - generic [ref=e754]: 21/06/2026 13:00
+            - generic [ref=e755]:
+              - generic [ref=e756]: 🇸🇦
+              - generic [ref=e757]: Arabia Saudita
+          - generic [ref=e758]:
+            - generic [ref=e759]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e760] [cursor=pointer]:
+              - /url: /pools/7/matches/657/predict/
+        - generic [ref=e761]:
+          - generic [ref=e762]:
+            - generic [ref=e763]:
+              - generic [ref=e764]: Fase de Grupos
+              - generic [ref=e765]: ·
+              - generic [ref=e766]: SoFi Stadium (Inglewood)
+            - generic [ref=e767]: Agendado
+          - generic [ref=e768]:
+            - generic [ref=e769]:
+              - generic [ref=e770]: 🇧🇪
+              - generic [ref=e771]: Belgica
+            - generic [ref=e772]:
+              - generic [ref=e773]: vs
+              - generic [ref=e774]: 21/06/2026 16:00
+            - generic [ref=e775]:
+              - generic [ref=e776]: 🇮🇷
+              - generic [ref=e777]: Ira
+          - generic [ref=e778]:
+            - generic [ref=e779]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e780] [cursor=pointer]:
+              - /url: /pools/7/matches/658/predict/
+        - generic [ref=e781]:
+          - generic [ref=e782]:
+            - generic [ref=e783]:
+              - generic [ref=e784]: Fase de Grupos
+              - generic [ref=e785]: ·
+              - generic [ref=e786]: Hard Rock Stadium (Miami Gardens)
+            - generic [ref=e787]: Agendado
+          - generic [ref=e788]:
+            - generic [ref=e789]:
+              - generic [ref=e790]: 🇺🇾
+              - generic [ref=e791]: Uruguai
+            - generic [ref=e792]:
+              - generic [ref=e793]: vs
+              - generic [ref=e794]: 21/06/2026 19:00
+            - generic [ref=e795]:
+              - generic [ref=e796]: 🇨🇻
+              - generic [ref=e797]: Cabo Verde
+          - generic [ref=e798]:
+            - generic [ref=e799]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e800] [cursor=pointer]:
+              - /url: /pools/7/matches/656/predict/
+        - generic [ref=e801]:
+          - generic [ref=e802]:
+            - generic [ref=e803]:
+              - generic [ref=e804]: Fase de Grupos
+              - generic [ref=e805]: ·
+              - generic [ref=e806]: BC Place (Vancouver)
+            - generic [ref=e807]: Agendado
+          - generic [ref=e808]:
+            - generic [ref=e809]:
+              - generic [ref=e810]: 🇳🇿
+              - generic [ref=e811]: Nova Zelandia
+            - generic [ref=e812]:
+              - generic [ref=e813]: vs
+              - generic [ref=e814]: 21/06/2026 22:00
+            - generic [ref=e815]:
+              - generic [ref=e816]: 🇪🇬
+              - generic [ref=e817]: Egito
+          - generic [ref=e818]:
+            - generic [ref=e819]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e820] [cursor=pointer]:
+              - /url: /pools/7/matches/659/predict/
+        - generic [ref=e821]:
+          - generic [ref=e822]:
+            - generic [ref=e823]:
+              - generic [ref=e824]: Fase de Grupos
+              - generic [ref=e825]: ·
+              - generic [ref=e826]: AT&T Stadium (Arlington)
+            - generic [ref=e827]: Agendado
+          - generic [ref=e828]:
+            - generic [ref=e829]:
+              - generic [ref=e830]: 🇦🇷
+              - generic [ref=e831]: Argentina
+            - generic [ref=e832]:
+              - generic [ref=e833]: vs
+              - generic [ref=e834]: 22/06/2026 14:00
+            - generic [ref=e835]:
+              - generic [ref=e836]: 🇦🇹
+              - generic [ref=e837]: Austria
+          - generic [ref=e838]:
+            - generic [ref=e839]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e840] [cursor=pointer]:
+              - /url: /pools/7/matches/662/predict/
+        - generic [ref=e841]:
+          - generic [ref=e842]:
+            - generic [ref=e843]:
+              - generic [ref=e844]: Fase de Grupos
+              - generic [ref=e845]: ·
+              - generic [ref=e846]: Lincoln Financial Field (Philadelphia)
+            - generic [ref=e847]: Agendado
+          - generic [ref=e848]:
+            - generic [ref=e849]:
+              - generic [ref=e850]: 🇫🇷
+              - generic [ref=e851]: Franca
+            - generic [ref=e852]:
+              - generic [ref=e853]: vs
+              - generic [ref=e854]: 22/06/2026 18:00
+            - generic [ref=e855]:
+              - generic [ref=e856]: 🇮🇶
+              - generic [ref=e857]: Iraque
+          - generic [ref=e858]:
+            - generic [ref=e859]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e860] [cursor=pointer]:
+              - /url: /pools/7/matches/661/predict/
+        - generic [ref=e861]:
+          - generic [ref=e862]:
+            - generic [ref=e863]:
+              - generic [ref=e864]: Fase de Grupos
+              - generic [ref=e865]: ·
+              - generic [ref=e866]: MetLife Stadium (East Rutherford)
+            - generic [ref=e867]: Agendado
+          - generic [ref=e868]:
+            - generic [ref=e869]:
+              - generic [ref=e870]: 🇳🇴
+              - generic [ref=e871]: Noruega
+            - generic [ref=e872]:
+              - generic [ref=e873]: vs
+              - generic [ref=e874]: 22/06/2026 21:00
+            - generic [ref=e875]:
+              - generic [ref=e876]: 🇸🇳
+              - generic [ref=e877]: Senegal
+          - generic [ref=e878]:
+            - generic [ref=e879]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e880] [cursor=pointer]:
+              - /url: /pools/7/matches/660/predict/
+        - generic [ref=e881]:
+          - generic [ref=e882]:
+            - generic [ref=e883]:
+              - generic [ref=e884]: Fase de Grupos
+              - generic [ref=e885]: ·
+              - generic [ref=e886]: Levi's Stadium (Santa Clara)
+            - generic [ref=e887]: Agendado
+          - generic [ref=e888]:
+            - generic [ref=e889]:
+              - generic [ref=e890]: 🇯🇴
+              - generic [ref=e891]: Jordania
+            - generic [ref=e892]:
+              - generic [ref=e893]: vs
+              - generic [ref=e894]: 23/06/2026 00:00
+            - generic [ref=e895]:
+              - generic [ref=e896]: 🇩🇿
+              - generic [ref=e897]: Argelia
+          - generic [ref=e898]:
+            - generic [ref=e899]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e900] [cursor=pointer]:
+              - /url: /pools/7/matches/663/predict/
+        - generic [ref=e901]:
+          - generic [ref=e902]:
+            - generic [ref=e903]:
+              - generic [ref=e904]: Fase de Grupos
+              - generic [ref=e905]: ·
+              - generic [ref=e906]: NRG Stadium (Houston)
+            - generic [ref=e907]: Agendado
+          - generic [ref=e908]:
+            - generic [ref=e909]:
+              - generic [ref=e910]: 🇵🇹
+              - generic [ref=e911]: Portugal
+            - generic [ref=e912]:
+              - generic [ref=e913]: vs
+              - generic [ref=e914]: 23/06/2026 14:00
+            - generic [ref=e915]:
+              - generic [ref=e916]: 🇺🇿
+              - generic [ref=e917]: Uzbequistao
+          - generic [ref=e918]:
+            - generic [ref=e919]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e920] [cursor=pointer]:
+              - /url: /pools/7/matches/666/predict/
+        - generic [ref=e921]:
+          - generic [ref=e922]:
+            - generic [ref=e923]:
+              - generic [ref=e924]: Fase de Grupos
+              - generic [ref=e925]: ·
+              - generic [ref=e926]: Gillette Stadium (Foxborough)
+            - generic [ref=e927]: Agendado
+          - generic [ref=e928]:
+            - generic [ref=e929]:
+              - generic [ref=e930]: 🏴󠁧󠁢󠁥󠁮󠁣󠁴󠁿
+              - generic [ref=e931]: Inglaterra
+            - generic [ref=e932]:
+              - generic [ref=e933]: vs
+              - generic [ref=e934]: 23/06/2026 17:00
+            - generic [ref=e935]:
+              - generic [ref=e936]: 🇬🇭
+              - generic [ref=e937]: Gana
+          - generic [ref=e938]:
+            - generic [ref=e939]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e940] [cursor=pointer]:
+              - /url: /pools/7/matches/664/predict/
+        - generic [ref=e941]:
+          - generic [ref=e942]:
+            - generic [ref=e943]:
+              - generic [ref=e944]: Fase de Grupos
+              - generic [ref=e945]: ·
+              - generic [ref=e946]: BMO Field (Toronto)
+            - generic [ref=e947]: Agendado
+          - generic [ref=e948]:
+            - generic [ref=e949]:
+              - generic [ref=e950]: 🇵🇦
+              - generic [ref=e951]: Panama
+            - generic [ref=e952]:
+              - generic [ref=e953]: vs
+              - generic [ref=e954]: 23/06/2026 20:00
+            - generic [ref=e955]:
+              - generic [ref=e956]: 🇭🇷
+              - generic [ref=e957]: Croatia
+          - generic [ref=e958]:
+            - generic [ref=e959]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e960] [cursor=pointer]:
+              - /url: /pools/7/matches/665/predict/
+        - generic [ref=e961]:
+          - generic [ref=e962]:
+            - generic [ref=e963]:
+              - generic [ref=e964]: Fase de Grupos
+              - generic [ref=e965]: ·
+              - generic [ref=e966]: Estadio Akron (Zapopan)
+            - generic [ref=e967]: Agendado
+          - generic [ref=e968]:
+            - generic [ref=e969]:
+              - generic [ref=e970]: 🇨🇴
+              - generic [ref=e971]: Colombia
+            - generic [ref=e972]:
+              - generic [ref=e973]: vs
+              - generic [ref=e974]: 23/06/2026 23:00
+            - generic [ref=e975]:
+              - generic [ref=e976]: 🇨🇩
+              - generic [ref=e977]: Republica Democratica do Congo
+          - generic [ref=e978]:
+            - generic [ref=e979]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e980] [cursor=pointer]:
+              - /url: /pools/7/matches/667/predict/
+        - generic [ref=e981]:
+          - generic [ref=e982]:
+            - generic [ref=e983]:
+              - generic [ref=e984]: Fase de Grupos
+              - generic [ref=e985]: ·
+              - generic [ref=e986]: BC Place (Vancouver)
+            - generic [ref=e987]: Agendado
+          - generic [ref=e988]:
+            - generic [ref=e989]:
+              - generic [ref=e990]: 🇨🇭
+              - generic [ref=e991]: Suica
+            - generic [ref=e992]:
+              - generic [ref=e993]: vs
+              - generic [ref=e994]: 24/06/2026 16:00
+            - generic [ref=e995]:
+              - generic [ref=e996]: 🇨🇦
+              - generic [ref=e997]: Canada
+          - generic [ref=e998]:
+            - generic [ref=e999]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1000] [cursor=pointer]:
+              - /url: /pools/7/matches/670/predict/
+        - generic [ref=e1001]:
+          - generic [ref=e1002]:
+            - generic [ref=e1003]:
+              - generic [ref=e1004]: Fase de Grupos
+              - generic [ref=e1005]: ·
+              - generic [ref=e1006]: Lumen Field (Seattle)
+            - generic [ref=e1007]: Agendado
+          - generic [ref=e1008]:
+            - generic [ref=e1009]:
+              - generic [ref=e1010]: 🇧🇦
+              - generic [ref=e1011]: Bosnia e Herzegovina
+            - generic [ref=e1012]:
+              - generic [ref=e1013]: vs
+              - generic [ref=e1014]: 24/06/2026 16:00
+            - generic [ref=e1015]:
+              - generic [ref=e1016]: 🇶🇦
+              - generic [ref=e1017]: Catar
+          - generic [ref=e1018]:
+            - generic [ref=e1019]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1020] [cursor=pointer]:
+              - /url: /pools/7/matches/671/predict/
+        - generic [ref=e1021]:
+          - generic [ref=e1022]:
+            - generic [ref=e1023]:
+              - generic [ref=e1024]: Fase de Grupos
+              - generic [ref=e1025]: ·
+              - generic [ref=e1026]: Hard Rock Stadium (Miami Gardens)
+            - generic [ref=e1027]: Agendado
+          - generic [ref=e1028]:
+            - generic [ref=e1029]:
+              - generic [ref=e1030]: 🏴󠁧󠁢󠁥󠁮󠁧󠁿
+              - generic [ref=e1031]: Escocia
+            - generic [ref=e1032]:
+              - generic [ref=e1033]: vs
+              - generic [ref=e1034]: 24/06/2026 19:00
+            - generic [ref=e1035]:
+              - generic [ref=e1036]: 🇧🇷
+              - generic [ref=e1037]: Brasil
+          - generic [ref=e1038]:
+            - generic [ref=e1039]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1040] [cursor=pointer]:
+              - /url: /pools/7/matches/668/predict/
+        - generic [ref=e1041]:
+          - generic [ref=e1042]:
+            - generic [ref=e1043]:
+              - generic [ref=e1044]: Fase de Grupos
+              - generic [ref=e1045]: ·
+              - generic [ref=e1046]: Mercedes-Benz Stadium (Atlanta)
+            - generic [ref=e1047]: Agendado
+          - generic [ref=e1048]:
+            - generic [ref=e1049]:
+              - generic [ref=e1050]: 🇲🇦
+              - generic [ref=e1051]: Marracos
+            - generic [ref=e1052]:
+              - generic [ref=e1053]: vs
+              - generic [ref=e1054]: 24/06/2026 19:00
+            - generic [ref=e1055]:
+              - generic [ref=e1056]: 🇭🇹
+              - generic [ref=e1057]: Haiti
+          - generic [ref=e1058]:
+            - generic [ref=e1059]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1060] [cursor=pointer]:
+              - /url: /pools/7/matches/669/predict/
+        - generic [ref=e1061]:
+          - generic [ref=e1062]:
+            - generic [ref=e1063]:
+              - generic [ref=e1064]: Fase de Grupos
+              - generic [ref=e1065]: ·
+              - generic [ref=e1066]: Estadio Azteca (Mexico City)
+            - generic [ref=e1067]: Agendado
+          - generic [ref=e1068]:
+            - generic [ref=e1069]:
+              - generic [ref=e1070]: 🇨🇿
+              - generic [ref=e1071]: Chequia
+            - generic [ref=e1072]:
+              - generic [ref=e1073]: vs
+              - generic [ref=e1074]: 24/06/2026 22:00
+            - generic [ref=e1075]:
+              - generic [ref=e1076]: 🇲🇽
+              - generic [ref=e1077]: Mexico
+          - generic [ref=e1078]:
+            - generic [ref=e1079]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1080] [cursor=pointer]:
+              - /url: /pools/7/matches/672/predict/
+        - generic [ref=e1081]:
+          - generic [ref=e1082]:
+            - generic [ref=e1083]:
+              - generic [ref=e1084]: Fase de Grupos
+              - generic [ref=e1085]: ·
+              - generic [ref=e1086]: Estadio BBVA (Guadalupe)
+            - generic [ref=e1087]: Agendado
+          - generic [ref=e1088]:
+            - generic [ref=e1089]:
+              - generic [ref=e1090]: 🇿🇦
+              - generic [ref=e1091]: Africa do Sul
+            - generic [ref=e1092]:
+              - generic [ref=e1093]: vs
+              - generic [ref=e1094]: 24/06/2026 22:00
+            - generic [ref=e1095]:
+              - generic [ref=e1096]: 🇰🇷
+              - generic [ref=e1097]: Coreia do Sul
+          - generic [ref=e1098]:
+            - generic [ref=e1099]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1100] [cursor=pointer]:
+              - /url: /pools/7/matches/673/predict/
+        - generic [ref=e1101]:
+          - generic [ref=e1102]:
+            - generic [ref=e1103]:
+              - generic [ref=e1104]: Fase de Grupos
+              - generic [ref=e1105]: ·
+              - generic [ref=e1106]: Lincoln Financial Field (Philadelphia)
+            - generic [ref=e1107]: Agendado
+          - generic [ref=e1108]:
+            - generic [ref=e1109]:
+              - generic [ref=e1110]: 🇨🇼
+              - generic [ref=e1111]: Curacao
+            - generic [ref=e1112]:
+              - generic [ref=e1113]: vs
+              - generic [ref=e1114]: 25/06/2026 17:00
+            - generic [ref=e1115]:
+              - generic [ref=e1116]: 🇨🇮
+              - generic [ref=e1117]: Costa do Marfim
+          - generic [ref=e1118]:
+            - generic [ref=e1119]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1120] [cursor=pointer]:
+              - /url: /pools/7/matches/674/predict/
+        - generic [ref=e1121]:
+          - generic [ref=e1122]:
+            - generic [ref=e1123]:
+              - generic [ref=e1124]: Fase de Grupos
+              - generic [ref=e1125]: ·
+              - generic [ref=e1126]: MetLife Stadium (East Rutherford)
+            - generic [ref=e1127]: Agendado
+          - generic [ref=e1128]:
+            - generic [ref=e1129]:
+              - generic [ref=e1130]: 🇪🇨
+              - generic [ref=e1131]: Equador
+            - generic [ref=e1132]:
+              - generic [ref=e1133]: vs
+              - generic [ref=e1134]: 25/06/2026 17:00
+            - generic [ref=e1135]:
+              - generic [ref=e1136]: 🇩🇪
+              - generic [ref=e1137]: Alemanha
+          - generic [ref=e1138]:
+            - generic [ref=e1139]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1140] [cursor=pointer]:
+              - /url: /pools/7/matches/675/predict/
+        - generic [ref=e1141]:
+          - generic [ref=e1142]:
+            - generic [ref=e1143]:
+              - generic [ref=e1144]: Fase de Grupos
+              - generic [ref=e1145]: ·
+              - generic [ref=e1146]: AT&T Stadium (Arlington)
+            - generic [ref=e1147]: Agendado
+          - generic [ref=e1148]:
+            - generic [ref=e1149]:
+              - generic [ref=e1150]: 🇯🇵
+              - generic [ref=e1151]: Japao
+            - generic [ref=e1152]:
+              - generic [ref=e1153]: vs
+              - generic [ref=e1154]: 25/06/2026 20:00
+            - generic [ref=e1155]:
+              - generic [ref=e1156]: 🇸🇪
+              - generic [ref=e1157]: Suecia
+          - generic [ref=e1158]:
+            - generic [ref=e1159]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1160] [cursor=pointer]:
+              - /url: /pools/7/matches/676/predict/
+        - generic [ref=e1161]:
+          - generic [ref=e1162]:
+            - generic [ref=e1163]:
+              - generic [ref=e1164]: Fase de Grupos
+              - generic [ref=e1165]: ·
+              - generic [ref=e1166]: Arrowhead Stadium (Kansas City)
+            - generic [ref=e1167]: Agendado
+          - generic [ref=e1168]:
+            - generic [ref=e1169]:
+              - generic [ref=e1170]: 🇹🇳
+              - generic [ref=e1171]: Tunisia
+            - generic [ref=e1172]:
+              - generic [ref=e1173]: vs
+              - generic [ref=e1174]: 25/06/2026 20:00
+            - generic [ref=e1175]:
+              - generic [ref=e1176]: 🇳🇱
+              - generic [ref=e1177]: Holanda
+          - generic [ref=e1178]:
+            - generic [ref=e1179]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1180] [cursor=pointer]:
+              - /url: /pools/7/matches/677/predict/
+        - generic [ref=e1181]:
+          - generic [ref=e1182]:
+            - generic [ref=e1183]:
+              - generic [ref=e1184]: Fase de Grupos
+              - generic [ref=e1185]: ·
+              - generic [ref=e1186]: SoFi Stadium (Inglewood)
+            - generic [ref=e1187]: Agendado
+          - generic [ref=e1188]:
+            - generic [ref=e1189]:
+              - generic [ref=e1190]: 🇹🇷
+              - generic [ref=e1191]: Turquia
+            - generic [ref=e1192]:
+              - generic [ref=e1193]: vs
+              - generic [ref=e1194]: 25/06/2026 23:00
+            - generic [ref=e1195]:
+              - generic [ref=e1196]: 🇺🇸
+              - generic [ref=e1197]: Estados Unidos
+          - generic [ref=e1198]:
+            - generic [ref=e1199]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1200] [cursor=pointer]:
+              - /url: /pools/7/matches/678/predict/
+        - generic [ref=e1201]:
+          - generic [ref=e1202]:
+            - generic [ref=e1203]:
+              - generic [ref=e1204]: Fase de Grupos
+              - generic [ref=e1205]: ·
+              - generic [ref=e1206]: Levi's Stadium (Santa Clara)
+            - generic [ref=e1207]: Agendado
+          - generic [ref=e1208]:
+            - generic [ref=e1209]:
+              - generic [ref=e1210]: 🇵🇾
+              - generic [ref=e1211]: Paraguai
+            - generic [ref=e1212]:
+              - generic [ref=e1213]: vs
+              - generic [ref=e1214]: 25/06/2026 23:00
+            - generic [ref=e1215]:
+              - generic [ref=e1216]: 🇦🇺
+              - generic [ref=e1217]: Australia
+          - generic [ref=e1218]:
+            - generic [ref=e1219]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1220] [cursor=pointer]:
+              - /url: /pools/7/matches/679/predict/
+        - generic [ref=e1221]:
+          - generic [ref=e1222]:
+            - generic [ref=e1223]:
+              - generic [ref=e1224]: Fase de Grupos
+              - generic [ref=e1225]: ·
+              - generic [ref=e1226]: Gillette Stadium (Foxborough)
+            - generic [ref=e1227]: Agendado
+          - generic [ref=e1228]:
+            - generic [ref=e1229]:
+              - generic [ref=e1230]: 🇳🇴
+              - generic [ref=e1231]: Noruega
+            - generic [ref=e1232]:
+              - generic [ref=e1233]: vs
+              - generic [ref=e1234]: 26/06/2026 16:00
+            - generic [ref=e1235]:
+              - generic [ref=e1236]: 🇫🇷
+              - generic [ref=e1237]: Franca
+          - generic [ref=e1238]:
+            - generic [ref=e1239]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1240] [cursor=pointer]:
+              - /url: /pools/7/matches/680/predict/
+        - generic [ref=e1241]:
+          - generic [ref=e1242]:
+            - generic [ref=e1243]:
+              - generic [ref=e1244]: Fase de Grupos
+              - generic [ref=e1245]: ·
+              - generic [ref=e1246]: BMO Field (Toronto)
+            - generic [ref=e1247]: Agendado
+          - generic [ref=e1248]:
+            - generic [ref=e1249]:
+              - generic [ref=e1250]: 🇸🇳
+              - generic [ref=e1251]: Senegal
+            - generic [ref=e1252]:
+              - generic [ref=e1253]: vs
+              - generic [ref=e1254]: 26/06/2026 16:00
+            - generic [ref=e1255]:
+              - generic [ref=e1256]: 🇮🇶
+              - generic [ref=e1257]: Iraque
+          - generic [ref=e1258]:
+            - generic [ref=e1259]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1260] [cursor=pointer]:
+              - /url: /pools/7/matches/681/predict/
+        - generic [ref=e1261]:
+          - generic [ref=e1262]:
+            - generic [ref=e1263]:
+              - generic [ref=e1264]: Fase de Grupos
+              - generic [ref=e1265]: ·
+              - generic [ref=e1266]: NRG Stadium (Houston)
+            - generic [ref=e1267]: Agendado
+          - generic [ref=e1268]:
+            - generic [ref=e1269]:
+              - generic [ref=e1270]: 🇨🇻
+              - generic [ref=e1271]: Cabo Verde
+            - generic [ref=e1272]:
+              - generic [ref=e1273]: vs
+              - generic [ref=e1274]: 26/06/2026 21:00
+            - generic [ref=e1275]:
+              - generic [ref=e1276]: 🇸🇦
+              - generic [ref=e1277]: Arabia Saudita
+          - generic [ref=e1278]:
+            - generic [ref=e1279]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1280] [cursor=pointer]:
+              - /url: /pools/7/matches/684/predict/
+        - generic [ref=e1281]:
+          - generic [ref=e1282]:
+            - generic [ref=e1283]:
+              - generic [ref=e1284]: Fase de Grupos
+              - generic [ref=e1285]: ·
+              - generic [ref=e1286]: Estadio Akron (Zapopan)
+            - generic [ref=e1287]: Agendado
+          - generic [ref=e1288]:
+            - generic [ref=e1289]:
+              - generic [ref=e1290]: 🇺🇾
+              - generic [ref=e1291]: Uruguai
+            - generic [ref=e1292]:
+              - generic [ref=e1293]: vs
+              - generic [ref=e1294]: 26/06/2026 21:00
+            - generic [ref=e1295]:
+              - generic [ref=e1296]: 🇪🇸
+              - generic [ref=e1297]: Espanha
+          - generic [ref=e1298]:
+            - generic [ref=e1299]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1300] [cursor=pointer]:
+              - /url: /pools/7/matches/685/predict/
+        - generic [ref=e1301]:
+          - generic [ref=e1302]:
+            - generic [ref=e1303]:
+              - generic [ref=e1304]: Fase de Grupos
+              - generic [ref=e1305]: ·
+              - generic [ref=e1306]: Lumen Field (Seattle)
+            - generic [ref=e1307]: Agendado
+          - generic [ref=e1308]:
+            - generic [ref=e1309]:
+              - generic [ref=e1310]: 🇪🇬
+              - generic [ref=e1311]: Egito
+            - generic [ref=e1312]:
+              - generic [ref=e1313]: vs
+              - generic [ref=e1314]: 27/06/2026 00:00
+            - generic [ref=e1315]:
+              - generic [ref=e1316]: 🇮🇷
+              - generic [ref=e1317]: Ira
+          - generic [ref=e1318]:
+            - generic [ref=e1319]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1320] [cursor=pointer]:
+              - /url: /pools/7/matches/682/predict/
+        - generic [ref=e1321]:
+          - generic [ref=e1322]:
+            - generic [ref=e1323]:
+              - generic [ref=e1324]: Fase de Grupos
+              - generic [ref=e1325]: ·
+              - generic [ref=e1326]: BC Place (Vancouver)
+            - generic [ref=e1327]: Agendado
+          - generic [ref=e1328]:
+            - generic [ref=e1329]:
+              - generic [ref=e1330]: 🇳🇿
+              - generic [ref=e1331]: Nova Zelandia
+            - generic [ref=e1332]:
+              - generic [ref=e1333]: vs
+              - generic [ref=e1334]: 27/06/2026 00:00
+            - generic [ref=e1335]:
+              - generic [ref=e1336]: 🇧🇪
+              - generic [ref=e1337]: Belgica
+          - generic [ref=e1338]:
+            - generic [ref=e1339]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1340] [cursor=pointer]:
+              - /url: /pools/7/matches/683/predict/
+        - generic [ref=e1341]:
+          - generic [ref=e1342]:
+            - generic [ref=e1343]:
+              - generic [ref=e1344]: Fase de Grupos
+              - generic [ref=e1345]: ·
+              - generic [ref=e1346]: MetLife Stadium (East Rutherford)
+            - generic [ref=e1347]: Agendado
+          - generic [ref=e1348]:
+            - generic [ref=e1349]:
+              - generic [ref=e1350]: 🇵🇦
+              - generic [ref=e1351]: Panama
+            - generic [ref=e1352]:
+              - generic [ref=e1353]: vs
+              - generic [ref=e1354]: 27/06/2026 18:00
+            - generic [ref=e1355]:
+              - generic [ref=e1356]: 🏴󠁧󠁢󠁥󠁮󠁣󠁴󠁿
+              - generic [ref=e1357]: Inglaterra
+          - generic [ref=e1358]:
+            - generic [ref=e1359]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1360] [cursor=pointer]:
+              - /url: /pools/7/matches/686/predict/
+        - generic [ref=e1361]:
+          - generic [ref=e1362]:
+            - generic [ref=e1363]:
+              - generic [ref=e1364]: Fase de Grupos
+              - generic [ref=e1365]: ·
+              - generic [ref=e1366]: Lincoln Financial Field (Philadelphia)
+            - generic [ref=e1367]: Agendado
+          - generic [ref=e1368]:
+            - generic [ref=e1369]:
+              - generic [ref=e1370]: 🇭🇷
+              - generic [ref=e1371]: Croatia
+            - generic [ref=e1372]:
+              - generic [ref=e1373]: vs
+              - generic [ref=e1374]: 27/06/2026 18:00
+            - generic [ref=e1375]:
+              - generic [ref=e1376]: 🇬🇭
+              - generic [ref=e1377]: Gana
+          - generic [ref=e1378]:
+            - generic [ref=e1379]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1380] [cursor=pointer]:
+              - /url: /pools/7/matches/687/predict/
+        - generic [ref=e1381]:
+          - generic [ref=e1382]:
+            - generic [ref=e1383]:
+              - generic [ref=e1384]: Fase de Grupos
+              - generic [ref=e1385]: ·
+              - generic [ref=e1386]: Hard Rock Stadium (Miami Gardens)
+            - generic [ref=e1387]: Agendado
+          - generic [ref=e1388]:
+            - generic [ref=e1389]:
+              - generic [ref=e1390]: 🇨🇴
+              - generic [ref=e1391]: Colombia
+            - generic [ref=e1392]:
+              - generic [ref=e1393]: vs
+              - generic [ref=e1394]: 27/06/2026 20:30
+            - generic [ref=e1395]:
+              - generic [ref=e1396]: 🇵🇹
+              - generic [ref=e1397]: Portugal
+          - generic [ref=e1398]:
+            - generic [ref=e1399]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1400] [cursor=pointer]:
+              - /url: /pools/7/matches/690/predict/
+        - generic [ref=e1401]:
+          - generic [ref=e1402]:
+            - generic [ref=e1403]:
+              - generic [ref=e1404]: Fase de Grupos
+              - generic [ref=e1405]: ·
+              - generic [ref=e1406]: Mercedes-Benz Stadium (Atlanta)
+            - generic [ref=e1407]: Agendado
+          - generic [ref=e1408]:
+            - generic [ref=e1409]:
+              - generic [ref=e1410]: 🇨🇩
+              - generic [ref=e1411]: Republica Democratica do Congo
+            - generic [ref=e1412]:
+              - generic [ref=e1413]: vs
+              - generic [ref=e1414]: 27/06/2026 20:30
+            - generic [ref=e1415]:
+              - generic [ref=e1416]: 🇺🇿
+              - generic [ref=e1417]: Uzbequistao
+          - generic [ref=e1418]:
+            - generic [ref=e1419]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1420] [cursor=pointer]:
+              - /url: /pools/7/matches/691/predict/
+        - generic [ref=e1421]:
+          - generic [ref=e1422]:
+            - generic [ref=e1423]:
+              - generic [ref=e1424]: Fase de Grupos
+              - generic [ref=e1425]: ·
+              - generic [ref=e1426]: Arrowhead Stadium (Kansas City)
+            - generic [ref=e1427]: Agendado
+          - generic [ref=e1428]:
+            - generic [ref=e1429]:
+              - generic [ref=e1430]: 🇩🇿
+              - generic [ref=e1431]: Argelia
+            - generic [ref=e1432]:
+              - generic [ref=e1433]: vs
+              - generic [ref=e1434]: 27/06/2026 23:00
+            - generic [ref=e1435]:
+              - generic [ref=e1436]: 🇦🇹
+              - generic [ref=e1437]: Austria
+          - generic [ref=e1438]:
+            - generic [ref=e1439]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1440] [cursor=pointer]:
+              - /url: /pools/7/matches/688/predict/
+        - generic [ref=e1441]:
+          - generic [ref=e1442]:
+            - generic [ref=e1443]:
+              - generic [ref=e1444]: Fase de Grupos
+              - generic [ref=e1445]: ·
+              - generic [ref=e1446]: AT&T Stadium (Arlington)
+            - generic [ref=e1447]: Agendado
+          - generic [ref=e1448]:
+            - generic [ref=e1449]:
+              - generic [ref=e1450]: 🇯🇴
+              - generic [ref=e1451]: Jordania
+            - generic [ref=e1452]:
+              - generic [ref=e1453]: vs
+              - generic [ref=e1454]: 27/06/2026 23:00
+            - generic [ref=e1455]:
+              - generic [ref=e1456]: 🇦🇷
+              - generic [ref=e1457]: Argentina
+          - generic [ref=e1458]:
+            - generic [ref=e1459]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1460] [cursor=pointer]:
+              - /url: /pools/7/matches/689/predict/
+        - generic [ref=e1461]:
+          - generic [ref=e1462]:
+            - generic [ref=e1463]:
+              - generic [ref=e1464]: 32-avos de Final
+              - generic [ref=e1465]: ·
+              - generic [ref=e1466]: SoFi Stadium (Inglewood)
+            - generic [ref=e1467]: Agendado
+          - generic [ref=e1468]:
+            - generic [ref=e1470]: A definir (mandante)
+            - generic [ref=e1471]:
+              - generic [ref=e1472]: vs
+              - generic [ref=e1473]: 28/06/2026 16:00
+            - generic [ref=e1475]: A definir (visitante)
+          - generic [ref=e1476]:
+            - generic [ref=e1477]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1478] [cursor=pointer]:
+              - /url: /pools/7/matches/692/predict/
+        - generic [ref=e1479]:
+          - generic [ref=e1480]:
+            - generic [ref=e1481]:
+              - generic [ref=e1482]: 32-avos de Final
+              - generic [ref=e1483]: ·
+              - generic [ref=e1484]: NRG Stadium (Houston)
+            - generic [ref=e1485]: Agendado
+          - generic [ref=e1486]:
+            - generic [ref=e1488]: A definir (mandante)
+            - generic [ref=e1489]:
+              - generic [ref=e1490]: vs
+              - generic [ref=e1491]: 29/06/2026 14:00
+            - generic [ref=e1493]: A definir (visitante)
+          - generic [ref=e1494]:
+            - generic [ref=e1495]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1496] [cursor=pointer]:
+              - /url: /pools/7/matches/695/predict/
+        - generic [ref=e1497]:
+          - generic [ref=e1498]:
+            - generic [ref=e1499]:
+              - generic [ref=e1500]: 32-avos de Final
+              - generic [ref=e1501]: ·
+              - generic [ref=e1502]: Gillette Stadium (Foxborough)
+            - generic [ref=e1503]: Agendado
+          - generic [ref=e1504]:
+            - generic [ref=e1506]: A definir (mandante)
+            - generic [ref=e1507]:
+              - generic [ref=e1508]: vs
+              - generic [ref=e1509]: 29/06/2026 17:30
+            - generic [ref=e1511]: A definir (visitante)
+          - generic [ref=e1512]:
+            - generic [ref=e1513]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1514] [cursor=pointer]:
+              - /url: /pools/7/matches/693/predict/
+        - generic [ref=e1515]:
+          - generic [ref=e1516]:
+            - generic [ref=e1517]:
+              - generic [ref=e1518]: 32-avos de Final
+              - generic [ref=e1519]: ·
+              - generic [ref=e1520]: Estadio BBVA (Guadalupe)
+            - generic [ref=e1521]: Agendado
+          - generic [ref=e1522]:
+            - generic [ref=e1524]: A definir (mandante)
+            - generic [ref=e1525]:
+              - generic [ref=e1526]: vs
+              - generic [ref=e1527]: 29/06/2026 22:00
+            - generic [ref=e1529]: A definir (visitante)
+          - generic [ref=e1530]:
+            - generic [ref=e1531]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1532] [cursor=pointer]:
+              - /url: /pools/7/matches/694/predict/
+        - generic [ref=e1533]:
+          - generic [ref=e1534]:
+            - generic [ref=e1535]:
+              - generic [ref=e1536]: 32-avos de Final
+              - generic [ref=e1537]: ·
+              - generic [ref=e1538]: AT&T Stadium (Arlington)
+            - generic [ref=e1539]: Agendado
+          - generic [ref=e1540]:
+            - generic [ref=e1542]: A definir (mandante)
+            - generic [ref=e1543]:
+              - generic [ref=e1544]: vs
+              - generic [ref=e1545]: 30/06/2026 14:00
+            - generic [ref=e1547]: A definir (visitante)
+          - generic [ref=e1548]:
+            - generic [ref=e1549]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1550] [cursor=pointer]:
+              - /url: /pools/7/matches/697/predict/
+        - generic [ref=e1551]:
+          - generic [ref=e1552]:
+            - generic [ref=e1553]:
+              - generic [ref=e1554]: 32-avos de Final
+              - generic [ref=e1555]: ·
+              - generic [ref=e1556]: MetLife Stadium (East Rutherford)
+            - generic [ref=e1557]: Agendado
+          - generic [ref=e1558]:
+            - generic [ref=e1560]: A definir (mandante)
+            - generic [ref=e1561]:
+              - generic [ref=e1562]: vs
+              - generic [ref=e1563]: 30/06/2026 18:00
+            - generic [ref=e1565]: A definir (visitante)
+          - generic [ref=e1566]:
+            - generic [ref=e1567]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1568] [cursor=pointer]:
+              - /url: /pools/7/matches/696/predict/
+        - generic [ref=e1569]:
+          - generic [ref=e1570]:
+            - generic [ref=e1571]:
+              - generic [ref=e1572]: 32-avos de Final
+              - generic [ref=e1573]: ·
+              - generic [ref=e1574]: Estadio Azteca (Mexico City)
+            - generic [ref=e1575]: Agendado
+          - generic [ref=e1576]:
+            - generic [ref=e1578]: A definir (mandante)
+            - generic [ref=e1579]:
+              - generic [ref=e1580]: vs
+              - generic [ref=e1581]: 30/06/2026 22:00
+            - generic [ref=e1583]: A definir (visitante)
+          - generic [ref=e1584]:
+            - generic [ref=e1585]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1586] [cursor=pointer]:
+              - /url: /pools/7/matches/698/predict/
+        - generic [ref=e1587]:
+          - generic [ref=e1588]:
+            - generic [ref=e1589]:
+              - generic [ref=e1590]: 32-avos de Final
+              - generic [ref=e1591]: ·
+              - generic [ref=e1592]: Mercedes-Benz Stadium (Atlanta)
+            - generic [ref=e1593]: Agendado
+          - generic [ref=e1594]:
+            - generic [ref=e1596]: A definir (mandante)
+            - generic [ref=e1597]:
+              - generic [ref=e1598]: vs
+              - generic [ref=e1599]: 01/07/2026 13:00
+            - generic [ref=e1601]: A definir (visitante)
+          - generic [ref=e1602]:
+            - generic [ref=e1603]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1604] [cursor=pointer]:
+              - /url: /pools/7/matches/699/predict/
+        - generic [ref=e1605]:
+          - generic [ref=e1606]:
+            - generic [ref=e1607]:
+              - generic [ref=e1608]: 32-avos de Final
+              - generic [ref=e1609]: ·
+              - generic [ref=e1610]: Lumen Field (Seattle)
+            - generic [ref=e1611]: Agendado
+          - generic [ref=e1612]:
+            - generic [ref=e1614]: A definir (mandante)
+            - generic [ref=e1615]:
+              - generic [ref=e1616]: vs
+              - generic [ref=e1617]: 01/07/2026 17:00
+            - generic [ref=e1619]: A definir (visitante)
+          - generic [ref=e1620]:
+            - generic [ref=e1621]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1622] [cursor=pointer]:
+              - /url: /pools/7/matches/701/predict/
+        - generic [ref=e1623]:
+          - generic [ref=e1624]:
+            - generic [ref=e1625]:
+              - generic [ref=e1626]: 32-avos de Final
+              - generic [ref=e1627]: ·
+              - generic [ref=e1628]: Levi's Stadium (Santa Clara)
+            - generic [ref=e1629]: Agendado
+          - generic [ref=e1630]:
+            - generic [ref=e1632]: A definir (mandante)
+            - generic [ref=e1633]:
+              - generic [ref=e1634]: vs
+              - generic [ref=e1635]: 01/07/2026 21:00
+            - generic [ref=e1637]: A definir (visitante)
+          - generic [ref=e1638]:
+            - generic [ref=e1639]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1640] [cursor=pointer]:
+              - /url: /pools/7/matches/700/predict/
+        - generic [ref=e1641]:
+          - generic [ref=e1642]:
+            - generic [ref=e1643]:
+              - generic [ref=e1644]: 32-avos de Final
+              - generic [ref=e1645]: ·
+              - generic [ref=e1646]: SoFi Stadium (Inglewood)
+            - generic [ref=e1647]: Agendado
+          - generic [ref=e1648]:
+            - generic [ref=e1650]: A definir (mandante)
+            - generic [ref=e1651]:
+              - generic [ref=e1652]: vs
+              - generic [ref=e1653]: 02/07/2026 16:00
+            - generic [ref=e1655]: A definir (visitante)
+          - generic [ref=e1656]:
+            - generic [ref=e1657]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1658] [cursor=pointer]:
+              - /url: /pools/7/matches/703/predict/
+        - generic [ref=e1659]:
+          - generic [ref=e1660]:
+            - generic [ref=e1661]:
+              - generic [ref=e1662]: 32-avos de Final
+              - generic [ref=e1663]: ·
+              - generic [ref=e1664]: BMO Field (Toronto)
+            - generic [ref=e1665]: Agendado
+          - generic [ref=e1666]:
+            - generic [ref=e1668]: A definir (mandante)
+            - generic [ref=e1669]:
+              - generic [ref=e1670]: vs
+              - generic [ref=e1671]: 02/07/2026 20:00
+            - generic [ref=e1673]: A definir (visitante)
+          - generic [ref=e1674]:
+            - generic [ref=e1675]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1676] [cursor=pointer]:
+              - /url: /pools/7/matches/702/predict/
+        - generic [ref=e1677]:
+          - generic [ref=e1678]:
+            - generic [ref=e1679]:
+              - generic [ref=e1680]: 32-avos de Final
+              - generic [ref=e1681]: ·
+              - generic [ref=e1682]: BC Place (Vancouver)
+            - generic [ref=e1683]: Agendado
+          - generic [ref=e1684]:
+            - generic [ref=e1686]: A definir (mandante)
+            - generic [ref=e1687]:
+              - generic [ref=e1688]: vs
+              - generic [ref=e1689]: 03/07/2026 00:00
+            - generic [ref=e1691]: A definir (visitante)
+          - generic [ref=e1692]:
+            - generic [ref=e1693]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1694] [cursor=pointer]:
+              - /url: /pools/7/matches/704/predict/
+        - generic [ref=e1695]:
+          - generic [ref=e1696]:
+            - generic [ref=e1697]:
+              - generic [ref=e1698]: 32-avos de Final
+              - generic [ref=e1699]: ·
+              - generic [ref=e1700]: AT&T Stadium (Arlington)
+            - generic [ref=e1701]: Agendado
+          - generic [ref=e1702]:
+            - generic [ref=e1704]: A definir (mandante)
+            - generic [ref=e1705]:
+              - generic [ref=e1706]: vs
+              - generic [ref=e1707]: 03/07/2026 15:00
+            - generic [ref=e1709]: A definir (visitante)
+          - generic [ref=e1710]:
+            - generic [ref=e1711]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1712] [cursor=pointer]:
+              - /url: /pools/7/matches/707/predict/
+        - generic [ref=e1713]:
+          - generic [ref=e1714]:
+            - generic [ref=e1715]:
+              - generic [ref=e1716]: 32-avos de Final
+              - generic [ref=e1717]: ·
+              - generic [ref=e1718]: Hard Rock Stadium (Miami Gardens)
+            - generic [ref=e1719]: Agendado
+          - generic [ref=e1720]:
+            - generic [ref=e1722]: A definir (mandante)
+            - generic [ref=e1723]:
+              - generic [ref=e1724]: vs
+              - generic [ref=e1725]: 03/07/2026 19:00
+            - generic [ref=e1727]: A definir (visitante)
+          - generic [ref=e1728]:
+            - generic [ref=e1729]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1730] [cursor=pointer]:
+              - /url: /pools/7/matches/705/predict/
+        - generic [ref=e1731]:
+          - generic [ref=e1732]:
+            - generic [ref=e1733]:
+              - generic [ref=e1734]: 32-avos de Final
+              - generic [ref=e1735]: ·
+              - generic [ref=e1736]: Arrowhead Stadium (Kansas City)
+            - generic [ref=e1737]: Agendado
+          - generic [ref=e1738]:
+            - generic [ref=e1740]: A definir (mandante)
+            - generic [ref=e1741]:
+              - generic [ref=e1742]: vs
+              - generic [ref=e1743]: 03/07/2026 22:30
+            - generic [ref=e1745]: A definir (visitante)
+          - generic [ref=e1746]:
+            - generic [ref=e1747]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1748] [cursor=pointer]:
+              - /url: /pools/7/matches/706/predict/
+        - generic [ref=e1749]:
+          - generic [ref=e1750]:
+            - generic [ref=e1751]:
+              - generic [ref=e1752]: Oitavas de Final
+              - generic [ref=e1753]: ·
+              - generic [ref=e1754]: NRG Stadium (Houston)
+            - generic [ref=e1755]: Agendado
+          - generic [ref=e1756]:
+            - generic [ref=e1758]: A definir (mandante)
+            - generic [ref=e1759]:
+              - generic [ref=e1760]: vs
+              - generic [ref=e1761]: 04/07/2026 14:00
+            - generic [ref=e1763]: A definir (visitante)
+          - generic [ref=e1764]:
+            - generic [ref=e1765]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1766] [cursor=pointer]:
+              - /url: /pools/7/matches/709/predict/
+        - generic [ref=e1767]:
+          - generic [ref=e1768]:
+            - generic [ref=e1769]:
+              - generic [ref=e1770]: Oitavas de Final
+              - generic [ref=e1771]: ·
+              - generic [ref=e1772]: Lincoln Financial Field (Philadelphia)
+            - generic [ref=e1773]: Agendado
+          - generic [ref=e1774]:
+            - generic [ref=e1776]: A definir (mandante)
+            - generic [ref=e1777]:
+              - generic [ref=e1778]: vs
+              - generic [ref=e1779]: 04/07/2026 18:00
+            - generic [ref=e1781]: A definir (visitante)
+          - generic [ref=e1782]:
+            - generic [ref=e1783]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1784] [cursor=pointer]:
+              - /url: /pools/7/matches/708/predict/
+        - generic [ref=e1785]:
+          - generic [ref=e1786]:
+            - generic [ref=e1787]:
+              - generic [ref=e1788]: Oitavas de Final
+              - generic [ref=e1789]: ·
+              - generic [ref=e1790]: MetLife Stadium (East Rutherford)
+            - generic [ref=e1791]: Agendado
+          - generic [ref=e1792]:
+            - generic [ref=e1794]: A definir (mandante)
+            - generic [ref=e1795]:
+              - generic [ref=e1796]: vs
+              - generic [ref=e1797]: 05/07/2026 17:00
+            - generic [ref=e1799]: A definir (visitante)
+          - generic [ref=e1800]:
+            - generic [ref=e1801]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1802] [cursor=pointer]:
+              - /url: /pools/7/matches/710/predict/
+        - generic [ref=e1803]:
+          - generic [ref=e1804]:
+            - generic [ref=e1805]:
+              - generic [ref=e1806]: Oitavas de Final
+              - generic [ref=e1807]: ·
+              - generic [ref=e1808]: Estadio Azteca (Mexico City)
+            - generic [ref=e1809]: Agendado
+          - generic [ref=e1810]:
+            - generic [ref=e1812]: A definir (mandante)
+            - generic [ref=e1813]:
+              - generic [ref=e1814]: vs
+              - generic [ref=e1815]: 05/07/2026 21:00
+            - generic [ref=e1817]: A definir (visitante)
+          - generic [ref=e1818]:
+            - generic [ref=e1819]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1820] [cursor=pointer]:
+              - /url: /pools/7/matches/711/predict/
+        - generic [ref=e1821]:
+          - generic [ref=e1822]:
+            - generic [ref=e1823]:
+              - generic [ref=e1824]: Oitavas de Final
+              - generic [ref=e1825]: ·
+              - generic [ref=e1826]: AT&T Stadium (Arlington)
+            - generic [ref=e1827]: Agendado
+          - generic [ref=e1828]:
+            - generic [ref=e1830]: A definir (mandante)
+            - generic [ref=e1831]:
+              - generic [ref=e1832]: vs
+              - generic [ref=e1833]: 06/07/2026 16:00
+            - generic [ref=e1835]: A definir (visitante)
+          - generic [ref=e1836]:
+            - generic [ref=e1837]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1838] [cursor=pointer]:
+              - /url: /pools/7/matches/712/predict/
+        - generic [ref=e1839]:
+          - generic [ref=e1840]:
+            - generic [ref=e1841]:
+              - generic [ref=e1842]: Oitavas de Final
+              - generic [ref=e1843]: ·
+              - generic [ref=e1844]: Lumen Field (Seattle)
+            - generic [ref=e1845]: Agendado
+          - generic [ref=e1846]:
+            - generic [ref=e1848]: A definir (mandante)
+            - generic [ref=e1849]:
+              - generic [ref=e1850]: vs
+              - generic [ref=e1851]: 06/07/2026 21:00
+            - generic [ref=e1853]: A definir (visitante)
+          - generic [ref=e1854]:
+            - generic [ref=e1855]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1856] [cursor=pointer]:
+              - /url: /pools/7/matches/713/predict/
+        - generic [ref=e1857]:
+          - generic [ref=e1858]:
+            - generic [ref=e1859]:
+              - generic [ref=e1860]: Oitavas de Final
+              - generic [ref=e1861]: ·
+              - generic [ref=e1862]: Mercedes-Benz Stadium (Atlanta)
+            - generic [ref=e1863]: Agendado
+          - generic [ref=e1864]:
+            - generic [ref=e1866]: A definir (mandante)
+            - generic [ref=e1867]:
+              - generic [ref=e1868]: vs
+              - generic [ref=e1869]: 07/07/2026 13:00
+            - generic [ref=e1871]: A definir (visitante)
+          - generic [ref=e1872]:
+            - generic [ref=e1873]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1874] [cursor=pointer]:
+              - /url: /pools/7/matches/714/predict/
+        - generic [ref=e1875]:
+          - generic [ref=e1876]:
+            - generic [ref=e1877]:
+              - generic [ref=e1878]: Oitavas de Final
+              - generic [ref=e1879]: ·
+              - generic [ref=e1880]: BC Place (Vancouver)
+            - generic [ref=e1881]: Agendado
+          - generic [ref=e1882]:
+            - generic [ref=e1884]: A definir (mandante)
+            - generic [ref=e1885]:
+              - generic [ref=e1886]: vs
+              - generic [ref=e1887]: 07/07/2026 17:00
+            - generic [ref=e1889]: A definir (visitante)
+          - generic [ref=e1890]:
+            - generic [ref=e1891]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1892] [cursor=pointer]:
+              - /url: /pools/7/matches/715/predict/
+        - generic [ref=e1893]:
+          - generic [ref=e1894]:
+            - generic [ref=e1895]:
+              - generic [ref=e1896]: Quartas de Final
+              - generic [ref=e1897]: ·
+              - generic [ref=e1898]: Gillette Stadium (Foxborough)
+            - generic [ref=e1899]: Agendado
+          - generic [ref=e1900]:
+            - generic [ref=e1902]: A definir (mandante)
+            - generic [ref=e1903]:
+              - generic [ref=e1904]: vs
+              - generic [ref=e1905]: 09/07/2026 17:00
+            - generic [ref=e1907]: A definir (visitante)
+          - generic [ref=e1908]:
+            - generic [ref=e1909]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1910] [cursor=pointer]:
+              - /url: /pools/7/matches/716/predict/
+        - generic [ref=e1911]:
+          - generic [ref=e1912]:
+            - generic [ref=e1913]:
+              - generic [ref=e1914]: Quartas de Final
+              - generic [ref=e1915]: ·
+              - generic [ref=e1916]: SoFi Stadium (Inglewood)
+            - generic [ref=e1917]: Agendado
+          - generic [ref=e1918]:
+            - generic [ref=e1920]: A definir (mandante)
+            - generic [ref=e1921]:
+              - generic [ref=e1922]: vs
+              - generic [ref=e1923]: 10/07/2026 16:00
+            - generic [ref=e1925]: A definir (visitante)
+          - generic [ref=e1926]:
+            - generic [ref=e1927]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1928] [cursor=pointer]:
+              - /url: /pools/7/matches/717/predict/
+        - generic [ref=e1929]:
+          - generic [ref=e1930]:
+            - generic [ref=e1931]:
+              - generic [ref=e1932]: Quartas de Final
+              - generic [ref=e1933]: ·
+              - generic [ref=e1934]: Hard Rock Stadium (Miami Gardens)
+            - generic [ref=e1935]: Agendado
+          - generic [ref=e1936]:
+            - generic [ref=e1938]: A definir (mandante)
+            - generic [ref=e1939]:
+              - generic [ref=e1940]: vs
+              - generic [ref=e1941]: 11/07/2026 18:00
+            - generic [ref=e1943]: A definir (visitante)
+          - generic [ref=e1944]:
+            - generic [ref=e1945]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1946] [cursor=pointer]:
+              - /url: /pools/7/matches/718/predict/
+        - generic [ref=e1947]:
+          - generic [ref=e1948]:
+            - generic [ref=e1949]:
+              - generic [ref=e1950]: Quartas de Final
+              - generic [ref=e1951]: ·
+              - generic [ref=e1952]: Arrowhead Stadium (Kansas City)
+            - generic [ref=e1953]: Agendado
+          - generic [ref=e1954]:
+            - generic [ref=e1956]: A definir (mandante)
+            - generic [ref=e1957]:
+              - generic [ref=e1958]: vs
+              - generic [ref=e1959]: 11/07/2026 22:00
+            - generic [ref=e1961]: A definir (visitante)
+          - generic [ref=e1962]:
+            - generic [ref=e1963]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1964] [cursor=pointer]:
+              - /url: /pools/7/matches/719/predict/
+        - generic [ref=e1965]:
+          - generic [ref=e1966]:
+            - generic [ref=e1967]:
+              - generic [ref=e1968]: Semifinal
+              - generic [ref=e1969]: ·
+              - generic [ref=e1970]: AT&T Stadium (Arlington)
+            - generic [ref=e1971]: Agendado
+          - generic [ref=e1972]:
+            - generic [ref=e1974]: A definir (mandante)
+            - generic [ref=e1975]:
+              - generic [ref=e1976]: vs
+              - generic [ref=e1977]: 14/07/2026 16:00
+            - generic [ref=e1979]: A definir (visitante)
+          - generic [ref=e1980]:
+            - generic [ref=e1981]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1982] [cursor=pointer]:
+              - /url: /pools/7/matches/720/predict/
+        - generic [ref=e1983]:
+          - generic [ref=e1984]:
+            - generic [ref=e1985]:
+              - generic [ref=e1986]: Semifinal
+              - generic [ref=e1987]: ·
+              - generic [ref=e1988]: Mercedes-Benz Stadium (Atlanta)
+            - generic [ref=e1989]: Agendado
+          - generic [ref=e1990]:
+            - generic [ref=e1992]: A definir (mandante)
+            - generic [ref=e1993]:
+              - generic [ref=e1994]: vs
+              - generic [ref=e1995]: 15/07/2026 16:00
+            - generic [ref=e1997]: A definir (visitante)
+          - generic [ref=e1998]:
+            - generic [ref=e1999]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e2000] [cursor=pointer]:
+              - /url: /pools/7/matches/721/predict/
+        - generic [ref=e2001]:
+          - generic [ref=e2002]:
+            - generic [ref=e2003]:
+              - generic [ref=e2004]: Disputa de 3o Lugar
+              - generic [ref=e2005]: ·
+              - generic [ref=e2006]: Hard Rock Stadium (Miami Gardens)
+            - generic [ref=e2007]: Agendado
+          - generic [ref=e2008]:
+            - generic [ref=e2010]: A definir (mandante)
+            - generic [ref=e2011]:
+              - generic [ref=e2012]: vs
+              - generic [ref=e2013]: 18/07/2026 18:00
+            - generic [ref=e2015]: A definir (visitante)
+          - generic [ref=e2016]:
+            - generic [ref=e2017]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e2018] [cursor=pointer]:
+              - /url: /pools/7/matches/722/predict/
+        - generic [ref=e2019]:
+          - generic [ref=e2020]:
+            - generic [ref=e2021]:
+              - generic [ref=e2022]: Final
+              - generic [ref=e2023]: ·
+              - generic [ref=e2024]: MetLife Stadium (East Rutherford)
+            - generic [ref=e2025]: Agendado
+          - generic [ref=e2026]:
+            - generic [ref=e2028]: A definir (mandante)
+            - generic [ref=e2029]:
+              - generic [ref=e2030]: vs
+              - generic [ref=e2031]: 19/07/2026 16:00
+            - generic [ref=e2033]: A definir (visitante)
+          - generic [ref=e2034]:
+            - generic [ref=e2035]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e2036] [cursor=pointer]:
+              - /url: /pools/7/matches/723/predict/
