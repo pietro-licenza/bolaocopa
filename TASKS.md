@@ -138,16 +138,16 @@
   - [X] Alterar status do jogo para "finalizado"
   - [X] Ao salvar resultado, disparar signal para calculo de pontos
 
-**US-4.VAL: Validacao do Sprint 4 — Jogos e resultados**
+**US-4.VAL: Validacao do Sprint 4 — Jogos e resultados** ✓
 - **Como** agente de QA, **quero** validar todo o trabalho do Sprint 4, **para** garantir que as funcionalidades de jogos e resultados estao corretas e sem bugs.
 - **Criterios de aceite:**
-  - [ ] Tirar prints da lista de jogos e do Django Admin
-  - [ ] Validar lista de jogos: ordenacao por data/hora, exibicao de selecoes, estadio e status
-  - [ ] Validar que jogos ja palpitados pelo usuario estao marcados
-  - [ ] Validar acesso restrito ao Django Admin para registro de resultado
-  - [ ] Validar que ao registrar resultado e alterar status para "finalizado", o signal de calculo de pontos eh disparado
-  - [ ] Validar que o status do jogo muda corretamente: agendado, em andamento, finalizado
-  - [ ] Corrigir bugs encontrados
+  - [X] Tirar prints da lista de jogos e do Django Admin
+  - [X] Validar lista de jogos: ordenacao por data/hora, exibicao de selecoes, estadio e status
+  - [X] Validar que jogos ja palpitados pelo usuario estao marcados
+  - [X] Validar acesso restrito ao Django Admin para registro de resultado
+  - [X] Validar que ao registrar resultado e alterar status para "finalizado", o signal de calculo de pontos eh disparado
+  - [X] Validar que o status do jogo muda corretamente: agendado, em andamento, finalizado
+  - [X] Corrigir bugs encontrados
 
 ### Epico 5: Rankings
 

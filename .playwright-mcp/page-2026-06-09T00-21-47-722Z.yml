@@ -1,0 +1,268 @@
+- generic [active] [ref=e1]:
+  - link "Ir para o conteúdo principal" [ref=e2] [cursor=pointer]:
+    - /url: "#content-start"
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - link "Administração do Django" [ref=e7] [cursor=pointer]:
+        - /url: /admin/
+      - generic [ref=e8]:
+        - text: Bem-vindo(a),
+        - strong [ref=e9]: admin@bolao.com
+        - text: .
+        - link "Ver o site" [ref=e10] [cursor=pointer]:
+          - /url: /
+        - text: /
+        - link "Alterar senha" [ref=e11] [cursor=pointer]:
+          - /url: /admin/password_change/
+        - text: /
+        - button "Encerrar sessão" [ref=e13] [cursor=pointer]
+        - 'button "Alternar tema (tema atual: automático)" [ref=e14] [cursor=pointer]':
+          - generic [ref=e15]: "Alternar tema (tema atual: automático)"
+          - img [ref=e16]
+    - navigation "Marcas de navegação" [ref=e18]:
+      - generic [ref=e19]:
+        - link "Início" [ref=e20] [cursor=pointer]:
+          - /url: /admin/
+        - text: ›
+        - link "Matches" [ref=e21] [cursor=pointer]:
+          - /url: /admin/matches/
+        - text: ›
+        - link "Matchs" [ref=e22] [cursor=pointer]:
+          - /url: /admin/matches/match/
+        - text: › Argentina x França
+    - generic [ref=e23]:
+      - button "Alternar navegação" [ref=e24] [cursor=pointer]: «
+      - navigation "Barra Lateral" [ref=e25]:
+        - searchbox "Filtrar itens de navegação" [ref=e26]
+        - table "Autenticação e Autorização" [ref=e28]:
+          - caption [ref=e29]:
+            - link "Autenticação e Autorização" [ref=e30] [cursor=pointer]:
+              - /url: /admin/auth/
+          - rowgroup [ref=e31]:
+            - row "Nome do modelo Adicionar link Alterar ou ver link de lista" [ref=e32]:
+              - columnheader "Nome do modelo" [ref=e33]
+              - columnheader "Adicionar link" [ref=e34]
+              - columnheader "Alterar ou ver link de lista" [ref=e35]
+          - rowgroup [ref=e36]:
+            - row "Grupos Adicionar" [ref=e37]:
+              - rowheader "Grupos" [ref=e38]:
+                - link "Grupos" [ref=e39] [cursor=pointer]:
+                  - /url: /admin/auth/group/
+              - cell "Adicionar" [ref=e40]:
+                - link "Adicionar" [ref=e41] [cursor=pointer]:
+                  - /url: /admin/auth/group/add/
+        - table "Matches" [ref=e43]:
+          - caption [ref=e44]:
+            - link "Matches" [ref=e45] [cursor=pointer]:
+              - /url: /admin/matches/
+          - rowgroup [ref=e46]:
+            - row "Nome do modelo Adicionar link Alterar ou ver link de lista" [ref=e47]:
+              - columnheader "Nome do modelo" [ref=e48]
+              - columnheader "Adicionar link" [ref=e49]
+              - columnheader "Alterar ou ver link de lista" [ref=e50]
+          - rowgroup [ref=e51]:
+            - row "Matchs Adicionar" [ref=e52]:
+              - rowheader "Matchs" [ref=e53]:
+                - link "Matchs" [ref=e54] [cursor=pointer]:
+                  - /url: /admin/matches/match/
+              - cell "Adicionar" [ref=e55]:
+                - link "Adicionar" [ref=e56] [cursor=pointer]:
+                  - /url: /admin/matches/match/add/
+            - row "Rounds Adicionar" [ref=e57]:
+              - rowheader "Rounds" [ref=e58]:
+                - link "Rounds" [ref=e59] [cursor=pointer]:
+                  - /url: /admin/matches/round/
+              - cell "Adicionar" [ref=e60]:
+                - link "Adicionar" [ref=e61] [cursor=pointer]:
+                  - /url: /admin/matches/round/add/
+            - row "Stadiums Adicionar" [ref=e62]:
+              - rowheader "Stadiums" [ref=e63]:
+                - link "Stadiums" [ref=e64] [cursor=pointer]:
+                  - /url: /admin/matches/stadium/
+              - cell "Adicionar" [ref=e65]:
+                - link "Adicionar" [ref=e66] [cursor=pointer]:
+                  - /url: /admin/matches/stadium/add/
+            - row "Teams Adicionar" [ref=e67]:
+              - rowheader "Teams" [ref=e68]:
+                - link "Teams" [ref=e69] [cursor=pointer]:
+                  - /url: /admin/matches/team/
+              - cell "Adicionar" [ref=e70]:
+                - link "Adicionar" [ref=e71] [cursor=pointer]:
+                  - /url: /admin/matches/team/add/
+        - table "Pools" [ref=e73]:
+          - caption [ref=e74]:
+            - link "Pools" [ref=e75] [cursor=pointer]:
+              - /url: /admin/pools/
+          - rowgroup [ref=e76]:
+            - row "Nome do modelo Adicionar link Alterar ou ver link de lista" [ref=e77]:
+              - columnheader "Nome do modelo" [ref=e78]
+              - columnheader "Adicionar link" [ref=e79]
+              - columnheader "Alterar ou ver link de lista" [ref=e80]
+          - rowgroup [ref=e81]:
+            - row "Pool members Adicionar" [ref=e82]:
+              - rowheader "Pool members" [ref=e83]:
+                - link "Pool members" [ref=e84] [cursor=pointer]:
+                  - /url: /admin/pools/poolmember/
+              - cell "Adicionar" [ref=e85]:
+                - link "Adicionar" [ref=e86] [cursor=pointer]:
+                  - /url: /admin/pools/poolmember/add/
+            - row "Pools Adicionar" [ref=e87]:
+              - rowheader "Pools" [ref=e88]:
+                - link "Pools" [ref=e89] [cursor=pointer]:
+                  - /url: /admin/pools/pool/
+              - cell "Adicionar" [ref=e90]:
+                - link "Adicionar" [ref=e91] [cursor=pointer]:
+                  - /url: /admin/pools/pool/add/
+        - table "Predictions" [ref=e93]:
+          - caption [ref=e94]:
+            - link "Predictions" [ref=e95] [cursor=pointer]:
+              - /url: /admin/predictions/
+          - rowgroup [ref=e96]:
+            - row "Nome do modelo Adicionar link Alterar ou ver link de lista" [ref=e97]:
+              - columnheader "Nome do modelo" [ref=e98]
+              - columnheader "Adicionar link" [ref=e99]
+              - columnheader "Alterar ou ver link de lista" [ref=e100]
+          - rowgroup [ref=e101]:
+            - row "Predictions Adicionar" [ref=e102]:
+              - rowheader "Predictions" [ref=e103]:
+                - link "Predictions" [ref=e104] [cursor=pointer]:
+                  - /url: /admin/predictions/prediction/
+              - cell "Adicionar" [ref=e105]:
+                - link "Adicionar" [ref=e106] [cursor=pointer]:
+                  - /url: /admin/predictions/prediction/add/
+        - table "Users" [ref=e108]:
+          - caption [ref=e109]:
+            - link "Users" [ref=e110] [cursor=pointer]:
+              - /url: /admin/users/
+          - rowgroup [ref=e111]:
+            - row "Nome do modelo Adicionar link Alterar ou ver link de lista" [ref=e112]:
+              - columnheader "Nome do modelo" [ref=e113]
+              - columnheader "Adicionar link" [ref=e114]
+              - columnheader "Alterar ou ver link de lista" [ref=e115]
+          - rowgroup [ref=e116]:
+            - row "Usuários Adicionar" [ref=e117]:
+              - rowheader "Usuários" [ref=e118]:
+                - link "Usuários" [ref=e119] [cursor=pointer]:
+                  - /url: /admin/users/customuser/
+              - cell "Adicionar" [ref=e120]:
+                - link "Adicionar" [ref=e121] [cursor=pointer]:
+                  - /url: /admin/users/customuser/add/
+      - main [ref=e122]:
+        - generic [ref=e123]:
+          - heading "Modificar match" [level=1] [ref=e124]
+          - heading "Argentina x França" [level=2] [ref=e125]
+          - generic [ref=e126]:
+            - list [ref=e127]:
+              - listitem [ref=e128]:
+                - link "Histórico" [ref=e129] [cursor=pointer]:
+                  - /url: /admin/matches/match/50/history/
+            - generic [ref=e131]:
+              - group "Jogo" [ref=e132]:
+                - heading "Jogo" [level=2] [ref=e133]
+                - generic [ref=e136]:
+                  - generic [ref=e137]: "Round:"
+                  - generic [ref=e138]:
+                    - combobox "Round:" [ref=e139]:
+                      - option "---------"
+                      - option "Grupo A - Rodada 1" [selected]
+                    - link "Alterar round selecionado" [ref=e140] [cursor=pointer]:
+                      - /url: /admin/matches/round/1/change/?_to_field=id&_popup=1
+                    - link "Adicionar outro round" [ref=e141] [cursor=pointer]:
+                      - /url: /admin/matches/round/add/?_to_field=id&_popup=1
+                    - link "Visualizar round selecionados" [ref=e142] [cursor=pointer]:
+                      - /url: /admin/matches/round/1/change/?_to_field=id
+                - generic [ref=e145]:
+                  - generic [ref=e146]: "Stadium:"
+                  - generic [ref=e147]:
+                    - combobox "Stadium:" [ref=e148]:
+                      - option "---------"
+                      - option "Maracanã (Rio de Janeiro)" [selected]
+                    - link "Alterar stadium selecionado" [ref=e149] [cursor=pointer]:
+                      - /url: /admin/matches/stadium/1/change/?_to_field=id&_popup=1
+                    - link "Adicionar outro stadium" [ref=e150] [cursor=pointer]:
+                      - /url: /admin/matches/stadium/add/?_to_field=id&_popup=1
+                    - link "Remover stadium selecionado" [ref=e151] [cursor=pointer]:
+                      - /url: /admin/matches/stadium/1/delete/?_to_field=id&_popup=1
+                    - link "Visualizar stadium selecionados" [ref=e152] [cursor=pointer]:
+                      - /url: /admin/matches/stadium/1/change/?_to_field=id
+                - generic [ref=e155]:
+                  - generic [ref=e156]: "Home team:"
+                  - generic [ref=e157]:
+                    - combobox "Home team:" [ref=e158]:
+                      - option "---------"
+                      - option "Brasil"
+                      - option "Argentina" [selected]
+                      - option "França"
+                      - option "Alemanha"
+                    - link "Alterar team selecionado" [ref=e159] [cursor=pointer]:
+                      - /url: /admin/matches/team/2/change/?_to_field=id&_popup=1
+                    - link "Adicionar outro team" [ref=e160] [cursor=pointer]:
+                      - /url: /admin/matches/team/add/?_to_field=id&_popup=1
+                    - link "Remover team selecionado" [ref=e161] [cursor=pointer]:
+                      - /url: /admin/matches/team/2/delete/?_to_field=id&_popup=1
+                    - link "Visualizar team selecionados" [ref=e162] [cursor=pointer]:
+                      - /url: /admin/matches/team/2/change/?_to_field=id
+                - generic [ref=e165]:
+                  - generic [ref=e166]: "Away team:"
+                  - generic [ref=e167]:
+                    - combobox "Away team:" [ref=e168]:
+                      - option "---------"
+                      - option "Brasil"
+                      - option "Argentina"
+                      - option "França" [selected]
+                      - option "Alemanha"
+                    - link "Alterar team selecionado" [ref=e169] [cursor=pointer]:
+                      - /url: /admin/matches/team/3/change/?_to_field=id&_popup=1
+                    - link "Adicionar outro team" [ref=e170] [cursor=pointer]:
+                      - /url: /admin/matches/team/add/?_to_field=id&_popup=1
+                    - link "Remover team selecionado" [ref=e171] [cursor=pointer]:
+                      - /url: /admin/matches/team/3/delete/?_to_field=id&_popup=1
+                    - link "Visualizar team selecionados" [ref=e172] [cursor=pointer]:
+                      - /url: /admin/matches/team/3/change/?_to_field=id
+                - group "Match datetime:" [ref=e174]:
+                  - generic [ref=e175]: "Match datetime:"
+                  - paragraph [ref=e178]:
+                    - text: "Data:"
+                    - textbox "Data:" [ref=e179]: 12/06/2026
+                    - generic [ref=e180]:
+                      - button "Hoje" [ref=e181] [cursor=pointer]
+                      - text: "|"
+                      - link "Escolha uma data" [ref=e182] [cursor=pointer]:
+                        - /url: "#"
+                        - generic "Escolha uma data" [ref=e183]
+                    - text: "Hora:"
+                    - textbox "Hora:" [ref=e184]: 21:10:50
+                    - generic [ref=e185]:
+                      - button "Agora" [ref=e186] [cursor=pointer]
+                      - text: "|"
+                      - link "Escolha um horário" [ref=e187] [cursor=pointer]:
+                        - /url: "#"
+                        - generic "Escolha um horário" [ref=e188]
+              - group "Resultado" [ref=e189]:
+                - heading "Resultado" [level=2] [ref=e190]
+                - generic [ref=e193]:
+                  - generic [ref=e194]: "Home score:"
+                  - spinbutton "Home score:" [ref=e195]: "1"
+                - generic [ref=e198]:
+                  - generic [ref=e199]: "Away score:"
+                  - spinbutton "Away score:" [ref=e200]: "0"
+                - generic [ref=e203]:
+                  - generic [ref=e204]: "Status:"
+                  - combobox "Status:" [ref=e205]:
+                    - option "Agendado"
+                    - option "Em andamento"
+                    - option "Finalizado" [selected]
+              - group "Auditoria" [ref=e206]:
+                - heading "Auditoria" [level=2] [ref=e207]
+                - generic [ref=e210]:
+                  - generic [ref=e211]: "Created at:"
+                  - generic [ref=e212]: 8 de Junho de 2026 às 21:10
+                - generic [ref=e215]:
+                  - generic [ref=e216]: "Updated at:"
+                  - generic [ref=e217]: 8 de Junho de 2026 às 21:21
+              - generic [ref=e218]:
+                - button "Salvar" [ref=e219] [cursor=pointer]
+                - button "Salvar e adicionar outro(a)" [ref=e220] [cursor=pointer]
+                - button "Salvar e continuar editando" [ref=e221] [cursor=pointer]
+                - button "Remover" [ref=e222] [cursor=pointer]
+    - contentinfo

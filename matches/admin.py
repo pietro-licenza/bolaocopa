@@ -52,17 +52,22 @@ class MatchAdmin(admin.ModelAdmin):
 
     @admin.action(description='Marcar jogos selecionados como finalizado')
     def mark_as_finalizado(self, request, queryset):
-        no_score = queryset.filter(
-            home_score__isnull=True,
-        ).union(queryset.filter(away_score__isnull=True))
-        if no_score.exists():
-            skipped = no_score.count()
+        no_score_ids = set(
+            queryset.filter(
+                home_score__isnull=True,
+            ).values_list('pk', flat=True),
+        ) | set(
+            queryset.filter(
+                away_score__isnull=True,
+            ).values_list('pk', flat=True),
+        )
+        if no_score_ids:
             self.message_user(
                 request,
-                f'{skipped} jogo(s) ignorado(s): placar nao definido.',
+                f'{len(no_score_ids)} jogo(s) ignorado(s): placar nao definido.',
                 level='warning',
             )
-            queryset = queryset.exclude(pk__in=no_score.values_list('pk', flat=True))
+            queryset = queryset.exclude(pk__in=no_score_ids)
         updated = 0
         for match in queryset:
             if match.status != 'finalizado':

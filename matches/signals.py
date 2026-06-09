@@ -20,8 +20,6 @@ def match_pre_save(sender, instance, **kwargs):
 def match_post_save(sender, instance, created, **kwargs):
     if created:
         return
-    if instance._old_status == 'finalizado':
-        return
     if instance.status != 'finalizado':
         return
     if instance.home_score is None or instance.away_score is None:
