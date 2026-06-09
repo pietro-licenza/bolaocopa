@@ -1,6 +1,7 @@
 from django.core.management.base import BaseCommand
 from django.utils import timezone
 
+from matches.management.commands.seeders import rounds as rounds_seeder
 from matches.management.commands.seeders import stadiums as stadiums_seeder
 from matches.management.commands.seeders import teams as teams_seeder
 from matches.models import Match
@@ -44,10 +45,18 @@ class Command(BaseCommand):
             ),
         )
 
+        # US-6.4: rodadas/fases (upsert idempotente por name).
+        rounds_criados, rounds_atualizados, rounds_total = rounds_seeder.upsert_rounds()
+        self.stdout.write(
+            self.style.SUCCESS(
+                f'Rodadas: {rounds_total} processadas ({rounds_criados} criadas, {rounds_atualizados} atualizadas).',
+            ),
+        )
+
         self.stdout.write('')
         self.stdout.write(self.style.SUCCESS('=== Resumo ==='))
         self.stdout.write(f'Selecoes: {teams_total} ({teams_criados} criadas, {teams_atualizados} atualizadas)')
         self.stdout.write(f'Estadios: {stadiums_total} ({stadiums_criados} criados, {stadiums_atualizados} atualizados)')
-        self.stdout.write('Rodadas: 0 (stub - sera implementado na US 6.4)')
+        self.stdout.write(f'Rodadas: {rounds_total} ({rounds_criados} criadas, {rounds_atualizados} atualizadas)')
         self.stdout.write('Jogos: 0 (stub - sera implementado na US 6.5 e 6.6)')
         self.stdout.write(f'Partidas removidas: {total_matches_deletados}')

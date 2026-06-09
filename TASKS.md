@@ -211,10 +211,10 @@
 **US-6.4: Popular rodadas (Round)**
 - **Como** administrador, **quero** cadastrar as fases/rodadas do torneio, **para** organizar e exibir os jogos agrupados.
 - **Criterios de aceite:**
-  - [ ] Cadastrar as 7 fases: Fase de Grupos, 32-avos (se aplicavel), Oitavas de Final, Quartas de Final, Semifinais, Disputa de 3o lugar, Final
-  - [ ] Cada rodada com `name`, `order` (para ordenacao) e `start_date`/`end_date` (se aplicavel)
-  - [ ] Ordenacao logica: Fase de Grupos (1), Oitavas (2), Quartas (3), Semis (4), 3o lugar (5), Final (6)
-  - [ ] Verificar duplicatas pelo nome antes de criar
+  - [X] Cadastrar as 7 fases: Fase de Grupos, 32-avos (se aplicavel), Oitavas de Final, Quartas de Final, Semifinais, Disputa de 3o lugar, Final
+  - [X] Cada rodada com `name`, `order` (para ordenacao) e `start_date`/`end_date` (se aplicavel)
+  - [X] Ordenacao logica: Fase de Grupos (1), Oitavas (2), Quartas (3), Semis (4), 3o lugar (5), Final (6)
+  - [X] Verificar duplicatas pelo nome antes de criar
 
 **US-6.5: Popular jogos da fase de grupos (Match)**
 - **Como** administrador, **quero** cadastrar os 72 jogos da fase de grupos (12 grupos x 6 jogos), **para** que os usuarios possam palpitar desde o inicio do torneio.

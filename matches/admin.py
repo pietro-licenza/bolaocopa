@@ -19,8 +19,10 @@ class StadiumAdmin(admin.ModelAdmin):
 
 @admin.register(Round)
 class RoundAdmin(admin.ModelAdmin):
-    list_display = ('name', 'order', 'phase')
+    list_display = ('name', 'order', 'phase', 'start_date', 'end_date')
     list_filter = ('phase',)
+    search_fields = ('name',)
+    ordering = ('order',)
 
 
 @admin.register(Match)

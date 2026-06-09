@@ -40,6 +40,7 @@ class Stadium(models.Model):
 class Round(models.Model):
     PHASE_CHOICES = (
         ('grupo', 'Fase de Grupos'),
+        ('trinta_dois_avos', '32-avos de Final'),
         ('oitavas', 'Oitavas de Final'),
         ('quartas', 'Quartas de Final'),
         ('semi', 'Semifinal'),
@@ -50,6 +51,8 @@ class Round(models.Model):
     name = models.CharField(max_length=100)
     order = models.PositiveIntegerField()
     phase = models.CharField(max_length=20, choices=PHASE_CHOICES)
+    start_date = models.DateField(null=True, blank=True)
+    end_date = models.DateField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
