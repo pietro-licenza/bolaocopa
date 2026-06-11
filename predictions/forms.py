@@ -11,23 +11,29 @@ class PredictionForm(forms.ModelForm):
         widgets = {
             'home_score': forms.NumberInput(attrs={
                 'class': (
-                    'w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 '
-                    'text-white placeholder-gray-500 focus:border-emerald-500 '
-                    'focus:ring-1 focus:ring-emerald-500 focus:outline-none '
-                    'transition-colors duration-200'
+                    'w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-3 '
+                    'text-3xl font-bold text-center text-white placeholder-gray-500 '
+                    'focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 '
+                    'focus:outline-none transition-colors duration-200 '
+                    '[appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none '
+                    '[&::-webkit-inner-spin-button]:appearance-none'
                 ),
                 'min': 0,
                 'placeholder': '0',
+                'inputmode': 'numeric',
             }),
             'away_score': forms.NumberInput(attrs={
                 'class': (
-                    'w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 '
-                    'text-white placeholder-gray-500 focus:border-emerald-500 '
-                    'focus:ring-1 focus:ring-emerald-500 focus:outline-none '
-                    'transition-colors duration-200'
+                    'w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-3 '
+                    'text-3xl font-bold text-center text-white placeholder-gray-500 '
+                    'focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 '
+                    'focus:outline-none transition-colors duration-200 '
+                    '[appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none '
+                    '[&::-webkit-inner-spin-button]:appearance-none'
                 ),
                 'min': 0,
                 'placeholder': '0',
+                'inputmode': 'numeric',
             }),
         }
 

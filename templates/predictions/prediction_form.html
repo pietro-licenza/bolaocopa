@@ -31,17 +31,33 @@
 
         <form method='post'>
             {% csrf_token %}
-            <div class='grid grid-cols-2 gap-4 mb-6'>
+            <div class='grid grid-cols-2 gap-6 mb-6'>
                 <div>
-                    <label class='block text-sm font-medium text-gray-400 mb-1'>{{ match.home_team.name }} (casa)</label>
-                    {{ form.home_score }}
+                    <label class='block text-sm font-medium text-gray-400 mb-2'>{{ match.home_team.name }} (casa)</label>
+                    <div class='flex items-center gap-2'>
+                        <button type='button' onclick='adjustScore("id_home_score", -1)' class='w-12 h-12 flex items-center justify-center bg-gray-700 hover:bg-gray-600 text-white text-2xl font-bold rounded-lg transition-colors duration-200'>
+                            -
+                        </button>
+                        {{ form.home_score }}
+                        <button type='button' onclick='adjustScore("id_home_score", 1)' class='w-12 h-12 flex items-center justify-center bg-gray-700 hover:bg-gray-600 text-white text-2xl font-bold rounded-lg transition-colors duration-200'>
+                            +
+                        </button>
+                    </div>
                     {% if form.home_score.errors %}
                         <p class='text-red-400 text-sm mt-1'>{{ form.home_score.errors.0 }}</p>
                     {% endif %}
                 </div>
                 <div>
-                    <label class='block text-sm font-medium text-gray-400 mb-1'>{{ match.away_team.name }} (visitante)</label>
-                    {{ form.away_score }}
+                    <label class='block text-sm font-medium text-gray-400 mb-2'>{{ match.away_team.name }} (visitante)</label>
+                    <div class='flex items-center gap-2'>
+                        <button type='button' onclick='adjustScore("id_away_score", -1)' class='w-12 h-12 flex items-center justify-center bg-gray-700 hover:bg-gray-600 text-white text-2xl font-bold rounded-lg transition-colors duration-200'>
+                            -
+                        </button>
+                        {{ form.away_score }}
+                        <button type='button' onclick='adjustScore("id_away_score", 1)' class='w-12 h-12 flex items-center justify-center bg-gray-700 hover:bg-gray-600 text-white text-2xl font-bold rounded-lg transition-colors duration-200'>
+                            +
+                        </button>
+                    </div>
                     {% if form.away_score.errors %}
                         <p class='text-red-400 text-sm mt-1'>{{ form.away_score.errors.0 }}</p>
                     {% endif %}
@@ -63,4 +79,40 @@
         </form>
     </div>
 </div>
+
+<script>
+    function adjustScore(fieldId, delta) {
+        const field = document.getElementById(fieldId);
+        if (!field) return;
+
+        const currentValue = parseInt(field.value) || 0;
+        const newValue = Math.max(0, currentValue + delta);
+        field.value = newValue;
+
+        field.dispatchEvent(new Event('input', { bubbles: true }));
+        field.dispatchEvent(new Event('change', { bubbles: true }));
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const homeScoreField = document.getElementById('id_home_score');
+        const awayScoreField = document.getElementById('id_away_score');
+
+        if (homeScoreField) {
+            homeScoreField.addEventListener('input', function() {
+                if (this.value.length > 0) {
+                    awayScoreField.focus();
+                }
+            });
+
+            homeScoreField.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    if (this.value.length > 0 && awayScoreField) {
+                        awayScoreField.focus();
+                    }
+                }
+            });
+        }
+    });
+</script>
 {% endblock %}

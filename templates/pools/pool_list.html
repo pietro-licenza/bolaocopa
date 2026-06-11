@@ -14,13 +14,20 @@
     {% if pools %}
         <div class='grid gap-4'>
             {% for pool in pools %}
-                <a href='{% url "pool_detail" pk=pool.pk %}' class='block bg-gray-900 border border-gray-700 rounded-xl p-6 hover:border-emerald-500/50 transition-colors duration-200'>
-                    <h2 class='text-xl font-semibold text-white'>{{ pool.name }}</h2>
-                    {% if pool.description %}
-                        <p class='text-gray-400 mt-2'>{{ pool.description }}</p>
-                    {% endif %}
-                    <p class='text-sm text-gray-500 mt-3'>Criado por {{ pool.created_by.email }}</p>
-                </a>
+                <div class='bg-gray-900 border border-gray-700 rounded-xl p-6 hover:border-emerald-500/50 transition-colors duration-200'>
+                    <div class='flex justify-between items-start'>
+                        <div class='flex-1'>
+                            <h2 class='text-xl font-semibold text-white'>{{ pool.name }}</h2>
+                            {% if pool.description %}
+                                <p class='text-gray-400 mt-2'>{{ pool.description }}</p>
+                            {% endif %}
+                            <p class='text-sm text-gray-500 mt-3'>Criado por {{ pool.created_by.email }}</p>
+                        </div>
+                        <a href='{% url "pool_detail" pk=pool.pk %}' class='bg-emerald-600 hover:bg-emerald-500 text-white font-semibold rounded-lg px-4 py-2 transition-colors duration-200 ml-4 whitespace-nowrap'>
+                            Entrar
+                        </a>
+                    </div>
+                </div>
             {% endfor %}
         </div>
     {% else %}

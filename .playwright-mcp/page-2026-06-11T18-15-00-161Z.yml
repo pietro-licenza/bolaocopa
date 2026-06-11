@@ -1,0 +1,64 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e4]:
+      - button "Abrir menu" [ref=e5] [cursor=pointer]:
+        - img [ref=e6]
+      - generic [ref=e8]:
+        - generic [ref=e9]: admin@teste.com
+        - button "Sair" [ref=e11] [cursor=pointer]
+  - complementary [ref=e12]:
+    - generic [ref=e13]:
+      - link "BolãoCopa" [ref=e14] [cursor=pointer]:
+        - /url: /
+      - button "Fechar menu" [ref=e15] [cursor=pointer]:
+        - img [ref=e16]
+    - navigation [ref=e18]:
+      - link "Dashboard" [ref=e19] [cursor=pointer]:
+        - /url: /dashboard/
+        - img [ref=e20]
+        - text: Dashboard
+      - button "Jogos" [ref=e23] [cursor=pointer]:
+        - generic [ref=e24]:
+          - img [ref=e25]
+          - text: Jogos
+        - img [ref=e27]
+      - button "Bolão" [ref=e30] [cursor=pointer]:
+        - generic [ref=e31]:
+          - img [ref=e32]
+          - text: Bolão
+        - img [ref=e34]
+      - button "Sair" [ref=e37] [cursor=pointer]:
+        - img [ref=e38]
+        - text: Sair
+  - main [ref=e40]:
+    - generic [ref=e42]:
+      - heading "Registrar palpite" [level=1] [ref=e43]
+      - paragraph [ref=e44]: Bolao Teste QA
+      - generic [ref=e45]:
+        - generic [ref=e46]:
+          - generic [ref=e47]:
+            - generic [ref=e48]: 🇲🇽
+            - generic [ref=e49]: Mexico
+          - generic [ref=e50]: vs
+          - generic [ref=e51]:
+            - generic [ref=e52]: Africa do Sul
+            - generic [ref=e53]: 🇿🇦
+        - paragraph [ref=e54]: 11/06/2026 16:00 · Estadio Azteca (Mexico City)
+      - generic [ref=e55]:
+        - generic [ref=e56]:
+          - generic [ref=e57]:
+            - generic [ref=e58]: Mexico (casa)
+            - generic [ref=e59]:
+              - button "-" [ref=e60] [cursor=pointer]
+              - spinbutton [ref=e61]
+              - button "+" [ref=e62] [cursor=pointer]
+          - generic [ref=e63]:
+            - generic [ref=e64]: Africa do Sul (visitante)
+            - generic [ref=e65]:
+              - button "-" [ref=e66] [cursor=pointer]
+              - spinbutton [ref=e67]
+              - button "+" [ref=e68] [cursor=pointer]
+        - generic [ref=e69]:
+          - button "Salvar Palpite" [ref=e70] [cursor=pointer]
+          - link "Cancelar" [ref=e71] [cursor=pointer]:
+            - /url: /pools/9/matches/

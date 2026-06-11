@@ -45,10 +45,13 @@ class PoolMatchListView(LoginRequiredMixin, ListView):
         match_items = []
         for match in context['matches']:
             is_locked = match.match_datetime <= now
+            prediction = user_predictions.get(match.pk)
             match_items.append({
                 'match': match,
                 'is_locked': is_locked,
-                'user_prediction': user_predictions.get(match.pk),
+                'user_prediction': prediction,
+                'points_earned': prediction.points if prediction and match.status == 'finalizado' else None,
+                'show_points': prediction is not None and match.status == 'finalizado',
             })
         context['match_items'] = match_items
         return context

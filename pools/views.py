@@ -1,9 +1,9 @@
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import Http404
-from django.shortcuts import redirect
+from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse
-from django.views.generic import CreateView, DetailView, ListView
+from django.views.generic import CreateView, DetailView, ListView, TemplateView
 
 from .forms import PoolForm
 from .models import Pool, PoolMember
@@ -35,6 +35,12 @@ class PoolDetailView(LoginRequiredMixin, DetailView):
             pool=self.object,
             user=self.request.user,
         ).exists()
+        member_count = self.object.members.count()
+        is_creator = self.object.created_by == self.request.user
+        context['can_leave'] = (
+            context['is_member']
+            and (not is_creator or member_count > 1)
+        )
         members_qs = self.object.members.select_related('user').order_by(
             'joined_at',
         )
@@ -107,3 +113,37 @@ class PoolListView(LoginRequiredMixin, ListView):
 
     def get_queryset(self):
         return Pool.objects.filter(members__user=self.request.user)
+
+
+class RulesView(LoginRequiredMixin, TemplateView):
+    template_name = 'pools/rules.html'
+
+
+class PoolLeaveView(LoginRequiredMixin, TemplateView):
+    http_method_names = ['post', 'options']
+
+    def post(self, request, *args, **kwargs):
+        pool = get_object_or_404(Pool, pk=self.kwargs['pk'])
+        member = PoolMember.objects.filter(
+            pool=pool,
+            user=request.user,
+        ).first()
+
+        if not member:
+            messages.error(request, 'Você não é membro deste bolão.')
+            return redirect(reverse('pool_list'))
+
+        is_creator = pool.created_by == request.user
+        member_count = pool.members.count()
+
+        if is_creator and member_count == 1:
+            messages.error(
+                request,
+                'Você é o único membro e criador deste bolão. '
+                'Não é possível sair./delete o bolão se desejar encerrá-lo.',
+            )
+            return redirect(reverse('pool_detail', kwargs={'pk': pool.pk}))
+
+        member.delete()
+        messages.success(request, 'Você saiu do bolão.')
+        return redirect(reverse('pool_list'))

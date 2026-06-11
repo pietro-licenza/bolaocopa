@@ -43,21 +43,21 @@
                         </div>
                     </div>
 
-                    {% comment %}US-7.4: placar grande centralizado. Em jogos
-                       agendados (sem placar) o partial exibe "·"
-                       para manter o alinhamento visual.{% endcomment %}
-                    {% include 'live/partials/score_display.html' with match=item.match %}
+                    {% comment %}US-8.2: exibe o palpite do usuário ao lado das bandeiras.
+                       Se não há palpite, mostra "--- x ---".
+                       Se o jogo está finalizado, exibe os pontos ganhos.{% endcomment %}
+                    {% include 'predictions/partials/user_prediction_display.html' with match=item.match prediction=item.user_prediction show_points=item.show_points points_earned=item.points_earned %}
                     {% comment %}US-7.6: mini-placar de penaltis (quando aplicavel).{% endcomment %}
                     {% include 'live/partials/penalty_score.html' with match=item.match %}
 
                     <div class='mt-6 pt-4 border-t border-gray-700 flex items-center justify-between gap-3 flex-wrap'>
-                        {% if item.user_prediction %}
-                            <span class='text-emerald-400 font-semibold'>Seu palpite: {{ item.user_prediction.home_score }} x {{ item.user_prediction.away_score }}</span>
-                        {% elif item.is_locked %}
-                            <span class='text-red-400 font-semibold'>Palpite indisponível - jogo já começou</span>
-                        {% else %}
-                            <span class='text-gray-400'>Você ainda não palpitou neste jogo</span>
-                        {% endif %}
+                        <div class='flex items-center gap-2'>
+                            {% if item.is_locked and not item.user_prediction %}
+                                <span class='text-red-400 font-semibold'>Palpite indisponível - jogo já começou</span>
+                            {% elif not item.user_prediction %}
+                                <span class='text-gray-400'>Você ainda não palpitou neste jogo</span>
+                            {% endif %}
+                        </div>
                         <div class='flex items-center gap-2'>
                             {% if not item.is_locked and not item.user_prediction %}
                                 <a href='{% url "prediction_create" pool_id=pool.pk match_id=item.match.pk %}' class='bg-emerald-600 hover:bg-emerald-500 text-white font-semibold rounded-lg px-4 py-2 transition-colors duration-200'>

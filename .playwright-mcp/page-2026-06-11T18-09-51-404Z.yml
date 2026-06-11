@@ -1,0 +1,48 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e4]:
+      - button "Abrir menu" [ref=e5] [cursor=pointer]:
+        - img [ref=e6]
+      - generic [ref=e8]:
+        - link "Entrar" [ref=e9] [cursor=pointer]:
+          - /url: /login/
+        - link "Cadastrar" [ref=e10] [cursor=pointer]:
+          - /url: /register/
+  - complementary [ref=e11]:
+    - generic [ref=e12]:
+      - link "BolãoCopa" [ref=e13] [cursor=pointer]:
+        - /url: /
+      - button "Fechar menu" [ref=e14] [cursor=pointer]:
+        - img [ref=e15]
+    - navigation [ref=e17]:
+      - link "Entrar" [ref=e18] [cursor=pointer]:
+        - /url: /login/
+        - img [ref=e19]
+        - text: Entrar
+      - link "Cadastrar" [ref=e21] [cursor=pointer]:
+        - /url: /register/
+        - img [ref=e22]
+        - text: Cadastrar
+  - main [ref=e24]:
+    - generic [ref=e25]:
+      - generic [ref=e26]:
+        - heading "BolãoCopa" [level=1] [ref=e27]
+        - paragraph [ref=e28]: Crie bolões, faça palpites e compita com seus amigos!
+        - generic [ref=e29]:
+          - link "Cadastrar" [ref=e30] [cursor=pointer]:
+            - /url: /register/
+          - link "Entrar" [ref=e31] [cursor=pointer]:
+            - /url: /login/
+      - generic [ref=e32]:
+        - generic [ref=e33]:
+          - generic [ref=e34]: ⚽
+          - heading "Palpites em Tempo Real" [level=3] [ref=e35]
+          - paragraph [ref=e36]: Faça palpites nos jogos e acompanhe os resultados ao vivo.
+        - generic [ref=e37]:
+          - generic [ref=e38]: 🏆
+          - heading "Rankings Dinâmicos" [level=3] [ref=e39]
+          - paragraph [ref=e40]: Veja quem é o melhor palpiteiro do seu bolão.
+        - generic [ref=e41]:
+          - generic [ref=e42]: 👥
+          - heading "Bolões Privados" [level=3] [ref=e43]
+          - paragraph [ref=e44]: Crie bolões exclusivos e convide seus amigos.

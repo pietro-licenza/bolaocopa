@@ -12,7 +12,7 @@
         {% endif %}
 
         <div class='border-t border-gray-700 pt-6 mt-6'>
-            <div class='flex items-center justify-between'>
+            <div class='flex items-center justify-between flex-wrap gap-4'>
                 <div>
                     <p class='text-sm font-medium text-gray-400'>Criado por</p>
                     <p class='text-white'>{{ pool.created_by.email }}</p>
@@ -21,6 +21,16 @@
                     <p class='text-sm font-medium text-gray-400'>Link de convite</p>
                     <p class='text-emerald-400 text-sm break-all'>{{ request.get_host }}{% url 'pool_join' token=pool.invite_token %}</p>
                 </div>
+                {% if is_member and can_leave %}
+                    <div class='ml-auto'>
+                        <form method='post' action='{% url "pool_leave" pool.pk %}' onsubmit="return confirm('Tem certeza que deseja sair deste bolão?');">
+                            {% csrf_token %}
+                            <button type='submit' class='border border-red-600 hover:border-red-500 text-red-400 hover:text-red-300 font-semibold rounded-lg px-4 py-2 transition-colors duration-200'>
+                                Sair do Bolão
+                            </button>
+                        </form>
+                    </div>
+                {% endif %}
             </div>
         </div>
 

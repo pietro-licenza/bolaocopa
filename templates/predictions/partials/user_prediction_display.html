@@ -1,0 +1,40 @@
+{% comment %}
+Partial para exibir o palpite do usuário ao lado das bandeiras.
+
+Usado em pool_matches.html e my_predictions.html (US-8.2).
+
+Layout: time mandante a esquerda, palpite grande no centro, time
+visitante a direita. Quando não há palpite, exibe "--- x ---".
+
+Parametros esperados no contexto:
+- prediction: objeto Prediction (opcional, pode ser None)
+- match: objeto Match (para obter times)
+- show_points: booleano (opcional, default False) - se True, exibe pontos ganhos
+- points_earned: inteiro (opcional) - pontos ganhos
+{% endcomment %}
+<div class='flex items-center justify-between gap-4 my-4'>
+    <div class='flex flex-col items-center gap-1 flex-1 min-w-0'>
+        <span class='text-3xl'>{{ match.home_team.flag_emoji }}</span>
+        <span class='text-white font-semibold truncate max-w-[120px]'>{{ match.home_team.name }}</span>
+    </div>
+    <div class='flex flex-col items-center gap-1'>
+        {% if prediction %}
+            <span class='text-5xl font-bold text-emerald-400 tabular-nums'>
+                {{ prediction.home_score }} x {{ prediction.away_score }}
+            </span>
+            {% if show_points and points_earned is not None %}
+                <span class='text-sm font-semibold text-amber-400'>
+                    +{{ points_earned }} pts
+                </span>
+            {% endif %}
+        {% else %}
+            <span class='text-4xl font-bold text-gray-600 tabular-nums'>
+                --- x ---
+            </span>
+        {% endif %}
+    </div>
+    <div class='flex flex-col items-center gap-1 flex-1 min-w-0'>
+        <span class='text-3xl'>{{ match.away_team.flag_emoji }}</span>
+        <span class='text-white font-semibold truncate max-w-[120px]'>{{ match.away_team.name }}</span>
+    </div>
+</div>

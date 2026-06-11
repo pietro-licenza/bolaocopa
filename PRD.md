@@ -641,253 +641,327 @@ erDiagram
 
 ### Sprint 1 - Setup do projeto e autenticacao
 
-- [ ] **T1.1: Inicializar projeto Django**
-  - [ ] T1.1.1: Criar projeto Django com `django-admin startproject core .` na raiz
-  - [ ] T1.1.2: Configurar `settings.py` com `INSTALLED_APPS`, `LANGUAGE_CODE='pt-br'`, `TIME_ZONE='America/Sao_Paulo'`
-  - [ ] T1.1.3: Adicionar apps `users`, `matches`, `pools`, `predictions`, `rankings` ao `INSTALLED_APPS`
-  - [ ] T1.1.4: Configurar `DATABASES` para SQLite com `AUTH_USER_MODEL = 'users.CustomUser'`
-  - [ ] T1.1.5: Adicionar `django_tailwind` ou configurar TailwindCSS via CDN no `base.html`
-  - [ ] T1.1.6: Criar arquivo `requirements.txt` com dependencias: django, gunicorn
+- [X] **T1.1: Inicializar projeto Django**
+  - [X] T1.1.1: Criar projeto Django com `django-admin startproject core .` na raiz
+  - [X] T1.1.2: Configurar `settings.py` com `INSTALLED_APPS`, `LANGUAGE_CODE='pt-br'`, `TIME_ZONE='America/Sao_Paulo'`
+  - [X] T1.1.3: Adicionar apps `users`, `matches`, `pools`, `predictions`, `rankings` ao `INSTALLED_APPS`
+  - [X] T1.1.4: Configurar `DATABASES` para SQLite com `AUTH_USER_MODEL = 'users.CustomUser'`
+  - [X] T1.1.5: Adicionar `django_tailwind` ou configurar TailwindCSS via CDN no `base.html`
+  - [X] T1.1.6: Criar arquivo `requirements.txt` com dependencias: django, gunicorn
 
-- [ ] **T1.2: Criar app users e modelo CustomUser**
-  - [ ] T1.2.1: Criar app `users` com `python manage.py startapp users`
-  - [ ] T1.2.2: Criar modelo `CustomUser` estendendo `AbstractUser` em `users/models.py`
-  - [ ] T1.2.3: Sobrescrever campo `username` para ser `email` (tornar email como campo de login via `USERNAME_FIELD = 'email'`)
-  - [ ] T1.2.4: Adicionar campos `created_at` e `updated_at` com `auto_now_add` e `auto_now`
-  - [ ] T1.2.5: Registrar `CustomUser` no `users/admin.py` com `UserAdmin`
-  - [ ] T1.2.6: Criar e rodar migracao inicial
+- [X] **T1.2: Criar app users e modelo CustomUser**
+  - [X] T1.2.1: Criar app `users` com `python manage.py startapp users`
+  - [X] T1.2.2: Criar modelo `CustomUser` estendendo `AbstractUser` em `users/models.py`
+  - [X] T1.2.3: Sobrescrever campo `username` para ser `email` (tornar email como campo de login via `USERNAME_FIELD = 'email'`)
+  - [X] T1.2.4: Adicionar campos `created_at` e `updated_at` com `auto_now_add` e `auto_now`
+  - [X] T1.2.5: Registrar `CustomUser` no `users/admin.py` com `UserAdmin`
+  - [X] T1.2.6: Criar e rodar migracao inicial
 
-- [ ] **T1.3: Configurar autenticacao por email**
-  - [ ] T1.3.1: Criar `users/forms.py` com `CustomUserCreationForm` e `CustomUserChangeForm` estendendo os forms do Django
-  - [ ] T1.3.2: Criar `users/views.py` com CBV `RegisterView` (usando `CreateView` ou `FormView`) para cadastro
-  - [ ] T1.3.3: Criar `users/views.py` com CBV `LoginView` customizada usando email
-  - [ ] T1.3.4: Criar `users/views.py` com CBV `LogoutView`
-  - [ ] T1.3.5: Configurar `AUTHENTICATION_BACKENDS` no `settings.py` para autenticacao por email
-  - [ ] T1.3.6: Configurar `LOGIN_URL`, `LOGIN_REDIRECT_URL` e `LOGOUT_REDIRECT_URL` no `settings.py`
+- [X] **T1.3: Configurar autenticacao por email**
+  - [X] T1.3.1: Criar `users/forms.py` com `CustomUserCreationForm` e `CustomUserChangeForm` estendendo os forms do Django
+  - [X] T1.3.2: Criar `users/views.py` com CBV `RegisterView` (usando `CreateView` ou `FormView`) para cadastro
+  - [X] T1.3.3: Criar `users/views.py` com CBV `LoginView` customizada usando email
+  - [X] T1.3.4: Criar `users/views.py` com CBV `LogoutView`
+  - [X] T1.3.5: Configurar `AUTHENTICATION_BACKENDS` no `settings.py` para autenticacao por email
+  - [X] T1.3.6: Configurar `LOGIN_URL`, `LOGIN_REDIRECT_URL` e `LOGOUT_REDIRECT_URL` no `settings.py`
 
-- [ ] **T1.4: Criar templates de autenticacao**
-  - [ ] T1.4.1: Criar template base `templates/base.html` com navbar, footer e bloco content
-  - [ ] T1.4.2: Criar `templates/registration/login.html` com formulario de login estilizado (fundo escuro, design system)
-  - [ ] T1.4.3: Criar `templates/users/register.html` com formulario de cadastro estilizado
-  - [ ] T1.4.4: Adicionar links de navegacao na navbar: Login, Cadastre-se (para nao logados) e Dashboard, Sair (para logados)
+- [X] **T1.4: Criar templates de autenticacao**
+  - [X] T1.4.1: Criar template base `templates/base.html` com navbar, footer e bloco content
+  - [X] T1.4.2: Criar `templates/registration/login.html` com formulario de login estilizado (fundo escuro, design system)
+  - [X] T1.4.3: Criar `templates/users/register.html` com formulario de cadastro estilizado
+  - [X] T1.4.4: Adicionar links de navegacao na navbar: Login, Cadastre-se (para nao logados) e Dashboard, Sair (para logados)
 
-- [ ] **T1.5: Configurar URLs de autenticacao**
-  - [ ] T1.5.1: Criar `users/urls.py` com rotas: `/register/`, `/login/`, `/logout/`
-  - [ ] T1.5.2: Incluir `users/urls.py` no `core/urls.py` com `path('accounts/', include('users.urls'))`
+- [X] **T1.5: Configurar URLs de autenticacao**
+  - [X] T1.5.1: Criar `users/urls.py` com rotas: `/register/`, `/login/`, `/logout/`
+  - [X] T1.5.2: Incluir `users/urls.py` no `core/urls.py` com `path('accounts/', include('users.urls'))`
 
 ---
 
 ### Sprint 2 - Landing page e dashboard
 
-- [ ] **T2.1: Criar landing page publica**
-  - [ ] T2.1.1: Criar app `core` views ou views globais em `core/views.py` com `HomeView` (TemplateView)
-  - [ ] T2.1.2: Criar template `templates/pages/home.html` com hero banner (gradiente escuro), descricao do sistema, secoes "Como funciona" e CTAs "Cadastre-se" / "Login"
-  - [ ] T2.1.3: Estilizar landing page com TailwindCSS usando fundo escuro, gradientes e card de apresentacao
+- [X] **T2.1: Criar landing page publica**
+  - [X] T2.1.1: Criar app `core` views ou views globais em `core/views.py` com `HomeView` (TemplateView)
+  - [X] T2.1.2: Criar template `templates/pages/home.html` com hero banner (gradiente escuro), descricao do sistema, secoes "Como funciona" e CTAs "Cadastre-se" / "Login"
+  - [X] T2.1.3: Estilizar landing page com TailwindCSS usando fundo escuro, gradientes e card de apresentacao
 
-- [ ] **T2.2: Criar view e template do dashboard**
-  - [ ] T2.2.1: Criar `DashboardView` (TemplateView) com `login_required` em views globais ou app core
-  - [ ] T2.2.2: Criar template `templates/pages/dashboard.html` com layout em grid: secao de boloes, palpites recentes, proximos jogos e posicao nos rankings
-  - [ ] T2.2.3: Adicionar contexto ao DashboardView: boloes do usuario (via PoolMember), palpites recentes, proximos 5 jogos, posicao nos rankings
+- [X] **T2.2: Criar view e template do dashboard**
+  - [X] T2.2.1: Criar `DashboardView` (TemplateView) com `login_required` em views globais ou app core
+  - [X] T2.2.2: Criar template `templates/pages/dashboard.html` com layout em grid: secao de boloes, palpites recentes, proximos jogos e posicao nos rankings
+  - [X] T2.2.3: Adicionar contexto ao DashboardView: boloes do usuario (via PoolMember), palpites recentes, proximos 5 jogos, posicao nos rankings
 
-- [ ] **T2.3: Configurar URLs globais**
-  - [ ] T2.3.1: Configurar `core/urls.py` com rotas: `/` (home), `/dashboard/` (dashboard)
-  - [ ] T2.3.2: Incluir URLs dos apps (pools, matches, predictions, rankings) no `core/urls.py`
+- [X] **T2.3: Configurar URLs globais**
+  - [X] T2.3.1: Configurar `core/urls.py` com rotas: `/` (home), `/dashboard/` (dashboard)
+  - [X] T2.3.2: Incluir URLs dos apps (pools, matches, predictions, rankings) no `core/urls.py`
 
-- [ ] **T2.4: Melhorar template base e componentes**
-  - [ ] T2.4.1: Refinar `templates/base.html` com navbar responsiva (logo BolaoCopa, links, menu mobile hamburger)
-  - [ ] T2.4.2: Criar snippet/template tag para mensagens de feedback (success, error) usando Django messages framework
-  - [ ] T2.4.3: Adicionar footer no `base.html` com creditos
+- [X] **T2.4: Melhorar template base e componentes**
+  - [X] T2.4.1: Refinar `templates/base.html` com navbar responsiva (logo BolaoCopa, links, menu mobile hamburger)
+  - [X] T2.4.2: Criar snippet/template tag para mensagens de feedback (success, error) usando Django messages framework
+  - [X] T2.4.3: Adicionar footer no `base.html` com creditos
 
 ---
 
 ### Sprint 3 - App matches (jogos da Copa)
 
-- [ ] **T3.1: Criar modelos do app matches**
-  - [ ] T3.1.1: Criar modelo `Team` com campos: `name`, `country_code`, `flag_emoji`, `created_at`, `updated_at`
-  - [ ] T3.1.2: Criar modelo `Stadium` com campos: `name`, `city`, `country`, `created_at`, `updated_at`
-  - [ ] T3.1.3: Criar modelo `Round` com campos: `name`, `order`, `phase` (choices: grupo, oitavas, quartas, semi, terceiro_lugar, final), `created_at`, `updated_at`
-  - [ ] T3.1.4: Criar modelo `Match` com campos: `round` (FK Round), `stadium` (FK Stadium), `home_team` (FK Team), `away_team` (FK Team), `match_datetime`, `home_score` (nullable int), `away_score` (nullable int), `status` (choices: agendado, em_andamento, finalizado), `created_at`, `updated_at`
-  - [ ] T3.1.5: Adicionar `__str__` em todos os modelos
-  - [ ] T3.1.6: Registrar modelos no `matches/admin.py` com `ModelAdmin` customizado (list_display, search_fields, list_filter)
-  - [ ] T3.1.7: Criar e rodar migracoes
+- [X] **T3.1: Criar modelos do app matches**
+  - [X] T3.1.1: Criar modelo `Team` com campos: `name`, `country_code`, `flag_emoji`, `created_at`, `updated_at`
+  - [X] T3.1.2: Criar modelo `Stadium` com campos: `name`, `city`, `country`, `created_at`, `updated_at`
+  - [X] T3.1.3: Criar modelo `Round` com campos: `name`, `order`, `phase` (choices: grupo, oitavas, quartas, semi, terceiro_lugar, final), `created_at`, `updated_at`
+  - [X] T3.1.4: Criar modelo `Match` com campos: `round` (FK Round), `stadium` (FK Stadium), `home_team` (FK Team), `away_team` (FK Team), `match_datetime`, `home_score` (nullable int), `away_score` (nullable int), `status` (choices: agendado, em_andamento, finalizado), `created_at`, `updated_at`
+  - [X] T3.1.5: Adicionar `__str__` em todos os modelos
+  - [X] T3.1.6: Registrar modelos no `matches/admin.py` com `ModelAdmin` customizado (list_display, search_fields, list_filter)
+  - [X] T3.1.7: Criar e rodar migracoes
 
-- [ ] **T3.2: Criar views do app matches**
-  - [ ] T3.2.1: Criar `MatchListView` (ListView) para listar jogos (ordenados por `match_datetime`)
-  - [ ] T3.2.2: Criar `MatchDetailView` (DetailView) para detalhes de um jogo
-  - [ ] T3.2.3: Adicionar `login_required` nas views
+- [X] **T3.2: Criar views do app matches**
+  - [X] T3.2.1: Criar `MatchListView` (ListView) para listar jogos (ordenados por `match_datetime`)
+  - [X] T3.2.2: Criar `MatchDetailView` (DetailView) para detalhes de um jogo
+  - [X] T3.2.3: Adicionar `login_required` nas views
 
-- [ ] **T3.3: Criar templates do app matches**
-  - [ ] T3.3.1: Criar `templates/matches/match_list.html` com grid de cards de jogos (design system: card escuro com info das selecoes, data e estadio)
-  - [ ] T3.3.2: Criar `templates/matches/match_detail.html` com detalhes completos do jogo, flags, estadio e status
-  - [ ] T3.3.3: Adicionar indicador visual de status do jogo: badge colorido (agendado=cinza, em_andamento=verde, finalizado=amarelo)
+- [X] **T3.3: Criar templates do app matches**
+  - [X] T3.3.1: Criar `templates/matches/match_list.html` com grid de cards de jogos (design system: card escuro com info das selecoes, data e estadio)
+  - [X] T3.3.2: Criar `templates/matches/match_detail.html` com detalhes completos do jogo, flags, estadio e status
+  - [X] T3.3.3: Adicionar indicador visual de status do jogo: badge colorido (agendado=cinza, em_andamento=verde, finalizado=amarelo)
 
-- [ ] **T3.4: Configurar URLs do app matches**
-  - [ ] T3.4.1: Criar `matches/urls.py` com rotas: `/matches/`, `/matches/<pk>/`
-  - [ ] T3.4.2: Incluir no `core/urls.py` com `path('matches/', include('matches.urls'))`
+- [X] **T3.4: Configurar URLs do app matches**
+  - [X] T3.4.1: Criar `matches/urls.py` com rotas: `/matches/`, `/matches/<pk>/`
+  - [X] T3.4.2: Incluir no `core/urls.py` com `path('matches/', include('matches.urls'))`
 
 ---
 
 ### Sprint 4 - App pools (boloes)
 
-- [ ] **T4.1: Criar modelos do app pools**
-  - [ ] T4.1.1: Criar modelo `Pool` com campos: `name` (max_length=100), `description` (blank=True), `invite_token` (UUID, unique, auto), `created_by` (FK CustomUser), `created_at`, `updated_at`
-  - [ ] T4.1.2: Criar modelo `PoolMember` com campos: `pool` (FK Pool), `user` (FK CustomUser), `joined_at`, `created_at`, `updated_at`; unique_together = (`pool`, `user`)
-  - [ ] T4.1.3: Adicionar `__str__` nos modelos
-  - [ ] T4.1.4: Registrar modelos no `pools/admin.py`
-  - [ ] T4.1.5: Criar e rodar migracoes
+- [X] **T4.1: Criar modelos do app pools**
+  - [X] T4.1.1: Criar modelo `Pool` com campos: `name` (max_length=100), `description` (blank=True), `invite_token` (UUID, unique, auto), `created_by` (FK CustomUser), `created_at`, `updated_at`
+  - [X] T4.1.2: Criar modelo `PoolMember` com campos: `pool` (FK Pool), `user` (FK CustomUser), `joined_at`, `created_at`, `updated_at`; unique_together = (`pool`, `user`)
+  - [X] T4.1.3: Adicionar `__str__` nos modelos
+  - [X] T4.1.4: Registrar modelos no `pools/admin.py`
+  - [X] T4.1.5: Criar e rodar migracoes
 
-- [ ] **T4.2: Criar views do app pools**
-  - [ ] T4.2.1: Criar `PoolCreateView` (CreateView) para criar bolao (com `login_required`)
-  - [ ] T4.2.2: Criar `PoolListView` (ListView) para listar boloes do usuario logado
-  - [ ] T4.2.3: Criar `PoolDetailView` (DetailView) para detalhes do bolao (membros, ranking, jogos)
-  - [ ] T4.2.4: Criar `PoolJoinView` (View/ProcessView) para entrar em bolao via link de convite (validar token, verificar se ja eh membro)
+- [X] **T4.2: Criar views do app pools**
+  - [X] T4.2.1: Criar `PoolCreateView` (CreateView) para criar bolao (com `login_required`)
+  - [X] T4.2.2: Criar `PoolListView` (ListView) para listar boloes do usuario logado
+  - [X] T4.2.3: Criar `PoolDetailView` (DetailView) para detalhes do bolao (membros, ranking, jogos)
+  - [X] T4.2.4: Criar `PoolJoinView` (View/ProcessView) para entrar em bolao via link de convite (validar token, verificar se ja eh membro)
   - [ ] T4.2.5: Criar `PoolLeaveView` (View) para sair de um bolao (impedir saida se for o criador e unico membro)
 
-- [ ] **T4.3: Criar templates do app pools**
-  - [ ] T4.3.1: Criar `templates/pools/pool_list.html` com grid de cards de boloes (nome, qtd membros, posicao do usuario)
-  - [ ] T4.3.2: Criar `templates/pools/pool_create.html` com formulario de criacao de bolao (design system: inputs dark, botoes verde)
-  - [ ] T4.3.3: Criar `templates/pools/pool_detail.html` com: header do bolao, secao de convite (link copiavel), lista de membros, ranking resumido, link para palpites
-  - [ ] T4.3.4: Criar `templates/pools/pool_join.html` com confirmacao de entrada no bolao
-  - [ ] T4.3.5: Adicionar botao "Copiar link de convite" no detail do bolao com JavaScript
+- [X] **T4.3: Criar templates do app pools**
+  - [X] T4.3.1: Criar `templates/pools/pool_list.html` com grid de cards de boloes (nome, qtd membros, posicao do usuario)
+  - [X] T4.3.2: Criar `templates/pools/pool_create.html` com formulario de criacao de bolao (design system: inputs dark, botoes verde)
+  - [X] T4.3.3: Criar `templates/pools/pool_detail.html` com: header do bolao, secao de convite (link copiavel), lista de membros, ranking resumido, link para palpites
+  - [X] T4.3.4: Criar `templates/pools/pool_join.html` com confirmacao de entrada no bolao
+  - [X] T4.3.5: Adicionar botao "Copiar link de convite" no detail do bolao com JavaScript
 
-- [ ] **T4.4: Configurar URLs do app pools**
-  - [ ] T4.4.1: Criar `pools/urls.py` com rotas: `/pools/`, `/pools/create/`, `/pools/<pk>/`, `/pools/<pk>/join/`, `/pools/<pk>/leave/`
-  - [ ] T4.4.2: Incluir no `core/urls.py` com `path('pools/', include('pools.urls'))`
+- [X] **T4.4: Configurar URLs do app pools**
+  - [X] T4.4.1: Criar `pools/urls.py` com rotas: `/pools/`, `/pools/create/`, `/pools/<pk>/`, `/pools/<pk>/join/`, `/pools/<pk>/leave/`
+  - [X] T4.4.2: Incluir no `core/urls.py` com `path('pools/', include('pools.urls'))`
 
 ---
 
 ### Sprint 5 - App predictions (palpites)
 
-- [ ] **T5.1: Criar modelos do app predictions**
-  - [ ] T5.1.1: Criar modelo `Prediction` com campos: `user` (FK CustomUser), `match` (FK Match), `pool` (FK Pool), `home_score` (PositiveIntegerField), `away_score` (PositiveIntegerField), `points` (int, default=0, null until calculated), `created_at`, `updated_at`; unique_together = (`user`, `match`, `pool`)
-  - [ ] T5.1.2: Adicionar `__str__` no modelo
-  - [ ] T5.1.3: Registrar modelo no `predictions/admin.py`
-  - [ ] T5.1.4: Criar e rodar migracoes
+- [X] **T5.1: Criar modelos do app predictions**
+  - [X] T5.1.1: Criar modelo `Prediction` com campos: `user` (FK CustomUser), `match` (FK Match), `pool` (FK Pool), `home_score` (PositiveIntegerField), `away_score` (PositiveIntegerField), `points` (int, default=0, null until calculated), `created_at`, `updated_at`; unique_together = (`user`, `match`, `pool`)
+  - [X] T5.1.2: Adicionar `__str__` no modelo
+  - [X] T5.1.3: Registrar modelo no `predictions/admin.py`
+  - [X] T5.1.4: Criar e rodar migracoes
 
-- [ ] **T5.2: Criar forms e views do app predictions**
-  - [ ] T5.2.1: Criar `predictions/forms.py` com `PredictionForm` (campos: home_score, away_score)
-  - [ ] T5.2.2: Criar `PredictionCreateView` (CreateView) com validacao: jogo nao pode ter comecado (`match_datetime > now`)
-  - [ ] T5.2.3: Criar `PredictionUpdateView` (UpdateView) com validacao: jogo nao pode ter comecado
-  - [ ] T5.2.4: Criar `PredictionListView` (ListView) para listar palpites do usuario em um bolao
-  - [ ] T5.2.5: Adicionar `login_required` em todas as views
-  - [ ] T5.2.6: Na view de criacao, passar o `pool_id` e `match_id` via URL kwargs; validar que o usuario eh membro do bolao
+- [X] **T5.2: Criar forms e views do app predictions**
+  - [X] T5.2.1: Criar `predictions/forms.py` com `PredictionForm` (campos: home_score, away_score)
+  - [X] T5.2.2: Criar `PredictionCreateView` (CreateView) com validacao: jogo nao pode ter comecado (`match_datetime > now`)
+  - [X] T5.2.3: Criar `PredictionUpdateView` (UpdateView) com validacao: jogo nao pode ter comecado
+  - [X] T5.2.4: Criar `PredictionListView` (ListView) para listar palpites do usuario em um bolao
+  - [X] T5.2.5: Adicionar `login_required` em todas as views
+  - [X] T5.2.6: Na view de criacao, passar o `pool_id` e `match_id` via URL kwargs; validar que o usuario eh membro do bolao
 
-- [ ] **T5.3: Criar templates do app predictions**
-  - [ ] T5.3.1: Criar `templates/predictions/prediction_create.html` com formulario de palpite (exibir nome dos times, inputs numéricos para placar, botao submit verde)
-  - [ ] T5.3.2: Criar `templates/predictions/prediction_update.html` com formulario de edicao de palpite
-  - [ ] T5.3.3: Criar `templates/predictions/prediction_list.html` com lista de palpites do usuario (card: jogo, placar palpitado, pontos obtidos, status)
-  - [ ] T5.3.4: Adicionar logica no template para desabilitar formulario de edicao se o jogo ja comecou (exibir badge "Jogo em andamento" ou "Palpite bloqueado")
+- [X] **T5.3: Criar templates do app predictions**
+  - [X] T5.3.1: Criar `templates/predictions/prediction_create.html` com formulario de palpite (exibir nome dos times, inputs numéricos para placar, botao submit verde)
+  - [X] T5.3.2: Criar `templates/predictions/prediction_update.html` com formulario de edicao de palpite
+  - [X] T5.3.3: Criar `templates/predictions/prediction_list.html` com lista de palpites do usuario (card: jogo, placar palpitado, pontos obtidos, status)
+  - [X] T5.3.4: Adicionar logica no template para desabilitar formulario de edicao se o jogo ja comecou (exibir badge "Jogo em andamento" ou "Palpite bloqueado")
 
-- [ ] **T5.4: Configurar URLs do app predictions**
-  - [ ] T5.4.1: Criar `predictions/urls.py` com rotas: `/pools/<pool_id>/predictions/`, `/pools/<pool_id>/predictions/create/<match_id>/`, `/pools/<pool_id>/predictions/<pk>/edit/`
-  - [ ] T5.4.2: Incluir no `core/urls.py` com `path('pools/', include('predictions.urls'))` ou via nested routing
+- [X] **T5.4: Configurar URLs do app predictions**
+  - [X] T5.4.1: Criar `predictions/urls.py` com rotas: `/pools/<pool_id>/predictions/`, `/pools/<pool_id>/predictions/create/<match_id>/`, `/pools/<pool_id>/predictions/<pk>/edit/`
+  - [X] T5.4.2: Incluir no `core/urls.py` com `path('pools/', include('predictions.urls'))` ou via nested routing
 
 ---
 
 ### Sprint 6 - App rankings e signals
 
-- [ ] **T6.1: Criar modelos do app rankings**
-  - [ ] T6.1.1: Criar modelo `Ranking` com campos: `user` (FK CustomUser), `pool` (FK Pool), `total_points` (int, default=0), `position` (int, default=0), `created_at`, `updated_at`; unique_together = (`user`, `pool`)
-  - [ ] T6.1.2: Adicionar `__str__` no modelo
-  - [ ] T6.1.3: Registrar modelo no `rankings/admin.py`
-  - [ ] T6.1.4: Criar e rodar migracoes
+- [X] **T6.1: Criar modelos do app rankings**
+  - [X] T6.1.1: Criar modelo `Ranking` com campos: `user` (FK CustomUser), `pool` (FK Pool), `total_points` (int, default=0), `position` (int, default=0), `created_at`, `updated_at`; unique_together = (`user`, `pool`)
+  - [X] T6.1.2: Adicionar `__str__` no modelo
+  - [X] T6.1.3: Registrar modelo no `rankings/admin.py`
+  - [X] T6.1.4: Criar e rodar migracoes
 
-- [ ] **T6.2: Implementar signal de calculo de pontos**
-  - [ ] T6.2.1: Criar `predictions/signals.py` com signal `post_save` no modelo `Prediction` para calcular pontos quando o resultado do jogo estiver disponivel
-  - [ ] T6.2.2: Criar `matches/signals.py` com signal `post_save` no modelo `Match` que: ao finalizar um jogo (status=finalizado), dispara calculo de pontos para todas as predictions daquele match
-  - [ ] T6.2.3: Implementar funcao de calculo: acerto exato=3pts, acerto vencedor/empate=1pt, erro=0pts
-  - [ ] T6.2.4: apos calcular pontos, atualizar o `Ranking` de cada usuario no bolao correspondente (total_points soma de todas predictions do usuario naquele pool)
-  - [ ] T6.2.5: apos atualizar total_points, recalcular as posicoes (position) do ranking do bolao (ordenar por total_points desc)
-  - [ ] T6.2.6: Registrar signals no `apps.py` de cada app correspondente via `ready()`
+- [X] **T6.2: Implementar signal de calculo de pontos**
+  - [X] T6.2.1: Criar `predictions/signals.py` com signal `post_save` no modelo `Prediction` para calcular pontos quando o resultado do jogo estiver disponivel
+  - [X] T6.2.2: Criar `matches/signals.py` com signal `post_save` no modelo `Match` que: ao finalizar um jogo (status=finalizado), dispara calculo de pontos para todas as predictions daquele match
+  - [X] T6.2.3: Implementar funcao de calculo: acerto exato=3pts, acerto vencedor/empate=1pt, erro=0pts
+  - [X] T6.2.4: apos calcular pontos, atualizar o `Ranking` de cada usuario no bolao correspondente (total_points soma de todas predictions do usuario naquele pool)
+  - [X] T6.2.5: apos atualizar total_points, recalcular as posicoes (position) do ranking do bolao (ordenar por total_points desc)
+  - [X] T6.2.6: Registrar signals no `apps.py` de cada app correspondente via `ready()`
 
-- [ ] **T6.3: Criar views do app rankings**
-  - [ ] T6.3.1: Criar `RankingListView` (ListView) para ranking de um bolao (filtrar por pool_id)
-  - [ ] T6.3.2: Criar `RankingGlobalView` (ListView) para ranking geral do sistema (agregacao de pontos de todos os pools do usuario)
-  - [ ] T6.3.3: Adicionar `login_required` nas views
+- [X] **T6.3: Criar views do app rankings**
+  - [X] T6.3.1: Criar `RankingListView` (ListView) para ranking de um bolao (filtrar por pool_id)
+  - [X] T6.3.2: Criar `RankingGlobalView` (ListView) para ranking geral do sistema (agregacao de pontos de todos os pools do usuario)
+  - [X] T6.3.3: Adicionar `login_required` nas views
 
-- [ ] **T6.4: Criar templates do app rankings**
-  - [ ] T6.4.1: Criar `templates/rankings/ranking_list.html` com tabela de ranking (posicao, nome, pontos) destacando o usuario logado (bg diferente na linha)
-  - [ ] T6.4.2: Criar `templates/rankings/ranking_global.html` com ranking geral do sistema
-  - [ ] T6.4.3: Usar design system: posicao em amber-400 (1o, 2o, 3o com medalhas), pontos em emerald-400, linhas alternadas em gray-900/gray-800
+- [X] **T6.4: Criar templates do app rankings**
+  - [X] T6.4.1: Criar `templates/rankings/ranking_list.html` com tabela de ranking (posicao, nome, pontos) destacando o usuario logado (bg diferente na linha)
+  - [X] T6.4.2: Criar `templates/rankings/ranking_global.html` com ranking geral do sistema
+  - [X] T6.4.3: Usar design system: posicao em amber-400 (1o, 2o, 3o com medalhas), pontos em emerald-400, linhas alternadas em gray-900/gray-800
 
-- [ ] **T6.5: Configurar URLs do app rankings**
-  - [ ] T6.5.1: Criar `rankings/urls.py` com rotas: `/pools/<pool_id>/ranking/`, `/rankings/global/`
-  - [ ] T6.5.2: Incluir no `core/urls.py`
+- [X] **T6.5: Configurar URLs do app rankings**
+  - [X] T6.5.1: Criar `rankings/urls.py` com rotas: `/pools/<pool_id>/ranking/`, `/rankings/global/`
+  - [X] T6.5.2: Incluir no `core/urls.py`
 
 ---
 
 ### Sprint 7 - Integracao, dashboard completo e ajustes visuais
 
-- [ ] **T7.1: Integrar dashboard com dados reais**
-  - [ ] T7.1.1: Atualizar `DashboardView` para buscar boloes do usuario via `PoolMember`
+- [X] **T7.1: Integrar dashboard com dados reais**
+  - [X] T7.1.1: Atualizar `DashboardView` para buscar boloes do usuario via `PoolMember`
   - [ ] T7.1.2: Atualizar `DashboardView` para buscar ultimos 5 palpites do usuario
   - [ ] T7.1.3: Atualizar `DashboardView` para buscar proximos 5 jogos disponiveis para palpite
-  - [ ] T7.1.4: Atualizar `DashboardView` para buscar posicao nos rankings dos boloes do usuario
+  - [X] T7.1.4: Atualizar `DashboardView` para buscar posicao nos rankings dos boloes do usuario
   - [ ] T7.1.5: Refinar template do dashboard com dados reais e links para detalhes
 
-- [ ] **T7.2: Configurar password reset via email**
-  - [ ] T7.2.1: Configurar `EMAIL_BACKEND` no `settings.py` (usar console backend para desenvolvimento)
-  - [ ] T7.2.2: Criar templates de password reset: `password_reset.html`, `password_reset_done.html`, `password_reset_confirm.html`, `password_reset_complete.html`
-  - [ ] T7.2.3: Configurar URLs de password reset usando views nativas do Django
-  - [ ] T7.2.4: Estilizar templates de reset com design system (fundo escuro, inputs padrao)
+- [X] **T7.2: Configurar password reset via email**
+  - [X] T7.2.1: Configurar `EMAIL_BACKEND` no `settings.py` (usar console backend para desenvolvimento)
+  - [X] T7.2.2: Criar templates de password reset: `password_reset.html`, `password_reset_done.html`, `password_reset_confirm.html`, `password_reset_complete.html`
+  - [X] T7.2.3: Configurar URLs de password reset usando views nativas do Django
+  - [X] T7.2.4: Estilizar templates de reset com design system (fundo escuro, inputs padrao)
 
 - [ ] **T7.3: Profile do usuario**
   - [ ] T7.3.1: Criar `ProfileView` (DetailView/UpdateView) para ver e editar perfil
   - [ ] T7.3.2: Criar template `templates/users/profile.html` com formulario de edicao (nome, sobrenome)
   - [ ] T7.3.3: Adicionar link "Meu perfil" na navbar
 
-- [ ] **T7.4: Refinar design system e responsividade**
-  - [ ] T7.4.1: Revisar todos os templates para consistencia visual (mesmo padding, margens, cores, fontes)
-  - [ ] T7.4.2: Garantir responsividade mobile em todos os templates (testar em 375px e 768px)
-  - [ ] T7.4.3: Adicionar transicoes e hover effects em botoes e cards conforme design system
-  - [ ] T7.4.4: Garantir que mensagens de erro e sucesso seguem o padrao de feedback visual
+- [X] **T7.4: Refinar design system e responsividade**
+  - [X] T7.4.1: Revisar todos os templates para consistencia visual (mesmo padding, margens, cores, fontes)
+  - [X] T7.4.2: Garantir responsividade mobile em todos os templates (testar em 375px e 768px)
+  - [X] T7.4.3: Adicionar transicoes e hover effects em botoes e cards conforme design system
+  - [X] T7.4.4: Garantir que mensagens de erro e sucesso seguem o padrao de feedback visual
 
 ---
 
 ### Sprint 8 - Dados de seed e ajustes finais
 
-- [ ] **T8.1: Criar management command para seed de dados**
-  - [ ] T8.1.1: Criar `matches/management/commands/seed_matches.py` para popular selecoes, estadios, rodadas e jogos da Copa
+- [X] **T8.1: Criar management command para seed de dados**
+  - [X] T8.1.1: Criar `matches/management/commands/seed_matches.py` para popular selecoes, estadios, rodadas e jogos da Copa
   - [ ] T8.1.2: Criar `users/management/commands/seed_users.py` para criar usuarios de teste
   - [ ] T8.1.3: Criar `pools/management/commands/seed_pools.py` para criar boloes e membros de teste
   - [ ] T8.1.4: Criar command `seed_all.py` que chama os seeds em sequencia
 
-- [ ] **T8.2: Mensagens e feedback de usuario**
-  - [ ] T8.2.1: Revisar todas as views para adicionar `messages.success()` e `messages.error()` nas acoes (criar bolao, entrar em bolao, palpite salvo, etc.)
-  - [ ] T8.2.2: Garantir que `base.html` exibe mensagens do Django messages framework no topo da pagina
+- [X] **T8.2: Mensagens e feedback de usuario**
+  - [X] T8.2.1: Revisar todas as views para adicionar `messages.success()` e `messages.error()` nas acoes (criar bolao, entrar em bolao, palpite salvo, etc.)
+  - [X] T8.2.2: Garantir que `base.html` exibe mensagens do Django messages framework no topo da pagina
 
-- [ ] **T8.3: Validacoes de formulario**
-  - [ ] T8.3.1: Validar no formulario de cadastro: email unico, senha >= 8 chars, senhas conferem
-  - [ ] T8.3.2: Validar no formulario de criar bolao: nome obrigatorio, tamanho maximo
-  - [ ] T8.3.3: Validar no formulario de palpite: placares >= 0, jogo nao comecou, usuario eh membro do bolao, usuario nao tem palpite duplicado
-  - [ ] T8.3.4: Exibir erros de validacao em portugues nos templates
+- [X] **T8.3: Validacoes de formulario**
+  - [X] T8.3.1: Validar no formulario de cadastro: email unico, senha >= 8 chars, senhas conferem
+  - [X] T8.3.2: Validar no formulario de criar bolao: nome obrigatorio, tamanho maximo
+  - [X] T8.3.3: Validar no formulario de palpite: placares >= 0, jogo nao comecou, usuario eh membro do bolao, usuario nao tem palpite duplicado
+  - [X] T8.3.4: Exibir erros de validacao em portugues nos templates
 
-- [ ] **T8.4: Revisao geral e refinamentos**
-  - [ ] T8.4.1: Revisar todas as views para garantir uso consistente de CBVs
-  - [ ] T8.4.2: Revisar todos os modelos para garantir campos `created_at` e `updated_at`
-  - [ ] T8.4.3: Revisar codigo para garantir uso de aspas simples conforme PEP08
-  - [ ] T8.4.4: Revisar labels e textos de interface para garantir que estao em portugues brasileiro
-  - [ ] T8.4.5: Garantir que todas as views protegidas possuem `login_required`
+- [X] **T8.4: Revisao geral e refinamentos**
+  - [X] T8.4.1: Revisar todas as views para garantir uso consistente de CBVs
+  - [X] T8.4.2: Revisar todos os modelos para garantir campos `created_at` e `updated_at`
+  - [X] T8.4.3: Revisar codigo para garantir uso de aspas simples conforme PEP08
+  - [X] T8.4.4: Revisar labels e textos de interface para garantir que estao em portugues brasileiro
+  - [X] T8.4.5: Garantir que todas as views protegidas possuem `login_required`
 
 ---
 
-### Sprint 9 - Docker e testes (futuro)
+### Sprint 9 - Configuracao de email para producao (pre-producao)
 
-- [ ] **T9.1: Dockerizacao**
-  - [ ] T9.1.1: Criar `Dockerfile` para o projeto Django
-  - [ ] T9.1.2: Criar `docker-compose.yml` com servico web
-  - [ ] T9.1.3: Configurar variaveis de ambiente no `settings.py` via `os.environ`
-  - [ ] T9.1.4: Adicionar instrucoes no README para rodar com Docker
+**Contexto:** A funcionalidade de recuperacao de senha ja existe no projeto (T7.2) e usa o `console.EmailBackend` em desenvolvimento. Para colocar o sistema em producao e permitir que usuarios reais recebam emails de redefinicao de senha (e futuramente outros emails transacionais), precisamos configurar um servico SMTP real. Esta sprint deve ser executada **antes** da Sprint 10 (Docker e testes) e antes de colocar em producao.
 
-- [ ] **T9.2: Testes automatizados**
-  - [ ] T9.2.1: Criar testes unitarios para modelos do app `users`
-  - [ ] T9.2.2: Criar testes unitarios para modelos do app `matches`
-  - [ ] T9.2.3: Criar testes unitarios para modelos do app `pools`
-  - [ ] T9.2.4: Criar testes unitarios para modelos e logica do app `predictions`
-  - [ ] T9.2.5: Criar testes unitarios para signal de calculo de pontos
-  - [ ] T9.2.6: Criar testes unitarios para modelos e logica do app `rankings`
-  - [ ] T9.2.7: Criar testes de integracao para fluxos principais (cadastro, login, criar bolao, palpitar)
-  - [ ] T9.2.8: Criar testes de view (GET/POST) para todas as CBVs
+**T9.1: Decidir e provisionar provedor de email**
+- **Como** administrador do sistema, **quero** escolher e configurar um provedor de email transactional, **para** que usuarios reais recebam emails de redefinicao de senha.
+- **Criterios de aceite:**
+  - [ ] Avaliar as opcoes abaixo e escolher o provedor adequado para o estagio do projeto:
+    - **Opcao A (dev/MVP):** Gmail com App Password — gratis, requer conta Google pessoal
+    - **Opcao B (producao pequena ate 100 emails/dia):** SendGrid free tier
+    - **Opcao C (producao media ate 100k emails/mes):** SendGrid pago ou Mailgun
+    - **Opcao D (producao profissional):** Email com dominio proprio (Google Workspace, Zoho Mail, Titan)
+  - [ ] Criar conta no provedor escolhido
+  - [ ] Obter credenciais SMTP (host, port, user, password/API key)
+  - [ ] Documentar a escolha no README com a justificativa
+
+**T9.2: Configurar variaveis de email no `.env`**
+- **Como** desenvolvedor, **quero** externalizar as credenciais SMTP para o `.env`, **para** nao commitar dados sensiveis no codigo.
+- **Criterios de aceite:**
+  - [ ] Adicionar ao `.env` (e documentar no `.env.example`):
+    ```
+    EMAIL_BACKEND=django.core.mail.backends.smtp.EmailBackend
+    EMAIL_HOST=smtp.gmail.com  # ou do provedor escolhido
+    EMAIL_PORT=587
+    EMAIL_USE_TLS=True
+    EMAIL_HOST_USER=seu-email@example.com
+    EMAIL_HOST_PASSWORD=sua-senha-ou-api-key
+    DEFAULT_FROM_EMAIL=BolaoCopa <noreply@bolaocopa.com>
+    ```
+  - [ ] Atualizar `core/settings.py` para carregar essas variaveis via `os.getenv()` com fallback para `console.EmailBackend` em dev
+  - [ ] Garantir que o `.env` continua no `.gitignore`
+  - [ ] **NAO commitar** credenciais reais no repositorio
+
+**T9.3: Configurar templates de email HTML**
+- **Como** usuario, **quero** receber emails de redefinicao de senha com visual profissional, **para** confiar no sistema.
+- **Criterios de aceite:**
+  - [ ] Criar versao HTML do email de password reset (`registration/password_reset_email.html` ja existe como texto)
+  - [ ] Template HTML deve seguir o design system (fundo escuro ou claro, logo do BolaoCopa, cores emerald)
+  - [ ] Versao texto (`.txt`) deve ser mantida como fallback para clientes que nao suportam HTML
+  - [ ] Testar renderizacao em clientes de email comuns (Gmail, Outlook, Apple Mail)
+
+**T9.4: Configurar dominio de envio (opcional mas recomendado)**
+- **Como** administrador, **quero** que os emails sejam enviados de um dominio proprio, **para** passar credibilidade e evitar cair em spam.
+- **Criterios de aceite:**
+  - [ ] Adicionar registros DNS necessarios (se tiver dominio proprio):
+    - [ ] SPF record (TXT)
+    - [ ] DKIM (TXT)
+    - [ ] DMARC (TXT)
+  - [ ] Configurar `DEFAULT_FROM_EMAIL` com o dominio proprio
+  - [ ] Testar envio e verificar que emails nao caem em spam (usar mail-tester.com)
+
+**T9.5: Testar fluxo completo de recuperacao de senha**
+- **Como** desenvolvedor, **quero** validar que o fluxo de password reset funciona end-to-end com SMTP real, **para** garantir que usuarios poderao recuperar suas senhas em producao.
+- **Criterios de aceite:**
+  - [ ] Disparar fluxo de password reset usando um email real (pode ser email pessoal do dev)
+  - [ ] Verificar que email chega na caixa de entrada (nao em spam)
+  - [ ] Clicar no link de redefinicao no email e alterar a senha com sucesso
+  - [ ] Verificar que o link de redefinicao expira apos o tempo configurado
+  - [ ] Testar com link expirado: deve exibir mensagem de erro amigavel
+  - [ ] Verificar que o email NAO eh enviado se o email informado nao existir no sistema (por seguranca, mas exibir mensagem generica de sucesso)
+
+**T9.6: Documentar processo de envio de emails**
+- **Como** desenvolvedor, **quero** documentar como configurar e testar envio de emails, **para** que novos devs possam reproduzir.
+- **Criterios de aceite:**
+  - [ ] Criar secao no `README.md` ou `docs/email-setup.md` explicando:
+    - [ ] Como gerar App Password no Gmail (passo a passo com screenshots)
+    - [ ] Como criar conta no SendGrid e obter API key
+    - [ ] Como configurar registros DNS (SPF, DKIM, DMARC)
+    - [ ] Como testar localmente com `console.EmailBackend`
+    - [ ] Como testar em producao
+  - [ ] Adicionar troubleshooting: o que fazer se emails caem em spam
+
+---
+
+### Sprint 10 - Docker e testes (futuro)
+
+- [ ] **T10.1: Dockerizacao**
+  - [ ] T10.1.1: Criar `Dockerfile` para o projeto Django
+  - [ ] T10.1.2: Criar `docker-compose.yml` com servico web
+  - [ ] T10.1.3: Configurar variaveis de ambiente no `settings.py` via `os.environ`
+  - [ ] T10.1.4: Adicionar instrucoes no README para rodar com Docker
+
+- [ ] **T10.2: Testes automatizados**
+  - [ ] T10.2.1: Criar testes unitarios para modelos do app `users`
+  - [ ] T10.2.2: Criar testes unitarios para modelos do app `matches`
+  - [ ] T10.2.3: Criar testes unitarios para modelos do app `pools`
+  - [ ] T10.2.4: Criar testes unitarios para modelos e logica do app `predictions`
+  - [ ] T10.2.5: Criar testes unitarios para signal de calculo de pontos
+  - [ ] T10.2.6: Criar testes unitarios para modelos e logica do app `rankings`
+  - [ ] T10.2.7: Criar testes de integracao para fluxos principais (cadastro, login, criar bolao, palpitar)
+  - [ ] T10.2.8: Criar testes de view (GET/POST) para todas as CBVs
 
 ---
 

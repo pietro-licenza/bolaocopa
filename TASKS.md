@@ -396,68 +396,158 @@
 
 **Contexto Geral** Ajustes visuais para melhor visualizacao e disposicao de dados
 
-**US-8.1: Melhorar inputs de placares nos formularios de palpite**
+**US-8.1: Melhorar inputs de placares nos formularios de palpite** ✓
 - **Como** usuario, **quero** inputs de placares mais modernos e dinamicos, **para** melhorar a experiencia ao registrar palpites.
 - **Criterios de aceite:**
-  - [ ] Substituir campos de texto simples por inputs estilizados (type="number" com controles +/- ou similar)
-  - [ ] Inputs com design seguindo o design system dark theme
-  - [ ] Validacao de numeros negativos (min=0)
-  - [ ] Foco automatico no campo de placar do visitante apos preencher o mandante
+  - [X] Substituir campos de texto simples por inputs estilizados (type="number" com controles +/- ou similar)
+  - [X] Inputs com design seguindo o design system dark theme
+  - [X] Validacao de numeros negativos (min=0)
+  - [X] Foco automatico no campo de placar do visitante apos preencher o mandante
 
-**US-8.2: Exibir palpites realizados com numero grande ao lado das bandeiras**
+**US-8.2: Exibir palpites realizados com numero grande ao lado das bandeiras** ✓
 - **Como** usuario, **quero** ver meus palpites de forma mais visivel, **para** acompanhar facilmente os placares que registrei.
 - **Criterios de aceite:**
-  - [ ] Remover exibicao do palpite abaixo do confronto
-  - [ ] Exibir placar ao lado das selecoes (bandeiras) com fonte grande e destaque
-  - [ ] Formato: `BRASIL 2 x 1 ARGENTINA` (bandeiras + numeros grandes)
-  - [ ] Se palpite nao registrado, mostrar tracinho ou "---"
-  - [ ] Manter indicadores de pontos ganhos (se jogo finalizado)
+  - [X] Remover exibicao do palpite abaixo do confronto
+  - [X] Exibir placar ao lado das selecoes (bandeiras) com fonte grande e destaque
+  - [X] Formato: `BRASIL 2 x 1 ARGENTINA` (bandeiras + numeros grandes)
+  - [X] Se palpite nao registrado, mostrar tracinho ou "---"
+  - [X] Manter indicadores de pontos ganhos (se jogo finalizado)
 
-**US-8.3: Menu lateral Hamburguer responsivo**
+**US-8.3: Menu lateral Hamburguer responsivo** ✓
 - **Como** usuario, **quero** um menu lateral que funcione em desktop e mobile, **para** navegar facilmente pela aplicacao.
 - **Criterios de aceite:**
-  - [ ] Converter navbar atual em menu lateral retrátil (hamburguer)
-  - [ ] Menu lateral abre/fecha com icone hamburguer
-  - [ ] Design responsivo: menu cobre lateral em mobile, slide-out em desktop
-  - [ ] Animacao suave de abertura/fechamento
-  - [ ] Fechar menu ao clicar fora ou ao selecionar um item
-  - [ ] Itens do menu com icones e labels claros
+  - [X] Converter navbar atual em menu lateral retrátil (hamburguer)
+  - [X] Menu lateral abre/fecha com icone hamburguer
+  - [X] Design responsivo: menu cobre lateral em mobile, slide-out em desktop
+  - [X] Animacao suave de abertura/fechamento
+  - [X] Fechar menu ao clicar fora ou ao selecionar um item
+  - [X] Itens do menu com icones e labels claros
 
-**US-8.4: Topbar simplificada com nome do usuario**
+**US-8.4: Topbar simplificada com nome do usuario** ✓
 - **Como** usuario, **quero** ver meu nome no topo, **para** identificar rapidamente minha conta.
 - **Criterios de aceite:**
-  - [ ] Remover todos os links do topo, manter apenas "Sair"
-  - [ ] Exibir nome do usuario logado ao lado do botao Sair
-  - [ ] Design limpo e minimalista no topo
+  - [X] Remover todos os links do topo, manter apenas "Sair"
+  - [X] Exibir nome do usuario logado ao lado do botao Sair
+  - [X] Design limpo e minimalista no topo
 
-**US-8.5: Menu principal "Bolao" com submenus**
+**US-8.5: Menu principal "Bolao" com submenus** ✓
 - **Como** usuario, **quero** acesso centralizado as opcoes do bolao, **para** navegar facilmente entre funcionalidades.
 - **Criterios de aceite:**
-  - [ ] Criar menu "Bolao" no menu lateral
-  - [ ] Submenu "Meus boloes" redireciona para lista de boloes
-  - [ ] Submenu "Regras" exibe pagina com regras de pontuacao:
-    - [ ] Explicar: acerto exato = 3 pontos
-    - [ ] Explicar: acerto vencedor/empate = 1 ponto
-    - [ ] Explicar: erro total = 0 pontos
-    - [ ] Design em pt-BR conforme padrao do projeto
+  - [X] Criar menu "Bolao" no menu lateral
+  - [X] Submenu "Meus boloes" redireciona para lista de boloes
+  - [X] Submenu "Regras" exibe pagina com regras de pontuacao:
+    - [X] Explicar: acerto exato = 3 pontos
+    - [X] Explicar: acerto vencedor/empate = 1 ponto
+    - [X] Explicar: erro total = 0 pontos
+    - [X] Design em pt-BR conforme padrao do projeto
 
-**US-8.6: Botao "Entrar" nos cards de Meus Boloes**
+**US-8.6: Botao "Entrar" nos cards de Meus Boloes** ✓
 - **Como** usuario, **quero** um botao explicito para entrar em cada bolao, **para** acessar rapidamente.
 - **Criterios de aceite:**
-  - [ ] Adicionar botao "Entrar" em cada card de bolao no dashboard
-  - [ ] Botao com estilo primario (bg-emerald-600)
-  - [ ] Redireciona para pagina de detalhes do bolao ao clicar
-  - [ ] Manter comportamento de clique no card inteiro (mantido para acessibilidade)
+  - [X] Adicionar botao "Entrar" em cada card de bolao no dashboard
+  - [X] Botao com estilo primario (bg-emerald-600)
+  - [X] Redireciona para pagina de detalhes do bolao ao clicar
+  - [X] Manter comportamento de clique no card inteiro (mantido para acessibilidade)
 
-**US-8.VAL: Validacao do Sprint 8 — Ajustes visuais**
+**US-8.VAL: Validacao do Sprint 8 — Ajustes visuais** ✓
 - **Como** agente de QA, **quero** validar todo o trabalho do Sprint 8, **para** garantir que os ajustes visuais estao corretos e funcionais.
 - **Criterios de aceite:**
-  - [ ] Tirar prints das telas modificadas
-  - [ ] Validar inputs de placares: design moderno, validacao funcionando
-  - [ ] Validar exibicao de palpites: numeros grandes ao lado das bandeiras
-  - [ ] Validar menu lateral: abre/fecha, responsivo, fecha ao clicar fora
-  - [ ] Validar topbar: apenas Sair + nome do usuario
-  - [ ] Validar menu "Bolao": submenus "Meus boloes" e "Regras" funcionando
-  - [ ] Validar pagina de Regras: texto em pt-BR correto
-  - [ ] Validar botao "Entrar" em cada card de bolao
+  - [X] Tirar prints das telas modificadas
+  - [X] Validar inputs de placares: design moderno, validacao funcionando
+  - [X] Validar exibicao de palpites: numeros grandes ao lado das bandeiras
+  - [X] Validar menu lateral: abre/fecha, responsivo, fecha ao clicar fora
+  - [X] Validar topbar: apenas Sair + nome do usuario
+  - [X] Validar menu "Bolao": submenus "Meus boloes" e "Regras" funcionando
+  - [X] Validar pagina de Regras: texto em pt-BR correto
+  - [X] Validar botao "Entrar" em cada card de bolao
+  - [X] Corrigir bugs encontrados
+
+**Bugs identificados:**
+- BUG-S8-01: Botao "Entrar" ausente nos cards de bolão na pagina /pools/
+- BUG-S8-02: Nome do usuario aparece no menu lateral, nao na "topbar" como especificado (aceitavel como implementacao alternativa)
+
+### Epico 9: Polish final, dashboard completo e dados de demo
+
+**Contexto Geral** Este epico reune tarefas pendentes dos Sprints 4, 7 e 8 do PRD que nao foram concluidas nos epicos anteriores. Foco em melhorias de UX (sair de bolao, profile), dashboard completo (palpites recentes + proximos jogos) e dados de seed para demo/testes.
+
+**US-9.1: Sair de bolao**
+- **Como** membro de um bolao, **quero** poder sair do bolao, **para** deixar de participar quando nao quiser mais competir.
+- **Criterios de aceite:**
+  - [X] Criar view `PoolLeaveView` (LoginRequiredMixin, POST only) em `pools/views.py`
+  - [X] View remove o `PoolMember` correspondente do bolao
+  - [X] **REGRA DE NEGOCIO**: se o usuario for o criador E for o unico membro, exibir mensagem de erro e nao permitir saida
+  - [X] Apos sair, redirecionar para `/pools/` com mensagem de sucesso "Voce saiu do bolao"
+  - [X] Adicionar botao "Sair do bolao" na pagina `pool_detail.html`, visivel apenas se o usuario for membro e nao for o criador (ou se criador com mais de 1 membro)
+  - [X] Adicionar rota `/pools/<pk>/leave/` em `pools/urls.py`
+
+**US-9.2: Profile do usuario**
+- **Como** usuario logado, **quero** ver e editar meu perfil, **para** manter meus dados atualizados.
+- **Criterios de aceite:**
+  - [ ] Criar view `ProfileView` (LoginRequiredMixin, UpdateView) em `users/views.py`
+  - [ ] View permite editar apenas `first_name` e `last_name` (email nao pode ser alterado pelo usuario)
+  - [ ] Criar template `templates/users/profile.html` com formulario de edicao seguindo design system
+  - [ ] Apos salvar, redirecionar para `/profile/` com mensagem de sucesso "Perfil atualizado"
+  - [ ] Adicionar link "Meu perfil" no menu lateral (submenu "Usuario" ou item direto)
+  - [ ] Adicionar rota `/profile/` em `users/urls.py`
+
+**US-9.3: Dashboard — palpites recentes**
+- **Como** usuario logado, **quero** ver meus ultimos palpites no dashboard, **para** acompanhar rapidamente o que eu registrei.
+- **Criterios de aceite:**
+  - [ ] Atualizar `DashboardView` para buscar os ultimos 5 palpites do usuario (ordenados por `updated_at` desc)
+  - [ ] Exibir secao "Palpites Recentes" no template `dashboard.html` com cards compactos
+  - [ ] Cada card mostra: selecoes (bandeiras), placar palpitado, status (editavel, bloqueado, finalizado)
+  - [ ] Link "Ver todos os meus palpites" redireciona para lista de boloes (futura US-9.5)
+
+**US-9.4: Dashboard — proximos jogos disponiveis para palpite**
+- **Como** usuario logado, **quero** ver os proximos jogos disponiveis para palpite no dashboard, **para** nao perder prazos.
+- **Criterios de aceite:**
+  - [ ] Atualizar `DashboardView` para buscar os proximos 5 jogos (ordenados por `match_datetime` asc) que ainda nao comecaram
+  - [ ] Exibir secao "Proximos Jogos para Palpitar" no template `dashboard.html`
+  - [ ] Cada card mostra: selecoes (bandeiras), data/hora do jogo, botao "Palpitar" (apenas para membros de algum bolao)
+  - [ ] Se o usuario nao for membro de nenhum bolao, ocultar botao e mostrar mensagem explicativa
+
+**US-9.5: Refinamento do template do dashboard**
+- **Como** usuario, **quero** um dashboard mais completo e visualmente organizado, **para** ter uma visao consolidada da minha atividade.
+- **Criterios de aceite:**
+  - [ ] Reorganizar secoes do dashboard: Meus Boloes (topo), Palpites Recentes, Proximos Jogos
+  - [ ] Adicionar contadores/cards resumo no topo: "X boloes", "Y palpites", "Z pontos totais"
+  - [ ] Garantir responsividade em todos os cards (1 coluna em mobile, 2-3 em desktop)
+  - [ ] Manter consistencia visual com design system dark theme
+
+**US-9.6: Seed de usuarios de teste**
+- **Como** desenvolvedor, **quero** popular o banco com usuarios de teste, **para** testar funcionalidades com multiplos usuarios.
+- **Criterios de aceite:**
+  - [ ] Criar management command `seed_users` em `users/management/commands/`
+  - [ ] Criar pelo menos 5 usuarios de teste com emails pre-definidos (ex: user1@test.com, user2@test.com, etc.)
+  - [ ] Senha padrao para todos: `test1234` (documentar no help do command)
+  - [ ] Comando idempotente: nao duplicar se email ja existir
+  - [ ] Flag `--no-input` para usar em CI/automacao
+
+**US-9.7: Seed de boloes de teste**
+- **Como** desenvolvedor, **quero** popular o banco com boloes e membros de teste, **para** ter dados realistas para desenvolvimento.
+- **Criterios de aceite:**
+  - [ ] Criar management command `seed_pools` em `pools/management/commands/`
+  - [ ] Criar 3 boloes de teste: "Bolao da Familia", "Bolao do Trabalho", "Bolao dos Amigos"
+  - [ ] Cada bolao com 3-4 membros (mistura dos usuarios do `seed_users`)
+  - [ ] Descricoes realistas para cada bolao
+  - [ ] Comando idempotente: nao duplicar bolao com mesmo nome
+
+**US-9.8: Command `seed_all` — executa todos os seeds em sequencia**
+- **Como** desenvolvedor, **quero** um unico comando para popular todo o banco de desenvolvimento, **para** configurar ambiente rapidamente.
+- **Criterios de aceite:**
+  - [ ] Criar management command `seed_all` em algum app (sugestao: `core/management/commands/`)
+  - [ ] Executar em sequencia: `seed_users` → `seed_pools` → `seed_world_cup_2026`
+  - [ ] Exibir progresso e resumo final de cada etapa
+  - [ ] Confirmar com usuario antes de executar (prompt ou `--no-input`)
+  - [ ] Documentar no help do command a ordem de execucao
+
+**US-9.VAL: Validacao do Sprint 9 — Polish final**
+- **Como** agente de QA, ** quero** validar todo o trabalho do epico 9, **para** garantir que as melhorias de UX, dashboard e seeds estao corretas.
+- **Criterios de aceite:**
+  - [ ] Validar saida de bolao: fluxo completo, mensagens de erro para criador unico
+  - [ ] Validar profile: edicao de nome/sobrenome, email nao editavel, persistencia
+  - [ ] Validar dashboard: secoes de palpites recentes e proximos jogos renderizando corretamente
+  - [ ] Validar seeds: rodar `seed_all` e verificar que usuarios, boloes e jogos sao criados
+  - [ ] Validar idempotencia dos seeds: rodar 2x e garantir nao duplicacao
+  - [ ] Tirar prints de todas as telas modificadas
   - [ ] Corrigir bugs encontrados

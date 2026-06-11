@@ -1,0 +1,2033 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e4]:
+      - button "Abrir menu" [ref=e5] [cursor=pointer]:
+        - img [ref=e6]
+      - generic [ref=e8]:
+        - generic [ref=e9]: admin@teste.com
+        - button "Sair" [ref=e11] [cursor=pointer]
+  - complementary [ref=e12]:
+    - generic [ref=e13]:
+      - link "BolãoCopa" [ref=e14] [cursor=pointer]:
+        - /url: /
+      - button "Fechar menu" [ref=e15] [cursor=pointer]:
+        - img [ref=e16]
+    - navigation [ref=e18]:
+      - link "Dashboard" [ref=e19] [cursor=pointer]:
+        - /url: /dashboard/
+        - img [ref=e20]
+        - text: Dashboard
+      - button "Jogos" [ref=e23] [cursor=pointer]:
+        - generic [ref=e24]:
+          - img [ref=e25]
+          - text: Jogos
+        - img [ref=e27]
+      - button "Bolão" [ref=e30] [cursor=pointer]:
+        - generic [ref=e31]:
+          - img [ref=e32]
+          - text: Bolão
+        - img [ref=e34]
+      - button "Sair" [ref=e37] [cursor=pointer]:
+        - img [ref=e38]
+        - text: Sair
+  - main [ref=e40]:
+    - generic [ref=e41]:
+      - generic [ref=e42]:
+        - generic [ref=e43]:
+          - heading "Bolao Teste QA" [level=1] [ref=e44]
+          - paragraph [ref=e45]: Jogos disponíveis para palpite
+        - link "← Voltar para o Bolão" [ref=e46] [cursor=pointer]:
+          - /url: /pools/9/
+      - generic [ref=e47]:
+        - article [ref=e48]:
+          - generic [ref=e49]:
+            - generic [ref=e50]:
+              - generic [ref=e51]: Fase de Grupos
+              - generic [ref=e52]: ·
+              - generic [ref=e53]: Estadio Azteca (Mexico City)
+            - generic [ref=e55]: Agendado
+          - generic [ref=e56]:
+            - generic [ref=e57]:
+              - generic [ref=e58]: 🇲🇽
+              - generic [ref=e59]: Mexico
+            - generic [ref=e61]: "--- x ---"
+            - generic [ref=e62]:
+              - generic [ref=e63]: 🇿🇦
+              - generic [ref=e64]: Africa do Sul
+          - generic [ref=e65]:
+            - generic [ref=e67]: Você ainda não palpitou neste jogo
+            - generic [ref=e68]:
+              - link "Palpitar" [ref=e69] [cursor=pointer]:
+                - /url: /pools/9/matches/1049/predict/
+              - button "Buscar resultado" [ref=e71] [cursor=pointer]
+        - article [ref=e72]:
+          - generic [ref=e73]:
+            - generic [ref=e74]:
+              - generic [ref=e75]: Fase de Grupos
+              - generic [ref=e76]: ·
+              - generic [ref=e77]: Estadio Akron (Zapopan)
+            - generic [ref=e79]: Agendado
+          - generic [ref=e80]:
+            - generic [ref=e81]:
+              - generic [ref=e82]: 🇰🇷
+              - generic [ref=e83]: Coreia do Sul
+            - generic [ref=e85]: "--- x ---"
+            - generic [ref=e86]:
+              - generic [ref=e87]: 🇨🇿
+              - generic [ref=e88]: Chequia
+          - generic [ref=e89]:
+            - generic [ref=e91]: Você ainda não palpitou neste jogo
+            - generic [ref=e92]:
+              - link "Palpitar" [ref=e93] [cursor=pointer]:
+                - /url: /pools/9/matches/1050/predict/
+              - button "Buscar resultado" [ref=e95] [cursor=pointer]
+        - article [ref=e96]:
+          - generic [ref=e97]:
+            - generic [ref=e98]:
+              - generic [ref=e99]: Fase de Grupos
+              - generic [ref=e100]: ·
+              - generic [ref=e101]: BMO Field (Toronto)
+            - generic [ref=e103]: Agendado
+          - generic [ref=e104]:
+            - generic [ref=e105]:
+              - generic [ref=e106]: 🇨🇦
+              - generic [ref=e107]: Canada
+            - generic [ref=e109]: "--- x ---"
+            - generic [ref=e110]:
+              - generic [ref=e111]: 🇧🇦
+              - generic [ref=e112]: Bosnia e Herzegovina
+          - generic [ref=e113]:
+            - generic [ref=e115]: Você ainda não palpitou neste jogo
+            - generic [ref=e116]:
+              - link "Palpitar" [ref=e117] [cursor=pointer]:
+                - /url: /pools/9/matches/1051/predict/
+              - button "Buscar resultado" [ref=e119] [cursor=pointer]
+        - article [ref=e120]:
+          - generic [ref=e121]:
+            - generic [ref=e122]:
+              - generic [ref=e123]: Fase de Grupos
+              - generic [ref=e124]: ·
+              - generic [ref=e125]: SoFi Stadium (Inglewood)
+            - generic [ref=e127]: Agendado
+          - generic [ref=e128]:
+            - generic [ref=e129]:
+              - generic [ref=e130]: 🇺🇸
+              - generic [ref=e131]: Estados Unidos
+            - generic [ref=e133]: "--- x ---"
+            - generic [ref=e134]:
+              - generic [ref=e135]: 🇵🇾
+              - generic [ref=e136]: Paraguai
+          - generic [ref=e137]:
+            - generic [ref=e139]: Você ainda não palpitou neste jogo
+            - generic [ref=e140]:
+              - link "Palpitar" [ref=e141] [cursor=pointer]:
+                - /url: /pools/9/matches/1052/predict/
+              - button "Buscar resultado" [ref=e143] [cursor=pointer]
+        - article [ref=e144]:
+          - generic [ref=e145]:
+            - generic [ref=e146]:
+              - generic [ref=e147]: Fase de Grupos
+              - generic [ref=e148]: ·
+              - generic [ref=e149]: Levi's Stadium (Santa Clara)
+            - generic [ref=e151]: Agendado
+          - generic [ref=e152]:
+            - generic [ref=e153]:
+              - generic [ref=e154]: 🇶🇦
+              - generic [ref=e155]: Catar
+            - generic [ref=e157]: "--- x ---"
+            - generic [ref=e158]:
+              - generic [ref=e159]: 🇨🇭
+              - generic [ref=e160]: Suica
+          - generic [ref=e161]:
+            - generic [ref=e163]: Você ainda não palpitou neste jogo
+            - generic [ref=e164]:
+              - link "Palpitar" [ref=e165] [cursor=pointer]:
+                - /url: /pools/9/matches/1056/predict/
+              - button "Buscar resultado" [ref=e167] [cursor=pointer]
+        - article [ref=e168]:
+          - generic [ref=e169]:
+            - generic [ref=e170]:
+              - generic [ref=e171]: Fase de Grupos
+              - generic [ref=e172]: ·
+              - generic [ref=e173]: MetLife Stadium (East Rutherford)
+            - generic [ref=e175]: Agendado
+          - generic [ref=e176]:
+            - generic [ref=e177]:
+              - generic [ref=e178]: 🇧🇷
+              - generic [ref=e179]: Brasil
+            - generic [ref=e181]: "--- x ---"
+            - generic [ref=e182]:
+              - generic [ref=e183]: 🇲🇦
+              - generic [ref=e184]: Marracos
+          - generic [ref=e185]:
+            - generic [ref=e187]: Você ainda não palpitou neste jogo
+            - generic [ref=e188]:
+              - link "Palpitar" [ref=e189] [cursor=pointer]:
+                - /url: /pools/9/matches/1055/predict/
+              - button "Buscar resultado" [ref=e191] [cursor=pointer]
+        - article [ref=e192]:
+          - generic [ref=e193]:
+            - generic [ref=e194]:
+              - generic [ref=e195]: Fase de Grupos
+              - generic [ref=e196]: ·
+              - generic [ref=e197]: Gillette Stadium (Foxborough)
+            - generic [ref=e199]: Agendado
+          - generic [ref=e200]:
+            - generic [ref=e201]:
+              - generic [ref=e202]: 🇭🇹
+              - generic [ref=e203]: Haiti
+            - generic [ref=e205]: "--- x ---"
+            - generic [ref=e206]:
+              - generic [ref=e207]: 🏴󠁧󠁢󠁥󠁮󠁧󠁿
+              - generic [ref=e208]: Escocia
+          - generic [ref=e209]:
+            - generic [ref=e211]: Você ainda não palpitou neste jogo
+            - generic [ref=e212]:
+              - link "Palpitar" [ref=e213] [cursor=pointer]:
+                - /url: /pools/9/matches/1053/predict/
+              - button "Buscar resultado" [ref=e215] [cursor=pointer]
+        - article [ref=e216]:
+          - generic [ref=e217]:
+            - generic [ref=e218]:
+              - generic [ref=e219]: Fase de Grupos
+              - generic [ref=e220]: ·
+              - generic [ref=e221]: BC Place (Vancouver)
+            - generic [ref=e223]: Agendado
+          - generic [ref=e224]:
+            - generic [ref=e225]:
+              - generic [ref=e226]: 🇦🇺
+              - generic [ref=e227]: Australia
+            - generic [ref=e229]: "--- x ---"
+            - generic [ref=e230]:
+              - generic [ref=e231]: 🇹🇷
+              - generic [ref=e232]: Turquia
+          - generic [ref=e233]:
+            - generic [ref=e235]: Você ainda não palpitou neste jogo
+            - generic [ref=e236]:
+              - link "Palpitar" [ref=e237] [cursor=pointer]:
+                - /url: /pools/9/matches/1054/predict/
+              - button "Buscar resultado" [ref=e239] [cursor=pointer]
+        - article [ref=e240]:
+          - generic [ref=e241]:
+            - generic [ref=e242]:
+              - generic [ref=e243]: Fase de Grupos
+              - generic [ref=e244]: ·
+              - generic [ref=e245]: NRG Stadium (Houston)
+            - generic [ref=e247]: Agendado
+          - generic [ref=e248]:
+            - generic [ref=e249]:
+              - generic [ref=e250]: 🇩🇪
+              - generic [ref=e251]: Alemanha
+            - generic [ref=e253]: "--- x ---"
+            - generic [ref=e254]:
+              - generic [ref=e255]: 🇨🇼
+              - generic [ref=e256]: Curacao
+          - generic [ref=e257]:
+            - generic [ref=e259]: Você ainda não palpitou neste jogo
+            - generic [ref=e260]:
+              - link "Palpitar" [ref=e261] [cursor=pointer]:
+                - /url: /pools/9/matches/1058/predict/
+              - button "Buscar resultado" [ref=e263] [cursor=pointer]
+        - article [ref=e264]:
+          - generic [ref=e265]:
+            - generic [ref=e266]:
+              - generic [ref=e267]: Fase de Grupos
+              - generic [ref=e268]: ·
+              - generic [ref=e269]: AT&T Stadium (Arlington)
+            - generic [ref=e271]: Agendado
+          - generic [ref=e272]:
+            - generic [ref=e273]:
+              - generic [ref=e274]: 🇳🇱
+              - generic [ref=e275]: Holanda
+            - generic [ref=e277]: "--- x ---"
+            - generic [ref=e278]:
+              - generic [ref=e279]: 🇯🇵
+              - generic [ref=e280]: Japao
+          - generic [ref=e281]:
+            - generic [ref=e283]: Você ainda não palpitou neste jogo
+            - generic [ref=e284]:
+              - link "Palpitar" [ref=e285] [cursor=pointer]:
+                - /url: /pools/9/matches/1059/predict/
+              - button "Buscar resultado" [ref=e287] [cursor=pointer]
+        - article [ref=e288]:
+          - generic [ref=e289]:
+            - generic [ref=e290]:
+              - generic [ref=e291]: Fase de Grupos
+              - generic [ref=e292]: ·
+              - generic [ref=e293]: Lincoln Financial Field (Philadelphia)
+            - generic [ref=e295]: Agendado
+          - generic [ref=e296]:
+            - generic [ref=e297]:
+              - generic [ref=e298]: 🇨🇮
+              - generic [ref=e299]: Costa do Marfim
+            - generic [ref=e301]: "--- x ---"
+            - generic [ref=e302]:
+              - generic [ref=e303]: 🇪🇨
+              - generic [ref=e304]: Equador
+          - generic [ref=e305]:
+            - generic [ref=e307]: Você ainda não palpitou neste jogo
+            - generic [ref=e308]:
+              - link "Palpitar" [ref=e309] [cursor=pointer]:
+                - /url: /pools/9/matches/1057/predict/
+              - button "Buscar resultado" [ref=e311] [cursor=pointer]
+        - article [ref=e312]:
+          - generic [ref=e313]:
+            - generic [ref=e314]:
+              - generic [ref=e315]: Fase de Grupos
+              - generic [ref=e316]: ·
+              - generic [ref=e317]: Estadio BBVA (Guadalupe)
+            - generic [ref=e319]: Agendado
+          - generic [ref=e320]:
+            - generic [ref=e321]:
+              - generic [ref=e322]: 🇸🇪
+              - generic [ref=e323]: Suecia
+            - generic [ref=e325]: "--- x ---"
+            - generic [ref=e326]:
+              - generic [ref=e327]: 🇹🇳
+              - generic [ref=e328]: Tunisia
+          - generic [ref=e329]:
+            - generic [ref=e331]: Você ainda não palpitou neste jogo
+            - generic [ref=e332]:
+              - link "Palpitar" [ref=e333] [cursor=pointer]:
+                - /url: /pools/9/matches/1060/predict/
+              - button "Buscar resultado" [ref=e335] [cursor=pointer]
+        - article [ref=e336]:
+          - generic [ref=e337]:
+            - generic [ref=e338]:
+              - generic [ref=e339]: Fase de Grupos
+              - generic [ref=e340]: ·
+              - generic [ref=e341]: Mercedes-Benz Stadium (Atlanta)
+            - generic [ref=e343]: Agendado
+          - generic [ref=e344]:
+            - generic [ref=e345]:
+              - generic [ref=e346]: 🇪🇸
+              - generic [ref=e347]: Espanha
+            - generic [ref=e349]: "--- x ---"
+            - generic [ref=e350]:
+              - generic [ref=e351]: 🇨🇻
+              - generic [ref=e352]: Cabo Verde
+          - generic [ref=e353]:
+            - generic [ref=e355]: Você ainda não palpitou neste jogo
+            - generic [ref=e356]:
+              - link "Palpitar" [ref=e357] [cursor=pointer]:
+                - /url: /pools/9/matches/1062/predict/
+              - button "Buscar resultado" [ref=e359] [cursor=pointer]
+        - article [ref=e360]:
+          - generic [ref=e361]:
+            - generic [ref=e362]:
+              - generic [ref=e363]: Fase de Grupos
+              - generic [ref=e364]: ·
+              - generic [ref=e365]: Lumen Field (Seattle)
+            - generic [ref=e367]: Agendado
+          - generic [ref=e368]:
+            - generic [ref=e369]:
+              - generic [ref=e370]: 🇧🇪
+              - generic [ref=e371]: Belgica
+            - generic [ref=e373]: "--- x ---"
+            - generic [ref=e374]:
+              - generic [ref=e375]: 🇪🇬
+              - generic [ref=e376]: Egito
+          - generic [ref=e377]:
+            - generic [ref=e379]: Você ainda não palpitou neste jogo
+            - generic [ref=e380]:
+              - link "Palpitar" [ref=e381] [cursor=pointer]:
+                - /url: /pools/9/matches/1064/predict/
+              - button "Buscar resultado" [ref=e383] [cursor=pointer]
+        - article [ref=e384]:
+          - generic [ref=e385]:
+            - generic [ref=e386]:
+              - generic [ref=e387]: Fase de Grupos
+              - generic [ref=e388]: ·
+              - generic [ref=e389]: Hard Rock Stadium (Miami Gardens)
+            - generic [ref=e391]: Agendado
+          - generic [ref=e392]:
+            - generic [ref=e393]:
+              - generic [ref=e394]: 🇸🇦
+              - generic [ref=e395]: Arabia Saudita
+            - generic [ref=e397]: "--- x ---"
+            - generic [ref=e398]:
+              - generic [ref=e399]: 🇺🇾
+              - generic [ref=e400]: Uruguai
+          - generic [ref=e401]:
+            - generic [ref=e403]: Você ainda não palpitou neste jogo
+            - generic [ref=e404]:
+              - link "Palpitar" [ref=e405] [cursor=pointer]:
+                - /url: /pools/9/matches/1061/predict/
+              - button "Buscar resultado" [ref=e407] [cursor=pointer]
+        - article [ref=e408]:
+          - generic [ref=e409]:
+            - generic [ref=e410]:
+              - generic [ref=e411]: Fase de Grupos
+              - generic [ref=e412]: ·
+              - generic [ref=e413]: SoFi Stadium (Inglewood)
+            - generic [ref=e415]: Agendado
+          - generic [ref=e416]:
+            - generic [ref=e417]:
+              - generic [ref=e418]: 🇮🇷
+              - generic [ref=e419]: Ira
+            - generic [ref=e421]: "--- x ---"
+            - generic [ref=e422]:
+              - generic [ref=e423]: 🇳🇿
+              - generic [ref=e424]: Nova Zelandia
+          - generic [ref=e425]:
+            - generic [ref=e427]: Você ainda não palpitou neste jogo
+            - generic [ref=e428]:
+              - link "Palpitar" [ref=e429] [cursor=pointer]:
+                - /url: /pools/9/matches/1063/predict/
+              - button "Buscar resultado" [ref=e431] [cursor=pointer]
+        - article [ref=e432]:
+          - generic [ref=e433]:
+            - generic [ref=e434]:
+              - generic [ref=e435]: Fase de Grupos
+              - generic [ref=e436]: ·
+              - generic [ref=e437]: MetLife Stadium (East Rutherford)
+            - generic [ref=e439]: Agendado
+          - generic [ref=e440]:
+            - generic [ref=e441]:
+              - generic [ref=e442]: 🇫🇷
+              - generic [ref=e443]: Franca
+            - generic [ref=e445]: "--- x ---"
+            - generic [ref=e446]:
+              - generic [ref=e447]: 🇸🇳
+              - generic [ref=e448]: Senegal
+          - generic [ref=e449]:
+            - generic [ref=e451]: Você ainda não palpitou neste jogo
+            - generic [ref=e452]:
+              - link "Palpitar" [ref=e453] [cursor=pointer]:
+                - /url: /pools/9/matches/1065/predict/
+              - button "Buscar resultado" [ref=e455] [cursor=pointer]
+        - article [ref=e456]:
+          - generic [ref=e457]:
+            - generic [ref=e458]:
+              - generic [ref=e459]: Fase de Grupos
+              - generic [ref=e460]: ·
+              - generic [ref=e461]: Gillette Stadium (Foxborough)
+            - generic [ref=e463]: Agendado
+          - generic [ref=e464]:
+            - generic [ref=e465]:
+              - generic [ref=e466]: 🇮🇶
+              - generic [ref=e467]: Iraque
+            - generic [ref=e469]: "--- x ---"
+            - generic [ref=e470]:
+              - generic [ref=e471]: 🇳🇴
+              - generic [ref=e472]: Noruega
+          - generic [ref=e473]:
+            - generic [ref=e475]: Você ainda não palpitou neste jogo
+            - generic [ref=e476]:
+              - link "Palpitar" [ref=e477] [cursor=pointer]:
+                - /url: /pools/9/matches/1066/predict/
+              - button "Buscar resultado" [ref=e479] [cursor=pointer]
+        - article [ref=e480]:
+          - generic [ref=e481]:
+            - generic [ref=e482]:
+              - generic [ref=e483]: Fase de Grupos
+              - generic [ref=e484]: ·
+              - generic [ref=e485]: Arrowhead Stadium (Kansas City)
+            - generic [ref=e487]: Agendado
+          - generic [ref=e488]:
+            - generic [ref=e489]:
+              - generic [ref=e490]: 🇦🇷
+              - generic [ref=e491]: Argentina
+            - generic [ref=e493]: "--- x ---"
+            - generic [ref=e494]:
+              - generic [ref=e495]: 🇩🇿
+              - generic [ref=e496]: Argelia
+          - generic [ref=e497]:
+            - generic [ref=e499]: Você ainda não palpitou neste jogo
+            - generic [ref=e500]:
+              - link "Palpitar" [ref=e501] [cursor=pointer]:
+                - /url: /pools/9/matches/1067/predict/
+              - button "Buscar resultado" [ref=e503] [cursor=pointer]
+        - article [ref=e504]:
+          - generic [ref=e505]:
+            - generic [ref=e506]:
+              - generic [ref=e507]: Fase de Grupos
+              - generic [ref=e508]: ·
+              - generic [ref=e509]: Levi's Stadium (Santa Clara)
+            - generic [ref=e511]: Agendado
+          - generic [ref=e512]:
+            - generic [ref=e513]:
+              - generic [ref=e514]: 🇦🇹
+              - generic [ref=e515]: Austria
+            - generic [ref=e517]: "--- x ---"
+            - generic [ref=e518]:
+              - generic [ref=e519]: 🇯🇴
+              - generic [ref=e520]: Jordania
+          - generic [ref=e521]:
+            - generic [ref=e523]: Você ainda não palpitou neste jogo
+            - generic [ref=e524]:
+              - link "Palpitar" [ref=e525] [cursor=pointer]:
+                - /url: /pools/9/matches/1068/predict/
+              - button "Buscar resultado" [ref=e527] [cursor=pointer]
+        - article [ref=e528]:
+          - generic [ref=e529]:
+            - generic [ref=e530]:
+              - generic [ref=e531]: Fase de Grupos
+              - generic [ref=e532]: ·
+              - generic [ref=e533]: NRG Stadium (Houston)
+            - generic [ref=e535]: Agendado
+          - generic [ref=e536]:
+            - generic [ref=e537]:
+              - generic [ref=e538]: 🇵🇹
+              - generic [ref=e539]: Portugal
+            - generic [ref=e541]: "--- x ---"
+            - generic [ref=e542]:
+              - generic [ref=e543]: 🇨🇩
+              - generic [ref=e544]: Republica Democratica do Congo
+          - generic [ref=e545]:
+            - generic [ref=e547]: Você ainda não palpitou neste jogo
+            - generic [ref=e548]:
+              - link "Palpitar" [ref=e549] [cursor=pointer]:
+                - /url: /pools/9/matches/1071/predict/
+              - button "Buscar resultado" [ref=e551] [cursor=pointer]
+        - article [ref=e552]:
+          - generic [ref=e553]:
+            - generic [ref=e554]:
+              - generic [ref=e555]: Fase de Grupos
+              - generic [ref=e556]: ·
+              - generic [ref=e557]: AT&T Stadium (Arlington)
+            - generic [ref=e559]: Agendado
+          - generic [ref=e560]:
+            - generic [ref=e561]:
+              - generic [ref=e562]: 🏴󠁧󠁢󠁥󠁮󠁣󠁴󠁿
+              - generic [ref=e563]: Inglaterra
+            - generic [ref=e565]: "--- x ---"
+            - generic [ref=e566]:
+              - generic [ref=e567]: 🇭🇷
+              - generic [ref=e568]: Croatia
+          - generic [ref=e569]:
+            - generic [ref=e571]: Você ainda não palpitou neste jogo
+            - generic [ref=e572]:
+              - link "Palpitar" [ref=e573] [cursor=pointer]:
+                - /url: /pools/9/matches/1070/predict/
+              - button "Buscar resultado" [ref=e575] [cursor=pointer]
+        - article [ref=e576]:
+          - generic [ref=e577]:
+            - generic [ref=e578]:
+              - generic [ref=e579]: Fase de Grupos
+              - generic [ref=e580]: ·
+              - generic [ref=e581]: BMO Field (Toronto)
+            - generic [ref=e583]: Agendado
+          - generic [ref=e584]:
+            - generic [ref=e585]:
+              - generic [ref=e586]: 🇬🇭
+              - generic [ref=e587]: Gana
+            - generic [ref=e589]: "--- x ---"
+            - generic [ref=e590]:
+              - generic [ref=e591]: 🇵🇦
+              - generic [ref=e592]: Panama
+          - generic [ref=e593]:
+            - generic [ref=e595]: Você ainda não palpitou neste jogo
+            - generic [ref=e596]:
+              - link "Palpitar" [ref=e597] [cursor=pointer]:
+                - /url: /pools/9/matches/1069/predict/
+              - button "Buscar resultado" [ref=e599] [cursor=pointer]
+        - article [ref=e600]:
+          - generic [ref=e601]:
+            - generic [ref=e602]:
+              - generic [ref=e603]: Fase de Grupos
+              - generic [ref=e604]: ·
+              - generic [ref=e605]: Estadio Azteca (Mexico City)
+            - generic [ref=e607]: Agendado
+          - generic [ref=e608]:
+            - generic [ref=e609]:
+              - generic [ref=e610]: 🇺🇿
+              - generic [ref=e611]: Uzbequistao
+            - generic [ref=e613]: "--- x ---"
+            - generic [ref=e614]:
+              - generic [ref=e615]: 🇨🇴
+              - generic [ref=e616]: Colombia
+          - generic [ref=e617]:
+            - generic [ref=e619]: Você ainda não palpitou neste jogo
+            - generic [ref=e620]:
+              - link "Palpitar" [ref=e621] [cursor=pointer]:
+                - /url: /pools/9/matches/1072/predict/
+              - button "Buscar resultado" [ref=e623] [cursor=pointer]
+        - article [ref=e624]:
+          - generic [ref=e625]:
+            - generic [ref=e626]:
+              - generic [ref=e627]: Fase de Grupos
+              - generic [ref=e628]: ·
+              - generic [ref=e629]: Mercedes-Benz Stadium (Atlanta)
+            - generic [ref=e631]: Agendado
+          - generic [ref=e632]:
+            - generic [ref=e633]:
+              - generic [ref=e634]: 🇨🇿
+              - generic [ref=e635]: Chequia
+            - generic [ref=e637]: "--- x ---"
+            - generic [ref=e638]:
+              - generic [ref=e639]: 🇿🇦
+              - generic [ref=e640]: Africa do Sul
+          - generic [ref=e641]:
+            - generic [ref=e643]: Você ainda não palpitou neste jogo
+            - generic [ref=e644]:
+              - link "Palpitar" [ref=e645] [cursor=pointer]:
+                - /url: /pools/9/matches/1073/predict/
+              - button "Buscar resultado" [ref=e647] [cursor=pointer]
+        - article [ref=e648]:
+          - generic [ref=e649]:
+            - generic [ref=e650]:
+              - generic [ref=e651]: Fase de Grupos
+              - generic [ref=e652]: ·
+              - generic [ref=e653]: SoFi Stadium (Inglewood)
+            - generic [ref=e655]: Agendado
+          - generic [ref=e656]:
+            - generic [ref=e657]:
+              - generic [ref=e658]: 🇨🇭
+              - generic [ref=e659]: Suica
+            - generic [ref=e661]: "--- x ---"
+            - generic [ref=e662]:
+              - generic [ref=e663]: 🇧🇦
+              - generic [ref=e664]: Bosnia e Herzegovina
+          - generic [ref=e665]:
+            - generic [ref=e667]: Você ainda não palpitou neste jogo
+            - generic [ref=e668]:
+              - link "Palpitar" [ref=e669] [cursor=pointer]:
+                - /url: /pools/9/matches/1074/predict/
+              - button "Buscar resultado" [ref=e671] [cursor=pointer]
+        - article [ref=e672]:
+          - generic [ref=e673]:
+            - generic [ref=e674]:
+              - generic [ref=e675]: Fase de Grupos
+              - generic [ref=e676]: ·
+              - generic [ref=e677]: BC Place (Vancouver)
+            - generic [ref=e679]: Agendado
+          - generic [ref=e680]:
+            - generic [ref=e681]:
+              - generic [ref=e682]: 🇨🇦
+              - generic [ref=e683]: Canada
+            - generic [ref=e685]: "--- x ---"
+            - generic [ref=e686]:
+              - generic [ref=e687]: 🇶🇦
+              - generic [ref=e688]: Catar
+          - generic [ref=e689]:
+            - generic [ref=e691]: Você ainda não palpitou neste jogo
+            - generic [ref=e692]:
+              - link "Palpitar" [ref=e693] [cursor=pointer]:
+                - /url: /pools/9/matches/1075/predict/
+              - button "Buscar resultado" [ref=e695] [cursor=pointer]
+        - article [ref=e696]:
+          - generic [ref=e697]:
+            - generic [ref=e698]:
+              - generic [ref=e699]: Fase de Grupos
+              - generic [ref=e700]: ·
+              - generic [ref=e701]: Estadio Akron (Zapopan)
+            - generic [ref=e703]: Agendado
+          - generic [ref=e704]:
+            - generic [ref=e705]:
+              - generic [ref=e706]: 🇲🇽
+              - generic [ref=e707]: Mexico
+            - generic [ref=e709]: "--- x ---"
+            - generic [ref=e710]:
+              - generic [ref=e711]: 🇰🇷
+              - generic [ref=e712]: Coreia do Sul
+          - generic [ref=e713]:
+            - generic [ref=e715]: Você ainda não palpitou neste jogo
+            - generic [ref=e716]:
+              - link "Palpitar" [ref=e717] [cursor=pointer]:
+                - /url: /pools/9/matches/1076/predict/
+              - button "Buscar resultado" [ref=e719] [cursor=pointer]
+        - article [ref=e720]:
+          - generic [ref=e721]:
+            - generic [ref=e722]:
+              - generic [ref=e723]: Fase de Grupos
+              - generic [ref=e724]: ·
+              - generic [ref=e725]: Lumen Field (Seattle)
+            - generic [ref=e727]: Agendado
+          - generic [ref=e728]:
+            - generic [ref=e729]:
+              - generic [ref=e730]: 🇺🇸
+              - generic [ref=e731]: Estados Unidos
+            - generic [ref=e733]: "--- x ---"
+            - generic [ref=e734]:
+              - generic [ref=e735]: 🇦🇺
+              - generic [ref=e736]: Australia
+          - generic [ref=e737]:
+            - generic [ref=e739]: Você ainda não palpitou neste jogo
+            - generic [ref=e740]:
+              - link "Palpitar" [ref=e741] [cursor=pointer]:
+                - /url: /pools/9/matches/1080/predict/
+              - button "Buscar resultado" [ref=e743] [cursor=pointer]
+        - article [ref=e744]:
+          - generic [ref=e745]:
+            - generic [ref=e746]:
+              - generic [ref=e747]: Fase de Grupos
+              - generic [ref=e748]: ·
+              - generic [ref=e749]: Gillette Stadium (Foxborough)
+            - generic [ref=e751]: Agendado
+          - generic [ref=e752]:
+            - generic [ref=e753]:
+              - generic [ref=e754]: 🏴󠁧󠁢󠁥󠁮󠁧󠁿
+              - generic [ref=e755]: Escocia
+            - generic [ref=e757]: "--- x ---"
+            - generic [ref=e758]:
+              - generic [ref=e759]: 🇲🇦
+              - generic [ref=e760]: Marracos
+          - generic [ref=e761]:
+            - generic [ref=e763]: Você ainda não palpitou neste jogo
+            - generic [ref=e764]:
+              - link "Palpitar" [ref=e765] [cursor=pointer]:
+                - /url: /pools/9/matches/1078/predict/
+              - button "Buscar resultado" [ref=e767] [cursor=pointer]
+        - article [ref=e768]:
+          - generic [ref=e769]:
+            - generic [ref=e770]:
+              - generic [ref=e771]: Fase de Grupos
+              - generic [ref=e772]: ·
+              - generic [ref=e773]: Lincoln Financial Field (Philadelphia)
+            - generic [ref=e775]: Agendado
+          - generic [ref=e776]:
+            - generic [ref=e777]:
+              - generic [ref=e778]: 🇧🇷
+              - generic [ref=e779]: Brasil
+            - generic [ref=e781]: "--- x ---"
+            - generic [ref=e782]:
+              - generic [ref=e783]: 🇭🇹
+              - generic [ref=e784]: Haiti
+          - generic [ref=e785]:
+            - generic [ref=e787]: Você ainda não palpitou neste jogo
+            - generic [ref=e788]:
+              - link "Palpitar" [ref=e789] [cursor=pointer]:
+                - /url: /pools/9/matches/1077/predict/
+              - button "Buscar resultado" [ref=e791] [cursor=pointer]
+        - article [ref=e792]:
+          - generic [ref=e793]:
+            - generic [ref=e794]:
+              - generic [ref=e795]: Fase de Grupos
+              - generic [ref=e796]: ·
+              - generic [ref=e797]: Levi's Stadium (Santa Clara)
+            - generic [ref=e799]: Agendado
+          - generic [ref=e800]:
+            - generic [ref=e801]:
+              - generic [ref=e802]: 🇹🇷
+              - generic [ref=e803]: Turquia
+            - generic [ref=e805]: "--- x ---"
+            - generic [ref=e806]:
+              - generic [ref=e807]: 🇵🇾
+              - generic [ref=e808]: Paraguai
+          - generic [ref=e809]:
+            - generic [ref=e811]: Você ainda não palpitou neste jogo
+            - generic [ref=e812]:
+              - link "Palpitar" [ref=e813] [cursor=pointer]:
+                - /url: /pools/9/matches/1079/predict/
+              - button "Buscar resultado" [ref=e815] [cursor=pointer]
+        - article [ref=e816]:
+          - generic [ref=e817]:
+            - generic [ref=e818]:
+              - generic [ref=e819]: Fase de Grupos
+              - generic [ref=e820]: ·
+              - generic [ref=e821]: NRG Stadium (Houston)
+            - generic [ref=e823]: Agendado
+          - generic [ref=e824]:
+            - generic [ref=e825]:
+              - generic [ref=e826]: 🇳🇱
+              - generic [ref=e827]: Holanda
+            - generic [ref=e829]: "--- x ---"
+            - generic [ref=e830]:
+              - generic [ref=e831]: 🇸🇪
+              - generic [ref=e832]: Suecia
+          - generic [ref=e833]:
+            - generic [ref=e835]: Você ainda não palpitou neste jogo
+            - generic [ref=e836]:
+              - link "Palpitar" [ref=e837] [cursor=pointer]:
+                - /url: /pools/9/matches/1083/predict/
+              - button "Buscar resultado" [ref=e839] [cursor=pointer]
+        - article [ref=e840]:
+          - generic [ref=e841]:
+            - generic [ref=e842]:
+              - generic [ref=e843]: Fase de Grupos
+              - generic [ref=e844]: ·
+              - generic [ref=e845]: BMO Field (Toronto)
+            - generic [ref=e847]: Agendado
+          - generic [ref=e848]:
+            - generic [ref=e849]:
+              - generic [ref=e850]: 🇩🇪
+              - generic [ref=e851]: Alemanha
+            - generic [ref=e853]: "--- x ---"
+            - generic [ref=e854]:
+              - generic [ref=e855]: 🇨🇮
+              - generic [ref=e856]: Costa do Marfim
+          - generic [ref=e857]:
+            - generic [ref=e859]: Você ainda não palpitou neste jogo
+            - generic [ref=e860]:
+              - link "Palpitar" [ref=e861] [cursor=pointer]:
+                - /url: /pools/9/matches/1081/predict/
+              - button "Buscar resultado" [ref=e863] [cursor=pointer]
+        - article [ref=e864]:
+          - generic [ref=e865]:
+            - generic [ref=e866]:
+              - generic [ref=e867]: Fase de Grupos
+              - generic [ref=e868]: ·
+              - generic [ref=e869]: Arrowhead Stadium (Kansas City)
+            - generic [ref=e871]: Agendado
+          - generic [ref=e872]:
+            - generic [ref=e873]:
+              - generic [ref=e874]: 🇪🇨
+              - generic [ref=e875]: Equador
+            - generic [ref=e877]: "--- x ---"
+            - generic [ref=e878]:
+              - generic [ref=e879]: 🇨🇼
+              - generic [ref=e880]: Curacao
+          - generic [ref=e881]:
+            - generic [ref=e883]: Você ainda não palpitou neste jogo
+            - generic [ref=e884]:
+              - link "Palpitar" [ref=e885] [cursor=pointer]:
+                - /url: /pools/9/matches/1082/predict/
+              - button "Buscar resultado" [ref=e887] [cursor=pointer]
+        - article [ref=e888]:
+          - generic [ref=e889]:
+            - generic [ref=e890]:
+              - generic [ref=e891]: Fase de Grupos
+              - generic [ref=e892]: ·
+              - generic [ref=e893]: Estadio BBVA (Guadalupe)
+            - generic [ref=e895]: Agendado
+          - generic [ref=e896]:
+            - generic [ref=e897]:
+              - generic [ref=e898]: 🇹🇳
+              - generic [ref=e899]: Tunisia
+            - generic [ref=e901]: "--- x ---"
+            - generic [ref=e902]:
+              - generic [ref=e903]: 🇯🇵
+              - generic [ref=e904]: Japao
+          - generic [ref=e905]:
+            - generic [ref=e907]: Você ainda não palpitou neste jogo
+            - generic [ref=e908]:
+              - link "Palpitar" [ref=e909] [cursor=pointer]:
+                - /url: /pools/9/matches/1084/predict/
+              - button "Buscar resultado" [ref=e911] [cursor=pointer]
+        - article [ref=e912]:
+          - generic [ref=e913]:
+            - generic [ref=e914]:
+              - generic [ref=e915]: Fase de Grupos
+              - generic [ref=e916]: ·
+              - generic [ref=e917]: Mercedes-Benz Stadium (Atlanta)
+            - generic [ref=e919]: Agendado
+          - generic [ref=e920]:
+            - generic [ref=e921]:
+              - generic [ref=e922]: 🇪🇸
+              - generic [ref=e923]: Espanha
+            - generic [ref=e925]: "--- x ---"
+            - generic [ref=e926]:
+              - generic [ref=e927]: 🇸🇦
+              - generic [ref=e928]: Arabia Saudita
+          - generic [ref=e929]:
+            - generic [ref=e931]: Você ainda não palpitou neste jogo
+            - generic [ref=e932]:
+              - link "Palpitar" [ref=e933] [cursor=pointer]:
+                - /url: /pools/9/matches/1086/predict/
+              - button "Buscar resultado" [ref=e935] [cursor=pointer]
+        - article [ref=e936]:
+          - generic [ref=e937]:
+            - generic [ref=e938]:
+              - generic [ref=e939]: Fase de Grupos
+              - generic [ref=e940]: ·
+              - generic [ref=e941]: SoFi Stadium (Inglewood)
+            - generic [ref=e943]: Agendado
+          - generic [ref=e944]:
+            - generic [ref=e945]:
+              - generic [ref=e946]: 🇧🇪
+              - generic [ref=e947]: Belgica
+            - generic [ref=e949]: "--- x ---"
+            - generic [ref=e950]:
+              - generic [ref=e951]: 🇮🇷
+              - generic [ref=e952]: Ira
+          - generic [ref=e953]:
+            - generic [ref=e955]: Você ainda não palpitou neste jogo
+            - generic [ref=e956]:
+              - link "Palpitar" [ref=e957] [cursor=pointer]:
+                - /url: /pools/9/matches/1087/predict/
+              - button "Buscar resultado" [ref=e959] [cursor=pointer]
+        - article [ref=e960]:
+          - generic [ref=e961]:
+            - generic [ref=e962]:
+              - generic [ref=e963]: Fase de Grupos
+              - generic [ref=e964]: ·
+              - generic [ref=e965]: Hard Rock Stadium (Miami Gardens)
+            - generic [ref=e967]: Agendado
+          - generic [ref=e968]:
+            - generic [ref=e969]:
+              - generic [ref=e970]: 🇺🇾
+              - generic [ref=e971]: Uruguai
+            - generic [ref=e973]: "--- x ---"
+            - generic [ref=e974]:
+              - generic [ref=e975]: 🇨🇻
+              - generic [ref=e976]: Cabo Verde
+          - generic [ref=e977]:
+            - generic [ref=e979]: Você ainda não palpitou neste jogo
+            - generic [ref=e980]:
+              - link "Palpitar" [ref=e981] [cursor=pointer]:
+                - /url: /pools/9/matches/1085/predict/
+              - button "Buscar resultado" [ref=e983] [cursor=pointer]
+        - article [ref=e984]:
+          - generic [ref=e985]:
+            - generic [ref=e986]:
+              - generic [ref=e987]: Fase de Grupos
+              - generic [ref=e988]: ·
+              - generic [ref=e989]: BC Place (Vancouver)
+            - generic [ref=e991]: Agendado
+          - generic [ref=e992]:
+            - generic [ref=e993]:
+              - generic [ref=e994]: 🇳🇿
+              - generic [ref=e995]: Nova Zelandia
+            - generic [ref=e997]: "--- x ---"
+            - generic [ref=e998]:
+              - generic [ref=e999]: 🇪🇬
+              - generic [ref=e1000]: Egito
+          - generic [ref=e1001]:
+            - generic [ref=e1003]: Você ainda não palpitou neste jogo
+            - generic [ref=e1004]:
+              - link "Palpitar" [ref=e1005] [cursor=pointer]:
+                - /url: /pools/9/matches/1088/predict/
+              - button "Buscar resultado" [ref=e1007] [cursor=pointer]
+        - article [ref=e1008]:
+          - generic [ref=e1009]:
+            - generic [ref=e1010]:
+              - generic [ref=e1011]: Fase de Grupos
+              - generic [ref=e1012]: ·
+              - generic [ref=e1013]: AT&T Stadium (Arlington)
+            - generic [ref=e1015]: Agendado
+          - generic [ref=e1016]:
+            - generic [ref=e1017]:
+              - generic [ref=e1018]: 🇦🇷
+              - generic [ref=e1019]: Argentina
+            - generic [ref=e1021]: "--- x ---"
+            - generic [ref=e1022]:
+              - generic [ref=e1023]: 🇦🇹
+              - generic [ref=e1024]: Austria
+          - generic [ref=e1025]:
+            - generic [ref=e1027]: Você ainda não palpitou neste jogo
+            - generic [ref=e1028]:
+              - link "Palpitar" [ref=e1029] [cursor=pointer]:
+                - /url: /pools/9/matches/1091/predict/
+              - button "Buscar resultado" [ref=e1031] [cursor=pointer]
+        - article [ref=e1032]:
+          - generic [ref=e1033]:
+            - generic [ref=e1034]:
+              - generic [ref=e1035]: Fase de Grupos
+              - generic [ref=e1036]: ·
+              - generic [ref=e1037]: Lincoln Financial Field (Philadelphia)
+            - generic [ref=e1039]: Agendado
+          - generic [ref=e1040]:
+            - generic [ref=e1041]:
+              - generic [ref=e1042]: 🇫🇷
+              - generic [ref=e1043]: Franca
+            - generic [ref=e1045]: "--- x ---"
+            - generic [ref=e1046]:
+              - generic [ref=e1047]: 🇮🇶
+              - generic [ref=e1048]: Iraque
+          - generic [ref=e1049]:
+            - generic [ref=e1051]: Você ainda não palpitou neste jogo
+            - generic [ref=e1052]:
+              - link "Palpitar" [ref=e1053] [cursor=pointer]:
+                - /url: /pools/9/matches/1090/predict/
+              - button "Buscar resultado" [ref=e1055] [cursor=pointer]
+        - article [ref=e1056]:
+          - generic [ref=e1057]:
+            - generic [ref=e1058]:
+              - generic [ref=e1059]: Fase de Grupos
+              - generic [ref=e1060]: ·
+              - generic [ref=e1061]: MetLife Stadium (East Rutherford)
+            - generic [ref=e1063]: Agendado
+          - generic [ref=e1064]:
+            - generic [ref=e1065]:
+              - generic [ref=e1066]: 🇳🇴
+              - generic [ref=e1067]: Noruega
+            - generic [ref=e1069]: "--- x ---"
+            - generic [ref=e1070]:
+              - generic [ref=e1071]: 🇸🇳
+              - generic [ref=e1072]: Senegal
+          - generic [ref=e1073]:
+            - generic [ref=e1075]: Você ainda não palpitou neste jogo
+            - generic [ref=e1076]:
+              - link "Palpitar" [ref=e1077] [cursor=pointer]:
+                - /url: /pools/9/matches/1089/predict/
+              - button "Buscar resultado" [ref=e1079] [cursor=pointer]
+        - article [ref=e1080]:
+          - generic [ref=e1081]:
+            - generic [ref=e1082]:
+              - generic [ref=e1083]: Fase de Grupos
+              - generic [ref=e1084]: ·
+              - generic [ref=e1085]: Levi's Stadium (Santa Clara)
+            - generic [ref=e1087]: Agendado
+          - generic [ref=e1088]:
+            - generic [ref=e1089]:
+              - generic [ref=e1090]: 🇯🇴
+              - generic [ref=e1091]: Jordania
+            - generic [ref=e1093]: "--- x ---"
+            - generic [ref=e1094]:
+              - generic [ref=e1095]: 🇩🇿
+              - generic [ref=e1096]: Argelia
+          - generic [ref=e1097]:
+            - generic [ref=e1099]: Você ainda não palpitou neste jogo
+            - generic [ref=e1100]:
+              - link "Palpitar" [ref=e1101] [cursor=pointer]:
+                - /url: /pools/9/matches/1092/predict/
+              - button "Buscar resultado" [ref=e1103] [cursor=pointer]
+        - article [ref=e1104]:
+          - generic [ref=e1105]:
+            - generic [ref=e1106]:
+              - generic [ref=e1107]: Fase de Grupos
+              - generic [ref=e1108]: ·
+              - generic [ref=e1109]: NRG Stadium (Houston)
+            - generic [ref=e1111]: Agendado
+          - generic [ref=e1112]:
+            - generic [ref=e1113]:
+              - generic [ref=e1114]: 🇵🇹
+              - generic [ref=e1115]: Portugal
+            - generic [ref=e1117]: "--- x ---"
+            - generic [ref=e1118]:
+              - generic [ref=e1119]: 🇺🇿
+              - generic [ref=e1120]: Uzbequistao
+          - generic [ref=e1121]:
+            - generic [ref=e1123]: Você ainda não palpitou neste jogo
+            - generic [ref=e1124]:
+              - link "Palpitar" [ref=e1125] [cursor=pointer]:
+                - /url: /pools/9/matches/1095/predict/
+              - button "Buscar resultado" [ref=e1127] [cursor=pointer]
+        - article [ref=e1128]:
+          - generic [ref=e1129]:
+            - generic [ref=e1130]:
+              - generic [ref=e1131]: Fase de Grupos
+              - generic [ref=e1132]: ·
+              - generic [ref=e1133]: Gillette Stadium (Foxborough)
+            - generic [ref=e1135]: Agendado
+          - generic [ref=e1136]:
+            - generic [ref=e1137]:
+              - generic [ref=e1138]: 🏴󠁧󠁢󠁥󠁮󠁣󠁴󠁿
+              - generic [ref=e1139]: Inglaterra
+            - generic [ref=e1141]: "--- x ---"
+            - generic [ref=e1142]:
+              - generic [ref=e1143]: 🇬🇭
+              - generic [ref=e1144]: Gana
+          - generic [ref=e1145]:
+            - generic [ref=e1147]: Você ainda não palpitou neste jogo
+            - generic [ref=e1148]:
+              - link "Palpitar" [ref=e1149] [cursor=pointer]:
+                - /url: /pools/9/matches/1093/predict/
+              - button "Buscar resultado" [ref=e1151] [cursor=pointer]
+        - article [ref=e1152]:
+          - generic [ref=e1153]:
+            - generic [ref=e1154]:
+              - generic [ref=e1155]: Fase de Grupos
+              - generic [ref=e1156]: ·
+              - generic [ref=e1157]: BMO Field (Toronto)
+            - generic [ref=e1159]: Agendado
+          - generic [ref=e1160]:
+            - generic [ref=e1161]:
+              - generic [ref=e1162]: 🇵🇦
+              - generic [ref=e1163]: Panama
+            - generic [ref=e1165]: "--- x ---"
+            - generic [ref=e1166]:
+              - generic [ref=e1167]: 🇭🇷
+              - generic [ref=e1168]: Croatia
+          - generic [ref=e1169]:
+            - generic [ref=e1171]: Você ainda não palpitou neste jogo
+            - generic [ref=e1172]:
+              - link "Palpitar" [ref=e1173] [cursor=pointer]:
+                - /url: /pools/9/matches/1094/predict/
+              - button "Buscar resultado" [ref=e1175] [cursor=pointer]
+        - article [ref=e1176]:
+          - generic [ref=e1177]:
+            - generic [ref=e1178]:
+              - generic [ref=e1179]: Fase de Grupos
+              - generic [ref=e1180]: ·
+              - generic [ref=e1181]: Estadio Akron (Zapopan)
+            - generic [ref=e1183]: Agendado
+          - generic [ref=e1184]:
+            - generic [ref=e1185]:
+              - generic [ref=e1186]: 🇨🇴
+              - generic [ref=e1187]: Colombia
+            - generic [ref=e1189]: "--- x ---"
+            - generic [ref=e1190]:
+              - generic [ref=e1191]: 🇨🇩
+              - generic [ref=e1192]: Republica Democratica do Congo
+          - generic [ref=e1193]:
+            - generic [ref=e1195]: Você ainda não palpitou neste jogo
+            - generic [ref=e1196]:
+              - link "Palpitar" [ref=e1197] [cursor=pointer]:
+                - /url: /pools/9/matches/1096/predict/
+              - button "Buscar resultado" [ref=e1199] [cursor=pointer]
+        - article [ref=e1200]:
+          - generic [ref=e1201]:
+            - generic [ref=e1202]:
+              - generic [ref=e1203]: Fase de Grupos
+              - generic [ref=e1204]: ·
+              - generic [ref=e1205]: BC Place (Vancouver)
+            - generic [ref=e1207]: Agendado
+          - generic [ref=e1208]:
+            - generic [ref=e1209]:
+              - generic [ref=e1210]: 🇨🇭
+              - generic [ref=e1211]: Suica
+            - generic [ref=e1213]: "--- x ---"
+            - generic [ref=e1214]:
+              - generic [ref=e1215]: 🇨🇦
+              - generic [ref=e1216]: Canada
+          - generic [ref=e1217]:
+            - generic [ref=e1219]: Você ainda não palpitou neste jogo
+            - generic [ref=e1220]:
+              - link "Palpitar" [ref=e1221] [cursor=pointer]:
+                - /url: /pools/9/matches/1099/predict/
+              - button "Buscar resultado" [ref=e1223] [cursor=pointer]
+        - article [ref=e1224]:
+          - generic [ref=e1225]:
+            - generic [ref=e1226]:
+              - generic [ref=e1227]: Fase de Grupos
+              - generic [ref=e1228]: ·
+              - generic [ref=e1229]: Lumen Field (Seattle)
+            - generic [ref=e1231]: Agendado
+          - generic [ref=e1232]:
+            - generic [ref=e1233]:
+              - generic [ref=e1234]: 🇧🇦
+              - generic [ref=e1235]: Bosnia e Herzegovina
+            - generic [ref=e1237]: "--- x ---"
+            - generic [ref=e1238]:
+              - generic [ref=e1239]: 🇶🇦
+              - generic [ref=e1240]: Catar
+          - generic [ref=e1241]:
+            - generic [ref=e1243]: Você ainda não palpitou neste jogo
+            - generic [ref=e1244]:
+              - link "Palpitar" [ref=e1245] [cursor=pointer]:
+                - /url: /pools/9/matches/1100/predict/
+              - button "Buscar resultado" [ref=e1247] [cursor=pointer]
+        - article [ref=e1248]:
+          - generic [ref=e1249]:
+            - generic [ref=e1250]:
+              - generic [ref=e1251]: Fase de Grupos
+              - generic [ref=e1252]: ·
+              - generic [ref=e1253]: Hard Rock Stadium (Miami Gardens)
+            - generic [ref=e1255]: Agendado
+          - generic [ref=e1256]:
+            - generic [ref=e1257]:
+              - generic [ref=e1258]: 🏴󠁧󠁢󠁥󠁮󠁧󠁿
+              - generic [ref=e1259]: Escocia
+            - generic [ref=e1261]: "--- x ---"
+            - generic [ref=e1262]:
+              - generic [ref=e1263]: 🇧🇷
+              - generic [ref=e1264]: Brasil
+          - generic [ref=e1265]:
+            - generic [ref=e1267]: Você ainda não palpitou neste jogo
+            - generic [ref=e1268]:
+              - link "Palpitar" [ref=e1269] [cursor=pointer]:
+                - /url: /pools/9/matches/1097/predict/
+              - button "Buscar resultado" [ref=e1271] [cursor=pointer]
+        - article [ref=e1272]:
+          - generic [ref=e1273]:
+            - generic [ref=e1274]:
+              - generic [ref=e1275]: Fase de Grupos
+              - generic [ref=e1276]: ·
+              - generic [ref=e1277]: Mercedes-Benz Stadium (Atlanta)
+            - generic [ref=e1279]: Agendado
+          - generic [ref=e1280]:
+            - generic [ref=e1281]:
+              - generic [ref=e1282]: 🇲🇦
+              - generic [ref=e1283]: Marracos
+            - generic [ref=e1285]: "--- x ---"
+            - generic [ref=e1286]:
+              - generic [ref=e1287]: 🇭🇹
+              - generic [ref=e1288]: Haiti
+          - generic [ref=e1289]:
+            - generic [ref=e1291]: Você ainda não palpitou neste jogo
+            - generic [ref=e1292]:
+              - link "Palpitar" [ref=e1293] [cursor=pointer]:
+                - /url: /pools/9/matches/1098/predict/
+              - button "Buscar resultado" [ref=e1295] [cursor=pointer]
+        - article [ref=e1296]:
+          - generic [ref=e1297]:
+            - generic [ref=e1298]:
+              - generic [ref=e1299]: Fase de Grupos
+              - generic [ref=e1300]: ·
+              - generic [ref=e1301]: Estadio Azteca (Mexico City)
+            - generic [ref=e1303]: Agendado
+          - generic [ref=e1304]:
+            - generic [ref=e1305]:
+              - generic [ref=e1306]: 🇨🇿
+              - generic [ref=e1307]: Chequia
+            - generic [ref=e1309]: "--- x ---"
+            - generic [ref=e1310]:
+              - generic [ref=e1311]: 🇲🇽
+              - generic [ref=e1312]: Mexico
+          - generic [ref=e1313]:
+            - generic [ref=e1315]: Você ainda não palpitou neste jogo
+            - generic [ref=e1316]:
+              - link "Palpitar" [ref=e1317] [cursor=pointer]:
+                - /url: /pools/9/matches/1101/predict/
+              - button "Buscar resultado" [ref=e1319] [cursor=pointer]
+        - article [ref=e1320]:
+          - generic [ref=e1321]:
+            - generic [ref=e1322]:
+              - generic [ref=e1323]: Fase de Grupos
+              - generic [ref=e1324]: ·
+              - generic [ref=e1325]: Estadio BBVA (Guadalupe)
+            - generic [ref=e1327]: Agendado
+          - generic [ref=e1328]:
+            - generic [ref=e1329]:
+              - generic [ref=e1330]: 🇿🇦
+              - generic [ref=e1331]: Africa do Sul
+            - generic [ref=e1333]: "--- x ---"
+            - generic [ref=e1334]:
+              - generic [ref=e1335]: 🇰🇷
+              - generic [ref=e1336]: Coreia do Sul
+          - generic [ref=e1337]:
+            - generic [ref=e1339]: Você ainda não palpitou neste jogo
+            - generic [ref=e1340]:
+              - link "Palpitar" [ref=e1341] [cursor=pointer]:
+                - /url: /pools/9/matches/1102/predict/
+              - button "Buscar resultado" [ref=e1343] [cursor=pointer]
+        - article [ref=e1344]:
+          - generic [ref=e1345]:
+            - generic [ref=e1346]:
+              - generic [ref=e1347]: Fase de Grupos
+              - generic [ref=e1348]: ·
+              - generic [ref=e1349]: Lincoln Financial Field (Philadelphia)
+            - generic [ref=e1351]: Agendado
+          - generic [ref=e1352]:
+            - generic [ref=e1353]:
+              - generic [ref=e1354]: 🇨🇼
+              - generic [ref=e1355]: Curacao
+            - generic [ref=e1357]: "--- x ---"
+            - generic [ref=e1358]:
+              - generic [ref=e1359]: 🇨🇮
+              - generic [ref=e1360]: Costa do Marfim
+          - generic [ref=e1361]:
+            - generic [ref=e1363]: Você ainda não palpitou neste jogo
+            - generic [ref=e1364]:
+              - link "Palpitar" [ref=e1365] [cursor=pointer]:
+                - /url: /pools/9/matches/1103/predict/
+              - button "Buscar resultado" [ref=e1367] [cursor=pointer]
+        - article [ref=e1368]:
+          - generic [ref=e1369]:
+            - generic [ref=e1370]:
+              - generic [ref=e1371]: Fase de Grupos
+              - generic [ref=e1372]: ·
+              - generic [ref=e1373]: MetLife Stadium (East Rutherford)
+            - generic [ref=e1375]: Agendado
+          - generic [ref=e1376]:
+            - generic [ref=e1377]:
+              - generic [ref=e1378]: 🇪🇨
+              - generic [ref=e1379]: Equador
+            - generic [ref=e1381]: "--- x ---"
+            - generic [ref=e1382]:
+              - generic [ref=e1383]: 🇩🇪
+              - generic [ref=e1384]: Alemanha
+          - generic [ref=e1385]:
+            - generic [ref=e1387]: Você ainda não palpitou neste jogo
+            - generic [ref=e1388]:
+              - link "Palpitar" [ref=e1389] [cursor=pointer]:
+                - /url: /pools/9/matches/1104/predict/
+              - button "Buscar resultado" [ref=e1391] [cursor=pointer]
+        - article [ref=e1392]:
+          - generic [ref=e1393]:
+            - generic [ref=e1394]:
+              - generic [ref=e1395]: Fase de Grupos
+              - generic [ref=e1396]: ·
+              - generic [ref=e1397]: AT&T Stadium (Arlington)
+            - generic [ref=e1399]: Agendado
+          - generic [ref=e1400]:
+            - generic [ref=e1401]:
+              - generic [ref=e1402]: 🇯🇵
+              - generic [ref=e1403]: Japao
+            - generic [ref=e1405]: "--- x ---"
+            - generic [ref=e1406]:
+              - generic [ref=e1407]: 🇸🇪
+              - generic [ref=e1408]: Suecia
+          - generic [ref=e1409]:
+            - generic [ref=e1411]: Você ainda não palpitou neste jogo
+            - generic [ref=e1412]:
+              - link "Palpitar" [ref=e1413] [cursor=pointer]:
+                - /url: /pools/9/matches/1105/predict/
+              - button "Buscar resultado" [ref=e1415] [cursor=pointer]
+        - article [ref=e1416]:
+          - generic [ref=e1417]:
+            - generic [ref=e1418]:
+              - generic [ref=e1419]: Fase de Grupos
+              - generic [ref=e1420]: ·
+              - generic [ref=e1421]: Arrowhead Stadium (Kansas City)
+            - generic [ref=e1423]: Agendado
+          - generic [ref=e1424]:
+            - generic [ref=e1425]:
+              - generic [ref=e1426]: 🇹🇳
+              - generic [ref=e1427]: Tunisia
+            - generic [ref=e1429]: "--- x ---"
+            - generic [ref=e1430]:
+              - generic [ref=e1431]: 🇳🇱
+              - generic [ref=e1432]: Holanda
+          - generic [ref=e1433]:
+            - generic [ref=e1435]: Você ainda não palpitou neste jogo
+            - generic [ref=e1436]:
+              - link "Palpitar" [ref=e1437] [cursor=pointer]:
+                - /url: /pools/9/matches/1106/predict/
+              - button "Buscar resultado" [ref=e1439] [cursor=pointer]
+        - article [ref=e1440]:
+          - generic [ref=e1441]:
+            - generic [ref=e1442]:
+              - generic [ref=e1443]: Fase de Grupos
+              - generic [ref=e1444]: ·
+              - generic [ref=e1445]: SoFi Stadium (Inglewood)
+            - generic [ref=e1447]: Agendado
+          - generic [ref=e1448]:
+            - generic [ref=e1449]:
+              - generic [ref=e1450]: 🇹🇷
+              - generic [ref=e1451]: Turquia
+            - generic [ref=e1453]: "--- x ---"
+            - generic [ref=e1454]:
+              - generic [ref=e1455]: 🇺🇸
+              - generic [ref=e1456]: Estados Unidos
+          - generic [ref=e1457]:
+            - generic [ref=e1459]: Você ainda não palpitou neste jogo
+            - generic [ref=e1460]:
+              - link "Palpitar" [ref=e1461] [cursor=pointer]:
+                - /url: /pools/9/matches/1107/predict/
+              - button "Buscar resultado" [ref=e1463] [cursor=pointer]
+        - article [ref=e1464]:
+          - generic [ref=e1465]:
+            - generic [ref=e1466]:
+              - generic [ref=e1467]: Fase de Grupos
+              - generic [ref=e1468]: ·
+              - generic [ref=e1469]: Levi's Stadium (Santa Clara)
+            - generic [ref=e1471]: Agendado
+          - generic [ref=e1472]:
+            - generic [ref=e1473]:
+              - generic [ref=e1474]: 🇵🇾
+              - generic [ref=e1475]: Paraguai
+            - generic [ref=e1477]: "--- x ---"
+            - generic [ref=e1478]:
+              - generic [ref=e1479]: 🇦🇺
+              - generic [ref=e1480]: Australia
+          - generic [ref=e1481]:
+            - generic [ref=e1483]: Você ainda não palpitou neste jogo
+            - generic [ref=e1484]:
+              - link "Palpitar" [ref=e1485] [cursor=pointer]:
+                - /url: /pools/9/matches/1108/predict/
+              - button "Buscar resultado" [ref=e1487] [cursor=pointer]
+        - article [ref=e1488]:
+          - generic [ref=e1489]:
+            - generic [ref=e1490]:
+              - generic [ref=e1491]: Fase de Grupos
+              - generic [ref=e1492]: ·
+              - generic [ref=e1493]: Gillette Stadium (Foxborough)
+            - generic [ref=e1495]: Agendado
+          - generic [ref=e1496]:
+            - generic [ref=e1497]:
+              - generic [ref=e1498]: 🇳🇴
+              - generic [ref=e1499]: Noruega
+            - generic [ref=e1501]: "--- x ---"
+            - generic [ref=e1502]:
+              - generic [ref=e1503]: 🇫🇷
+              - generic [ref=e1504]: Franca
+          - generic [ref=e1505]:
+            - generic [ref=e1507]: Você ainda não palpitou neste jogo
+            - generic [ref=e1508]:
+              - link "Palpitar" [ref=e1509] [cursor=pointer]:
+                - /url: /pools/9/matches/1109/predict/
+              - button "Buscar resultado" [ref=e1511] [cursor=pointer]
+        - article [ref=e1512]:
+          - generic [ref=e1513]:
+            - generic [ref=e1514]:
+              - generic [ref=e1515]: Fase de Grupos
+              - generic [ref=e1516]: ·
+              - generic [ref=e1517]: BMO Field (Toronto)
+            - generic [ref=e1519]: Agendado
+          - generic [ref=e1520]:
+            - generic [ref=e1521]:
+              - generic [ref=e1522]: 🇸🇳
+              - generic [ref=e1523]: Senegal
+            - generic [ref=e1525]: "--- x ---"
+            - generic [ref=e1526]:
+              - generic [ref=e1527]: 🇮🇶
+              - generic [ref=e1528]: Iraque
+          - generic [ref=e1529]:
+            - generic [ref=e1531]: Você ainda não palpitou neste jogo
+            - generic [ref=e1532]:
+              - link "Palpitar" [ref=e1533] [cursor=pointer]:
+                - /url: /pools/9/matches/1110/predict/
+              - button "Buscar resultado" [ref=e1535] [cursor=pointer]
+        - article [ref=e1536]:
+          - generic [ref=e1537]:
+            - generic [ref=e1538]:
+              - generic [ref=e1539]: Fase de Grupos
+              - generic [ref=e1540]: ·
+              - generic [ref=e1541]: NRG Stadium (Houston)
+            - generic [ref=e1543]: Agendado
+          - generic [ref=e1544]:
+            - generic [ref=e1545]:
+              - generic [ref=e1546]: 🇨🇻
+              - generic [ref=e1547]: Cabo Verde
+            - generic [ref=e1549]: "--- x ---"
+            - generic [ref=e1550]:
+              - generic [ref=e1551]: 🇸🇦
+              - generic [ref=e1552]: Arabia Saudita
+          - generic [ref=e1553]:
+            - generic [ref=e1555]: Você ainda não palpitou neste jogo
+            - generic [ref=e1556]:
+              - link "Palpitar" [ref=e1557] [cursor=pointer]:
+                - /url: /pools/9/matches/1113/predict/
+              - button "Buscar resultado" [ref=e1559] [cursor=pointer]
+        - article [ref=e1560]:
+          - generic [ref=e1561]:
+            - generic [ref=e1562]:
+              - generic [ref=e1563]: Fase de Grupos
+              - generic [ref=e1564]: ·
+              - generic [ref=e1565]: Estadio Akron (Zapopan)
+            - generic [ref=e1567]: Agendado
+          - generic [ref=e1568]:
+            - generic [ref=e1569]:
+              - generic [ref=e1570]: 🇺🇾
+              - generic [ref=e1571]: Uruguai
+            - generic [ref=e1573]: "--- x ---"
+            - generic [ref=e1574]:
+              - generic [ref=e1575]: 🇪🇸
+              - generic [ref=e1576]: Espanha
+          - generic [ref=e1577]:
+            - generic [ref=e1579]: Você ainda não palpitou neste jogo
+            - generic [ref=e1580]:
+              - link "Palpitar" [ref=e1581] [cursor=pointer]:
+                - /url: /pools/9/matches/1114/predict/
+              - button "Buscar resultado" [ref=e1583] [cursor=pointer]
+        - article [ref=e1584]:
+          - generic [ref=e1585]:
+            - generic [ref=e1586]:
+              - generic [ref=e1587]: Fase de Grupos
+              - generic [ref=e1588]: ·
+              - generic [ref=e1589]: Lumen Field (Seattle)
+            - generic [ref=e1591]: Agendado
+          - generic [ref=e1592]:
+            - generic [ref=e1593]:
+              - generic [ref=e1594]: 🇪🇬
+              - generic [ref=e1595]: Egito
+            - generic [ref=e1597]: "--- x ---"
+            - generic [ref=e1598]:
+              - generic [ref=e1599]: 🇮🇷
+              - generic [ref=e1600]: Ira
+          - generic [ref=e1601]:
+            - generic [ref=e1603]: Você ainda não palpitou neste jogo
+            - generic [ref=e1604]:
+              - link "Palpitar" [ref=e1605] [cursor=pointer]:
+                - /url: /pools/9/matches/1111/predict/
+              - button "Buscar resultado" [ref=e1607] [cursor=pointer]
+        - article [ref=e1608]:
+          - generic [ref=e1609]:
+            - generic [ref=e1610]:
+              - generic [ref=e1611]: Fase de Grupos
+              - generic [ref=e1612]: ·
+              - generic [ref=e1613]: BC Place (Vancouver)
+            - generic [ref=e1615]: Agendado
+          - generic [ref=e1616]:
+            - generic [ref=e1617]:
+              - generic [ref=e1618]: 🇳🇿
+              - generic [ref=e1619]: Nova Zelandia
+            - generic [ref=e1621]: "--- x ---"
+            - generic [ref=e1622]:
+              - generic [ref=e1623]: 🇧🇪
+              - generic [ref=e1624]: Belgica
+          - generic [ref=e1625]:
+            - generic [ref=e1627]: Você ainda não palpitou neste jogo
+            - generic [ref=e1628]:
+              - link "Palpitar" [ref=e1629] [cursor=pointer]:
+                - /url: /pools/9/matches/1112/predict/
+              - button "Buscar resultado" [ref=e1631] [cursor=pointer]
+        - article [ref=e1632]:
+          - generic [ref=e1633]:
+            - generic [ref=e1634]:
+              - generic [ref=e1635]: Fase de Grupos
+              - generic [ref=e1636]: ·
+              - generic [ref=e1637]: MetLife Stadium (East Rutherford)
+            - generic [ref=e1639]: Agendado
+          - generic [ref=e1640]:
+            - generic [ref=e1641]:
+              - generic [ref=e1642]: 🇵🇦
+              - generic [ref=e1643]: Panama
+            - generic [ref=e1645]: "--- x ---"
+            - generic [ref=e1646]:
+              - generic [ref=e1647]: 🏴󠁧󠁢󠁥󠁮󠁣󠁴󠁿
+              - generic [ref=e1648]: Inglaterra
+          - generic [ref=e1649]:
+            - generic [ref=e1651]: Você ainda não palpitou neste jogo
+            - generic [ref=e1652]:
+              - link "Palpitar" [ref=e1653] [cursor=pointer]:
+                - /url: /pools/9/matches/1115/predict/
+              - button "Buscar resultado" [ref=e1655] [cursor=pointer]
+        - article [ref=e1656]:
+          - generic [ref=e1657]:
+            - generic [ref=e1658]:
+              - generic [ref=e1659]: Fase de Grupos
+              - generic [ref=e1660]: ·
+              - generic [ref=e1661]: Lincoln Financial Field (Philadelphia)
+            - generic [ref=e1663]: Agendado
+          - generic [ref=e1664]:
+            - generic [ref=e1665]:
+              - generic [ref=e1666]: 🇭🇷
+              - generic [ref=e1667]: Croatia
+            - generic [ref=e1669]: "--- x ---"
+            - generic [ref=e1670]:
+              - generic [ref=e1671]: 🇬🇭
+              - generic [ref=e1672]: Gana
+          - generic [ref=e1673]:
+            - generic [ref=e1675]: Você ainda não palpitou neste jogo
+            - generic [ref=e1676]:
+              - link "Palpitar" [ref=e1677] [cursor=pointer]:
+                - /url: /pools/9/matches/1116/predict/
+              - button "Buscar resultado" [ref=e1679] [cursor=pointer]
+        - article [ref=e1680]:
+          - generic [ref=e1681]:
+            - generic [ref=e1682]:
+              - generic [ref=e1683]: Fase de Grupos
+              - generic [ref=e1684]: ·
+              - generic [ref=e1685]: Hard Rock Stadium (Miami Gardens)
+            - generic [ref=e1687]: Agendado
+          - generic [ref=e1688]:
+            - generic [ref=e1689]:
+              - generic [ref=e1690]: 🇨🇴
+              - generic [ref=e1691]: Colombia
+            - generic [ref=e1693]: "--- x ---"
+            - generic [ref=e1694]:
+              - generic [ref=e1695]: 🇵🇹
+              - generic [ref=e1696]: Portugal
+          - generic [ref=e1697]:
+            - generic [ref=e1699]: Você ainda não palpitou neste jogo
+            - generic [ref=e1700]:
+              - link "Palpitar" [ref=e1701] [cursor=pointer]:
+                - /url: /pools/9/matches/1119/predict/
+              - button "Buscar resultado" [ref=e1703] [cursor=pointer]
+        - article [ref=e1704]:
+          - generic [ref=e1705]:
+            - generic [ref=e1706]:
+              - generic [ref=e1707]: Fase de Grupos
+              - generic [ref=e1708]: ·
+              - generic [ref=e1709]: Mercedes-Benz Stadium (Atlanta)
+            - generic [ref=e1711]: Agendado
+          - generic [ref=e1712]:
+            - generic [ref=e1713]:
+              - generic [ref=e1714]: 🇨🇩
+              - generic [ref=e1715]: Republica Democratica do Congo
+            - generic [ref=e1717]: "--- x ---"
+            - generic [ref=e1718]:
+              - generic [ref=e1719]: 🇺🇿
+              - generic [ref=e1720]: Uzbequistao
+          - generic [ref=e1721]:
+            - generic [ref=e1723]: Você ainda não palpitou neste jogo
+            - generic [ref=e1724]:
+              - link "Palpitar" [ref=e1725] [cursor=pointer]:
+                - /url: /pools/9/matches/1120/predict/
+              - button "Buscar resultado" [ref=e1727] [cursor=pointer]
+        - article [ref=e1728]:
+          - generic [ref=e1729]:
+            - generic [ref=e1730]:
+              - generic [ref=e1731]: Fase de Grupos
+              - generic [ref=e1732]: ·
+              - generic [ref=e1733]: Arrowhead Stadium (Kansas City)
+            - generic [ref=e1735]: Agendado
+          - generic [ref=e1736]:
+            - generic [ref=e1737]:
+              - generic [ref=e1738]: 🇩🇿
+              - generic [ref=e1739]: Argelia
+            - generic [ref=e1741]: "--- x ---"
+            - generic [ref=e1742]:
+              - generic [ref=e1743]: 🇦🇹
+              - generic [ref=e1744]: Austria
+          - generic [ref=e1745]:
+            - generic [ref=e1747]: Você ainda não palpitou neste jogo
+            - generic [ref=e1748]:
+              - link "Palpitar" [ref=e1749] [cursor=pointer]:
+                - /url: /pools/9/matches/1117/predict/
+              - button "Buscar resultado" [ref=e1751] [cursor=pointer]
+        - article [ref=e1752]:
+          - generic [ref=e1753]:
+            - generic [ref=e1754]:
+              - generic [ref=e1755]: Fase de Grupos
+              - generic [ref=e1756]: ·
+              - generic [ref=e1757]: AT&T Stadium (Arlington)
+            - generic [ref=e1759]: Agendado
+          - generic [ref=e1760]:
+            - generic [ref=e1761]:
+              - generic [ref=e1762]: 🇯🇴
+              - generic [ref=e1763]: Jordania
+            - generic [ref=e1765]: "--- x ---"
+            - generic [ref=e1766]:
+              - generic [ref=e1767]: 🇦🇷
+              - generic [ref=e1768]: Argentina
+          - generic [ref=e1769]:
+            - generic [ref=e1771]: Você ainda não palpitou neste jogo
+            - generic [ref=e1772]:
+              - link "Palpitar" [ref=e1773] [cursor=pointer]:
+                - /url: /pools/9/matches/1118/predict/
+              - button "Buscar resultado" [ref=e1775] [cursor=pointer]
+        - article [ref=e1776]:
+          - generic [ref=e1777]:
+            - generic [ref=e1778]:
+              - generic [ref=e1779]: 16-avos de Final
+              - generic [ref=e1780]: ·
+              - generic [ref=e1781]: SoFi Stadium (Inglewood)
+            - generic [ref=e1783]: Agendado
+          - generic [ref=e1784]:
+            - generic [ref=e1786]: A definir (mandante)
+            - generic [ref=e1788]: "--- x ---"
+            - generic [ref=e1790]: A definir (visitante)
+          - generic [ref=e1791]:
+            - generic [ref=e1793]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1795] [cursor=pointer]:
+              - /url: /pools/9/matches/1121/predict/
+        - article [ref=e1796]:
+          - generic [ref=e1797]:
+            - generic [ref=e1798]:
+              - generic [ref=e1799]: 16-avos de Final
+              - generic [ref=e1800]: ·
+              - generic [ref=e1801]: NRG Stadium (Houston)
+            - generic [ref=e1803]: Agendado
+          - generic [ref=e1804]:
+            - generic [ref=e1806]: A definir (mandante)
+            - generic [ref=e1808]: "--- x ---"
+            - generic [ref=e1810]: A definir (visitante)
+          - generic [ref=e1811]:
+            - generic [ref=e1813]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1815] [cursor=pointer]:
+              - /url: /pools/9/matches/1124/predict/
+        - article [ref=e1816]:
+          - generic [ref=e1817]:
+            - generic [ref=e1818]:
+              - generic [ref=e1819]: 16-avos de Final
+              - generic [ref=e1820]: ·
+              - generic [ref=e1821]: Gillette Stadium (Foxborough)
+            - generic [ref=e1823]: Agendado
+          - generic [ref=e1824]:
+            - generic [ref=e1826]: A definir (mandante)
+            - generic [ref=e1828]: "--- x ---"
+            - generic [ref=e1830]: A definir (visitante)
+          - generic [ref=e1831]:
+            - generic [ref=e1833]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1835] [cursor=pointer]:
+              - /url: /pools/9/matches/1122/predict/
+        - article [ref=e1836]:
+          - generic [ref=e1837]:
+            - generic [ref=e1838]:
+              - generic [ref=e1839]: 16-avos de Final
+              - generic [ref=e1840]: ·
+              - generic [ref=e1841]: Estadio BBVA (Guadalupe)
+            - generic [ref=e1843]: Agendado
+          - generic [ref=e1844]:
+            - generic [ref=e1846]: A definir (mandante)
+            - generic [ref=e1848]: "--- x ---"
+            - generic [ref=e1850]: A definir (visitante)
+          - generic [ref=e1851]:
+            - generic [ref=e1853]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1855] [cursor=pointer]:
+              - /url: /pools/9/matches/1123/predict/
+        - article [ref=e1856]:
+          - generic [ref=e1857]:
+            - generic [ref=e1858]:
+              - generic [ref=e1859]: 16-avos de Final
+              - generic [ref=e1860]: ·
+              - generic [ref=e1861]: AT&T Stadium (Arlington)
+            - generic [ref=e1863]: Agendado
+          - generic [ref=e1864]:
+            - generic [ref=e1866]: A definir (mandante)
+            - generic [ref=e1868]: "--- x ---"
+            - generic [ref=e1870]: A definir (visitante)
+          - generic [ref=e1871]:
+            - generic [ref=e1873]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1875] [cursor=pointer]:
+              - /url: /pools/9/matches/1126/predict/
+        - article [ref=e1876]:
+          - generic [ref=e1877]:
+            - generic [ref=e1878]:
+              - generic [ref=e1879]: 16-avos de Final
+              - generic [ref=e1880]: ·
+              - generic [ref=e1881]: MetLife Stadium (East Rutherford)
+            - generic [ref=e1883]: Agendado
+          - generic [ref=e1884]:
+            - generic [ref=e1886]: A definir (mandante)
+            - generic [ref=e1888]: "--- x ---"
+            - generic [ref=e1890]: A definir (visitante)
+          - generic [ref=e1891]:
+            - generic [ref=e1893]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1895] [cursor=pointer]:
+              - /url: /pools/9/matches/1125/predict/
+        - article [ref=e1896]:
+          - generic [ref=e1897]:
+            - generic [ref=e1898]:
+              - generic [ref=e1899]: 16-avos de Final
+              - generic [ref=e1900]: ·
+              - generic [ref=e1901]: Estadio Azteca (Mexico City)
+            - generic [ref=e1903]: Agendado
+          - generic [ref=e1904]:
+            - generic [ref=e1906]: A definir (mandante)
+            - generic [ref=e1908]: "--- x ---"
+            - generic [ref=e1910]: A definir (visitante)
+          - generic [ref=e1911]:
+            - generic [ref=e1913]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1915] [cursor=pointer]:
+              - /url: /pools/9/matches/1127/predict/
+        - article [ref=e1916]:
+          - generic [ref=e1917]:
+            - generic [ref=e1918]:
+              - generic [ref=e1919]: 16-avos de Final
+              - generic [ref=e1920]: ·
+              - generic [ref=e1921]: Mercedes-Benz Stadium (Atlanta)
+            - generic [ref=e1923]: Agendado
+          - generic [ref=e1924]:
+            - generic [ref=e1926]: A definir (mandante)
+            - generic [ref=e1928]: "--- x ---"
+            - generic [ref=e1930]: A definir (visitante)
+          - generic [ref=e1931]:
+            - generic [ref=e1933]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1935] [cursor=pointer]:
+              - /url: /pools/9/matches/1128/predict/
+        - article [ref=e1936]:
+          - generic [ref=e1937]:
+            - generic [ref=e1938]:
+              - generic [ref=e1939]: 16-avos de Final
+              - generic [ref=e1940]: ·
+              - generic [ref=e1941]: Lumen Field (Seattle)
+            - generic [ref=e1943]: Agendado
+          - generic [ref=e1944]:
+            - generic [ref=e1946]: A definir (mandante)
+            - generic [ref=e1948]: "--- x ---"
+            - generic [ref=e1950]: A definir (visitante)
+          - generic [ref=e1951]:
+            - generic [ref=e1953]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1955] [cursor=pointer]:
+              - /url: /pools/9/matches/1130/predict/
+        - article [ref=e1956]:
+          - generic [ref=e1957]:
+            - generic [ref=e1958]:
+              - generic [ref=e1959]: 16-avos de Final
+              - generic [ref=e1960]: ·
+              - generic [ref=e1961]: Levi's Stadium (Santa Clara)
+            - generic [ref=e1963]: Agendado
+          - generic [ref=e1964]:
+            - generic [ref=e1966]: A definir (mandante)
+            - generic [ref=e1968]: "--- x ---"
+            - generic [ref=e1970]: A definir (visitante)
+          - generic [ref=e1971]:
+            - generic [ref=e1973]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1975] [cursor=pointer]:
+              - /url: /pools/9/matches/1129/predict/
+        - article [ref=e1976]:
+          - generic [ref=e1977]:
+            - generic [ref=e1978]:
+              - generic [ref=e1979]: 16-avos de Final
+              - generic [ref=e1980]: ·
+              - generic [ref=e1981]: SoFi Stadium (Inglewood)
+            - generic [ref=e1983]: Agendado
+          - generic [ref=e1984]:
+            - generic [ref=e1986]: A definir (mandante)
+            - generic [ref=e1988]: "--- x ---"
+            - generic [ref=e1990]: A definir (visitante)
+          - generic [ref=e1991]:
+            - generic [ref=e1993]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e1995] [cursor=pointer]:
+              - /url: /pools/9/matches/1132/predict/
+        - article [ref=e1996]:
+          - generic [ref=e1997]:
+            - generic [ref=e1998]:
+              - generic [ref=e1999]: 16-avos de Final
+              - generic [ref=e2000]: ·
+              - generic [ref=e2001]: BMO Field (Toronto)
+            - generic [ref=e2003]: Agendado
+          - generic [ref=e2004]:
+            - generic [ref=e2006]: A definir (mandante)
+            - generic [ref=e2008]: "--- x ---"
+            - generic [ref=e2010]: A definir (visitante)
+          - generic [ref=e2011]:
+            - generic [ref=e2013]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e2015] [cursor=pointer]:
+              - /url: /pools/9/matches/1131/predict/
+        - article [ref=e2016]:
+          - generic [ref=e2017]:
+            - generic [ref=e2018]:
+              - generic [ref=e2019]: 16-avos de Final
+              - generic [ref=e2020]: ·
+              - generic [ref=e2021]: BC Place (Vancouver)
+            - generic [ref=e2023]: Agendado
+          - generic [ref=e2024]:
+            - generic [ref=e2026]: A definir (mandante)
+            - generic [ref=e2028]: "--- x ---"
+            - generic [ref=e2030]: A definir (visitante)
+          - generic [ref=e2031]:
+            - generic [ref=e2033]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e2035] [cursor=pointer]:
+              - /url: /pools/9/matches/1133/predict/
+        - article [ref=e2036]:
+          - generic [ref=e2037]:
+            - generic [ref=e2038]:
+              - generic [ref=e2039]: 16-avos de Final
+              - generic [ref=e2040]: ·
+              - generic [ref=e2041]: AT&T Stadium (Arlington)
+            - generic [ref=e2043]: Agendado
+          - generic [ref=e2044]:
+            - generic [ref=e2046]: A definir (mandante)
+            - generic [ref=e2048]: "--- x ---"
+            - generic [ref=e2050]: A definir (visitante)
+          - generic [ref=e2051]:
+            - generic [ref=e2053]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e2055] [cursor=pointer]:
+              - /url: /pools/9/matches/1136/predict/
+        - article [ref=e2056]:
+          - generic [ref=e2057]:
+            - generic [ref=e2058]:
+              - generic [ref=e2059]: 16-avos de Final
+              - generic [ref=e2060]: ·
+              - generic [ref=e2061]: Hard Rock Stadium (Miami Gardens)
+            - generic [ref=e2063]: Agendado
+          - generic [ref=e2064]:
+            - generic [ref=e2066]: A definir (mandante)
+            - generic [ref=e2068]: "--- x ---"
+            - generic [ref=e2070]: A definir (visitante)
+          - generic [ref=e2071]:
+            - generic [ref=e2073]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e2075] [cursor=pointer]:
+              - /url: /pools/9/matches/1134/predict/
+        - article [ref=e2076]:
+          - generic [ref=e2077]:
+            - generic [ref=e2078]:
+              - generic [ref=e2079]: 16-avos de Final
+              - generic [ref=e2080]: ·
+              - generic [ref=e2081]: Arrowhead Stadium (Kansas City)
+            - generic [ref=e2083]: Agendado
+          - generic [ref=e2084]:
+            - generic [ref=e2086]: A definir (mandante)
+            - generic [ref=e2088]: "--- x ---"
+            - generic [ref=e2090]: A definir (visitante)
+          - generic [ref=e2091]:
+            - generic [ref=e2093]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e2095] [cursor=pointer]:
+              - /url: /pools/9/matches/1135/predict/
+        - article [ref=e2096]:
+          - generic [ref=e2097]:
+            - generic [ref=e2098]:
+              - generic [ref=e2099]: Oitavas de Final
+              - generic [ref=e2100]: ·
+              - generic [ref=e2101]: NRG Stadium (Houston)
+            - generic [ref=e2103]: Agendado
+          - generic [ref=e2104]:
+            - generic [ref=e2106]: A definir (mandante)
+            - generic [ref=e2108]: "--- x ---"
+            - generic [ref=e2110]: A definir (visitante)
+          - generic [ref=e2111]:
+            - generic [ref=e2113]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e2115] [cursor=pointer]:
+              - /url: /pools/9/matches/1138/predict/
+        - article [ref=e2116]:
+          - generic [ref=e2117]:
+            - generic [ref=e2118]:
+              - generic [ref=e2119]: Oitavas de Final
+              - generic [ref=e2120]: ·
+              - generic [ref=e2121]: Lincoln Financial Field (Philadelphia)
+            - generic [ref=e2123]: Agendado
+          - generic [ref=e2124]:
+            - generic [ref=e2126]: A definir (mandante)
+            - generic [ref=e2128]: "--- x ---"
+            - generic [ref=e2130]: A definir (visitante)
+          - generic [ref=e2131]:
+            - generic [ref=e2133]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e2135] [cursor=pointer]:
+              - /url: /pools/9/matches/1137/predict/
+        - article [ref=e2136]:
+          - generic [ref=e2137]:
+            - generic [ref=e2138]:
+              - generic [ref=e2139]: Oitavas de Final
+              - generic [ref=e2140]: ·
+              - generic [ref=e2141]: MetLife Stadium (East Rutherford)
+            - generic [ref=e2143]: Agendado
+          - generic [ref=e2144]:
+            - generic [ref=e2146]: A definir (mandante)
+            - generic [ref=e2148]: "--- x ---"
+            - generic [ref=e2150]: A definir (visitante)
+          - generic [ref=e2151]:
+            - generic [ref=e2153]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e2155] [cursor=pointer]:
+              - /url: /pools/9/matches/1139/predict/
+        - article [ref=e2156]:
+          - generic [ref=e2157]:
+            - generic [ref=e2158]:
+              - generic [ref=e2159]: Oitavas de Final
+              - generic [ref=e2160]: ·
+              - generic [ref=e2161]: Estadio Azteca (Mexico City)
+            - generic [ref=e2163]: Agendado
+          - generic [ref=e2164]:
+            - generic [ref=e2166]: A definir (mandante)
+            - generic [ref=e2168]: "--- x ---"
+            - generic [ref=e2170]: A definir (visitante)
+          - generic [ref=e2171]:
+            - generic [ref=e2173]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e2175] [cursor=pointer]:
+              - /url: /pools/9/matches/1140/predict/
+        - article [ref=e2176]:
+          - generic [ref=e2177]:
+            - generic [ref=e2178]:
+              - generic [ref=e2179]: Oitavas de Final
+              - generic [ref=e2180]: ·
+              - generic [ref=e2181]: AT&T Stadium (Arlington)
+            - generic [ref=e2183]: Agendado
+          - generic [ref=e2184]:
+            - generic [ref=e2186]: A definir (mandante)
+            - generic [ref=e2188]: "--- x ---"
+            - generic [ref=e2190]: A definir (visitante)
+          - generic [ref=e2191]:
+            - generic [ref=e2193]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e2195] [cursor=pointer]:
+              - /url: /pools/9/matches/1141/predict/
+        - article [ref=e2196]:
+          - generic [ref=e2197]:
+            - generic [ref=e2198]:
+              - generic [ref=e2199]: Oitavas de Final
+              - generic [ref=e2200]: ·
+              - generic [ref=e2201]: Lumen Field (Seattle)
+            - generic [ref=e2203]: Agendado
+          - generic [ref=e2204]:
+            - generic [ref=e2206]: A definir (mandante)
+            - generic [ref=e2208]: "--- x ---"
+            - generic [ref=e2210]: A definir (visitante)
+          - generic [ref=e2211]:
+            - generic [ref=e2213]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e2215] [cursor=pointer]:
+              - /url: /pools/9/matches/1142/predict/
+        - article [ref=e2216]:
+          - generic [ref=e2217]:
+            - generic [ref=e2218]:
+              - generic [ref=e2219]: Oitavas de Final
+              - generic [ref=e2220]: ·
+              - generic [ref=e2221]: Mercedes-Benz Stadium (Atlanta)
+            - generic [ref=e2223]: Agendado
+          - generic [ref=e2224]:
+            - generic [ref=e2226]: A definir (mandante)
+            - generic [ref=e2228]: "--- x ---"
+            - generic [ref=e2230]: A definir (visitante)
+          - generic [ref=e2231]:
+            - generic [ref=e2233]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e2235] [cursor=pointer]:
+              - /url: /pools/9/matches/1143/predict/
+        - article [ref=e2236]:
+          - generic [ref=e2237]:
+            - generic [ref=e2238]:
+              - generic [ref=e2239]: Oitavas de Final
+              - generic [ref=e2240]: ·
+              - generic [ref=e2241]: BC Place (Vancouver)
+            - generic [ref=e2243]: Agendado
+          - generic [ref=e2244]:
+            - generic [ref=e2246]: A definir (mandante)
+            - generic [ref=e2248]: "--- x ---"
+            - generic [ref=e2250]: A definir (visitante)
+          - generic [ref=e2251]:
+            - generic [ref=e2253]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e2255] [cursor=pointer]:
+              - /url: /pools/9/matches/1144/predict/
+        - article [ref=e2256]:
+          - generic [ref=e2257]:
+            - generic [ref=e2258]:
+              - generic [ref=e2259]: Quartas de Final
+              - generic [ref=e2260]: ·
+              - generic [ref=e2261]: Gillette Stadium (Foxborough)
+            - generic [ref=e2263]: Agendado
+          - generic [ref=e2264]:
+            - generic [ref=e2266]: A definir (mandante)
+            - generic [ref=e2268]: "--- x ---"
+            - generic [ref=e2270]: A definir (visitante)
+          - generic [ref=e2271]:
+            - generic [ref=e2273]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e2275] [cursor=pointer]:
+              - /url: /pools/9/matches/1145/predict/
+        - article [ref=e2276]:
+          - generic [ref=e2277]:
+            - generic [ref=e2278]:
+              - generic [ref=e2279]: Quartas de Final
+              - generic [ref=e2280]: ·
+              - generic [ref=e2281]: SoFi Stadium (Inglewood)
+            - generic [ref=e2283]: Agendado
+          - generic [ref=e2284]:
+            - generic [ref=e2286]: A definir (mandante)
+            - generic [ref=e2288]: "--- x ---"
+            - generic [ref=e2290]: A definir (visitante)
+          - generic [ref=e2291]:
+            - generic [ref=e2293]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e2295] [cursor=pointer]:
+              - /url: /pools/9/matches/1146/predict/
+        - article [ref=e2296]:
+          - generic [ref=e2297]:
+            - generic [ref=e2298]:
+              - generic [ref=e2299]: Quartas de Final
+              - generic [ref=e2300]: ·
+              - generic [ref=e2301]: Hard Rock Stadium (Miami Gardens)
+            - generic [ref=e2303]: Agendado
+          - generic [ref=e2304]:
+            - generic [ref=e2306]: A definir (mandante)
+            - generic [ref=e2308]: "--- x ---"
+            - generic [ref=e2310]: A definir (visitante)
+          - generic [ref=e2311]:
+            - generic [ref=e2313]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e2315] [cursor=pointer]:
+              - /url: /pools/9/matches/1147/predict/
+        - article [ref=e2316]:
+          - generic [ref=e2317]:
+            - generic [ref=e2318]:
+              - generic [ref=e2319]: Quartas de Final
+              - generic [ref=e2320]: ·
+              - generic [ref=e2321]: Arrowhead Stadium (Kansas City)
+            - generic [ref=e2323]: Agendado
+          - generic [ref=e2324]:
+            - generic [ref=e2326]: A definir (mandante)
+            - generic [ref=e2328]: "--- x ---"
+            - generic [ref=e2330]: A definir (visitante)
+          - generic [ref=e2331]:
+            - generic [ref=e2333]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e2335] [cursor=pointer]:
+              - /url: /pools/9/matches/1148/predict/
+        - article [ref=e2336]:
+          - generic [ref=e2337]:
+            - generic [ref=e2338]:
+              - generic [ref=e2339]: Semifinal
+              - generic [ref=e2340]: ·
+              - generic [ref=e2341]: AT&T Stadium (Arlington)
+            - generic [ref=e2343]: Agendado
+          - generic [ref=e2344]:
+            - generic [ref=e2346]: A definir (mandante)
+            - generic [ref=e2348]: "--- x ---"
+            - generic [ref=e2350]: A definir (visitante)
+          - generic [ref=e2351]:
+            - generic [ref=e2353]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e2355] [cursor=pointer]:
+              - /url: /pools/9/matches/1149/predict/
+        - article [ref=e2356]:
+          - generic [ref=e2357]:
+            - generic [ref=e2358]:
+              - generic [ref=e2359]: Semifinal
+              - generic [ref=e2360]: ·
+              - generic [ref=e2361]: Mercedes-Benz Stadium (Atlanta)
+            - generic [ref=e2363]: Agendado
+          - generic [ref=e2364]:
+            - generic [ref=e2366]: A definir (mandante)
+            - generic [ref=e2368]: "--- x ---"
+            - generic [ref=e2370]: A definir (visitante)
+          - generic [ref=e2371]:
+            - generic [ref=e2373]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e2375] [cursor=pointer]:
+              - /url: /pools/9/matches/1150/predict/
+        - article [ref=e2376]:
+          - generic [ref=e2377]:
+            - generic [ref=e2378]:
+              - generic [ref=e2379]: Disputa de 3o Lugar
+              - generic [ref=e2380]: ·
+              - generic [ref=e2381]: Hard Rock Stadium (Miami Gardens)
+            - generic [ref=e2383]: Agendado
+          - generic [ref=e2384]:
+            - generic [ref=e2386]: A definir (mandante)
+            - generic [ref=e2388]: "--- x ---"
+            - generic [ref=e2390]: A definir (visitante)
+          - generic [ref=e2391]:
+            - generic [ref=e2393]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e2395] [cursor=pointer]:
+              - /url: /pools/9/matches/1151/predict/
+        - article [ref=e2396]:
+          - generic [ref=e2397]:
+            - generic [ref=e2398]:
+              - generic [ref=e2399]: Final
+              - generic [ref=e2400]: ·
+              - generic [ref=e2401]: MetLife Stadium (East Rutherford)
+            - generic [ref=e2403]: Agendado
+          - generic [ref=e2404]:
+            - generic [ref=e2406]: A definir (mandante)
+            - generic [ref=e2408]: "--- x ---"
+            - generic [ref=e2410]: A definir (visitante)
+          - generic [ref=e2411]:
+            - generic [ref=e2413]: Você ainda não palpitou neste jogo
+            - link "Palpitar" [ref=e2415] [cursor=pointer]:
+              - /url: /pools/9/matches/1152/predict/

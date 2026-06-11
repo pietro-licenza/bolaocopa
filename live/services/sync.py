@@ -169,7 +169,18 @@ def sync_match_from_api(match, router=None):
     changed_fields = []
     status_changed = False
 
-    if new_status is not None and new_status != match.status:
+    # Status transitions are one-way: agendado -> em_andamento -> finalizado.
+    # Never downgrade a finished match back to scheduled (the API may return
+    # stale data for historical matches). Also skip if the current status
+    # is already "finalizado" regardless of what the API says.
+    status_order = {'agendado': 0, 'em_andamento': 1, 'finalizado': 2}
+    current_order = status_order.get(match.status, -1)
+    new_order = status_order.get(new_status, -1)
+    if (
+        new_status is not None
+        and new_status != match.status
+        and new_order > current_order
+    ):
         match.status = new_status
         changed_fields.append('status')
         status_changed = True

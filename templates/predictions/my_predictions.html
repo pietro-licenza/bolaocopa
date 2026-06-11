@@ -46,27 +46,42 @@
                         {% endif %}
                     </div>
 
+                    {% comment %}US-8.2: palpite grande entre as equipes.
+                       Se não há palpite, mostra "--- x ---".
+                       Se finalizado, exibe pontos ganhos acima do palpite.{% endcomment %}
+                    {% if item.status_label == 'finalizado' %}
+                        <div class='flex justify-center mb-2'>
+                            <span class='text-sm font-bold px-3 py-1 rounded-full bg-amber-600/20 text-amber-400'>
+                                +{{ item.points_earned }} pontos
+                            </span>
+                        </div>
+                    {% endif %}
                     <div class='flex items-center justify-between gap-4'>
-                        <div class='flex flex-col items-center gap-2 flex-1'>
+                        <div class='flex flex-col items-center gap-1 flex-1 min-w-0'>
                             <span class='text-3xl'>{{ item.home_team.flag_emoji }}</span>
-                            <span class='text-white font-semibold'>{{ item.home_team.name }}</span>
+                            <span class='text-white font-semibold truncate max-w-[120px]'>{{ item.home_team.name }}</span>
                         </div>
                         <div class='flex flex-col items-center gap-1'>
-                            <span class='text-gray-500 text-xs uppercase tracking-wider'>vs</span>
-                            <span class='text-white text-sm'>{{ item.match_datetime|date:"d/m/Y H:i" }}</span>
+                            {% if item.predicted_home_score is not None and item.predicted_away_score is not None %}
+                                <span class='text-5xl font-bold text-emerald-400 tabular-nums'>
+                                    {{ item.predicted_home_score }} x {{ item.predicted_away_score }}
+                                </span>
+                            {% else %}
+                                <span class='text-4xl font-bold text-gray-600 tabular-nums'>
+                                    --- x ---
+                                </span>
+                            {% endif %}
+                            <span class='text-gray-500 text-xs'>{{ item.match_datetime|date:"d/m H:i" }}</span>
                         </div>
-                        <div class='flex flex-col items-center gap-2 flex-1'>
+                        <div class='flex flex-col items-center gap-1 flex-1 min-w-0'>
                             <span class='text-3xl'>{{ item.away_team.flag_emoji }}</span>
-                            <span class='text-white font-semibold'>{{ item.away_team.name }}</span>
+                            <span class='text-white font-semibold truncate max-w-[120px]'>{{ item.away_team.name }}</span>
                         </div>
                     </div>
 
                     <div class='mt-6 pt-4 border-t border-gray-700 flex items-center justify-between gap-3 flex-wrap'>
-                        <span class='text-emerald-400 font-semibold'>Seu palpite: {{ item.predicted_home_score }} x {{ item.predicted_away_score }}</span>
+                        <div></div>
                         <div class='flex items-center gap-3'>
-                            {% if item.status_label == 'finalizado' %}
-                                <span class='text-emerald-400 font-bold'>{{ item.points_earned }} pts</span>
-                            {% endif %}
                             {% if item.status_label == 'editavel' %}
                                 <a href='{% url "prediction_update" pool_id=pool.pk match_id=item.match.pk %}' class='border border-gray-600 hover:border-emerald-500 text-gray-300 hover:text-emerald-400 font-semibold rounded-lg px-4 py-2 transition-colors duration-200'>
                                     Editar
