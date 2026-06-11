@@ -391,3 +391,73 @@
   - [X] Validar chaveamento: times TBD como "A definir"
   - [X] Validar grupos: jogos finalizados recalculam pontos/saldo/GP/GC com bordas emerald/amber
   - [X] Corrigir bugs encontrados (BUG-002 polling fixado; BUG-001/003/004 sao melhorias cosméticas)
+
+### Epico 8: Ajustes visuais
+
+**Contexto Geral** Ajustes visuais para melhor visualizacao e disposicao de dados
+
+**US-8.1: Melhorar inputs de placares nos formularios de palpite**
+- **Como** usuario, **quero** inputs de placares mais modernos e dinamicos, **para** melhorar a experiencia ao registrar palpites.
+- **Criterios de aceite:**
+  - [ ] Substituir campos de texto simples por inputs estilizados (type="number" com controles +/- ou similar)
+  - [ ] Inputs com design seguindo o design system dark theme
+  - [ ] Validacao de numeros negativos (min=0)
+  - [ ] Foco automatico no campo de placar do visitante apos preencher o mandante
+
+**US-8.2: Exibir palpites realizados com numero grande ao lado das bandeiras**
+- **Como** usuario, **quero** ver meus palpites de forma mais visivel, **para** acompanhar facilmente os placares que registrei.
+- **Criterios de aceite:**
+  - [ ] Remover exibicao do palpite abaixo do confronto
+  - [ ] Exibir placar ao lado das selecoes (bandeiras) com fonte grande e destaque
+  - [ ] Formato: `BRASIL 2 x 1 ARGENTINA` (bandeiras + numeros grandes)
+  - [ ] Se palpite nao registrado, mostrar tracinho ou "---"
+  - [ ] Manter indicadores de pontos ganhos (se jogo finalizado)
+
+**US-8.3: Menu lateral Hamburguer responsivo**
+- **Como** usuario, **quero** um menu lateral que funcione em desktop e mobile, **para** navegar facilmente pela aplicacao.
+- **Criterios de aceite:**
+  - [ ] Converter navbar atual em menu lateral retrátil (hamburguer)
+  - [ ] Menu lateral abre/fecha com icone hamburguer
+  - [ ] Design responsivo: menu cobre lateral em mobile, slide-out em desktop
+  - [ ] Animacao suave de abertura/fechamento
+  - [ ] Fechar menu ao clicar fora ou ao selecionar um item
+  - [ ] Itens do menu com icones e labels claros
+
+**US-8.4: Topbar simplificada com nome do usuario**
+- **Como** usuario, **quero** ver meu nome no topo, **para** identificar rapidamente minha conta.
+- **Criterios de aceite:**
+  - [ ] Remover todos os links do topo, manter apenas "Sair"
+  - [ ] Exibir nome do usuario logado ao lado do botao Sair
+  - [ ] Design limpo e minimalista no topo
+
+**US-8.5: Menu principal "Bolao" com submenus**
+- **Como** usuario, **quero** acesso centralizado as opcoes do bolao, **para** navegar facilmente entre funcionalidades.
+- **Criterios de aceite:**
+  - [ ] Criar menu "Bolao" no menu lateral
+  - [ ] Submenu "Meus boloes" redireciona para lista de boloes
+  - [ ] Submenu "Regras" exibe pagina com regras de pontuacao:
+    - [ ] Explicar: acerto exato = 3 pontos
+    - [ ] Explicar: acerto vencedor/empate = 1 ponto
+    - [ ] Explicar: erro total = 0 pontos
+    - [ ] Design em pt-BR conforme padrao do projeto
+
+**US-8.6: Botao "Entrar" nos cards de Meus Boloes**
+- **Como** usuario, **quero** um botao explicito para entrar em cada bolao, **para** acessar rapidamente.
+- **Criterios de aceite:**
+  - [ ] Adicionar botao "Entrar" em cada card de bolao no dashboard
+  - [ ] Botao com estilo primario (bg-emerald-600)
+  - [ ] Redireciona para pagina de detalhes do bolao ao clicar
+  - [ ] Manter comportamento de clique no card inteiro (mantido para acessibilidade)
+
+**US-8.VAL: Validacao do Sprint 8 — Ajustes visuais**
+- **Como** agente de QA, **quero** validar todo o trabalho do Sprint 8, **para** garantir que os ajustes visuais estao corretos e funcionais.
+- **Criterios de aceite:**
+  - [ ] Tirar prints das telas modificadas
+  - [ ] Validar inputs de placares: design moderno, validacao funcionando
+  - [ ] Validar exibicao de palpites: numeros grandes ao lado das bandeiras
+  - [ ] Validar menu lateral: abre/fecha, responsivo, fecha ao clicar fora
+  - [ ] Validar topbar: apenas Sair + nome do usuario
+  - [ ] Validar menu "Bolao": submenus "Meus boloes" e "Regras" funcionando
+  - [ ] Validar pagina de Regras: texto em pt-BR correto
+  - [ ] Validar botao "Entrar" em cada card de bolao
+  - [ ] Corrigir bugs encontrados
