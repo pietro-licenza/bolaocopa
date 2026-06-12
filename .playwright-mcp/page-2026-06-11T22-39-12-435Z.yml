@@ -1,0 +1,67 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e4]:
+      - button "Abrir menu" [ref=e5] [cursor=pointer]:
+        - img [ref=e6]
+      - generic [ref=e8]:
+        - generic [ref=e9]: admin@teste.com
+        - button "Sair" [ref=e11] [cursor=pointer]
+  - complementary [ref=e12]:
+    - generic [ref=e13]:
+      - link "BolãoCopa" [ref=e14] [cursor=pointer]:
+        - /url: /
+      - button "Fechar menu" [ref=e15] [cursor=pointer]:
+        - img [ref=e16]
+    - navigation [ref=e18]:
+      - link "Dashboard" [ref=e19] [cursor=pointer]:
+        - /url: /dashboard/
+        - img [ref=e20]
+        - text: Dashboard
+      - button "Jogos" [ref=e23] [cursor=pointer]:
+        - generic [ref=e24]:
+          - img [ref=e25]
+          - text: Jogos
+        - img [ref=e27]
+      - button "Bolão" [ref=e30] [cursor=pointer]:
+        - generic [ref=e31]:
+          - img [ref=e32]
+          - text: Bolão
+        - img [ref=e34]
+      - button "Usuário" [ref=e37] [cursor=pointer]:
+        - generic [ref=e38]:
+          - img [ref=e39]
+          - text: Usuário
+        - img [ref=e41]
+      - button "Sair" [ref=e44] [cursor=pointer]:
+        - img [ref=e45]
+        - text: Sair
+  - main [ref=e47]:
+    - generic [ref=e48]:
+      - generic [ref=e49]:
+        - heading "Bolao Teste QA" [level=1] [ref=e50]
+        - paragraph [ref=e51]: Bolao de teste para validacao
+        - generic [ref=e53]:
+          - generic [ref=e54]:
+            - paragraph [ref=e55]: Criado por
+            - paragraph [ref=e56]: admin@teste.com
+          - generic [ref=e57]:
+            - paragraph [ref=e58]: Link de convite
+            - paragraph [ref=e59]: 127.0.0.1:8000/pools/join/378c817c-5ff0-428c-b94c-d8e7a4fcf55c/
+        - generic [ref=e60]:
+          - heading "Membros (1)" [level=2] [ref=e61]
+          - generic [ref=e63]:
+            - generic [ref=e64]:
+              - generic [ref=e65]: "#1"
+              - generic [ref=e66]:
+                - paragraph [ref=e67]: Admin Teste
+                - text: Criador
+            - generic [ref=e68]: 1 pts
+      - generic [ref=e69]:
+        - link "Ver Jogos" [ref=e70] [cursor=pointer]:
+          - /url: /pools/9/matches/
+        - link "Meus Palpites" [ref=e71] [cursor=pointer]:
+          - /url: /pools/9/predictions/
+        - link "Ver Ranking" [ref=e72] [cursor=pointer]:
+          - /url: /pools/9/ranking/
+        - link "← Voltar para Meus Bolões" [ref=e73] [cursor=pointer]:
+          - /url: /pools/

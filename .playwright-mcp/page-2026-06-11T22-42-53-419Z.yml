@@ -1,0 +1,143 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e4]:
+      - button "Abrir menu" [ref=e5] [cursor=pointer]:
+        - img [ref=e6]
+      - button "Sair" [ref=e10] [cursor=pointer]
+  - complementary [ref=e11]:
+    - generic [ref=e12]:
+      - link "BolãoCopa" [ref=e13] [cursor=pointer]:
+        - /url: /
+      - button "Fechar menu" [ref=e14] [cursor=pointer]:
+        - img [ref=e15]
+    - navigation [ref=e17]:
+      - link "Dashboard" [ref=e18] [cursor=pointer]:
+        - /url: /dashboard/
+        - img [ref=e19]
+        - text: Dashboard
+      - button "Jogos" [ref=e22] [cursor=pointer]:
+        - generic [ref=e23]:
+          - img [ref=e24]
+          - text: Jogos
+        - img [ref=e26]
+      - button "Bolão" [ref=e29] [cursor=pointer]:
+        - generic [ref=e30]:
+          - img [ref=e31]
+          - text: Bolão
+        - img [ref=e33]
+      - button "Usuário" [ref=e36] [cursor=pointer]:
+        - generic [ref=e37]:
+          - img [ref=e38]
+          - text: Usuário
+        - img [ref=e40]
+      - button "Sair" [ref=e43] [cursor=pointer]:
+        - img [ref=e44]
+        - text: Sair
+  - main [ref=e46]:
+    - generic [ref=e47]:
+      - heading "Dashboard" [level=1] [ref=e48]
+      - paragraph [ref=e49]: Bem-vindo ao BolãoCopa!
+      - generic [ref=e50]:
+        - generic [ref=e51]:
+          - img [ref=e53]
+          - generic [ref=e55]:
+            - paragraph [ref=e56]: Meus Bolões
+            - paragraph [ref=e57]: "2"
+        - generic [ref=e58]:
+          - img [ref=e60]
+          - generic [ref=e62]:
+            - paragraph [ref=e63]: Meus Palpites
+            - paragraph [ref=e64]: "0"
+        - generic [ref=e65]:
+          - img [ref=e67]
+          - generic [ref=e69]:
+            - paragraph [ref=e70]: Pontos Totais
+            - paragraph [ref=e71]: "0"
+      - generic [ref=e72]:
+        - generic [ref=e73]:
+          - heading "Meus Bolões" [level=2] [ref=e74]
+          - link "Criar Bolão" [ref=e75] [cursor=pointer]:
+            - /url: /pools/create/
+        - generic [ref=e76]:
+          - 'link "Bolao da Familia Competicao entre familiares para a Copa do Mundo 2026. Quem acertar mais palpites ganha o trofeu! Membros 3 Posição #1" [ref=e77] [cursor=pointer]':
+            - /url: /pools/10/
+            - heading "Bolao da Familia" [level=3] [ref=e78]
+            - paragraph [ref=e79]: Competicao entre familiares para a Copa do Mundo 2026. Quem acertar mais palpites ganha o trofeu!
+            - generic [ref=e80]:
+              - generic [ref=e81]:
+                - generic [ref=e82]: Membros
+                - generic [ref=e83]: "3"
+              - generic [ref=e84]:
+                - generic [ref=e85]: Posição
+                - generic [ref=e86]: "#1"
+          - 'link "Bolao Solo Teste Teste de bolão com um membro Membros 1 Posição #1" [ref=e87] [cursor=pointer]':
+            - /url: /pools/13/
+            - heading "Bolao Solo Teste" [level=3] [ref=e88]
+            - paragraph [ref=e89]: Teste de bolão com um membro
+            - generic [ref=e90]:
+              - generic [ref=e91]:
+                - generic [ref=e92]: Membros
+                - generic [ref=e93]: "1"
+              - generic [ref=e94]:
+                - generic [ref=e95]: Posição
+                - generic [ref=e96]: "#1"
+      - generic [ref=e97]:
+        - heading "Palpites Recentes" [level=2] [ref=e99]
+        - generic [ref=e100]:
+          - paragraph [ref=e101]: Você ainda não fez nenhum palpite.
+          - paragraph [ref=e102]: Participe de um bolão e faça seus palpites!
+      - generic [ref=e103]:
+        - heading "Próximos Jogos para Palpitar" [level=2] [ref=e105]
+        - generic [ref=e106]:
+          - generic [ref=e107]:
+            - generic [ref=e108]:
+              - generic [ref=e109]: 🇰🇷
+              - generic [ref=e110]: Coreia do Sul
+              - generic [ref=e111]: vs
+              - generic [ref=e112]: Chequia
+              - generic [ref=e113]: 🇨🇿
+            - paragraph [ref=e115]: 11/06/2026 às 23:00
+            - link "Palpitar" [ref=e117] [cursor=pointer]:
+              - /url: /pools/
+          - generic [ref=e118]:
+            - generic [ref=e119]:
+              - generic [ref=e120]: 🇨🇦
+              - generic [ref=e121]: Canada
+              - generic [ref=e122]: vs
+              - generic [ref=e123]: Bosnia e Herzegovina
+              - generic [ref=e124]: 🇧🇦
+            - paragraph [ref=e126]: 12/06/2026 às 16:00
+            - link "Palpitar" [ref=e128] [cursor=pointer]:
+              - /url: /pools/
+          - generic [ref=e129]:
+            - generic [ref=e130]:
+              - generic [ref=e131]: 🇺🇸
+              - generic [ref=e132]: Estados Unidos
+              - generic [ref=e133]: vs
+              - generic [ref=e134]: Paraguai
+              - generic [ref=e135]: 🇵🇾
+            - paragraph [ref=e137]: 12/06/2026 às 22:00
+            - link "Palpitar" [ref=e139] [cursor=pointer]:
+              - /url: /pools/
+          - generic [ref=e140]:
+            - generic [ref=e141]:
+              - generic [ref=e142]: 🇶🇦
+              - generic [ref=e143]: Catar
+              - generic [ref=e144]: vs
+              - generic [ref=e145]: Suica
+              - generic [ref=e146]: 🇨🇭
+            - paragraph [ref=e148]: 13/06/2026 às 16:00
+            - link "Palpitar" [ref=e150] [cursor=pointer]:
+              - /url: /pools/
+          - generic [ref=e151]:
+            - generic [ref=e152]:
+              - generic [ref=e153]: 🇧🇷
+              - generic [ref=e154]: Brasil
+              - generic [ref=e155]: vs
+              - generic [ref=e156]: Marracos
+              - generic [ref=e157]: 🇲🇦
+            - paragraph [ref=e159]: 13/06/2026 às 19:00
+            - link "Palpitar" [ref=e161] [cursor=pointer]:
+              - /url: /pools/
+        - link "Ver todos os jogos" [ref=e163] [cursor=pointer]:
+          - /url: /matches/all/

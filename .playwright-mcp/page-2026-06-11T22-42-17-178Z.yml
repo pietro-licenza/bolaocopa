@@ -1,0 +1,52 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e4]:
+      - button "Abrir menu" [ref=e5] [cursor=pointer]:
+        - img [ref=e6]
+      - generic [ref=e8]:
+        - generic [ref=e9]: user1@test.com
+        - button "Sair" [ref=e11] [cursor=pointer]
+  - complementary [ref=e12]:
+    - generic [ref=e13]:
+      - link "BolãoCopa" [ref=e14] [cursor=pointer]:
+        - /url: /
+      - button "Fechar menu" [ref=e15] [cursor=pointer]:
+        - img [ref=e16]
+    - navigation [ref=e18]:
+      - link "Dashboard" [ref=e19] [cursor=pointer]:
+        - /url: /dashboard/
+        - img [ref=e20]
+        - text: Dashboard
+      - button "Jogos" [ref=e23] [cursor=pointer]:
+        - generic [ref=e24]:
+          - img [ref=e25]
+          - text: Jogos
+        - img [ref=e27]
+      - button "Bolão" [ref=e30] [cursor=pointer]:
+        - generic [ref=e31]:
+          - img [ref=e32]
+          - text: Bolão
+        - img [ref=e34]
+      - button "Usuário" [ref=e37] [cursor=pointer]:
+        - generic [ref=e38]:
+          - img [ref=e39]
+          - text: Usuário
+        - img [ref=e41]
+      - button "Sair" [ref=e44] [cursor=pointer]:
+        - img [ref=e45]
+        - text: Sair
+  - main [ref=e47]:
+    - generic [ref=e50]:
+      - heading "Criar Bolão" [level=1] [ref=e51]
+      - generic [ref=e52]:
+        - generic [ref=e53]:
+          - generic [ref=e54]: Nome do bolão
+          - textbox "Nome do bolão" [ref=e55]
+        - generic [ref=e56]:
+          - generic [ref=e57]: Descrição
+          - textbox "Descrição" [ref=e58]:
+            - /placeholder: Descrição do bolão (opcional)
+        - button "Criar Bolão" [ref=e59] [cursor=pointer]
+      - paragraph [ref=e60]:
+        - link "Voltar para Meus Bolões" [ref=e61] [cursor=pointer]:
+          - /url: /pools/

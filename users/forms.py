@@ -1,6 +1,7 @@
 from django.contrib.auth.forms import AuthenticationForm, PasswordResetForm, SetPasswordForm, UserCreationForm
 from django.contrib.auth.password_validation import validate_password
 from django.core.exceptions import ValidationError
+from django import forms
 
 from .models import CustomUser
 
@@ -192,3 +193,32 @@ class CustomSetPasswordForm(SetPasswordForm):
             'autocomplete': 'new-password',
         })
         self.fields['new_password2'].label = 'Confirmar nova senha'
+
+
+class UserProfileForm(forms.ModelForm):
+    '''Form for editing user profile - only first_name and last_name.'''
+
+    class Meta:
+        model = CustomUser
+        fields = ['first_name', 'last_name']
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        css_class = (
+            'w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 '
+            'text-white placeholder-gray-500 focus:border-emerald-500 '
+            'focus:ring-1 focus:ring-emerald-500 focus:outline-none '
+            'transition-colors duration-200'
+        )
+
+        self.fields['first_name'].widget.attrs.update({
+            'class': css_class,
+            'placeholder': 'Seu nome',
+            'autocomplete': 'given-name',
+        })
+        self.fields['last_name'].widget.attrs.update({
+            'class': css_class,
+            'placeholder': 'Seu sobrenome',
+            'autocomplete': 'family-name',
+        })

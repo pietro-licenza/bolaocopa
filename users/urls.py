@@ -9,6 +9,7 @@ from .views import (
     CustomPasswordResetView,
     DashboardView,
     LandingView,
+    ProfileView,
     RegisterView,
 )
 
@@ -18,6 +19,7 @@ urlpatterns = [
     path('login/', CustomLoginView.as_view(), name='login'),
     path('logout/', CustomLogoutView.as_view(), name='logout'),
     path('dashboard/', DashboardView.as_view(), name='dashboard'),
+    path('profile/', ProfileView.as_view(), name='profile'),
     path('password-reset/', CustomPasswordResetView.as_view(), name='password_reset'),
     path('password-reset/done/', CustomPasswordResetDoneView.as_view(), name='password_reset_done'),
     path('password-reset/confirm/<uidb64>/<token>/', CustomPasswordResetConfirmView.as_view(), name='password_reset_confirm'),

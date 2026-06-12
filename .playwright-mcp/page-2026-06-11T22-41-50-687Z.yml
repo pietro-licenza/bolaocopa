@@ -1,0 +1,61 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e4]:
+      - button "Abrir menu" [ref=e5] [cursor=pointer]:
+        - img [ref=e6]
+      - generic [ref=e8]:
+        - generic [ref=e9]: user1@test.com
+        - button "Sair" [ref=e11] [cursor=pointer]
+  - complementary [ref=e12]:
+    - generic [ref=e13]:
+      - link "BolãoCopa" [ref=e14] [cursor=pointer]:
+        - /url: /
+      - button "Fechar menu" [ref=e15] [cursor=pointer]:
+        - img [ref=e16]
+    - navigation [ref=e18]:
+      - link "Dashboard" [ref=e19] [cursor=pointer]:
+        - /url: /dashboard/
+        - img [ref=e20]
+        - text: Dashboard
+      - button "Jogos" [ref=e23] [cursor=pointer]:
+        - generic [ref=e24]:
+          - img [ref=e25]
+          - text: Jogos
+        - img [ref=e27]
+      - button "Bolão" [ref=e30] [cursor=pointer]:
+        - generic [ref=e31]:
+          - img [ref=e32]
+          - text: Bolão
+        - img [ref=e34]
+      - button "Usuário" [ref=e37] [cursor=pointer]:
+        - generic [ref=e38]:
+          - img [ref=e39]
+          - text: Usuário
+        - img [ref=e41]
+      - button "Sair" [ref=e44] [cursor=pointer]:
+        - img [ref=e45]
+        - text: Sair
+  - main [ref=e47]:
+    - generic [ref=e48]:
+      - generic [ref=e49]:
+        - heading "Jogos da Copa" [level=1] [ref=e50]
+        - paragraph [ref=e51]: Explore a agenda, a tabela de grupos e o chaveamento do mata-mata.
+      - generic [ref=e52]:
+        - link "Agenda Veja os jogos do dia e navegue por data. /matches/schedule/" [ref=e53] [cursor=pointer]:
+          - /url: /matches/schedule/2026-06-11/
+          - img [ref=e55]
+          - heading "Agenda" [level=2] [ref=e57]
+          - paragraph [ref=e58]: Veja os jogos do dia e navegue por data.
+          - paragraph [ref=e59]: /matches/schedule/
+        - link "Grupos Tabela completa dos 12 grupos com classificação atualizada. /matches/groups/" [ref=e60] [cursor=pointer]:
+          - /url: /matches/groups/
+          - img [ref=e62]
+          - heading "Grupos" [level=2] [ref=e64]
+          - paragraph [ref=e65]: Tabela completa dos 12 grupos com classificação atualizada.
+          - paragraph [ref=e66]: /matches/groups/
+        - 'link "Chaveamento Acompanhe o mata-mata: 16-avos ate a final. /matches/bracket/" [ref=e67] [cursor=pointer]':
+          - /url: /matches/bracket/
+          - img [ref=e69]
+          - heading "Chaveamento" [level=2] [ref=e71]
+          - paragraph [ref=e72]: "Acompanhe o mata-mata: 16-avos ate a final."
+          - paragraph [ref=e73]: /matches/bracket/

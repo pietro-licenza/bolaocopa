@@ -125,6 +125,29 @@
                     </div>
                 </div>
 
+                <!-- Usuário com Submenu -->
+                <div class='relative'>
+                    <button id='usuario-btn' class='w-full flex items-center justify-between px-4 py-3 text-gray-300 hover:bg-gray-800 hover:text-emerald-400 rounded-lg transition-colors duration-200'>
+                        <div class='flex items-center gap-3'>
+                            <svg class='w-5 h-5' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                                <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z'></path>
+                            </svg>
+                            Usuário
+                        </div>
+                        <svg id='usuario-arrow' class='w-4 h-4 transition-transform duration-200' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                            <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'></path>
+                        </svg>
+                    </button>
+                    <div id='usuario-submenu' class='hidden pl-4 mt-2 space-y-1'>
+                        <a href='{% url "profile" %}' class='menu-item flex items-center gap-3 px-4 py-2 text-gray-400 hover:bg-gray-800 hover:text-emerald-400 rounded-lg transition-colors duration-200 text-sm'>
+                            <svg class='w-4 h-4' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                                <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z'></path>
+                            </svg>
+                            Meu perfil
+                        </a>
+                    </div>
+                </div>
+
                 <!-- Sair (último item) -->
                 <form method='post' action='{% url "logout" %}' class='inline w-full'>
                     {% csrf_token %}
@@ -192,6 +215,9 @@
             const bolaoBtn = document.getElementById('bolao-btn');
             const bolaoSubmenu = document.getElementById('bolao-submenu');
             const bolaoArrow = document.getElementById('bolao-arrow');
+            const usuarioBtn = document.getElementById('usuario-btn');
+            const usuarioSubmenu = document.getElementById('usuario-submenu');
+            const usuarioArrow = document.getElementById('usuario-arrow');
             const menuItems = document.querySelectorAll('.menu-item');
 
             // Função para abrir o menu
@@ -244,6 +270,13 @@
                 bolaoArrow.classList.toggle('rotate-180');
             });
 
+            // Toggle do submenu Usuário
+            usuarioBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                usuarioSubmenu.classList.toggle('hidden');
+                usuarioArrow.classList.toggle('rotate-180');
+            });
+
             // Fechar submenu ao clicar fora
             document.addEventListener('click', function(e) {
                 if (!jogosBtn.contains(e.target) && !jogosSubmenu.contains(e.target)) {
@@ -253,6 +286,10 @@
                 if (!bolaoBtn.contains(e.target) && !bolaoSubmenu.contains(e.target)) {
                     bolaoSubmenu.classList.add('hidden');
                     bolaoArrow.classList.remove('rotate-180');
+                }
+                if (!usuarioBtn.contains(e.target) && !usuarioSubmenu.contains(e.target)) {
+                    usuarioSubmenu.classList.add('hidden');
+                    usuarioArrow.classList.remove('rotate-180');
                 }
             });
 

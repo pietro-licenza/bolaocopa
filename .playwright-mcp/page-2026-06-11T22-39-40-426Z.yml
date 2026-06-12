@@ -1,0 +1,56 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e4]:
+      - button "Abrir menu" [ref=e5] [cursor=pointer]:
+        - img [ref=e6]
+      - generic [ref=e8]:
+        - generic [ref=e9]: admin@teste.com
+        - button "Sair" [ref=e11] [cursor=pointer]
+  - complementary [ref=e12]:
+    - generic [ref=e13]:
+      - link "BolãoCopa" [ref=e14] [cursor=pointer]:
+        - /url: /
+      - button "Fechar menu" [ref=e15] [cursor=pointer]:
+        - img [ref=e16]
+    - navigation [ref=e18]:
+      - link "Dashboard" [ref=e19] [cursor=pointer]:
+        - /url: /dashboard/
+        - img [ref=e20]
+        - text: Dashboard
+      - button "Jogos" [ref=e23] [cursor=pointer]:
+        - generic [ref=e24]:
+          - img [ref=e25]
+          - text: Jogos
+        - img [ref=e27]
+      - button "Bolão" [ref=e30] [cursor=pointer]:
+        - generic [ref=e31]:
+          - img [ref=e32]
+          - text: Bolão
+        - img [ref=e34]
+      - button "Usuário" [ref=e37] [cursor=pointer]:
+        - generic [ref=e38]:
+          - img [ref=e39]
+          - text: Usuário
+        - img [ref=e41]
+      - button "Sair" [ref=e44] [cursor=pointer]:
+        - img [ref=e45]
+        - text: Sair
+  - main [ref=e47]:
+    - generic [ref=e50]:
+      - heading "Meu Perfil" [level=1] [ref=e51]
+      - generic [ref=e52]:
+        - generic [ref=e53]:
+          - generic [ref=e54]: Email
+          - textbox "Email" [ref=e55]: admin@teste.com
+          - paragraph [ref=e56]: O email não pode ser alterado.
+        - generic [ref=e57]:
+          - generic [ref=e58]: Nome
+          - textbox "Nome" [ref=e59]:
+            - /placeholder: Seu nome
+            - text: Admin
+        - generic [ref=e60]:
+          - generic [ref=e61]: Sobrenome
+          - textbox "Sobrenome" [ref=e62]:
+            - /placeholder: Seu sobrenome
+            - text: Teste
+        - button "Salvar" [ref=e63] [cursor=pointer]
